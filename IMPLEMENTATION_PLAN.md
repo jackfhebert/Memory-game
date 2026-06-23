@@ -244,7 +244,7 @@ each module to have at least 4 items — see the module-size note below.
 ## Adding a new module
 
 1. Create `data/<module-id>.json` with an item list matching the
-   [DESIGN.md](DESIGN.md) schema (`id`, `name`, `image`, `fact`,
+   [DESIGN.md](DESIGN.md) schema (`id`, `name`, `image`, `alt`, `fact`,
    `popularity`). Needs at least 4 items, since each card needs 3
    distractors.
 2. Create an `images/<module-id>/` directory with one image per item,
@@ -291,12 +291,14 @@ present in `data/<module-id>.json`:
 1. Write its `name`, a short kid-friendly `fact`, and a `popularity`
    estimate (0-100). Facts should be checked against a reliable source
    rather than generated from memory alone, since they're presented to a
-   kid as true.
+   kid as true. Neither the `fact` nor the `alt` text should name the
+   item — both need to describe it without giving away the answer.
 2. Generate its image, then resize it to the module's standard dimensions
    (the same size used by other modules) and save it to
    `images/<module-id>/<item-id>.png`. Resizing is a one-off
    content-pipeline step (e.g. an ImageMagick/`sips` command), not
-   something the shipped app needs to do at runtime.
+   something the shipped app needs to do at runtime. Write its `alt` text
+   describing what the image shows.
 3. Append the finished item to `data/<module-id>.json`.
 
 Commit after each batch. `data/<module-id>.json` is itself the progress

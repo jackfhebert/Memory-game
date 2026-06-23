@@ -1,0 +1,16 @@
+[
+  {
+    "id": "continents",
+    "name": "Continents",
+    "dataFile": "continents.json",
+    "color": "#4F86C6",
+    "icon": "🌍"
+  },
+  {
+    "id": "oceans",
+    "name": "Oceans",
+    "dataFile": "oceans.json",
+    "color": "#2BB3A3",
+    "icon": "🌊"
+  }
+]

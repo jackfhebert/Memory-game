@@ -1,0 +1,42 @@
+[
+  {
+    "id": "pacific",
+    "name": "Pacific Ocean",
+    "image": "images/oceans/pacific.png",
+    "alt": "A world map with a huge highlighted body of water spanning nearly half the globe.",
+    "fact": "This is the biggest ocean — it's bigger than all the continents put together!",
+    "popularity": 90
+  },
+  {
+    "id": "atlantic",
+    "name": "Atlantic Ocean",
+    "image": "images/oceans/atlantic.png",
+    "alt": "A world map with a highlighted body of water shaped like a long 'S', sitting between two groups of landmasses.",
+    "fact": "This ocean separates the Americas from Europe and Africa.",
+    "popularity": 88
+  },
+  {
+    "id": "indian",
+    "name": "Indian Ocean",
+    "image": "images/oceans/indian.png",
+    "alt": "A world map with a highlighted body of water bordered by land on three sides, north of the icy southern waters.",
+    "fact": "This is the warmest ocean in the world.",
+    "popularity": 70
+  },
+  {
+    "id": "arctic",
+    "name": "Arctic Ocean",
+    "image": "images/oceans/arctic.png",
+    "alt": "A world map with a small highlighted body of water at the very top of the globe, mostly covered in ice.",
+    "fact": "This is the smallest and coldest ocean, and parts of it are covered in ice.",
+    "popularity": 65
+  },
+  {
+    "id": "southern",
+    "name": "Southern Ocean",
+    "image": "images/oceans/southern.png",
+    "alt": "A world map with a highlighted ring of water encircling the icy landmass at the very bottom of the globe.",
+    "fact": "This ocean surrounds Antarctica and is home to many penguins and whales.",
+    "popularity": 45
+  }
+]

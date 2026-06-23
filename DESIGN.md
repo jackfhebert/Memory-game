@@ -68,7 +68,8 @@ Item schema:
   "id": "africa",
   "name": "Africa",
   "image": "images/continents/africa.png",
-  "fact": "Africa is home to the Sahara, the largest hot desert in the world.",
+  "alt": "A world map with a large landmass highlighted, straddling the equator.",
+  "fact": "Home to the Sahara, the largest hot desert in the world.",
   "popularity": 90
 }
 ```
@@ -80,7 +81,13 @@ Item schema:
   from an existing library, keeping the whole content pipeline (facts,
   popularity estimates, and images) self-contained and easy to regenerate
   or extend to new modules.
-- `fact` — a short, kid-friendly sentence.
+- `alt` — alt text describing what the image shows, for accessibility.
+  Like `fact`, it must not name the item — it describes the highlighted
+  shape/location, not what it's called, so it can't be used to shortcut
+  the guess.
+- `fact` — a short, kid-friendly sentence describing the item without
+  naming it, so the guess still requires connecting the picture and fact
+  to a name rather than just spotting the name written out.
 - `popularity` — a 0–100 prior estimate of how well-known the item is to
   most people. This is authored once per item (not per player) and feeds
   both the introduction order and the initial mastery estimate (see
