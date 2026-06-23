@@ -1,5 +1,9 @@
 # Design Doc — Memory Game
 
+See also: [README](README.md) ·
+[Implementation Plan](IMPLEMENTATION_PLAN.md) ·
+[Production Overview](PRODUCTION.md)
+
 ## Vision
 
 This started from watching the World Cup with my kids and realizing they

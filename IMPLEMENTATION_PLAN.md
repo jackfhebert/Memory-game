@@ -1,13 +1,16 @@
 # Implementation Plan — Memory Game
 
+See also: [README](README.md) · [Design Doc](DESIGN.md) ·
+[Production Overview](PRODUCTION.md)
+
 ## Goal for this pass
 
-Get a real, playable version of the design doc running end to end: Player
-Select → Module Select → Mode Select → Flashcard loop, for the Continents
-and Oceans modules, on a phone/tablet-sized screen.
+Get a real, playable version of the [design doc](DESIGN.md) running end to
+end: Player Select → Module Select → Mode Select → Flashcard loop, for the
+Continents and Oceans modules, on a phone/tablet-sized screen.
 
-Two pieces from DESIGN.md are deliberately simplified for this first pass,
-to be filled in once the rest works:
+Two pieces from [DESIGN.md](DESIGN.md) are deliberately simplified for
+this first pass, to be filled in once the rest works:
 
 - **Active Learning mode** just samples 5 random cards as its pool, instead
   of the Elo/IRT-style adaptive pacing model.
@@ -188,7 +191,8 @@ per entry drive the tile look without needing any per-module code.
 
 ### Mode Select
 
-- Two large buttons: "Active Learning" and "All Cards" (per DESIGN.md).
+- Two large buttons: "Active Learning" and "All Cards" (per
+  [DESIGN.md](DESIGN.md)).
 - Tapping either starts the Flashcard loop for that module + mode.
 
 ### Flashcard Screen
@@ -214,9 +218,9 @@ One entry per player + module, e.g. key
 ```
 
 This is written on every answer regardless of mode. It's not used for
-selection logic yet, but it's exactly the history the Elo/IRT mastery model
-in DESIGN.md will need to bootstrap from, and it's what the Module Select
-progress chip reads from.
+selection logic yet, but it's exactly the history the Elo/IRT mastery
+model in [DESIGN.md](DESIGN.md) will need to bootstrap from, and it's what
+the Module Select progress chip reads from.
 
 ## Card selection logic (v1, simplified)
 
@@ -234,14 +238,15 @@ progress chip reads from.
 ## Distractor selection
 
 3 wrong choices are picked at random from the rest of the module's items
-(excluding the correct one), per DESIGN.md. This requires each module to
-have at least 4 items — see the module-size note below.
+(excluding the correct one), per [DESIGN.md](DESIGN.md). This requires
+each module to have at least 4 items — see the module-size note below.
 
 ## Adding a new module
 
-1. Create `data/<module-id>.json` with an item list matching the DESIGN.md
-   schema (`id`, `name`, `image`, `fact`, `popularity`). Needs at least 4
-   items, since each card needs 3 distractors.
+1. Create `data/<module-id>.json` with an item list matching the
+   [DESIGN.md](DESIGN.md) schema (`id`, `name`, `image`, `fact`,
+   `popularity`). Needs at least 4 items, since each card needs 3
+   distractors.
 2. Create an `images/<module-id>/` directory with one image per item,
    matching the paths referenced in the JSON.
 3. Add an entry for it to `data/modules.json` (`id`, `name`, `dataFile`,
@@ -315,14 +320,14 @@ once the module is actually complete.
 
 ## What's deliberately deferred
 
-- The Elo/IRT mastery model and adaptive pool expansion from DESIGN.md —
-  v1 uses random selection instead, but already records the per-item
-  shown/correct counts that model will need.
+- The Elo/IRT mastery model and adaptive pool expansion from
+  [DESIGN.md](DESIGN.md) — v1 uses random selection instead, but already
+  records the per-item shown/correct counts that model will need.
 - AI-generated images — v1 ships with placeholder images so the loop can
   be built and tested; swapping in AI-generated art is a content task, not
   a code change.
 - Audio pronunciation, a dedicated map mode, and additional modules beyond
-  Continents/Oceans — already deferred in DESIGN.md.
+  Continents/Oceans — already deferred in [DESIGN.md](DESIGN.md).
 
 ## Open questions
 

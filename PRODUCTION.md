@@ -1,11 +1,14 @@
 # Production Overview — Memory Game
 
+See also: [README](README.md) · [Design Doc](DESIGN.md) ·
+[Implementation Plan](IMPLEMENTATION_PLAN.md)
+
 ## Where this stands
 
-This is a static, no-backend web app (see DESIGN.md and
-IMPLEMENTATION_PLAN.md) — no database, no server-side logic. That keeps
-"getting it running" mostly a question of how the static files get served,
-not a question of infrastructure.
+This is a static, no-backend web app (see [DESIGN.md](DESIGN.md) and
+[IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md)) — no database, no
+server-side logic. That keeps "getting it running" mostly a question of
+how the static files get served, not a question of infrastructure.
 
 ## Running locally
 
@@ -30,7 +33,8 @@ Deliberately left open for when we actually get there:
 - Custom domain vs. the default `*.run.app` URL.
 - Whether to put any access control in front of it before it's sharable
   more broadly (it's a personal/family MVP today, so this hasn't mattered
-  yet — see DESIGN.md's note on localStorage-based, account-free players).
+  yet — see [DESIGN.md](DESIGN.md)'s note on localStorage-based,
+  account-free players).
 
 ## A note on tooling
 
