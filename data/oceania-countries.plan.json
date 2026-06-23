@@ -1,0 +1,26 @@
+[
+  {
+    "id": "australia",
+    "name": "Australia"
+  },
+  {
+    "id": "fiji",
+    "name": "Fiji"
+  },
+  {
+    "id": "new-zealand",
+    "name": "New Zealand"
+  },
+  {
+    "id": "papua-new-guinea",
+    "name": "Papua New Guinea"
+  },
+  {
+    "id": "solomon-islands",
+    "name": "Solomon Islands"
+  },
+  {
+    "id": "vanuatu",
+    "name": "Vanuatu"
+  }
+]

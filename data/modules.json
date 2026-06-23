@@ -21,6 +21,48 @@
     "icon": "🗺️"
   },
   {
+    "id": "africa-countries",
+    "name": "African Countries",
+    "dataFile": "africa-countries.json",
+    "color": "#C9A227",
+    "icon": "🦁"
+  },
+  {
+    "id": "asia-countries",
+    "name": "Asian Countries",
+    "dataFile": "asia-countries.json",
+    "color": "#D14F6B",
+    "icon": "🏯"
+  },
+  {
+    "id": "europe-countries",
+    "name": "European Countries",
+    "dataFile": "europe-countries.json",
+    "color": "#7B6FA6",
+    "icon": "🏰"
+  },
+  {
+    "id": "north-america-countries",
+    "name": "North American Countries",
+    "dataFile": "north-america-countries.json",
+    "color": "#5A8F4F",
+    "icon": "🌎"
+  },
+  {
+    "id": "oceania-countries",
+    "name": "Oceania Countries",
+    "dataFile": "oceania-countries.json",
+    "color": "#3FA796",
+    "icon": "🏝️"
+  },
+  {
+    "id": "south-america-countries",
+    "name": "South American Countries",
+    "dataFile": "south-america-countries.json",
+    "color": "#E0A23B",
+    "icon": "🌎"
+  },
+  {
     "id": "animals",
     "name": "Animals",
     "dataFile": "animals.json",

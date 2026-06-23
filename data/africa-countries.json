@@ -1,0 +1,590 @@
+[
+  {
+    "id": "algeria",
+    "name": "Algeria",
+    "image": "images/africa-countries/algeria.png",
+    "alt": "A world map with a huge highlighted country across the top of a continent, mostly covered in a vast desert stretching south.",
+    "facts": [
+      "It's the largest country in Africa by land area.",
+      "More than four-fifths of its land is covered by the vast Sahara Desert.",
+      "Ancient Roman ruins still stand remarkably intact in several of its desert towns, preserved for centuries by the dry climate."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "angola",
+    "name": "Angola",
+    "image": "images/africa-countries/angola.png",
+    "alt": "A world map with a highlighted country along the southwestern coast of a continent, facing a wide ocean.",
+    "facts": [
+      "Portuguese is its official language, a legacy of centuries of colonial rule.",
+      "It's one of the largest oil producers on the continent, alongside rich diamond deposits.",
+      "One of its waterfalls ranks among the largest in Africa by the sheer volume of water that thunders over it."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "benin",
+    "name": "Benin",
+    "image": "images/africa-countries/benin.png",
+    "alt": "A world map with a small, narrow highlighted country running from a short coastline far inland on the western bulge of a continent.",
+    "facts": [
+      "It's considered the birthplace of a spiritual tradition that spread across the Atlantic and shaped religions still practiced in the Americas today.",
+      "A powerful kingdom once ruled here for centuries, famous for an all-female regiment of warriors who defended it.",
+      "One of its coastal towns has a memorial gate honoring the millions forced onto ships bound for the Americas centuries ago."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "botswana",
+    "name": "Botswana",
+    "image": "images/africa-countries/botswana.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent's southern half, much of it covered in desert.",
+    "facts": [
+      "It's home to one of the largest populations of elephants left in the world.",
+      "One of its rivers spreads out into a massive inland delta that never reaches the sea, instead soaking into the desert sands.",
+      "Diamonds discovered here decades ago turned it into one of the fastest-growing economies on the continent."
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "burkina-faso",
+    "name": "Burkina Faso",
+    "image": "images/africa-countries/burkina-faso.png",
+    "alt": "A world map with a landlocked highlighted country on the western bulge of a continent, surrounded by several neighbors.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "Its name translates to roughly 'land of upright people.'",
+      "Every two years, one of its cities hosts one of the largest film festivals on the entire continent."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "burundi",
+    "name": "Burundi",
+    "image": "images/africa-countries/burundi.png",
+    "alt": "A world map with a tiny, landlocked highlighted country tucked beside a long lake in the middle of a continent.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "It borders one of the deepest and longest freshwater lakes in the world.",
+      "A traditional style of ceremonial drumming performed here has been recognized as an important piece of world heritage."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "cameroon",
+    "name": "Cameroon",
+    "image": "images/africa-countries/cameroon.png",
+    "alt": "A world map with a highlighted country shaped like a long triangle, stretching from a coastline up into the middle of a continent.",
+    "facts": [
+      "It's sometimes nicknamed 'Africa in miniature,' since its landscapes range from beaches to deserts to rainforest to snow-capped peaks.",
+      "More than 250 different languages are spoken here, an enormous variety for one country.",
+      "Its tallest peak is an active volcano, the highest point in its entire region."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "central-african-republic",
+    "name": "Central African Republic",
+    "image": "images/africa-countries/central-african-republic.png",
+    "alt": "A world map with a landlocked highlighted country in the very middle of a continent, surrounded by many neighbors.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "Diamonds and gold lie beneath much of its soil, though plenty of it remains unexplored.",
+      "A protected rainforest reserve here is one of the best places on the continent to see forest elephants and gorillas up close."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "chad",
+    "name": "Chad",
+    "image": "images/africa-countries/chad.png",
+    "alt": "A world map with a large, landlocked highlighted country in the middle of a continent, stretching from desert in the north to greener land in the south.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "Its namesake lake has shrunk to a fraction of its former size over the past several decades.",
+      "A remote, rocky plateau in its north is dotted with ancient rock art and dramatic sandstone arches carved by wind."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "republic-of-the-congo",
+    "name": "Republic of the Congo",
+    "image": "images/africa-countries/republic-of-the-congo.png",
+    "alt": "A world map with a highlighted country along the western coast of a continent, much of it covered in dense rainforest.",
+    "facts": [
+      "Most of its land is covered by a vast rainforest, part of the second-largest rainforest on Earth.",
+      "Oil exports make up a huge share of its economy, despite its relatively small population.",
+      "It shares its name, and a long riverside border, with a much larger neighboring country right across the water."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "cote-d-ivoire",
+    "name": "Côte d'Ivoire",
+    "image": "images/africa-countries/cote-d-ivoire.png",
+    "alt": "A world map with a highlighted country along the southern coast of a continent's western bulge, facing a gulf.",
+    "facts": [
+      "It produces more cocoa, the key ingredient in chocolate, than any other country on Earth.",
+      "One of its cities is home to one of the largest churches in the world, modeled after a famous basilica in Europe but built even taller.",
+      "Its name comes from a trade in elephant tusks that once thrived along its coast centuries ago."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "democratic-republic-of-the-congo",
+    "name": "Democratic Republic of the Congo",
+    "image": "images/africa-countries/democratic-republic-of-the-congo.png",
+    "alt": "A world map with a vast highlighted country in the middle of a continent, covered largely by rainforest and crossed by a great river.",
+    "facts": [
+      "It's the second-largest country in Africa by land area.",
+      "One of its rivers is the deepest river in the world, plunging far below the surface in places.",
+      "It holds a huge share of the world's reserves of a metal that's essential for batteries in phones and electric cars."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "djibouti",
+    "name": "Djibouti",
+    "image": "images/africa-countries/djibouti.png",
+    "alt": "A world map with a tiny highlighted country at the entrance to a narrow sea, where a continent nearly touches another across the water.",
+    "facts": [
+      "It sits at a narrow, strategically important strait where a sea meets a gulf, making it a hub for international shipping.",
+      "One of its lakes is so salty that swimmers float effortlessly, and its shoreline marks the lowest point on the entire continent.",
+      "Several foreign countries keep military bases here because of its location along major shipping routes."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "egypt",
+    "name": "Egypt",
+    "image": "images/africa-countries/egypt.png",
+    "alt": "A world map with a highlighted country at the northeastern corner of a continent, with a thin green river valley cutting through a vast desert.",
+    "facts": [
+      "It's home to the last surviving wonder of the ancient world, a massive stone pyramid built more than 4,500 years ago.",
+      "A canal cut through its land lets ships travel between two seas without sailing all the way around an entire continent.",
+      "The world's longest river flows north through nearly its whole length before reaching the sea."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "equatorial-guinea",
+    "name": "Equatorial Guinea",
+    "image": "images/africa-countries/equatorial-guinea.png",
+    "alt": "A world map with a tiny highlighted country split between a sliver of mainland and a few small islands in a gulf.",
+    "facts": [
+      "It's the only country in Africa where Spanish is an official language.",
+      "It's split between a piece of mainland and a handful of islands out in a nearby gulf.",
+      "Oil discovered offshore decades ago transformed it into one of the wealthiest countries on the continent per person."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "eritrea",
+    "name": "Eritrea",
+    "image": "images/africa-countries/eritrea.png",
+    "alt": "A world map with a highlighted country along a narrow sea on the eastern edge of a continent.",
+    "facts": [
+      "Its capital is filled with striking Art Deco buildings left behind by colonizers nearly a century ago, earning it UNESCO recognition.",
+      "Its coastline runs along a long, narrow sea connecting to a famous canal far to the north.",
+      "A scattered group of islands off its coast remains largely untouched, with some visited by only a handful of travelers each year."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "ethiopia",
+    "name": "Ethiopia",
+    "image": "images/africa-countries/ethiopia.png",
+    "alt": "A world map with a large, landlocked highlighted country in the eastern part of a continent, covered in rugged highlands.",
+    "facts": [
+      "It's considered the birthplace of coffee, where wild coffee plants were first discovered growing.",
+      "It uses its own calendar, which runs several years behind the one used in most of the rest of the world.",
+      "An entire complex of churches in one of its towns was carved directly downward out of solid rock, rather than built upward from the ground."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "gabon",
+    "name": "Gabon",
+    "image": "images/africa-countries/gabon.png",
+    "alt": "A world map with a highlighted country along the western coast of a continent, straddling the equator and covered almost entirely in rainforest.",
+    "facts": [
+      "More than four-fifths of its land is covered by dense rainforest.",
+      "It has one of the lowest population densities on the continent, leaving huge stretches of wilderness untouched.",
+      "One of its national parks is nicknamed 'Africa's Last Eden' for its rare mix of forest elephants, gorillas, and even hippos that wander onto beaches."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "gambia",
+    "name": "Gambia",
+    "image": "images/africa-countries/gambia.png",
+    "alt": "A world map with a tiny, thin ribbon of a highlighted country following a river inland from the coast, almost entirely surrounded by one neighbor.",
+    "facts": [
+      "It's the smallest country on mainland Africa.",
+      "It's shaped like a long, thin ribbon, following the curves of a river that gives it its name.",
+      "It's almost entirely surrounded by a single much larger neighboring country, except for a short stretch of coastline."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "ghana",
+    "name": "Ghana",
+    "image": "images/africa-countries/ghana.png",
+    "alt": "A world map with a highlighted country along the southern coast of a continent's western bulge, facing a gulf.",
+    "facts": [
+      "It was the first country in sub-Saharan Africa to gain independence from colonial rule.",
+      "One of its lakes is the largest reservoir in the world by surface area, created by a massive dam.",
+      "For centuries, the wealth of gold mined and traded here gave the region one of its old European nicknames."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "guinea",
+    "name": "Guinea",
+    "image": "images/africa-countries/guinea.png",
+    "alt": "A world map with a highlighted country curving along the western coast of a continent, rising into highlands inland.",
+    "facts": [
+      "It holds some of the largest reserves of the ore used to make aluminum found anywhere on Earth.",
+      "Several major rivers that flow through neighboring countries all begin in its highlands, earning it a nickname as a regional 'water tower.'",
+      "Its coastline and inland mountains create dramatically different climates within a fairly small country."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "guinea-bissau",
+    "name": "Guinea-Bissau",
+    "image": "images/africa-countries/guinea-bissau.png",
+    "alt": "A world map with a small highlighted country along the western coast of a continent, fringed by a scatter of small islands.",
+    "facts": [
+      "Portuguese is its official language, left over from centuries of colonial rule.",
+      "An archipelago of dozens of islands off its coast is protected as a UNESCO biosphere reserve, home to saltwater hippos and nesting sea turtles.",
+      "Cashew nuts make up the vast majority of everything it exports to the rest of the world."
+    ],
+    "popularity": 6
+  },
+  {
+    "id": "kenya",
+    "name": "Kenya",
+    "image": "images/africa-countries/kenya.png",
+    "alt": "A world map with a highlighted country straddling the equator on the eastern side of a continent, facing a warm ocean.",
+    "facts": [
+      "The equator runs directly through it, splitting it almost evenly between two hemispheres.",
+      "Every year, millions of wildebeest and zebra cross through its grasslands in one of the largest animal migrations on Earth.",
+      "Runners from here have won an extraordinary number of major long-distance races and Olympic medals for the size of the country."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "lesotho",
+    "name": "Lesotho",
+    "image": "images/africa-countries/lesotho.png",
+    "alt": "A world map with a small highlighted country completely surrounded by a single much larger neighbor, near the southern tip of a continent.",
+    "facts": [
+      "It's completely surrounded on all sides by a single other country, with no other neighbors at all.",
+      "Its lowest point is still higher above sea level than the highest point in many other countries.",
+      "Many of its mountain villages can only be reached by horse or on foot during heavy snow."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "liberia",
+    "name": "Liberia",
+    "image": "images/africa-countries/liberia.png",
+    "alt": "A world map with a highlighted country along the southern coast of a continent's western bulge, facing a wide ocean.",
+    "facts": [
+      "It was founded in the 1800s by formerly enslaved people who had gained their freedom and sailed back across the ocean.",
+      "Its name comes from the word 'liberty.'",
+      "It's one of the oldest republics on the entire continent, having declared independence in the mid-1800s."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "libya",
+    "name": "Libya",
+    "image": "images/africa-countries/libya.png",
+    "alt": "A world map with a large highlighted country along the northern coast of a continent, almost entirely covered by desert.",
+    "facts": [
+      "More than nine-tenths of its land is covered by desert.",
+      "It holds some of the largest oil reserves on the entire continent.",
+      "Decades ago, it built a massive network of pipelines to pump ancient underground water hundreds of miles to its dry coastal cities."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "madagascar",
+    "name": "Madagascar",
+    "image": "images/africa-countries/madagascar.png",
+    "alt": "A world map with a long highlighted island off the southeastern coast of a continent, separated by a wide channel of sea.",
+    "facts": [
+      "It's the fourth-largest island in the world.",
+      "About 90 percent of the plants and animals found here exist nowhere else on Earth, including every species of lemur.",
+      "It split away from mainland Africa so long ago that its wildlife evolved on its own for tens of millions of years."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "malawi",
+    "name": "Malawi",
+    "image": "images/africa-countries/malawi.png",
+    "alt": "A world map with a long, narrow, landlocked highlighted country wrapped around one side of a great lake in the southern part of a continent.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "One enormous lake covers about a fifth of its total area, and is home to more species of fish than almost any other lake on Earth.",
+      "It's nicknamed the 'Warm Heart of Africa,' known for how friendly and welcoming people here are to visitors."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "mali",
+    "name": "Mali",
+    "image": "images/africa-countries/mali.png",
+    "alt": "A world map with a large, landlocked highlighted country in the western part of a continent, stretching from desert in the north to greener land along a river in the south.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "One of its ancient cities became so legendary as a center of gold, salt, and learning that its name is still used to describe any far-off, mysterious place.",
+      "A great river curves through its southern half, the only reliable water source across a vast stretch of desert."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "mauritania",
+    "name": "Mauritania",
+    "image": "images/africa-countries/mauritania.png",
+    "alt": "A world map with a large highlighted country along the western coast of a continent, almost entirely covered by desert.",
+    "facts": [
+      "About 90 percent of its land is covered by the Sahara Desert.",
+      "A bizarre, perfectly circular rock formation in its desert is so large and strange that it's nicknamed the 'Eye of the Sahara' and can be spotted from space.",
+      "A famous old desert railway here pulls trains so long that some stretch for more than a mile and a half hauling iron ore."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "morocco",
+    "name": "Morocco",
+    "image": "images/africa-countries/morocco.png",
+    "alt": "A world map with a highlighted country at the northwestern corner of a continent, just across a narrow strait from another continent.",
+    "facts": [
+      "At its closest point, it sits less than 10 miles across a narrow strait from a country on a different continent entirely.",
+      "One of its mountain towns is painted almost entirely in shades of blue, from its walls to its doorways to its stairs.",
+      "Its rugged mountain range runs for hundreds of miles, separating fertile coastal plains from the Sahara Desert beyond."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "mozambique",
+    "name": "Mozambique",
+    "image": "images/africa-countries/mozambique.png",
+    "alt": "A world map with a long highlighted country along the southeastern coast of a continent, facing a warm ocean channel.",
+    "facts": [
+      "Portuguese is its official language, a legacy of centuries of colonial rule.",
+      "Its long coastline along a warm ocean is dotted with island archipelagos popular for diving and snorkeling.",
+      "One of its national parks, once devastated by decades of war, has seen its wildlife dramatically recover through major conservation efforts."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "namibia",
+    "name": "Namibia",
+    "image": "images/africa-countries/namibia.png",
+    "alt": "A world map with a highlighted country along the southwestern coast of a continent, fronted by a stretch of desert coastline.",
+    "facts": [
+      "It has one of the lowest population densities of any country in the world.",
+      "It's home to one of the oldest deserts on Earth, famous for towering, rust-red sand dunes.",
+      "A stretch of its Atlantic coastline is littered with old shipwrecks and is nicknamed for the bones found scattered along its shores."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "niger",
+    "name": "Niger",
+    "image": "images/africa-countries/niger.png",
+    "alt": "A world map with a large, landlocked highlighted country in the western part of a continent, mostly covered in desert.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "Much of its territory lies within the Sahara Desert, making it one of the hottest countries on Earth.",
+      "A great river that gives the country its name cuts through its southwestern corner, the only major water source across a vast desert landscape."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "nigeria",
+    "name": "Nigeria",
+    "image": "images/africa-countries/nigeria.png",
+    "alt": "A world map with a highlighted country on the southern coast of a continent's western bulge, facing a gulf.",
+    "facts": [
+      "It's the most populous country on the entire continent.",
+      "Its film industry produces more movies per year than almost any other country on Earth, trailing only one other.",
+      "It's home to one of the largest economies on the continent, fueled in large part by oil."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "rwanda",
+    "name": "Rwanda",
+    "image": "images/africa-countries/rwanda.png",
+    "alt": "A world map with a tiny, landlocked highlighted country in the middle of a continent, covered in rolling green hills.",
+    "facts": [
+      "It's nicknamed the 'Land of a Thousand Hills' for its endlessly rolling, green terrain.",
+      "It's one of the best places on Earth to see endangered mountain gorillas living wild in misty forests.",
+      "Once a month, nearly the entire country pauses for a national clean-up day, with everyone pitching in to tidy public spaces."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "south-sudan",
+    "name": "South Sudan",
+    "image": "images/africa-countries/south-sudan.png",
+    "alt": "A world map with a landlocked highlighted country in the eastern part of a continent, crossed by a great river and its swampy wetlands.",
+    "facts": [
+      "It's the newest country in the world, gaining independence only in 2011.",
+      "It's landlocked, with no coastline touching any sea.",
+      "A vast, swampy wetland here is one of the largest in the world, fed by a great river winding through reeds and grasses."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "senegal",
+    "name": "Senegal",
+    "image": "images/africa-countries/senegal.png",
+    "alt": "A world map with a highlighted country at the westernmost point of a continent's mainland, wrapped almost entirely around a smaller neighbor.",
+    "facts": [
+      "It includes the westernmost point on mainland Africa.",
+      "One of its small islands served as a major departure point during a centuries-long slave trade and is now a solemn memorial.",
+      "One of its lakes turns a striking shade of pink because of algae that thrive in its salty water."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "sierra-leone",
+    "name": "Sierra Leone",
+    "image": "images/africa-countries/sierra-leone.png",
+    "alt": "A world map with a small highlighted country along the western coast of a continent, facing a wide ocean.",
+    "facts": [
+      "Its capital was founded centuries ago as a settlement for formerly enslaved people resettled from across the ocean.",
+      "Diamonds mined here have at times fueled conflict, but also represent some of its greatest natural wealth.",
+      "Its capital is one of the rainiest capital cities in the world, with downpours lasting much of the year."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "somalia",
+    "name": "Somalia",
+    "image": "images/africa-countries/somalia.png",
+    "alt": "A world map with a highlighted country curving around the easternmost point of a continent, with a long coastline facing two different bodies of water.",
+    "facts": [
+      "It has the longest coastline of any country on mainland Africa.",
+      "For thousands of years, traders here exported fragrant tree resins so valuable that ancient civilizations used them in religious rituals and embalming.",
+      "Many people here still follow a traditional nomadic lifestyle, herding camels and livestock across dry plains."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "south-africa",
+    "name": "South Africa",
+    "image": "images/africa-countries/south-africa.png",
+    "alt": "A world map with a highlighted country at the very southern tip of a continent, wrapping around a smaller landlocked neighbor.",
+    "facts": [
+      "It has three separate capital cities, each handling a different branch of government.",
+      "It officially recognizes 12 languages, more than almost any other country in the world.",
+      "One of its national parks is one of the largest wildlife reserves in Africa, home to all of the 'big five' animals safari-goers hope to spot."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "sudan",
+    "name": "Sudan",
+    "image": "images/africa-countries/sudan.png",
+    "alt": "A world map with a large highlighted country in the northeastern part of a continent, crossed by two branches of a great river that join together.",
+    "facts": [
+      "It's home to more ancient pyramids than its more famous northern neighbor, even though they're smaller and less visited.",
+      "Its capital sits at the exact spot where two great branches of the world's longest river join together.",
+      "Much of its land lies within the Sahara Desert, though a long coastline along a narrow sea lines its northeast."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "tanzania",
+    "name": "Tanzania",
+    "image": "images/africa-countries/tanzania.png",
+    "alt": "A world map with a highlighted country on the eastern coast of a continent, home to its tallest peak and several great lakes.",
+    "facts": [
+      "It's home to the tallest mountain on the entire continent, snow-capped despite being near the equator.",
+      "Vast herds of wildebeest and zebra cross its grasslands every year in one of the largest wildlife migrations on Earth.",
+      "A cluster of islands off its coast has been nicknamed the 'Spice Islands' for centuries of trading cloves, nutmeg, and cinnamon."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "togo",
+    "name": "Togo",
+    "image": "images/africa-countries/togo.png",
+    "alt": "A world map with a long, narrow highlighted country running from a short coastline far inland on the western bulge of a continent.",
+    "facts": [
+      "It's a long, narrow country, stretching from a short stretch of coastline far inland.",
+      "Traditional religious practices rooted in spirit worship remain widely followed alongside other faiths.",
+      "Its sandy beaches are lined with coconut palms along a stretch of the Gulf of Guinea."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "tunisia",
+    "name": "Tunisia",
+    "image": "images/africa-countries/tunisia.png",
+    "alt": "A world map with a small highlighted country at the northern tip of a continent, jutting out into a sea.",
+    "facts": [
+      "It's the smallest country in its region of North Africa.",
+      "One of history's most powerful ancient trading civilizations was based in a city near its modern capital, before it was eventually destroyed by a rival empire.",
+      "Its desert landscapes were used to film the deserts of a fictional faraway planet in a famous movie series."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "uganda",
+    "name": "Uganda",
+    "image": "images/africa-countries/uganda.png",
+    "alt": "A world map with a landlocked highlighted country in the eastern part of a continent, bordering one of its largest lakes.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "The world's longest river begins its journey here, flowing out of one of Africa's largest lakes.",
+      "It's nicknamed the 'Pearl of Africa' for its lush, green landscapes and abundant wildlife."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "zambia",
+    "name": "Zambia",
+    "image": "images/africa-countries/zambia.png",
+    "alt": "A world map with a landlocked highlighted country in the southern part of a continent, shaped like a butterfly.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "It shares one of the largest waterfalls in the world with a neighboring country, where a mighty river plunges over a cliff in a thunderous curtain of mist.",
+      "Copper mined from beneath its soil has powered its economy for generations."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "zimbabwe",
+    "name": "Zimbabwe",
+    "image": "images/africa-countries/zimbabwe.png",
+    "alt": "A world map with a landlocked highlighted country in the southern part of a continent, bordered by a great river to its north.",
+    "facts": [
+      "Its name comes from a massive ancient stone-walled city built by its ancestors centuries ago, the ruins of which still stand today.",
+      "It's landlocked, with no coastline touching any sea.",
+      "It shares one of the largest waterfalls in the world with a neighboring country, fed by a mighty river that plunges over a cliff in a thunderous curtain of mist."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "eswatini",
+    "name": "Eswatini",
+    "image": "images/africa-countries/eswatini.png",
+    "alt": "A world map with a tiny, landlocked highlighted country tucked into the southeastern corner of a continent, surrounded by larger neighbors.",
+    "facts": [
+      "It's one of the last countries in the world ruled by an absolute monarch with sweeping personal power.",
+      "It's landlocked, with no coastline touching any sea.",
+      "It officially changed its name a few years back, dropping an older name that some felt was too easily confused with a country on a different continent."
+    ],
+    "popularity": 8
+  }
+]

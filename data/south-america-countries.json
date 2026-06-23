@@ -1,0 +1,146 @@
+[
+  {
+    "id": "argentina",
+    "name": "Argentina",
+    "image": "images/south-america-countries/argentina.png",
+    "alt": "A world map with a long, wedge-shaped highlighted country tapering to a point near the southern tip of a continent.",
+    "facts": [
+      "One of its glaciers alone covers more ground than its capital city does.",
+      "Tango dancing was born in dance halls here, packed long ago with immigrants from all over the world.",
+      "It stretches so far south that its southern tip is closer to icy Antarctica than to its own tropical north."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "bolivia",
+    "name": "Bolivia",
+    "image": "images/south-america-countries/bolivia.png",
+    "alt": "A world map with a landlocked highlighted country high in the mountains, with no coastline touching any ocean.",
+    "facts": [
+      "It has two capital cities instead of one — a rare setup most countries don't bother with.",
+      "Its vast salt flat turns into a giant mirror after it rains, perfectly reflecting the whole sky.",
+      "One of its major cities sits so high in the mountains that newcomers sometimes need days just to catch their breath."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "brazil",
+    "name": "Brazil",
+    "image": "images/south-america-countries/brazil.png",
+    "alt": "A world map with a huge highlighted landmass taking up most of the eastern bulge of a continent.",
+    "facts": [
+      "More than half of the world's largest rainforest grows entirely within its borders.",
+      "It's the only country on its continent where people mostly speak Portuguese instead of Spanish.",
+      "Soccer is loved here so deeply that the whole country seems to pause for every big match."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "chile",
+    "name": "Chile",
+    "image": "images/south-america-countries/chile.png",
+    "alt": "A world map with an extremely long, narrow highlighted strip running down the western edge of a continent, squeezed between mountains and ocean.",
+    "facts": [
+      "It's so long and thin that it stretches from bone-dry desert in the north to icy glaciers in the south.",
+      "Its night skies are so clear and dark that astronomers from all over the world build giant telescopes here.",
+      "Part of its northern desert is so dry that some patches have never recorded a drop of rain."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "colombia",
+    "name": "Colombia",
+    "image": "images/south-america-countries/colombia.png",
+    "alt": "A world map with a highlighted country in the northwest corner of a continent, touching two different oceans at once.",
+    "facts": [
+      "It's one of the few countries on Earth with coastline on two completely different oceans.",
+      "It grows and exports so much coffee that the smell of roasting beans is practically a national symbol.",
+      "It's home to more known bird species than any other country on the planet."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "ecuador",
+    "name": "Ecuador",
+    "image": "images/south-america-countries/ecuador.png",
+    "alt": "A world map with a small highlighted country straddling the equator, with a cluster of tiny dots far out in the ocean to its west.",
+    "facts": [
+      "Its name literally means 'equator' in Spanish, after the line that runs right through it.",
+      "A famous set of islands far out in its ocean territory is where a young scientist once studied unique wildlife that helped shape a famous theory.",
+      "Thanks to the Earth's bulge near the equator, the peak of one of its volcanoes is the point on the planet's surface farthest from its core."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "guyana",
+    "name": "Guyana",
+    "image": "images/south-america-countries/guyana.png",
+    "alt": "A world map with a small highlighted country on the northeast coast of a continent, mostly covered in thick green forest.",
+    "facts": [
+      "Its name comes from an old word meaning 'land of many waters,' thanks to its many rivers and waterfalls.",
+      "It's home to a waterfall more than four times taller than a famous one on the border of the US and Canada.",
+      "Unlike most of its neighbors, English is the language most people here grow up speaking."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "paraguay",
+    "name": "Paraguay",
+    "image": "images/south-america-countries/paraguay.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent, with no coastline touching any ocean.",
+    "facts": [
+      "Almost everyone here grows up speaking two languages — Spanish and an Indigenous language called Guaraní.",
+      "It shares one of the largest dams on Earth with a neighboring country, producing enormous amounts of electricity.",
+      "It's one of only two countries on its continent with no coastline at all."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "peru",
+    "name": "Peru",
+    "image": "images/south-america-countries/peru.png",
+    "alt": "A world map with a highlighted country along the western coast of a continent, stretching from coastal desert up into high mountains.",
+    "facts": [
+      "A famous mountaintop city built by an ancient empire sat hidden in its peaks for centuries before being rediscovered about a hundred years ago.",
+      "It's home to a lake so high in the mountains that boats woven entirely from reeds still float across it today.",
+      "It's considered the birthplace of the potato, with thousands of different varieties still grown here."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "suriname",
+    "name": "Suriname",
+    "image": "images/south-america-countries/suriname.png",
+    "alt": "A world map with a small highlighted country on the northeast coast of a continent, almost entirely covered by dense rainforest.",
+    "facts": [
+      "More of its land is covered by rainforest than almost any other country on Earth.",
+      "It's the smallest independent country on its entire continent.",
+      "Thanks to its history, Dutch is its official language — the only country on its continent where that's true."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "uruguay",
+    "name": "Uruguay",
+    "image": "images/south-america-countries/uruguay.png",
+    "alt": "A world map with a small highlighted country tucked between two much larger neighbors on a continent's southeastern coast.",
+    "facts": [
+      "It was one of the first countries in the world to make voting completely secret, among other early reforms.",
+      "It hosted, and won, the very first soccer World Cup ever played.",
+      "There are several times more cattle here than there are people."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "venezuela",
+    "name": "Venezuela",
+    "image": "images/south-america-countries/venezuela.png",
+    "alt": "A world map with a highlighted country along the northern coast of a continent, touching the Caribbean Sea.",
+    "facts": [
+      "It's home to the tallest waterfall in the world, with water that falls so far it turns to mist before reaching the ground.",
+      "It holds more proven oil reserves underground than any other country on Earth.",
+      "Lightning flashes almost nonstop over one of its lakes, lighting up the night sky on most nights of the year."
+    ],
+    "popularity": 40
+  }
+]

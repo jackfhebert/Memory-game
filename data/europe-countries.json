@@ -1,0 +1,458 @@
+[
+  {
+    "id": "albania",
+    "name": "Albania",
+    "image": "images/europe-countries/albania.png",
+    "alt": "A world map with a small highlighted country along a sea coast in the southeast of a continent, mountains rising right behind its shore.",
+    "facts": [
+      "It's scattered with hundreds of thousands of concrete bunkers built decades ago by a paranoid government bracing for an invasion that never came.",
+      "Its flag features a two-headed eagle, and its old nickname translates to 'Land of the Eagles.'",
+      "Many of its rivers and lakes are so clean and blue they look almost tropical, despite being tucked into rugged mountains."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "austria",
+    "name": "Austria",
+    "image": "images/europe-countries/austria.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent, draped across a long mountain range.",
+    "facts": [
+      "It's home to the oldest zoo in the world still operating today, founded inside the grounds of an old imperial palace.",
+      "One of its cities was home to so many history-changing composers that it's often called the world's classical music capital.",
+      "More than half of it is covered by a single sweeping mountain range that draws skiers from all over the world."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "belarus",
+    "name": "Belarus",
+    "image": "images/europe-countries/belarus.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent's eastern half, covered largely in flat forest and farmland.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "One of its ancient forests is one of the last places in Europe where wild bison still roam, much as they did centuries ago.",
+      "It uses a language closely related to two of its neighbors, written in the same alphabet as one of them."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "belgium",
+    "name": "Belgium",
+    "image": "images/europe-countries/belgium.png",
+    "alt": "A world map with a small highlighted country squeezed between several larger neighbors near a continent's northwestern coast.",
+    "facts": [
+      "It's home to the headquarters of a major international alliance and a union spanning much of its continent.",
+      "It has three official languages, and many road signs switch between them depending on where you are.",
+      "Despite the name people often give them, the crispy fried potato strips known as 'French fries' likely got their start here."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "bosnia-and-herzegovina",
+    "name": "Bosnia and Herzegovina",
+    "image": "images/europe-countries/bosnia-and-herzegovina.png",
+    "alt": "A world map with a highlighted country in the middle of a mountainous peninsula, with just a tiny sliver of coastline reaching a sea.",
+    "facts": [
+      "A single gunshot fired in its capital in 1914 helped trigger a war that pulled in countries across the globe.",
+      "One of its old stone bridges was rebuilt brick by brick after being destroyed in a war in the 1990s, using the same building methods as centuries ago.",
+      "Its capital once hosted the Winter Olympics, filling its surrounding mountains with the world's best skiers."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "bulgaria",
+    "name": "Bulgaria",
+    "image": "images/europe-countries/bulgaria.png",
+    "alt": "A world map with a highlighted country along the eastern edge of a peninsula, bordering a sea and tucked beneath a mountain range.",
+    "facts": [
+      "Archaeologists found what's considered the oldest worked gold in the world buried in a cemetery here, dating back thousands of years before the pyramids.",
+      "Its valleys grow so many roses that a huge share of the world's rose oil, used in perfumes, comes from here.",
+      "Many people here nod their head for 'no' and shake it for 'yes' — the opposite of what visitors expect."
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "croatia",
+    "name": "Croatia",
+    "image": "images/europe-countries/croatia.png",
+    "alt": "A world map with a highlighted country shaped like a crescent, curving along a sea coast dotted with countless small islands.",
+    "facts": [
+      "Its coastline is scattered with more than a thousand islands along a sparkling sea.",
+      "A walled medieval city here became famous worldwide after a hit fantasy show used its streets as a filming location.",
+      "The neckwear we now call a 'necktie' is believed to have started here, inspired by scarves worn by soldiers centuries ago."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "czechia",
+    "name": "Czechia",
+    "image": "images/europe-countries/czechia.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent, surrounded by hills on nearly every side.",
+    "facts": [
+      "People here drink more beer per person than anywhere else in the world.",
+      "Its capital is home to an astronomical clock from the 1400s that still keeps working centuries later.",
+      "It's famous for a sparkling type of glass that's been crafted here for hundreds of years."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "denmark",
+    "name": "Denmark",
+    "image": "images/europe-countries/denmark.png",
+    "alt": "A world map with a small highlighted peninsula and cluster of islands at the northern edge of a continent, reaching up between two seas.",
+    "facts": [
+      "A small wooden toy company here invented the colorful interlocking bricks that kids all over the world now snap together.",
+      "In its capital, there are more bicycles than people, with wide lanes built just for them.",
+      "It's regularly ranked among the happiest countries on Earth."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "estonia",
+    "name": "Estonia",
+    "image": "images/europe-countries/estonia.png",
+    "alt": "A world map with a small highlighted country along the northeastern edge of a continent, facing a sea dotted with islands.",
+    "facts": [
+      "It was one of the first countries in the world to let people vote online in national elections.",
+      "A popular video-calling app used by millions worldwide was first built by engineers here.",
+      "Its capital's old town is so well preserved that walking through it feels like stepping into the Middle Ages."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "finland",
+    "name": "Finland",
+    "image": "images/europe-countries/finland.png",
+    "alt": "A world map with a highlighted country stretching far up toward the Arctic, covered in thousands of lakes and dense forest.",
+    "facts": [
+      "It has more saunas than people, tucked into nearly every home and apartment building.",
+      "It's been ranked the happiest country in the world several years in a row.",
+      "Above its Arctic Circle line, the sun doesn't set at all for weeks during summer."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "france",
+    "name": "France",
+    "image": "images/europe-countries/france.png",
+    "alt": "A world map with a highlighted country shaped roughly like a hexagon, spanning the western edge of a continent between two seas.",
+    "facts": [
+      "It's the most visited country on Earth, welcoming tens of millions of tourists every year.",
+      "Deep in one of its caves, people thousands of years ago painted animals on the walls that still survive today.",
+      "An iron tower built for a world's fair here was originally meant to be torn down after just 20 years."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "germany",
+    "name": "Germany",
+    "image": "images/europe-countries/germany.png",
+    "alt": "A world map with a highlighted country in the middle of a continent, bordered by many other countries on almost every side.",
+    "facts": [
+      "Stretches of one of its major highways have no speed limit at all.",
+      "A man here built the first printing press with movable metal type, changing how information spread across the world forever.",
+      "One of its festivals draws millions of visitors every year to celebrate with huge tents, music, and traditional food."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "greece",
+    "name": "Greece",
+    "image": "images/europe-countries/greece.png",
+    "alt": "A world map with a highlighted country at the southern tip of a peninsula, fragmented into a mainland plus a scatter of many islands.",
+    "facts": [
+      "It's where the very first Olympic Games were held, thousands of years ago.",
+      "It has thousands of islands scattered across its surrounding seas, though only a couple hundred have anyone living on them.",
+      "Many ancient stories said its tallest mountain was home to a family of powerful gods."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "hungary",
+    "name": "Hungary",
+    "image": "images/europe-countries/hungary.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent, shaped roughly like an oval.",
+    "facts": [
+      "A professor here invented a colorful twisting puzzle cube that's sold hundreds of millions of copies worldwide.",
+      "Its capital is built over natural hot springs, and bathing in steaming open-air pools is a beloved pastime.",
+      "Its underground train system was the first of its kind anywhere on its continent outside of one other city."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "iceland",
+    "name": "Iceland",
+    "image": "images/europe-countries/iceland.png",
+    "alt": "A world map with a small highlighted island alone in the middle of a cold northern ocean, far from any other landmass.",
+    "facts": [
+      "Almost all of its electricity and heating comes from volcanoes and hot springs bubbling beneath the ground.",
+      "It's one of the only places on Earth with no mosquitoes at all.",
+      "Its language has changed so little over a thousand years that people here can still read ancient sagas without much trouble."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "ireland",
+    "name": "Ireland",
+    "image": "images/europe-countries/ireland.png",
+    "alt": "A world map with a highlighted island just west of a much larger neighboring island, both off the northwestern coast of a continent.",
+    "facts": [
+      "A holiday celebrating its patron saint is celebrated with parades and green clothing in cities all over the world, even where hardly anyone has ties to it.",
+      "One of its oldest illustrated books, covered in intricate hand-drawn designs, was created by monks more than a thousand years ago.",
+      "Its rugged western coast drops off in towering cliffs that plunge hundreds of feet straight into the ocean."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "italy",
+    "name": "Italy",
+    "image": "images/europe-countries/italy.png",
+    "alt": "A world map with a highlighted country shaped like a tall boot kicking a small island, stretching down into the middle of a sea.",
+    "facts": [
+      "It has more UNESCO World Heritage Sites than any other country on Earth.",
+      "An entire independent country, the smallest one in the world, sits inside the borders of just one of its cities.",
+      "The leaning tower in one of its towns has been tilting for centuries and still hasn't fallen over."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "latvia",
+    "name": "Latvia",
+    "image": "images/europe-countries/latvia.png",
+    "alt": "A world map with a small highlighted country along the northeastern edge of a continent, facing a sea between two neighboring countries.",
+    "facts": [
+      "Its capital has one of the largest collections of a curling, nature-inspired architecture style found anywhere in the world.",
+      "Its beaches along the sea are famous for a golden, fossilized tree resin that washes up after storms.",
+      "Every few years it holds a massive song and dance festival where tens of thousands of performers take the stage together."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "lithuania",
+    "name": "Lithuania",
+    "image": "images/europe-countries/lithuania.png",
+    "alt": "A world map with a small highlighted country along the northeastern edge of a continent, with a short stretch of coastline on a sea.",
+    "facts": [
+      "A monument near its capital marks what's been calculated as the geographic center of its entire continent.",
+      "Basketball is such a national obsession here that winning international tournaments can feel like the most important thing happening in the country.",
+      "It's known for having some of the fastest average internet speeds anywhere in the world."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "luxembourg",
+    "name": "Luxembourg",
+    "image": "images/europe-countries/luxembourg.png",
+    "alt": "A world map with a tiny highlighted country squeezed between three much larger neighbors near the middle of a continent.",
+    "facts": [
+      "It was the first country in the world to make all of its public buses, trams, and trains completely free to ride.",
+      "Most people who grow up here learn to speak three or more languages fluently.",
+      "It's one of the smallest countries on its entire continent, yet has one of the highest average incomes in the world."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "moldova",
+    "name": "Moldova",
+    "image": "images/europe-countries/moldova.png",
+    "alt": "A world map with a small, landlocked highlighted country tucked between two larger neighbors in the eastern part of a continent.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "One underground wine cellar here is so enormous, with so many miles of tunnels, that it holds the record for the largest collection of wine bottles on Earth.",
+      "It's one of the least-visited countries on its continent, despite all that wine."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "montenegro",
+    "name": "Montenegro",
+    "image": "images/europe-countries/montenegro.png",
+    "alt": "A world map with a tiny highlighted country along a dramatic, mountainous stretch of coastline on a sea.",
+    "facts": [
+      "Its name translates to 'Black Mountain,' after the dark, looming peaks that rise near its coast.",
+      "A dramatic bay along its coastline is lined with steep cliffs and medieval walled towns, often compared to a fjord.",
+      "It's one of the smallest countries on its continent by population."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "netherlands",
+    "name": "Netherlands",
+    "image": "images/europe-countries/netherlands.png",
+    "alt": "A world map with a small, low-lying highlighted country along a continent's northwestern coast, laced with canals and reclaimed land.",
+    "facts": [
+      "About a third of its land sits below sea level, protected by an enormous system of dikes and pumps.",
+      "It has more bicycles than people, and cyclists often outnumber cars on its streets.",
+      "Each spring, vast fields here burst into color with rows of a flower that's become one of its biggest exports."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "north-macedonia",
+    "name": "North Macedonia",
+    "image": "images/europe-countries/north-macedonia.png",
+    "alt": "A world map with a small, landlocked highlighted country on a mountainous peninsula, tucked between several neighbors.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "One of its lakes is among the oldest lakes on Earth, with some species of fish and snails found nowhere else.",
+      "It changed its own name in recent years after a long-running dispute with a neighboring country over a shared historical name."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "norway",
+    "name": "Norway",
+    "image": "images/europe-countries/norway.png",
+    "alt": "A world map with a long, jagged highlighted country running up the western edge of a peninsula, its coastline cut by deep inlets.",
+    "facts": [
+      "Its coastline is carved into deep, dramatic fjords left behind by ancient glaciers.",
+      "It's home to one of the longest road tunnels in the world, stretching for miles through solid rock.",
+      "Glowing green and purple lights often dance across its night skies during winter, far north of the equator."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "poland",
+    "name": "Poland",
+    "image": "images/europe-countries/poland.png",
+    "alt": "A world map with a highlighted country along the northern part of a continent, with a short coastline on a sea and flat plains stretching inland.",
+    "facts": [
+      "An ancient forest along its eastern border is one of the last places in Europe where wild bison still roam free.",
+      "An astronomer born here helped prove that the planets circle the sun rather than the other way around.",
+      "Many of its cities were rebuilt brick by brick after being heavily damaged in a war, using old paintings and photos as guides."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "portugal",
+    "name": "Portugal",
+    "image": "images/europe-countries/portugal.png",
+    "alt": "A world map with a highlighted country along the western edge of a peninsula, facing a vast ocean.",
+    "facts": [
+      "It has some of the oldest unchanged borders of any country in the world, dating back centuries.",
+      "It produces more cork than any other country on Earth, harvested from the bark of trees without cutting them down.",
+      "Centuries ago, sailors from here set off on voyages that helped connect Europe with Africa, Asia, and the Americas for the first time."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "romania",
+    "name": "Romania",
+    "image": "images/europe-countries/romania.png",
+    "alt": "A world map with a highlighted country in the southeastern part of a continent, wrapped around a curving mountain range.",
+    "facts": [
+      "A region here inspired the legend of a famous fictional vampire, drawing tourists to its castles ever since.",
+      "Its forested mountains are home to one of the largest brown bear populations left in Europe.",
+      "One of its rivers fans out into a vast wetland delta before reaching the sea, teeming with rare birds."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "russia",
+    "name": "Russia",
+    "image": "images/europe-countries/russia.png",
+    "alt": "A world map with an enormous highlighted landmass stretching across the entire northern half of two continents at once.",
+    "facts": [
+      "It's the largest country on Earth by far, spanning eleven time zones from one end to the other.",
+      "One of its lakes is the deepest and oldest freshwater lake in the world, holding about a fifth of all the unfrozen fresh water on the planet.",
+      "A single railway line here stretches for thousands of miles, connecting one side of its vast territory to the other."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "serbia",
+    "name": "Serbia",
+    "image": "images/europe-countries/serbia.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a mountainous peninsula.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "More than a dozen ancient Roman emperors were born in towns and cities within its borders.",
+      "It's one of the world's biggest exporters of a small red berry used in jams, desserts, and yogurt everywhere."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "slovakia",
+    "name": "Slovakia",
+    "image": "images/europe-countries/slovakia.png",
+    "alt": "A world map with a small, landlocked highlighted country in the middle of a continent, its northern border lined with jagged peaks.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "It has more castles per person than almost any other country in the world.",
+      "Its northern border is lined with jagged, snow-capped peaks that look almost alpine despite belonging to a smaller mountain range."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "slovenia",
+    "name": "Slovenia",
+    "image": "images/europe-countries/slovenia.png",
+    "alt": "A world map with a small highlighted country tucked at the head of a sea, between mountains and a tiny strip of coastline.",
+    "facts": [
+      "More than half of its land is covered by forest, one of the highest shares anywhere in Europe.",
+      "A tiny church sits on an island in the middle of one of its alpine lakes, reachable only by traditional wooden boats.",
+      "It was one of the first countries in the world to be officially certified as a sustainable 'green' destination for travelers."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "spain",
+    "name": "Spain",
+    "image": "images/europe-countries/spain.png",
+    "alt": "A world map with a highlighted country covering most of a peninsula in the southwest of a continent, facing both an ocean and a sea.",
+    "facts": [
+      "It has more bars and cafes per person than almost any other country in the world.",
+      "Every summer, crowds run alongside bulls through narrow streets in one of its most famous festivals.",
+      "A fiery, passionate dance style performed with quick footwork and clapping has its roots in one of its southern regions."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "sweden",
+    "name": "Sweden",
+    "image": "images/europe-countries/sweden.png",
+    "alt": "A world map with a long highlighted country running down a peninsula's eastern side, facing a sea across from several neighbors.",
+    "facts": [
+      "The prizes considered the most prestigious in science, literature, and peace were created using the fortune of an inventor born here.",
+      "A law here gives everyone the right to walk, camp, and forage on almost any land, even land they don't own.",
+      "A furniture company founded here in a small village grew into one of the largest furniture retailers on the planet."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "switzerland",
+    "name": "Switzerland",
+    "image": "images/europe-countries/switzerland.png",
+    "alt": "A world map with a small, landlocked highlighted country in the middle of a continent, draped across a tall mountain range.",
+    "facts": [
+      "It has stayed officially neutral in wars for more than two centuries.",
+      "Deep underground near its border with a neighboring country, scientists smash tiny particles together at nearly the speed of light to study what the universe is made of.",
+      "It's one of the largest consumers of chocolate per person in the world."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "ukraine",
+    "name": "Ukraine",
+    "image": "images/europe-countries/ukraine.png",
+    "alt": "A world map with a large highlighted country in the eastern part of a continent, with a coastline on a sea in the south.",
+    "facts": [
+      "It's the largest country whose entire territory lies within its continent.",
+      "Its rich black soil makes it one of the biggest wheat and sunflower oil producers on Earth.",
+      "One of its nuclear power plants was the site of the worst nuclear accident in history, back in 1986."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "united-kingdom",
+    "name": "United Kingdom",
+    "image": "images/europe-countries/united-kingdom.png",
+    "alt": "A world map with a highlighted set of islands off the northwestern coast of a continent, separated from the mainland by a narrow sea.",
+    "facts": [
+      "It's made up of four different nations joined together under one flag.",
+      "The modern rules for the world's most popular sport were written down here in the 1800s.",
+      "It's often considered the birthplace of the Industrial Revolution, when machines first began replacing hand-powered work on a massive scale."
+    ],
+    "popularity": 65
+  }
+]

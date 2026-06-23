@@ -1,0 +1,530 @@
+[
+  {
+    "id": "afghanistan",
+    "name": "Afghanistan",
+    "image": "images/asia-countries/afghanistan.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent, set among rugged mountain ranges.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "Its rugged mountains have earned it the nickname 'graveyard of empires,' since invading armies have struggled to hold it for centuries.",
+      "For thousands of years, a brilliant blue gemstone mined in its mountains has been prized by artists and royalty around the world."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "armenia",
+    "name": "Armenia",
+    "image": "images/asia-countries/armenia.png",
+    "alt": "A world map with a small, landlocked highlighted country tucked between two seas, in a mountainous region where two continents meet.",
+    "facts": [
+      "It became the first country in the world to officially adopt Christianity as its state religion, in the year 301.",
+      "Its own alphabet, created more than 1,600 years ago, is still used to write its language today.",
+      "A famous, legendary mountain often associated with its history and an ancient flood story now sits just across its border."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "azerbaijan",
+    "name": "Azerbaijan",
+    "image": "images/asia-countries/azerbaijan.png",
+    "alt": "A world map with a highlighted country along the western shore of a huge inland sea, with a thin detached sliver pinched between two neighbors.",
+    "facts": [
+      "It's nicknamed the 'Land of Fire,' thanks to natural gas seeping from the ground that burns continuously in a few spots.",
+      "Its capital sits beside the world's largest inland body of water, often called a sea even though it's technically a lake.",
+      "Some of the first modern oil wells ever drilled on Earth were sunk into the ground here in the 1800s."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "bangladesh",
+    "name": "Bangladesh",
+    "image": "images/asia-countries/bangladesh.png",
+    "alt": "A world map with a highlighted country almost entirely surrounded by a much larger neighbor, fanning out into a river delta near a bay.",
+    "facts": [
+      "It sits on the largest river delta in the world, formed where several mighty rivers spill into the sea.",
+      "It's one of the most densely populated countries on Earth, packing a huge population into a relatively small area.",
+      "A vast mangrove forest along its coast is one of the last places on Earth where tigers swim between islands to hunt."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "bhutan",
+    "name": "Bhutan",
+    "image": "images/asia-countries/bhutan.png",
+    "alt": "A world map with a tiny, landlocked highlighted country tucked high in a mountain range between two much larger neighbors.",
+    "facts": [
+      "Instead of just tracking economic growth, its government officially measures the happiness of its people as a national goal.",
+      "It was one of the last countries in the world to allow television and the internet, only doing so in the late 1990s.",
+      "It absorbs more carbon dioxide from the air than it produces, thanks to its vast forests."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "brunei",
+    "name": "Brunei",
+    "image": "images/asia-countries/brunei.png",
+    "alt": "A world map with a tiny highlighted country split into two small pieces on the coast of a large tropical island, surrounded by a much bigger neighbor.",
+    "facts": [
+      "Its ruler is one of the wealthiest royals in the world, thanks to vast reserves of oil and natural gas.",
+      "It shares one island with two larger neighboring countries.",
+      "Most residents here pay no income tax at all, with the government's oil wealth covering many public costs."
+    ],
+    "popularity": 12
+  },
+  {
+    "id": "cambodia",
+    "name": "Cambodia",
+    "image": "images/asia-countries/cambodia.png",
+    "alt": "A world map with a highlighted country in the middle of a peninsula, wrapped around a large lake fed by a great river.",
+    "facts": [
+      "It's home to the largest religious monument on Earth, a sprawling temple complex built nearly a thousand years ago.",
+      "Many shops and markets here happily accept a foreign currency from across the ocean right alongside their own money.",
+      "Its ancient empire once stretched across a huge swath of the region, leaving behind hundreds of temple ruins hidden in the jungle."
+    ],
+    "popularity": 22
+  },
+  {
+    "id": "china",
+    "name": "China",
+    "image": "images/asia-countries/china.png",
+    "alt": "A world map with an enormous highlighted landmass covering much of the eastern side of a continent.",
+    "facts": [
+      "It's home to one of the largest populations of any country in the world.",
+      "A wall built over centuries to defend its northern borders stretches for thousands of miles across mountains and deserts.",
+      "It's the only place on Earth where giant pandas live in the wild."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "cyprus",
+    "name": "Cyprus",
+    "image": "images/asia-countries/cyprus.png",
+    "alt": "A world map with a small highlighted island alone in the middle of a sea, near where three continents almost meet.",
+    "facts": [
+      "It's an island split between two different communities, with a buffer zone running straight through its capital city.",
+      "Ancient myths claimed it was the birthplace of the goddess of love, rising from sea foam near its shores.",
+      "A squeaky, salty cheese that doesn't melt when grilled was invented here centuries ago."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "georgia",
+    "name": "Georgia",
+    "image": "images/asia-countries/georgia.png",
+    "alt": "A world map with a small highlighted country wedged between a sea and a towering mountain range, where two continents meet.",
+    "facts": [
+      "Archaeologists believe wine was first made here more than 8,000 years ago, making it one of the oldest wine regions on Earth.",
+      "Its rugged mountain range is home to some of the tallest peaks outside of one much taller range further east.",
+      "It has a centuries-old tradition of singing in complex, multiple harmony parts at once, recognized as a treasured cultural practice."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "india",
+    "name": "India",
+    "image": "images/asia-countries/india.png",
+    "alt": "A world map with a huge highlighted landmass shaped like a triangle, jutting south into a warm ocean.",
+    "facts": [
+      "It recently became the most populous country on Earth.",
+      "A board game played by millions worldwide today is believed to have first been invented here.",
+      "One of its emperors built an enormous white marble tomb for his wife that's now considered one of the most beautiful buildings on the planet."
+    ],
+    "popularity": 85
+  },
+  {
+    "id": "indonesia",
+    "name": "Indonesia",
+    "image": "images/asia-countries/indonesia.png",
+    "alt": "A world map with a long, scattered chain of highlighted islands stretching between two oceans, straddling the equator.",
+    "facts": [
+      "It's made up of more than 17,000 islands, more than any other country on Earth.",
+      "More people who follow Islam live here than in any other country in the world.",
+      "It's the only place on Earth where you'll find giant lizards big enough to take down a deer in the wild."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "iran",
+    "name": "Iran",
+    "image": "images/asia-countries/iran.png",
+    "alt": "A world map with a large highlighted country between two seas, much of it covered in high desert plateau.",
+    "facts": [
+      "Thousands of years ago, an empire centered here built one of the largest empires the ancient world had ever seen.",
+      "It produces more saffron, one of the world's most expensive spices, than any other country on Earth.",
+      "Ancient builders here engineered clever wind-catching towers that cooled buildings centuries before electric air conditioning existed."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "iraq",
+    "name": "Iraq",
+    "image": "images/asia-countries/iraq.png",
+    "alt": "A world map with a highlighted country in the middle of a dry region, with two great rivers running through it toward a gulf.",
+    "facts": [
+      "It's often called the 'cradle of civilization,' since some of the very first cities and writing systems on Earth appeared here thousands of years ago.",
+      "One of its ancient cities was said to have legendary hanging gardens, counted among the wonders of the ancient world.",
+      "The wheel, one of humanity's most important inventions, is believed to have first been used for transportation in this region."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "israel",
+    "name": "Israel",
+    "image": "images/asia-countries/israel.png",
+    "alt": "A world map with a small highlighted country along the eastern edge of a sea, with a deep, narrow basin along part of its border.",
+    "facts": [
+      "It's home to the lowest point of dry land on Earth, a salty sea so dense that swimmers float without even trying.",
+      "Three major world religions all consider one of its cities among their holiest places.",
+      "Facing a dry climate, it became a world leader in turning salty seawater into fresh drinking water."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "japan",
+    "name": "Japan",
+    "image": "images/asia-countries/japan.png",
+    "alt": "A world map with a long chain of highlighted islands curving along the eastern edge of a continent, surrounded entirely by ocean.",
+    "facts": [
+      "It's made up of thousands of islands, though most people live on just a handful of the largest ones.",
+      "One of its family-run businesses has operated continuously for over a thousand years, making it one of the oldest companies on Earth.",
+      "Its high-speed trains travel so fast and so punctually that delays of even a minute or two make headlines."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "jordan",
+    "name": "Jordan",
+    "image": "images/asia-countries/jordan.png",
+    "alt": "A world map with a landlocked highlighted country in a dry region, with just a tiny sliver of coastline reaching a gulf.",
+    "facts": [
+      "An entire ancient city here was carved directly into rose-colored cliffs more than 2,000 years ago.",
+      "Filmmakers have used its vast red desert to stand in for the surface of Mars in several movies.",
+      "Despite being mostly desert, it shares one of the saltiest, lowest bodies of water on Earth with a neighboring country."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "kazakhstan",
+    "name": "Kazakhstan",
+    "image": "images/asia-countries/kazakhstan.png",
+    "alt": "A world map with an enormous, landlocked highlighted country spanning the middle of a continent, partly bordering a huge inland sea.",
+    "facts": [
+      "It's the largest landlocked country in the world.",
+      "One of the world's oldest and busiest spaceports sits on its steppe, launching astronauts into orbit for decades.",
+      "Horses have been central to life here for thousands of years, and fermented mare's milk is still a traditional drink."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "kuwait",
+    "name": "Kuwait",
+    "image": "images/asia-countries/kuwait.png",
+    "alt": "A world map with a tiny highlighted country at the tip of a gulf, squeezed between two much larger neighbors.",
+    "facts": [
+      "It sits on some of the largest oil reserves on the planet despite its small size.",
+      "Its flat desert landscape regularly produces some of the hottest temperatures ever recorded on Earth.",
+      "Its currency is consistently ranked among the most valuable in the world, unit for unit."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "kyrgyzstan",
+    "name": "Kyrgyzstan",
+    "image": "images/asia-countries/kyrgyzstan.png",
+    "alt": "A world map with a small, landlocked highlighted country folded into a knot of high mountains in the middle of a continent.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "More than 90 percent of its land is covered by towering mountains, leaving very little flat ground to farm.",
+      "One of its high mountain lakes is so large and deep that it almost never freezes, even in brutal winters."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "laos",
+    "name": "Laos",
+    "image": "images/asia-countries/laos.png",
+    "alt": "A world map with a landlocked highlighted country shaped like a long, narrow strip down the middle of a peninsula.",
+    "facts": [
+      "It's the only landlocked country in its entire region.",
+      "Its old kingdom was once known as the 'Land of a Million Elephants.'",
+      "A single great river forms much of its western border and serves as a vital highway for trade and travel."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "lebanon",
+    "name": "Lebanon",
+    "image": "images/asia-countries/lebanon.png",
+    "alt": "A world map with a tiny highlighted country along the eastern edge of a sea, backed by a narrow strip of mountains.",
+    "facts": [
+      "Its flag features a cedar tree, a species so important to its history that ancient peoples once shipped its timber across the sea to build temples and ships.",
+      "An ancient seafaring civilization based here is credited with spreading one of the first widely used alphabets across the ancient world.",
+      "Despite its small size, its capital was once nicknamed after a famous European city for its lively cafes and nightlife."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "malaysia",
+    "name": "Malaysia",
+    "image": "images/asia-countries/malaysia.png",
+    "alt": "A world map with a highlighted country split into two separate pieces, one on a peninsula and one on a large island, divided by a stretch of sea.",
+    "facts": [
+      "It's split into two separate parts, divided by a stretch of sea between a peninsula and a large island.",
+      "Twin towers built here once held the record for the tallest buildings in the world.",
+      "Its rainforests are one of the last wild homes of orangutans anywhere on Earth."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "mongolia",
+    "name": "Mongolia",
+    "image": "images/asia-countries/mongolia.png",
+    "alt": "A world map with a large, landlocked highlighted country in the middle of a continent, between a vast desert and a forested north.",
+    "facts": [
+      "It's one of the least densely populated countries in the world, with vast open steppe stretching in every direction.",
+      "An empire that began here in the 1200s grew into the largest contiguous land empire in history.",
+      "Many people here still live a nomadic lifestyle, herding animals and moving between traditional round tents through the seasons."
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "myanmar",
+    "name": "Myanmar",
+    "image": "images/asia-countries/myanmar.png",
+    "alt": "A world map with a highlighted country shaped like a kite along the edge of a peninsula, fringed by a long coastline on a bay.",
+    "facts": [
+      "One ancient city here is dotted with thousands of Buddhist temples and pagodas built over several centuries.",
+      "It produces more teak, a hardwood prized for furniture and shipbuilding, than any other country on Earth.",
+      "It was known by a different name for most of its modern history before officially changing it."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "nepal",
+    "name": "Nepal",
+    "image": "images/asia-countries/nepal.png",
+    "alt": "A world map with a small, landlocked highlighted country squeezed along the southern slope of the tallest mountain range on Earth.",
+    "facts": [
+      "It's home to the tallest mountain on Earth, towering far above the clouds.",
+      "It's the birthplace of a spiritual teacher whose followers now number in the hundreds of millions worldwide.",
+      "It's the only country in the world with a flag that isn't a rectangle."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "north-korea",
+    "name": "North Korea",
+    "image": "images/asia-countries/north-korea.png",
+    "alt": "A world map with a highlighted country occupying the northern half of a peninsula, cut off from its southern neighbor by a narrow strip.",
+    "facts": [
+      "Most of its citizens have no access to the global internet, browsing only a tightly controlled internal network instead.",
+      "It's home to one of the largest stadiums in the world, built to hold well over 100,000 spectators.",
+      "Time itself briefly ran differently here, after it created its own time zone for a few years before switching back."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "oman",
+    "name": "Oman",
+    "image": "images/asia-countries/oman.png",
+    "alt": "A world map with a highlighted country curving along a coastline at the edge of a peninsula, with a small detached piece near a busy strait.",
+    "facts": [
+      "It's considered one of the oldest continuously independent states in its entire region.",
+      "For thousands of years, traders here grew rich exporting a fragrant tree resin once worth its weight in gold.",
+      "Despite being mostly desert, one of its mountain ranges gets cool enough most years to see occasional frost."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "pakistan",
+    "name": "Pakistan",
+    "image": "images/asia-countries/pakistan.png",
+    "alt": "A world map with a highlighted country between a desert coastline and some of the tallest mountains on Earth.",
+    "facts": [
+      "It's home to the world's second-tallest mountain, a notoriously difficult peak to climb.",
+      "One of the world's earliest great civilizations built sophisticated cities with drainage systems here more than 4,000 years ago.",
+      "It's one of the most populous countries on Earth."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "philippines",
+    "name": "Philippines",
+    "image": "images/asia-countries/philippines.png",
+    "alt": "A world map with a huge cluster of highlighted islands scattered between two seas, east of a much larger landmass.",
+    "facts": [
+      "It's made up of more than 7,000 islands scattered across the sea.",
+      "Christmas celebrations here are said to be among the longest in the world, with festive songs sometimes starting as early as September.",
+      "It's hit by dozens of typhoons most years, more than almost any other country on Earth."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "qatar",
+    "name": "Qatar",
+    "image": "images/asia-countries/qatar.png",
+    "alt": "A world map with a tiny highlighted peninsula jutting out into a gulf from the edge of a much larger landmass.",
+    "facts": [
+      "It became the first country in the Middle East to host the world's biggest soccer tournament.",
+      "It sits on some of the largest natural gas reserves on the planet, despite its small size.",
+      "It's regularly ranked among the wealthiest countries in the world per person."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "saudi-arabia",
+    "name": "Saudi Arabia",
+    "image": "images/asia-countries/saudi-arabia.png",
+    "alt": "A world map with a vast highlighted country covering most of a peninsula, bordered by a sea on one side and a gulf on the other.",
+    "facts": [
+      "It's the largest country in the world with no permanent rivers at all.",
+      "Two of the holiest cities in one of the world's major religions are located within its borders, drawing millions of pilgrims every year.",
+      "It's home to one of the largest continuous sand deserts on Earth."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "south-korea",
+    "name": "South Korea",
+    "image": "images/asia-countries/south-korea.png",
+    "alt": "A world map with a highlighted country occupying the southern half of a peninsula, cut off from its northern neighbor by a narrow strip.",
+    "facts": [
+      "It's become a global hub for pop music, with bands here selling out stadiums on nearly every continent.",
+      "It regularly ranks among the countries with the fastest average internet speeds in the world.",
+      "A heavily guarded strip of land running along its northern border is one of the most fortified borders on Earth."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "sri-lanka",
+    "name": "Sri Lanka",
+    "image": "images/asia-countries/sri-lanka.png",
+    "alt": "A world map with a small, teardrop-shaped highlighted island just off the southern tip of a much larger neighboring landmass.",
+    "facts": [
+      "It's shaped like a teardrop, hanging just off the southern tip of a much larger neighboring country.",
+      "Tea grown in its misty highlands is shipped and sold all over the world under an older name for the island.",
+      "Engineers here built enormous reservoirs and canals more than a thousand years ago to capture monsoon rains."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "syria",
+    "name": "Syria",
+    "image": "images/asia-countries/syria.png",
+    "alt": "A world map with a highlighted country along the eastern edge of a sea, mostly dry plains rising toward mountains in the west.",
+    "facts": [
+      "Its capital is considered one of the oldest continuously inhabited cities in the world.",
+      "For thousands of years, it sat at a crossroads where major trade routes between three continents all met.",
+      "One of its cities has produced a distinctive olive oil soap using the same traditional process for centuries."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "tajikistan",
+    "name": "Tajikistan",
+    "image": "images/asia-countries/tajikistan.png",
+    "alt": "A world map with a small, landlocked highlighted country almost entirely covered by jagged, snow-capped mountains.",
+    "facts": [
+      "It's landlocked, with no coastline touching any sea.",
+      "More than 90 percent of its land is covered by towering mountains, including a range nicknamed the 'roof of the world.'",
+      "It's one of the most mountainous countries that used to be part of a much larger union of republics."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "thailand",
+    "name": "Thailand",
+    "image": "images/asia-countries/thailand.png",
+    "alt": "A world map with a highlighted country shaped like an elephant's head, stretching down a narrow peninsula.",
+    "facts": [
+      "It's the only country in its region that was never colonized by a European power.",
+      "Its capital is consistently ranked among the most-visited cities in the world.",
+      "Elephants are such an important national symbol here that one used to appear on its flag."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "timor-leste",
+    "name": "Timor-Leste",
+    "image": "images/asia-countries/timor-leste.png",
+    "alt": "A world map with a small highlighted country on the eastern end of an island shared with a much larger neighbor.",
+    "facts": [
+      "It's one of the newest countries in the world, gaining full independence only in the early 2000s.",
+      "It shares one island with a much larger neighboring country, splitting it roughly in two.",
+      "Most people here are Catholic, a legacy of European colonizers who ruled for centuries, unlike most of its mostly Muslim or Buddhist neighbors."
+    ],
+    "popularity": 8
+  },
+  {
+    "id": "turkey",
+    "name": "Turkey",
+    "image": "images/asia-countries/turkey.png",
+    "alt": "A world map with a highlighted country spanning a narrow strait between two continents, bordered by sea on three sides.",
+    "facts": [
+      "It's split between two continents, joined by bridges and tunnels across a narrow strait.",
+      "Its largest city is the only city in the world that sits on two continents at once.",
+      "One of its regions is dotted with tall, cone-shaped rock formations, some hollowed out into homes and churches centuries ago."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "turkmenistan",
+    "name": "Turkmenistan",
+    "image": "images/asia-countries/turkmenistan.png",
+    "alt": "A world map with a landlocked highlighted country along the eastern shore of a huge inland sea, mostly covered by desert.",
+    "facts": [
+      "A natural gas crater here has been burning continuously since the 1970s, earning it a fiery nickname.",
+      "Much of its land is covered by a vast desert that takes up most of the country.",
+      "Its capital city is filled with so many white marble buildings that it holds a record for the largest concentration of marble-clad buildings in the world."
+    ],
+    "popularity": 10
+  },
+  {
+    "id": "united-arab-emirates",
+    "name": "United Arab Emirates",
+    "image": "images/asia-countries/united-arab-emirates.png",
+    "alt": "A world map with a small highlighted country along the southern shore of a gulf, at the edge of a vast desert peninsula.",
+    "facts": [
+      "It's home to the tallest building in the world, piercing far above any cloud in the sky.",
+      "It's made up of seven separate emirates joined together as one federation.",
+      "Engineers here built artificial islands shaped like palm trees, visible even from space."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "uzbekistan",
+    "name": "Uzbekistan",
+    "image": "images/asia-countries/uzbekistan.png",
+    "alt": "A world map with a landlocked highlighted country in the middle of a continent, surrounded entirely by other landlocked countries.",
+    "facts": [
+      "It's one of only two countries in the entire world that are landlocked and also entirely surrounded by other landlocked countries.",
+      "Ancient cities here once thrived as major stops along a famous network of trade routes connecting Asia and Europe.",
+      "Some of its city squares are lined with dazzling tiled mosques and monuments built centuries ago by powerful Silk Road rulers."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "vietnam",
+    "name": "Vietnam",
+    "image": "images/asia-countries/vietnam.png",
+    "alt": "A world map with a long, S-shaped highlighted country curving down the eastern edge of a peninsula.",
+    "facts": [
+      "It's shaped like a long, curving 'S' stretching along its coast.",
+      "Motorbikes vastly outnumber cars on its streets, weaving through traffic in massive numbers.",
+      "It's home to the largest cave passage in the world, big enough to fit skyscrapers inside."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "yemen",
+    "name": "Yemen",
+    "image": "images/asia-countries/yemen.png",
+    "alt": "A world map with a highlighted country at the southern tip of a peninsula, with a small detached island far out in a nearby sea.",
+    "facts": [
+      "One of its remote islands is home to bizarre, umbrella-shaped trees found growing wild nowhere else on Earth.",
+      "One of its ancient walled cities is packed with centuries-old mudbrick towers so tall and dense it's nicknamed the 'Manhattan of the desert.'",
+      "Ancient legends linked it to a wealthy and powerful queen famous in stories across multiple religions."
+    ],
+    "popularity": 12
+  }
+]
