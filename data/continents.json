@@ -3,6 +3,7 @@
     "id": "africa",
     "name": "Africa",
     "image": "images/continents/africa.png",
+    "alt": "A world map with a large landmass highlighted, straddling the equator with hot desert across its northern half.",
     "fact": "Home to the Sahara, the largest hot desert in the world.",
     "popularity": 80
   },
@@ -10,6 +11,7 @@
     "id": "antarctica",
     "name": "Antarctica",
     "image": "images/continents/antarctica.png",
+    "alt": "A world map with the icy landmass at the very bottom of the globe highlighted.",
     "fact": "It's so cold that almost no people live here — but lots of penguins do!",
     "popularity": 55
   },
@@ -17,6 +19,7 @@
     "id": "asia",
     "name": "Asia",
     "image": "images/continents/asia.png",
+    "alt": "A world map with the largest landmass highlighted, stretching from the middle of the globe to its eastern edge.",
     "fact": "This is the biggest continent — more than half of all the people in the world live here.",
     "popularity": 85
   },
@@ -24,6 +27,7 @@
     "id": "australia",
     "name": "Australia",
     "image": "images/continents/australia.png",
+    "alt": "A world map with one highlighted island-sized landmass, surrounded entirely by ocean, off by itself.",
     "fact": "This is the only continent that is also just one country.",
     "popularity": 60
   },
@@ -31,6 +35,7 @@
     "id": "europe",
     "name": "Europe",
     "image": "images/continents/europe.png",
+    "alt": "A world map with a highlighted landmass made up of many small countries packed closely together.",
     "fact": "This continent packs more than 40 different countries close together.",
     "popularity": 75
   },
@@ -38,6 +43,7 @@
     "id": "north-america",
     "name": "North America",
     "image": "images/continents/north-america.png",
+    "alt": "A world map with a highlighted landmass spanning from icy northern land down to a narrow strip near the equator.",
     "fact": "This continent stretches all the way from icy Canada down to sunny Mexico.",
     "popularity": 90
   },
@@ -45,6 +51,7 @@
     "id": "south-america",
     "name": "South America",
     "image": "images/continents/south-america.png",
+    "alt": "A world map with a highlighted, triangle-shaped landmass south of a narrow strip of land, crossed by the equator.",
     "fact": "Home to the Amazon rainforest, the largest rainforest on Earth.",
     "popularity": 65
   }
