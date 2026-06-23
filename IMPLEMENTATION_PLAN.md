@@ -320,14 +320,48 @@ This mirrors the order in "Adding a new module" above: content and images
 are authored and checked in first, and the manifest is only touched last,
 once the module is actually complete.
 
+## Geography modules — generating map images
+
+Continents, Oceans, US States, and the six per-continent Country modules
+(`africa-countries`, `asia-countries`, `europe-countries`,
+`north-america-countries`, `oceania-countries`,
+`south-america-countries`) all use the same approach for images: render a
+world or US map with the item's borders highlighted, using
+[geopandas](https://geopandas.org/), matplotlib (headless `Agg` backend),
+and [shapely](https://shapely.readthedocs.io/), rather than generated
+art. This makes the image step Stage 1 + part of Stage 2 of the workflow
+above: it produces the plan file and every item's image in one
+automated pass, leaving only facts and alt text to author by hand.
+
+The scripts live in [`tools/`](tools/), with full setup, data-source
+URLs, and rendering conventions (palette, crop-to-bounds padding,
+antimeridian handling for Russia/Fiji, the country exclusion list, and
+display-name overrides) documented in [`tools/README.md`](tools/README.md).
+In short: `tools/render_continents_oceans.py`, `tools/render_states.py`,
+and `tools/render_countries.py` each read a public GeoJSON dataset
+(Natural Earth for continents/oceans/countries, PublicaMundi for US
+states) and write straight into the matching `images/` folder using
+repo-relative paths, so a fresh clone can regenerate every map image
+with no path edits — only the dataset files themselves need to be
+downloaded first, since they're large third-party data and not checked
+into the repo.
+
+This only covers the geographic/visual half of building one of these
+modules. The factual content — `facts` and non-naming `alt` text in
+`data/<module-id>.json` — still has to be authored separately, by hand
+or by an AI agent, with facts checked against a reliable source per
+Stage 2 above.
+
 ## What's deliberately deferred
 
 - The Elo/IRT mastery model and adaptive pool expansion from
   [DESIGN.md](DESIGN.md) — v1 uses random selection instead, but already
   records the per-item shown/correct counts that model will need.
-- AI-generated images — v1 ships with placeholder images so the loop can
-  be built and tested; swapping in AI-generated art is a content task, not
-  a code change.
+- AI-generated images for non-geography modules — the geography modules
+  (see above) use rendered map data instead; a future topic without a
+  natural map representation (e.g. Pokémon) would still need actual
+  AI-generated or hand-sourced art, which remains a content task, not a
+  code change.
 - Audio pronunciation, a dedicated map mode, and additional modules beyond
   Continents/Oceans — already deferred in [DESIGN.md](DESIGN.md).
 
@@ -336,6 +370,7 @@ once the module is actually complete.
 - Exact visual style (palette, fonts, animation details) for the "pretty
   and modern" look isn't nailed down here — proposing a first pass in code
   and iterating from there seems faster than specifying it in writing.
-- Which specific AI image-generation tool/API to call, and the exact
-  standard image dimensions for cards, aren't pinned down — to be decided
-  when the first AI-authored module actually gets built.
+- Which specific AI image-generation tool/API to call for a future
+  non-geography module, and the exact standard image dimensions for
+  cards, aren't pinned down — to be decided when that module actually
+  gets built.

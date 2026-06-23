@@ -1,1 +1,3 @@
 node_modules/
+tools/geo-data/*.geojson
+tools/geo-data/*.json
