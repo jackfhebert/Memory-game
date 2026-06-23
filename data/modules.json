@@ -21,6 +21,13 @@
     "icon": "🗺️"
   },
   {
+    "id": "north-america-countries",
+    "name": "North American Countries",
+    "dataFile": "north-america-countries.json",
+    "color": "#5A8F4F",
+    "icon": "🌎"
+  },
+  {
     "id": "oceania-countries",
     "name": "Oceania Countries",
     "dataFile": "oceania-countries.json",

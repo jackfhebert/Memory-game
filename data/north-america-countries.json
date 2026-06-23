@@ -1,0 +1,194 @@
+[
+  {
+    "id": "bahamas",
+    "name": "Bahamas",
+    "image": "images/north-america-countries/bahamas.png",
+    "alt": "A world map with a scattered chain of small highlighted islands just off the southeastern coast of a large landmass, surrounded by turquoise water.",
+    "facts": [
+      "It's made up of more than 700 islands and cays, but most people live on just a couple of them.",
+      "Some of its waters hide deep, perfectly round 'blue holes' that plunge hundreds of feet straight down.",
+      "It's often said to be the first land Columbus reached in the Americas, back in 1492."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "belize",
+    "name": "Belize",
+    "image": "images/north-america-countries/belize.png",
+    "alt": "A world map with a small highlighted country on the eastern coast of a narrow strip of land connecting two continents, fringed by a long reef just offshore.",
+    "facts": [
+      "It's the only country in its region where English, not Spanish, is the official language.",
+      "Its coast is protected by the second-largest barrier reef system on Earth, after one far away in Australia.",
+      "It has one of the lowest population densities in its entire region, with thick jungle covering much of the land."
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "canada",
+    "name": "Canada",
+    "image": "images/north-america-countries/canada.png",
+    "alt": "A world map with a massive highlighted landmass stretching across the entire top of a continent, reaching up toward the Arctic.",
+    "facts": [
+      "It has more lakes than the rest of the world combined.",
+      "It shares the longest international border on Earth with its southern neighbor.",
+      "Parts of its far north stay light almost all day in summer and dark almost all day in winter."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "costa-rica",
+    "name": "Costa Rica",
+    "image": "images/north-america-countries/costa-rica.png",
+    "alt": "A world map with a small highlighted country pinched between two larger neighbors on a narrow strip of land connecting two continents.",
+    "facts": [
+      "It abolished its army entirely decades ago and has had no standing military since.",
+      "Despite covering a tiny sliver of the planet's land, it's home to about 5 percent of all known species on Earth.",
+      "It generates almost all of its electricity from rivers, volcanoes, and wind instead of burning fuel."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "cuba",
+    "name": "Cuba",
+    "image": "images/north-america-countries/cuba.png",
+    "alt": "A world map with a long, narrow highlighted island curving across the mouth of a large gulf, just south of a much bigger landmass.",
+    "facts": [
+      "It's the largest island in its sea, ringed by hundreds of smaller islands.",
+      "Because of a decades-long trade embargo, plenty of people here still drive classic cars from the 1950s, kept running with homemade parts.",
+      "It's famous worldwide for its hand-rolled cigars, grown from tobacco in its fertile valleys."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "dominican-republic",
+    "name": "Dominican Republic",
+    "image": "images/north-america-countries/dominican-republic.png",
+    "alt": "A world map with a highlighted country covering the eastern two-thirds of an island shared with a neighboring country, in the middle of a sea.",
+    "facts": [
+      "It shares one island with a neighboring country, split right down the middle by a border.",
+      "Baseball is such a big deal here that it's produced more major-league stars per person than almost anywhere else.",
+      "Its capital is home to the oldest cathedral Europeans ever built anywhere in the Americas."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "el-salvador",
+    "name": "El Salvador",
+    "image": "images/north-america-countries/el-salvador.png",
+    "alt": "A world map with a tiny highlighted country along the Pacific coast of a narrow strip of land connecting two continents, the smallest shape in its region.",
+    "facts": [
+      "It's the smallest and most densely packed country in its region.",
+      "It became the first country in the world to make a digital currency official money alongside its regular cash.",
+      "It's dotted with so many volcanoes that one of its old nicknames translates to 'Land of Volcanoes.'"
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "guatemala",
+    "name": "Guatemala",
+    "image": "images/north-america-countries/guatemala.png",
+    "alt": "A world map with a highlighted country at the top of a narrow strip of land connecting two continents, bordered by several smaller countries.",
+    "facts": [
+      "It's the most populous country in its entire region.",
+      "Deep in its northern jungle stand towering stone pyramids built by an ancient civilization that ruled much of the region for centuries.",
+      "Its national bird is so dazzling and rare that ancient rulers once wore its long tail feathers as a symbol of power."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "haiti",
+    "name": "Haiti",
+    "image": "images/north-america-countries/haiti.png",
+    "alt": "A world map with a highlighted country covering the western third of an island shared with a neighboring country, in the middle of a sea.",
+    "facts": [
+      "It became the first country in the world founded by formerly enslaved people who fought for their own freedom.",
+      "It shares its island with a neighboring country, divided by a mountainous border.",
+      "Most people here grow up speaking a Creole language that blends French with West African roots."
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "honduras",
+    "name": "Honduras",
+    "image": "images/north-america-countries/honduras.png",
+    "alt": "A world map with a highlighted country shaped like a triangle along the Caribbean coast of a narrow strip of land connecting two continents.",
+    "facts": [
+      "Its history with fruit-export companies once inspired the old phrase 'banana republic.'",
+      "Islands off its Caribbean coast are ringed with coral reefs that draw divers from all over the world.",
+      "Ruins of an ancient city deep in its western hills are famous for elaborately carved stone monuments."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "jamaica",
+    "name": "Jamaica",
+    "image": "images/north-america-countries/jamaica.png",
+    "alt": "A world map with a small highlighted island alone in the middle of a sea, south of a much larger landmass.",
+    "facts": [
+      "It gave the world reggae music and its most famous performer ever.",
+      "Runners from this small island have won an astonishing number of Olympic sprinting medals for its size.",
+      "Its misty mountains grow a coffee so prized that it's among the most expensive in the world."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "mexico",
+    "name": "Mexico",
+    "image": "images/north-america-countries/mexico.png",
+    "alt": "A world map with a highlighted country curving along the bottom of a much larger landmass, narrowing toward a thin strip of land connecting two continents.",
+    "facts": [
+      "More people speak Spanish here than in any other country on Earth.",
+      "It's home to the largest pyramid by volume in the world, even though much of it is hidden inside what looks like a hill.",
+      "Each year it holds a holiday that celebrates relatives who have died, instead of mourning them quietly."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "nicaragua",
+    "name": "Nicaragua",
+    "image": "images/north-america-countries/nicaragua.png",
+    "alt": "A world map with a highlighted country in the middle of a narrow strip of land connecting two continents, with a large lake near its Pacific side.",
+    "facts": [
+      "It's the largest country in its region by land area.",
+      "Its biggest lake is one of the few freshwater lakes in the world where sharks have been spotted swimming.",
+      "Chains of volcanoes run down its spine, with some still rumbling and smoking today."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "panama",
+    "name": "Panama",
+    "image": "images/north-america-countries/panama.png",
+    "alt": "A world map with a thin, S-shaped highlighted country at the very bottom of a narrow strip of land connecting two continents, pinched between two oceans.",
+    "facts": [
+      "A famous canal cut through it lets ships cross between two oceans without sailing all the way around an entire continent.",
+      "The straw hats that share its name were actually invented in a completely different country.",
+      "It's one of the narrowest points in its region, with both oceans visible from some of its hills."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "trinidad-and-tobago",
+    "name": "Trinidad and Tobago",
+    "image": "images/north-america-countries/trinidad-and-tobago.png",
+    "alt": "A world map with two small highlighted islands just off the northeastern coast of a much larger continent, near the mouth of a great river.",
+    "facts": [
+      "It's made up of two main islands instead of just one.",
+      "It's the birthplace of an entire style of music built around steel drums, invented from old oil barrels.",
+      "It's home to the largest natural deposit of asphalt on Earth, a lake of thick tar people can actually walk on."
+    ],
+    "popularity": 15
+  },
+  {
+    "id": "united-states",
+    "name": "United States",
+    "image": "images/north-america-countries/united-states.png",
+    "alt": "A world map with a huge highlighted landmass spanning the middle of a continent, plus a smaller separate highlighted patch up near the Arctic and a tiny dot far out in an ocean.",
+    "facts": [
+      "It's made up of 50 states plus several territories scattered across oceans far from its mainland.",
+      "It's home to one of the largest canyons on Earth, carved over millions of years by a single river.",
+      "It put the first humans on the Moon, beating every other country to it."
+    ],
+    "popularity": 90
+  }
+]
