@@ -1,4 +1,5 @@
 import { getProgress } from "./storage.js";
+import { ACTIVE_LEARNING_POOL_SIZE } from "./flashcards.js";
 
 let manifestCache = null;
 const itemsCache = new Map();
@@ -75,20 +76,41 @@ export function renderModuleSelect(container, { tiles, onSelectModule }) {
   container.appendChild(grid);
 }
 
-const MODES = [
-  { id: "active-learning", label: "Active Learning" },
-  { id: "all-cards", label: "All Cards" },
-];
+export function buildModeOptions(totalCount) {
+  const starterCount = Math.min(ACTIVE_LEARNING_POOL_SIZE, totalCount);
+  return [
+    {
+      id: "active-learning",
+      label: "Active Learning",
+      description: `${starterCount} cards to start, then more as you learn`,
+    },
+    {
+      id: "all-cards",
+      label: "All Cards",
+      description: `All ${totalCount} cards`,
+    },
+  ];
+}
 
-export function renderModeSelect(container, { onSelectMode }) {
+export function renderModeSelect(container, { totalCount, onSelectMode }) {
   container.innerHTML = "";
   const grid = document.createElement("div");
   grid.className = "tile-grid";
 
-  MODES.forEach((mode) => {
+  buildModeOptions(totalCount).forEach((mode) => {
     const button = document.createElement("button");
     button.className = "tile";
-    button.textContent = mode.label;
+
+    const label = document.createElement("span");
+    label.className = "tile-name";
+    label.textContent = mode.label;
+    button.appendChild(label);
+
+    const description = document.createElement("span");
+    description.className = "tile-description";
+    description.textContent = mode.description;
+    button.appendChild(description);
+
     button.addEventListener("click", () => onSelectMode(mode.id));
     grid.appendChild(button);
   });

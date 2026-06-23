@@ -5,6 +5,7 @@ import {
   pickNextCard,
   pickDistractors,
   buildAnswerChoices,
+  pickFact,
 } from "../js/flashcards.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 
@@ -82,4 +83,16 @@ test("buildAnswerChoices includes the correct item plus all distractors exactly 
   assert.equal(choices.length, 4);
   const ids = choices.map((c) => c.id).sort();
   assert.deepEqual(ids, [correct, ...distractors].map((c) => c.id).sort());
+});
+
+test("pickFact returns one of the item's facts", () => {
+  const item = { id: "item-0", facts: ["fact a", "fact b", "fact c"] };
+  assert.equal(pickFact(item, fakeRng([0])), "fact a");
+  assert.equal(pickFact(item, fakeRng([0.5])), "fact b");
+  assert.equal(pickFact(item, fakeRng([0.99])), "fact c");
+});
+
+test("pickFact works with a single fact", () => {
+  const item = { id: "item-0", facts: ["only fact"] };
+  assert.equal(pickFact(item, fakeRng([0])), "only fact");
 });

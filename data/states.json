@@ -1,0 +1,502 @@
+[
+  {
+    "id": "alabama",
+    "name": "Alabama",
+    "image": "images/states/alabama.png",
+    "alt": "A close-up map with a state highlighted that's roughly rectangular, sitting along the Gulf of Mexico with a short stretch of coastline at its southern tip.",
+    "facts": [
+      "This southern state is home to the U.S. Space and Rocket Center, where many astronauts trained."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "alaska",
+    "name": "Alaska",
+    "image": "images/states/alaska.png",
+    "alt": "A close-up map with a huge highlighted state far in the northwest corner, much bigger than its neighbors and reaching up near the Arctic.",
+    "facts": [
+      "This is the largest state by far, but has fewer people than almost any other state."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "arizona",
+    "name": "Arizona",
+    "image": "images/states/arizona.png",
+    "alt": "A close-up map with a roughly square highlighted state in the desert southwest, bordered by a long diagonal river along part of its edge.",
+    "facts": [
+      "This state is home to the Grand Canyon, one of the most famous canyons in the world."
+    ],
+    "popularity": 72
+  },
+  {
+    "id": "arkansas",
+    "name": "Arkansas",
+    "image": "images/states/arkansas.png",
+    "alt": "A close-up map with a highlighted state shaped like a rough rectangle, sitting just west of a big river that forms part of its eastern border.",
+    "facts": [
+      "This is the only U.S. state with a diamond mine where visitors can dig and keep what they find."
+    ],
+    "popularity": 42
+  },
+  {
+    "id": "california",
+    "name": "California",
+    "image": "images/states/california.png",
+    "alt": "A close-up map with a long, narrow highlighted state running down the entire Pacific coastline.",
+    "facts": [
+      "This is the most populated state, and home to Hollywood, the movie capital of the world."
+    ],
+    "popularity": 95
+  },
+  {
+    "id": "colorado",
+    "name": "Colorado",
+    "image": "images/states/colorado.png",
+    "alt": "A close-up map with a perfectly rectangular highlighted state sitting high in the Rocky Mountains.",
+    "facts": [
+      "This state has the highest average elevation of any state, with many tall mountain peaks."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "connecticut",
+    "name": "Connecticut",
+    "image": "images/states/connecticut.png",
+    "alt": "A close-up map with a small highlighted state tucked into the northeast, between bigger neighbors.",
+    "facts": [
+      "This small state is home to one of the oldest universities in the country."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "delaware",
+    "name": "Delaware",
+    "image": "images/states/delaware.png",
+    "alt": "A close-up map with a tiny, narrow highlighted state along the Atlantic coast, one of the smallest shapes on the map.",
+    "facts": [
+      "This was the very first state to join the United States."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "florida",
+    "name": "Florida",
+    "image": "images/states/florida.png",
+    "alt": "A close-up map with a long highlighted peninsula stretching south into warm waters, with a curved panhandle on its western side.",
+    "facts": [
+      "This state is shaped like a long peninsula and is home to a famous theme park resort."
+    ],
+    "popularity": 90
+  },
+  {
+    "id": "georgia",
+    "name": "Georgia",
+    "image": "images/states/georgia.png",
+    "alt": "A close-up map with a highlighted state shaped like a rough triangle, bordered by ocean on its southeast edge.",
+    "facts": [
+      "This state is the country's top grower of peaches and pecans."
+    ],
+    "popularity": 68
+  },
+  {
+    "id": "hawaii",
+    "name": "Hawaii",
+    "image": "images/states/hawaii.png",
+    "alt": "A close-up map with a chain of small highlighted islands surrounded entirely by deep blue ocean, far from any other land.",
+    "facts": [
+      "This is the only state made up entirely of islands, far out in the Pacific Ocean."
+    ],
+    "popularity": 85
+  },
+  {
+    "id": "idaho",
+    "name": "Idaho",
+    "image": "images/states/idaho.png",
+    "alt": "A close-up map with a highlighted state shaped almost like a boot, narrow at the top and wider toward the bottom.",
+    "facts": [
+      "This state grows more potatoes than any other state in the country."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "illinois",
+    "name": "Illinois",
+    "image": "images/states/illinois.png",
+    "alt": "A close-up map with a long, narrow highlighted state running north to south, with a big lake along part of its northeastern edge.",
+    "facts": [
+      "This state is home to a city famous for its very tall skyscrapers along a Great Lake."
+    ],
+    "popularity": 78
+  },
+  {
+    "id": "indiana",
+    "name": "Indiana",
+    "image": "images/states/indiana.png",
+    "alt": "A close-up map with a small, roughly rectangular highlighted state nestled between two larger neighbors.",
+    "facts": [
+      "This state hosts one of the most famous car races in the world, held every spring."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "iowa",
+    "name": "Iowa",
+    "image": "images/states/iowa.png",
+    "alt": "A close-up map with a highlighted state shaped like a rounded square, bordered by rivers on its eastern and western sides.",
+    "facts": [
+      "This state grows more corn than almost any other state."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "kansas",
+    "name": "Kansas",
+    "image": "images/states/kansas.png",
+    "alt": "A close-up map with a highlighted state shaped like a perfect rectangle, sitting right in the middle of the country.",
+    "facts": [
+      "This state is famous for its wide-open wheat fields and is one of the flattest in the country."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "kentucky",
+    "name": "Kentucky",
+    "image": "images/states/kentucky.png",
+    "alt": "A close-up map with a long, narrow highlighted state stretching east to west, with a wavy river border along its north.",
+    "facts": [
+      "This state is famous for raising racehorses and holding a famous derby race each spring."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "louisiana",
+    "name": "Louisiana",
+    "image": "images/states/louisiana.png",
+    "alt": "A close-up map with a highlighted state shaped a bit like a boot, with a wide river delta fanning out near the coast.",
+    "facts": [
+      "This state's biggest city is famous for jazz music and a colorful Mardi Gras parade."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "maine",
+    "name": "Maine",
+    "image": "images/states/maine.png",
+    "alt": "A close-up map with a highlighted state in the far northeast corner, shaped like a rugged, pointed wedge.",
+    "facts": [
+      "This is the easternmost state and catches more lobster than any other."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "maryland",
+    "name": "Maryland",
+    "image": "images/states/maryland.png",
+    "alt": "A close-up map with a small, oddly shaped highlighted state wrapped around a wide bay, with a thin strip stretching west.",
+    "facts": [
+      "This small state nearly surrounds the nation's capital and has a famous bay full of crabs."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "massachusetts",
+    "name": "Massachusetts",
+    "image": "images/states/massachusetts.png",
+    "alt": "A close-up map with a highlighted state shaped like an arm, with a curled peninsula reaching out into the Atlantic.",
+    "facts": [
+      "The first Thanksgiving is said to have happened here, where the Pilgrims landed."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "michigan",
+    "name": "Michigan",
+    "image": "images/states/michigan.png",
+    "alt": "A close-up map with a highlighted state split into two separate parts, surrounded by several huge lakes.",
+    "facts": [
+      "This state is shaped like a mitten and touches four of the five Great Lakes."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "minnesota",
+    "name": "Minnesota",
+    "image": "images/states/minnesota.png",
+    "alt": "A close-up map with a highlighted state near the Canadian border, dotted with thousands of small blue lakes.",
+    "facts": [
+      "This state calls itself the Land of 10,000 Lakes."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "mississippi",
+    "name": "Mississippi",
+    "image": "images/states/mississippi.png",
+    "alt": "A close-up map with a highlighted state shaped like a rectangle, with a long river forming its western border.",
+    "facts": [
+      "This state is named after the long river that runs along its western border."
+    ],
+    "popularity": 48
+  },
+  {
+    "id": "missouri",
+    "name": "Missouri",
+    "image": "images/states/missouri.png",
+    "alt": "A close-up map with a highlighted state shaped a bit like a boot, sitting in the middle of the country along two major rivers.",
+    "facts": [
+      "This state is home to a giant silver arch standing beside a major river."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "montana",
+    "name": "Montana",
+    "image": "images/states/montana.png",
+    "alt": "A close-up map with a large, roughly rectangular highlighted state along the Canadian border, covered partly by mountains.",
+    "facts": [
+      "This state is nicknamed Big Sky Country for its wide open land and huge skies."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "nebraska",
+    "name": "Nebraska",
+    "image": "images/states/nebraska.png",
+    "alt": "A close-up map with a highlighted state shaped almost like a rectangle, with a narrow panhandle stretching west.",
+    "facts": [
+      "This state is famous for its wide open plains and cattle ranches."
+    ],
+    "popularity": 42
+  },
+  {
+    "id": "nevada",
+    "name": "Nevada",
+    "image": "images/states/nevada.png",
+    "alt": "A close-up map with a highlighted state shaped like a triangle, mostly covered in dry desert land.",
+    "facts": [
+      "This state is home to a famous city known for its bright lights and big shows."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "new-hampshire",
+    "name": "New Hampshire",
+    "image": "images/states/new-hampshire.png",
+    "alt": "A close-up map with a small, narrow highlighted state with a short sliver of coastline at its southeastern tip.",
+    "facts": [
+      "This state's motto, carved on its license plates, is 'Live Free or Die.'"
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "new-jersey",
+    "name": "New Jersey",
+    "image": "images/states/new-jersey.png",
+    "alt": "A close-up map with a small highlighted state squeezed between two big bays, shaped a bit like a flattened triangle.",
+    "facts": [
+      "This small but crowded state is nicknamed the Garden State."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "new-mexico",
+    "name": "New Mexico",
+    "image": "images/states/new-mexico.png",
+    "alt": "A close-up map with a highlighted state shaped almost like a rectangle, covered in desert in the southwest.",
+    "facts": [
+      "This state is home to a desert covered in brilliant white sand dunes."
+    ],
+    "popularity": 58
+  },
+  {
+    "id": "new-york",
+    "name": "New York",
+    "image": "images/states/new-york.png",
+    "alt": "A close-up map with a highlighted state shaped a bit like an arrowhead, with a long thin panhandle on its eastern side.",
+    "facts": [
+      "This state's biggest city has a famous statue standing in its harbor."
+    ],
+    "popularity": 92
+  },
+  {
+    "id": "north-carolina",
+    "name": "North Carolina",
+    "image": "images/states/north-carolina.png",
+    "alt": "A close-up map with a highlighted state stretching from inland mountains to a curving string of barrier islands on the coast.",
+    "facts": [
+      "Two brothers flew the first airplane on the sandy beaches of this state."
+    ],
+    "popularity": 62
+  },
+  {
+    "id": "north-dakota",
+    "name": "North Dakota",
+    "image": "images/states/north-dakota.png",
+    "alt": "A close-up map with a highlighted state shaped like a perfect rectangle, sitting right along the Canadian border.",
+    "facts": [
+      "This state lies along the Canadian border and is one of the least visited in the country."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "ohio",
+    "name": "Ohio",
+    "image": "images/states/ohio.png",
+    "alt": "A close-up map with a highlighted state shaped a bit like a kite, with a curving lake along its northern edge.",
+    "facts": [
+      "This state is home to a famous music hall of fame beside one of the Great Lakes."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "oklahoma",
+    "name": "Oklahoma",
+    "image": "images/states/oklahoma.png",
+    "alt": "A close-up map with a highlighted state shaped like a pot with a long handle, called its panhandle, sticking out to the west.",
+    "facts": [
+      "This state's name comes from Choctaw words meaning 'red people.'"
+    ],
+    "popularity": 48
+  },
+  {
+    "id": "oregon",
+    "name": "Oregon",
+    "image": "images/states/oregon.png",
+    "alt": "A close-up map with a highlighted state shaped like a near-perfect rectangle along the Pacific coastline.",
+    "facts": [
+      "This state has a coastline along the Pacific Ocean and is famous for its rainy, green forests."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "pennsylvania",
+    "name": "Pennsylvania",
+    "image": "images/states/pennsylvania.png",
+    "alt": "A close-up map with a highlighted state shaped like a rectangle, with a tiny sliver of lakeshore along its northwestern corner.",
+    "facts": [
+      "This state is where the Declaration of Independence was signed, in one of its biggest cities."
+    ],
+    "popularity": 72
+  },
+  {
+    "id": "rhode-island",
+    "name": "Rhode Island",
+    "image": "images/states/rhode-island.png",
+    "alt": "A close-up map with a tiny highlighted state, the smallest shape of all its neighbors, wrapped around a narrow bay.",
+    "facts": [
+      "This is the smallest state in the entire country by area."
+    ],
+    "popularity": 42
+  },
+  {
+    "id": "south-carolina",
+    "name": "South Carolina",
+    "image": "images/states/south-carolina.png",
+    "alt": "A close-up map with a highlighted state shaped like a triangle, with a curved coastline along the Atlantic.",
+    "facts": [
+      "The first shots of the Civil War were fired here, at a fort in its harbor."
+    ],
+    "popularity": 58
+  },
+  {
+    "id": "south-dakota",
+    "name": "South Dakota",
+    "image": "images/states/south-dakota.png",
+    "alt": "A close-up map with a highlighted state shaped like a rectangle, split by a wide river running north to south.",
+    "facts": [
+      "This state is home to a mountain with four presidents' faces carved into it."
+    ],
+    "popularity": 42
+  },
+  {
+    "id": "tennessee",
+    "name": "Tennessee",
+    "image": "images/states/tennessee.png",
+    "alt": "A close-up map with a long, narrow highlighted state stretching east to west, much wider than it is tall.",
+    "facts": [
+      "This state's capital city is famous as the home of country music."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "texas",
+    "name": "Texas",
+    "image": "images/states/texas.png",
+    "alt": "A close-up map with a huge highlighted state shaped a bit like a thick arrowhead, much larger than all its neighbors.",
+    "facts": [
+      "This is the second-biggest state by both size and population."
+    ],
+    "popularity": 92
+  },
+  {
+    "id": "utah",
+    "name": "Utah",
+    "image": "images/states/utah.png",
+    "alt": "A close-up map with a highlighted state shaped almost like a rectangle, with a notch cut out of its northeastern corner.",
+    "facts": [
+      "This state is home to five national parks full of red rock canyons and arches."
+    ],
+    "popularity": 62
+  },
+  {
+    "id": "vermont",
+    "name": "Vermont",
+    "image": "images/states/vermont.png",
+    "alt": "A close-up map with a small, narrow highlighted state wedged between bigger neighbors, with no coastline at all.",
+    "facts": [
+      "This state is one of the top producers of maple syrup in the country."
+    ],
+    "popularity": 48
+  },
+  {
+    "id": "virginia",
+    "name": "Virginia",
+    "image": "images/states/virginia.png",
+    "alt": "A close-up map with a highlighted state shaped like a triangle with a thin peninsula reaching out toward the Atlantic.",
+    "facts": [
+      "Many early U.S. presidents were born in this state, earning it a famous nickname."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "washington",
+    "name": "Washington",
+    "image": "images/states/washington.png",
+    "alt": "A close-up map with a highlighted state in the far northwest corner, with a deeply notched coastline and a large inland sound.",
+    "facts": [
+      "This state is home to a huge snow-capped volcano that towers over a nearby city."
+    ],
+    "popularity": 73
+  },
+  {
+    "id": "west-virginia",
+    "name": "West Virginia",
+    "image": "images/states/west-virginia.png",
+    "alt": "A close-up map with a highlighted state shaped like an odd zigzag, with no straight borders at all.",
+    "facts": [
+      "This state is covered almost entirely by a long mountain range."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "wisconsin",
+    "name": "Wisconsin",
+    "image": "images/states/wisconsin.png",
+    "alt": "A close-up map with a highlighted state shaped like a mitten's thumb, bordered by a huge lake on its east.",
+    "facts": [
+      "This state produces more cheese than any other state in the country."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "wyoming",
+    "name": "Wyoming",
+    "image": "images/states/wyoming.png",
+    "alt": "A close-up map with a highlighted state shaped like a perfect rectangle, sitting high in the Rocky Mountains.",
+    "facts": [
+      "This state is home to the first national park ever created."
+    ],
+    "popularity": 38
+  }
+]

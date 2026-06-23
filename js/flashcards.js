@@ -1,6 +1,6 @@
 import { recordAnswer } from "./storage.js";
 
-const ACTIVE_LEARNING_POOL_SIZE = 5;
+export const ACTIVE_LEARNING_POOL_SIZE = 5;
 const DISTRACTOR_COUNT = 3;
 
 function sampleWithoutReplacement(items, count, rng) {
@@ -58,46 +58,74 @@ export function buildAnswerChoices(correctItem, distractors, rng = Math.random) 
   return shuffle([correctItem, ...distractors], rng);
 }
 
+export function pickFact(item, rng = Math.random) {
+  const facts = item.facts;
+  return facts[Math.floor(rng() * facts.length)];
+}
+
 function buildCard(items, pool, previousItemId, rng) {
   const item = pickNextCard(pool, previousItemId, rng);
   const distractors = pickDistractors(items, item, DISTRACTOR_COUNT, rng);
   const choices = buildAnswerChoices(item, distractors, rng);
-  return { item, choices };
+  const fact = pickFact(item, rng);
+  return { item, choices, fact };
 }
 
 export function startFlashcardSession(container, { player, moduleId, items, mode, onExit }) {
   const pool = buildActivePool(items, mode);
   let card = buildCard(items, pool, null);
-  let answered = false;
+  let selectedChoiceId = null;
+  let revealed = false;
+  let correctCount = 0;
+  let wrongCount = 0;
 
   function renderCurrentCard() {
     renderFlashcard(container, {
       card,
-      answered,
-      onChoose,
+      selectedChoiceId,
+      revealed,
+      correctCount,
+      wrongCount,
+      onSelect,
       onNext,
       onExit,
     });
   }
 
-  function onChoose(choiceId) {
-    if (answered) return;
-    const wasCorrect = choiceId === card.item.id;
-    recordAnswer(player, moduleId, card.item.id, wasCorrect);
-    answered = true;
+  function onSelect(choiceId) {
+    if (revealed) return;
+    selectedChoiceId = choiceId;
     renderCurrentCard();
   }
 
   function onNext() {
+    if (!revealed) {
+      if (selectedChoiceId === null) return;
+      const wasCorrect = selectedChoiceId === card.item.id;
+      recordAnswer(player, moduleId, card.item.id, wasCorrect);
+      if (wasCorrect) {
+        correctCount += 1;
+      } else {
+        wrongCount += 1;
+      }
+      revealed = true;
+      renderCurrentCard();
+      return;
+    }
+
     card = buildCard(items, pool, card.item.id);
-    answered = false;
+    selectedChoiceId = null;
+    revealed = false;
     renderCurrentCard();
   }
 
   renderCurrentCard();
 }
 
-function renderFlashcard(container, { card, answered, onChoose, onNext, onExit }) {
+function renderFlashcard(
+  container,
+  { card, selectedChoiceId, revealed, correctCount, wrongCount, onSelect, onNext, onExit },
+) {
   container.innerHTML = "";
 
   const exitButton = document.createElement("button");
@@ -115,7 +143,7 @@ function renderFlashcard(container, { card, answered, onChoose, onNext, onExit }
 
   const fact = document.createElement("p");
   fact.className = "flashcard-fact";
-  fact.textContent = card.item.fact;
+  fact.textContent = card.fact;
   container.appendChild(fact);
 
   const grid = document.createElement("div");
@@ -124,25 +152,32 @@ function renderFlashcard(container, { card, answered, onChoose, onNext, onExit }
     const button = document.createElement("button");
     button.className = "answer-button";
     button.textContent = choice.name;
-    if (answered) {
+    if (revealed) {
       button.disabled = true;
       if (choice.id === card.item.id) {
         button.classList.add("answer-correct");
-      } else {
+      } else if (choice.id === selectedChoiceId) {
         button.classList.add("answer-wrong");
       }
     } else {
-      button.addEventListener("click", () => onChoose(choice.id));
+      if (choice.id === selectedChoiceId) {
+        button.classList.add("answer-selected");
+      }
+      button.addEventListener("click", () => onSelect(choice.id));
     }
     grid.appendChild(button);
   });
   container.appendChild(grid);
 
-  if (answered) {
-    const nextButton = document.createElement("button");
-    nextButton.className = "next-button";
-    nextButton.textContent = "Next";
-    nextButton.addEventListener("click", onNext);
-    container.appendChild(nextButton);
-  }
+  const nextButton = document.createElement("button");
+  nextButton.className = "next-button";
+  nextButton.textContent = "Next";
+  nextButton.disabled = !revealed && selectedChoiceId === null;
+  nextButton.addEventListener("click", onNext);
+  container.appendChild(nextButton);
+
+  const tally = document.createElement("p");
+  tally.className = "score-tally";
+  tally.textContent = `✓ ${correctCount}    ✗ ${wrongCount}`;
+  container.appendChild(tally);
 }
