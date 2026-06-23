@@ -252,6 +252,67 @@ have at least 4 items — see the module-size note below.
 5. Reload the app; the new module's tile appears on Module Select
    automatically.
 
+## AI-assisted module creation workflow
+
+The steps above are the mechanical contract. For modules beyond the
+hand-authored Continents/Oceans, the expected path is that the user names
+a topic and a target count (e.g. "Pokémon, 100 items," or "all" for a
+naturally bounded set like U.S. states), and an AI agent (e.g. Claude
+Code) does the rest. A large module — 50-100+ items, each needing a
+generated image — can take a while and may span multiple work sessions, so
+the process is split into stages that checkpoint as they go. That way work
+can stop and resume at any point without losing finished items or redoing
+item selection.
+
+### Stage 1 — Plan the item list
+
+- Pick a module id (a slug of the topic name, e.g. `pokemon`).
+- Decide the exact list of items to include. For a naturally bounded topic
+  ("all U.S. states") this is just the full list. For a large topic with a
+  requested count ("100 Pokémon"), select the N most popular/recognizable
+  items — the same notion of fame the `popularity` field already
+  captures, so selection criteria and the field are really the same idea.
+- Write this list to a scratch file, `data/<module-id>.plan.json` — an
+  array of `{ "id", "name" }` for every item in scope, nothing else yet.
+  This file is the durable record of *what was decided*, so resuming later
+  never re-runs item selection or risks landing on a different set of N
+  items.
+
+### Stage 2 — Fill in content, in batches
+
+For a small batch of items at a time (e.g. 5-10), for each one not yet
+present in `data/<module-id>.json`:
+
+1. Write its `name`, a short kid-friendly `fact`, and a `popularity`
+   estimate (0-100). Facts should be checked against a reliable source
+   rather than generated from memory alone, since they're presented to a
+   kid as true.
+2. Generate its image, then resize it to the module's standard dimensions
+   (the same size used by other modules) and save it to
+   `images/<module-id>/<item-id>.png`. Resizing is a one-off
+   content-pipeline step (e.g. an ImageMagick/`sips` command), not
+   something the shipped app needs to do at runtime.
+3. Append the finished item to `data/<module-id>.json`.
+
+Commit after each batch. `data/<module-id>.json` is itself the progress
+marker — items already in it are done, and the remainder of
+`data/<module-id>.plan.json` is what's left. Critically, the module is
+**not yet** referenced from `data/modules.json`, so a partially-built
+module never shows up as a playable (and broken) tile in the running app
+while work is still in progress.
+
+### Stage 3 — Publish the module
+
+Once every item in the plan file has a matching entry in
+`data/<module-id>.json`, add the module's entry to `data/modules.json`
+(`id`, `name`, `dataFile`, `color`, `icon`) — this is the single step that
+makes the module appear on Module Select. The plan file can be deleted at
+that point, or left as a record of what was selected and why.
+
+This mirrors the order in "Adding a new module" above: content and images
+are authored and checked in first, and the manifest is only touched last,
+once the module is actually complete.
+
 ## What's deliberately deferred
 
 - The Elo/IRT mastery model and adaptive pool expansion from DESIGN.md —
@@ -268,3 +329,6 @@ have at least 4 items — see the module-size note below.
 - Exact visual style (palette, fonts, animation details) for the "pretty
   and modern" look isn't nailed down here — proposing a first pass in code
   and iterating from there seems faster than specifying it in writing.
+- Which specific AI image-generation tool/API to call, and the exact
+  standard image dimensions for cards, aren't pinned down — to be decided
+  when the first AI-authored module actually gets built.
