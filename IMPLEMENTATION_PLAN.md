@@ -58,6 +58,90 @@ memory-game/
 └── IMPLEMENTATION_PLAN.md
 ```
 
+## Files and what goes in each
+
+### `index.html`
+
+- The single page the app ever loads. Holds the `<head>` (viewport meta
+  tag, link to `css/styles.css`) and a `<body>` with one empty container
+  div per screen (`#screen-player-select`, `#screen-module-select`,
+  `#screen-mode-select`, `#screen-flashcard`), all empty until JS fills
+  them in.
+- One `<script type="module" src="js/app.js">` at the bottom — the only
+  script tag in the file. Everything else is imported by `app.js`.
+- No inline markup for tiles/buttons/cards — those are all built in JS so
+  the screens can be generic over manifest/item data.
+
+### `css/styles.css`
+
+- Color/spacing variables (CSS custom properties) for the "modern" look —
+  one place to retheme later.
+- Shared tile/button styles (the big rounded touch-friendly buttons used
+  on Player Select, Module Select, and Mode Select).
+- Flashcard-specific styles: image sizing, the 2×2 answer grid, the
+  flip/reveal transition, correct/incorrect color feedback, the "X" exit
+  button.
+- Responsive rules (flexbox/grid breakpoints) so layout holds up on both
+  phone and tablet, portrait and landscape.
+- A `.screen` / `.screen.active` convention for showing only the current
+  screen's container — `app.js` toggles this class, CSS just defines what
+  it means.
+
+### `js/storage.js`
+
+- The only file that touches `localStorage` directly.
+- Player list: `getPlayers()`, `addPlayer(name)`.
+- Per-player, per-module progress: `getProgress(player, moduleId)`,
+  `recordAnswer(player, moduleId, itemId, wasCorrect)` — reads/writes the
+  `itemStats` shape described below.
+- Pure data access, no DOM code — every other file calls into this rather
+  than touching `localStorage` itself.
+
+### `js/modules.js`
+
+- Fetches and caches `data/modules.json` (the manifest) and, per module,
+  the corresponding `data/<module-id>.json` item list.
+- `getModuleList()`, `getModuleItems(moduleId)`.
+- Renders the Module Select screen: one tile per manifest entry, with its
+  color/icon and a progress chip computed from `storage.js` data.
+- Renders the Mode Select screen (the two "Active Learning" / "All Cards"
+  buttons) once a module tile is tapped — small enough not to need its own
+  file.
+
+### `js/players.js`
+
+- Renders the Player Select screen: one tile per name from
+  `storage.getPlayers()`, plus the "+ Add Player" tile and its inline
+  text-input flow.
+- Tracks which player is currently selected and hands that off to
+  `app.js` when a tile is tapped.
+
+### `js/flashcards.js`
+
+- Given a module's items + the chosen mode, builds the active pool
+  (5 random items for Active Learning, all items for All Cards).
+- Picks the next card from the pool (uniform random, no immediate
+  repeats), and picks its 3 distractors at random from the rest of the
+  module.
+- Renders the Flashcard screen: image, fact, the 4 answer buttons, the
+  flip/reveal on answer, and the "Next" / "X" buttons.
+- Calls `storage.recordAnswer(...)` whenever the kid answers, regardless
+  of mode.
+
+### `js/app.js`
+
+- The entry point loaded by `index.html`.
+- Holds the one piece of shared app state (current player, module, mode)
+  and a `showScreen(name)` function that toggles the `.active` class
+  between the four screen containers.
+- Wires the screens together: Player Select's "tile tapped" callback sets
+  the player and calls into `modules.js` to render Module Select; Module
+  Select's tap renders Mode Select; Mode Select's tap calls into
+  `flashcards.js` to start the loop; the flashcard screen's "X" calls back
+  into `modules.js` to re-render Module Select.
+- Has no rendering logic of its own beyond this routing — every screen's
+  actual markup is built by the file that owns it.
+
 ## Module manifest (`data/modules.json`)
 
 ```json
