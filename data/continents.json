@@ -1,0 +1,51 @@
+[
+  {
+    "id": "africa",
+    "name": "Africa",
+    "image": "images/continents/africa.png",
+    "fact": "Africa is home to the Sahara, the largest hot desert in the world.",
+    "popularity": 80
+  },
+  {
+    "id": "antarctica",
+    "name": "Antarctica",
+    "image": "images/continents/antarctica.png",
+    "fact": "Antarctica is so cold that almost no people live there — but lots of penguins do!",
+    "popularity": 55
+  },
+  {
+    "id": "asia",
+    "name": "Asia",
+    "image": "images/continents/asia.png",
+    "fact": "Asia is the biggest continent, and more than half of all the people in the world live there.",
+    "popularity": 85
+  },
+  {
+    "id": "australia",
+    "name": "Australia",
+    "image": "images/continents/australia.png",
+    "fact": "Australia is the only continent that is also just one country.",
+    "popularity": 60
+  },
+  {
+    "id": "europe",
+    "name": "Europe",
+    "image": "images/continents/europe.png",
+    "fact": "Europe has more than 40 different countries packed into one continent.",
+    "popularity": 75
+  },
+  {
+    "id": "north-america",
+    "name": "North America",
+    "image": "images/continents/north-america.png",
+    "fact": "North America stretches all the way from icy Canada down to sunny Mexico.",
+    "popularity": 90
+  },
+  {
+    "id": "south-america",
+    "name": "South America",
+    "image": "images/continents/south-america.png",
+    "fact": "South America is home to the Amazon rainforest, the largest rainforest on Earth.",
+    "popularity": 65
+  }
+]
