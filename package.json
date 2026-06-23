@@ -1,0 +1,13 @@
+{
+  "name": "memory-game",
+  "version": "1.0.0",
+  "description": "A kids' memory/flashcard game for learning simple facts about the world — things like continents, U.S. states, or types of sushi.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0"
+  }
+}
