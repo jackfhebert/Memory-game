@@ -5,9 +5,9 @@
     "image": "images/animals/lion.png",
     "alt": "A close-up photo of a large, golden-furred big cat with a thick mane, resting in tall grass.",
     "facts": [
-      "Adult males in this species grow a thick mane of fur around their head and neck.",
-      "It is one of the only big cats that lives and hunts in family groups.",
-      "The females in its family group do most of the hunting."
+      "A male's roar can be heard from up to 5 miles away \u2014 loud enough to hear from a whole neighborhood over.",
+      "It can sleep up to 20 hours a day, making it one of the laziest big cats around.",
+      "A newborn cub can't even open its eyes until about a week after it's born."
     ],
     "popularity": 92
   },
@@ -17,9 +17,9 @@
     "image": "images/animals/tiger.png",
     "alt": "A close-up photo of a large orange-and-black striped big cat walking through jungle grass.",
     "facts": [
-      "This is the largest of all big cats, with bold stripes on its fur.",
-      "No two of these animals have the exact same stripe pattern \u2014 they're like fingerprints.",
-      "It is an excellent swimmer and often cools off in rivers and ponds."
+      "Its skin is striped too, just like its fur \u2014 even if you shaved one, the stripe pattern would still show.",
+      "It can leap forward more than 30 feet in a single bound, about the length of a school bus.",
+      "It marks its territory with a scent spray that some people say smells like buttered popcorn."
     ],
     "popularity": 90
   },
@@ -29,9 +29,9 @@
     "image": "images/animals/elephant.png",
     "alt": "A close-up photo of a huge gray animal with large ears, tusks, and a long trunk reaching toward the ground.",
     "facts": [
-      "This is the largest land animal on Earth, with big floppy ears and a long trunk.",
-      "It uses its trunk like a hand, to grab food, drink water, and even give itself a shower.",
-      "It lives in close family herds usually led by an older female."
+      "Its trunk has no bones at all, yet it's strong enough to lift a log and gentle enough to pick up a single berry.",
+      "It can sense other members of its herd rumbling to each other from over a mile away \u2014 through vibrations in the ground.",
+      "Babies sometimes suck on their own trunk for comfort, the same way a human baby might suck its thumb."
     ],
     "popularity": 90
   },
@@ -41,9 +41,9 @@
     "image": "images/animals/giraffe.png",
     "alt": "A close-up photo of a tall, patterned animal with a very long neck, reaching up to eat leaves from a tree.",
     "facts": [
-      "This is the tallest land animal in the world, thanks to its very long neck and legs.",
-      "Its tongue can be over a foot long and helps it reach leaves high in trees.",
-      "Each one has a unique pattern of patches, just like a person's fingerprint."
+      "It only needs about 30 minutes of sleep a day, often taken in tiny naps while standing up.",
+      "Its heart weighs around 25 pounds and pumps extra hard just to send blood all the way up that long neck.",
+      "Even with that towering neck, it has the same number of neck bones you do \u2014 just much, much bigger ones."
     ],
     "popularity": 82
   },
@@ -53,9 +53,9 @@
     "image": "images/animals/zebra.png",
     "alt": "A close-up photo of a horse-like animal covered head to tail in bold black and white stripes.",
     "facts": [
-      "This animal is covered in stripes, and no two patterns are exactly alike.",
-      "It lives in herds on the open grasslands of Africa.",
-      "Scientists think its stripe pattern may help confuse biting flies and predators."
+      "A newborn can already stand and run within an hour of being born \u2014 there's no time to nap when lions are nearby.",
+      "When startled, an entire herd bunches together so their stripes blur into one confusing blob.",
+      "No two have the exact same pattern, almost like each one is wearing its own custom-printed coat."
     ],
     "popularity": 75
   },
@@ -65,9 +65,9 @@
     "image": "images/animals/panda.png",
     "alt": "A close-up photo of a round, black-and-white bear sitting and chewing on a bamboo stalk.",
     "facts": [
-      "This black-and-white animal spends most of its day eating bamboo.",
-      "A newborn of this species is pink, hairless, and smaller than a stick of butter.",
-      "It's become a symbol of wildlife conservation around the world."
+      "It can eat up to 40 pounds of bamboo every single day \u2014 like eating your own body weight in salad.",
+      "Its black eye patches might work a bit like sunglasses, cutting glare and signaling toughness to rivals.",
+      "Even though it looks slow and cuddly, it's a surprisingly good tree climber and can even swim."
     ],
     "popularity": 85
   },
@@ -77,9 +77,9 @@
     "image": "images/animals/koala.png",
     "alt": "A close-up photo of a gray, round-eared animal clinging to a tree branch.",
     "facts": [
-      "This animal sleeps up to 20 hours a day, mostly in the branches of trees.",
-      "It eats almost nothing but eucalyptus leaves.",
-      "Despite its appearance, it isn't actually a bear \u2014 it's a marsupial that carries its baby in a pouch."
+      "Its fingerprints look so much like human fingerprints that they could actually confuse a crime scene investigator.",
+      "Eucalyptus leaves are mildly toxic, so its liver works overtime just to keep it from getting sick.",
+      "Babies eat a special soft snack from their mom to pick up the right gut bacteria for digesting tough leaves."
     ],
     "popularity": 78
   },
@@ -89,9 +89,9 @@
     "image": "images/animals/kangaroo.png",
     "alt": "A close-up photo of a tan, long-legged animal balancing upright on its strong back legs and tail.",
     "facts": [
-      "This animal can leap more than three times its own body length in a single hop.",
-      "It carries its baby, called a joey, in a pouch on its belly.",
-      "It uses its strong tail for balance while hopping and even as a prop while standing still."
+      "It can hop at speeds of over 35 miles per hour \u2014 about as fast as a car cruising through a neighborhood.",
+      "A newborn joey is about the size of a jellybean and crawls straight into its mother's pouch right after birth.",
+      "It physically can't walk backwards \u2014 its giant tail and legs are built only for moving forward."
     ],
     "popularity": 70
   },
@@ -101,9 +101,9 @@
     "image": "images/animals/gorilla.png",
     "alt": "A close-up photo of a large, dark-furred primate sitting calmly in green forest.",
     "facts": [
-      "This is one of the largest primates and is closely related to humans.",
-      "Adult males develop a patch of silver-gray fur on their backs as they age.",
-      "It mostly eats leaves, stems, and fruit, and lives in close family groups."
+      "It's strong enough to bend steel bars, but mostly spends its day calmly munching on leaves and stems.",
+      "Each one has a unique nose print, just like a human fingerprint.",
+      "When it's relaxed and happy, it sometimes makes a deep chuckling sound that almost sounds like laughing."
     ],
     "popularity": 68
   },
@@ -113,9 +113,9 @@
     "image": "images/animals/chimpanzee.png",
     "alt": "A close-up photo of a small, dark-furred primate with an expressive face, sitting among green leaves.",
     "facts": [
-      "This is one of the closest living relatives to humans, sharing most of our DNA.",
-      "It is known for using simple tools, like sticks, to get food.",
-      "It lives in social groups and communicates with calls, gestures, and facial expressions."
+      "It can recognize itself in a mirror, something very few animals are able to do.",
+      "It sometimes uses leaves as makeshift napkins or sponges to clean itself up.",
+      "It can run along the ground but is just as comfortable swinging through the treetops overhead."
     ],
     "popularity": 65
   },
@@ -125,9 +125,9 @@
     "image": "images/animals/polar-bear.png",
     "alt": "A close-up photo of a huge white-furred bear standing on snow and ice.",
     "facts": [
-      "This is the largest land predator, living on Arctic ice and snow.",
-      "Its fur looks white but is actually clear, and the skin underneath is black.",
-      "It is an excellent swimmer and can paddle for many miles searching for food."
+      "It can smell a meal from nearly 20 miles away, even through thick ice and snow.",
+      "Underneath all that fluffy white fur, its skin is actually jet black.",
+      "It's such a strong swimmer that sailors have spotted them paddling in open ocean, far from any land."
     ],
     "popularity": 80
   },
@@ -137,9 +137,9 @@
     "image": "images/animals/brown-bear.png",
     "alt": "A close-up photo of a large, shaggy brown-furred animal standing near a forest stream.",
     "facts": [
-      "This large, shaggy animal can stand on its back legs to look around or reach food.",
-      "It eats almost anything, including berries, fish, and small animals.",
-      "It sleeps through the coldest months of winter in a long rest called hibernation."
+      "It can outrun a galloping horse for short bursts, even though it looks slow and lumbering.",
+      "Before its long winter nap, it eats so much that it can gain several pounds in a single day.",
+      "Its sense of smell is so sharp it puts even a bloodhound to shame."
     ],
     "popularity": 72
   },
@@ -149,9 +149,9 @@
     "image": "images/animals/wolf.png",
     "alt": "A close-up photo of a gray, pointy-eared animal standing alert in a snowy forest.",
     "facts": [
-      "This animal lives and hunts in family groups called packs.",
-      "It can howl loudly to communicate with other members of its group from far away.",
-      "It is the wild ancestor of every breed of pet dog."
+      "Its howl can travel for several miles across open land, almost like a long-distance phone call to the rest of its pack.",
+      "Each pack member has its own personality \u2014 some are natural-born leaders, others happily follow.",
+      "Its paw prints are sometimes mistaken for a large dog's, until you spot the deep claw marks."
     ],
     "popularity": 68
   },
@@ -161,9 +161,9 @@
     "image": "images/animals/fox.png",
     "alt": "A close-up photo of a small orange-furred animal with a pointed face and bushy tail.",
     "facts": [
-      "This small, clever animal has big pointed ears and a long bushy tail.",
-      "It uses its excellent hearing to find small animals hiding under snow.",
-      "It can be found living in forests, deserts, and even cities."
+      "It can hear a mouse squeak from about 100 feet away, and even pick up the sound of one burrowing underground.",
+      "It sometimes pounces on prey hidden under deep snow by diving in headfirst.",
+      "Its bushy tail helps it balance while running and curls around its body like a built-in blanket while it sleeps."
     ],
     "popularity": 62
   },
@@ -173,9 +173,9 @@
     "image": "images/animals/cheetah.png",
     "alt": "A close-up photo of a slender, spotted cat crouched low and ready to sprint across grassland.",
     "facts": [
-      "This animal is the fastest land animal on Earth, able to reach incredible bursts of speed.",
-      "It has dark, tear-shaped marks running from its eyes down its face.",
-      "Unlike most big cats, it hunts mostly during the day."
+      "It can go from a standstill to full speed faster than most sports cars.",
+      "Unlike other big cats, it can't fully retract its claws \u2014 they work a bit like the spikes on running shoes.",
+      "It can't roar like a lion \u2014 instead, it chirps, almost like a bird."
     ],
     "popularity": 75
   },
@@ -185,9 +185,9 @@
     "image": "images/animals/leopard.png",
     "alt": "A close-up photo of a spotted golden cat resting on a tree branch.",
     "facts": [
-      "This big cat has dark, rosette-shaped spots covering its golden fur.",
-      "It is incredibly strong and often drags its prey up into trees to keep it safe from other predators.",
-      "It is mostly active at night and is an excellent, silent climber."
+      "It's strong enough to drag prey twice its own weight straight up into a tree.",
+      "It can leap an incredible distance in a single bound, both forward and straight up.",
+      "Its spots are arranged in a one-of-a-kind pattern, completely unique to each individual."
     ],
     "popularity": 65
   },
@@ -197,9 +197,9 @@
     "image": "images/animals/hippopotamus.png",
     "alt": "A close-up photo of a huge, round gray animal mostly submerged in muddy river water.",
     "facts": [
-      "This huge animal spends most of the day resting in rivers and lakes to stay cool.",
-      "Despite its size, it can run surprisingly fast on land.",
-      "Its skin produces a natural reddish oil that protects it like sunscreen."
+      "It can hold its breath underwater for about 5 minutes, even while it's fast asleep.",
+      "Despite living mostly in water, it actually can't swim \u2014 it walks or bounces along the riverbed instead.",
+      "Its huge yawn isn't friendly at all \u2014 opening its mouth that wide is really a warning to back off."
     ],
     "popularity": 60
   },
@@ -209,9 +209,9 @@
     "image": "images/animals/rhinoceros.png",
     "alt": "A close-up photo of a massive gray animal with thick skin and a large horn on its snout.",
     "facts": [
-      "This animal has one or two large horns made of the same material as human fingernails.",
-      "Its skin is extremely thick and tough, like natural armor.",
-      "Despite weighing as much as a small car, it can charge at surprising speed."
+      "Its horn keeps growing throughout its whole life, just like your fingernails.",
+      "Small birds often ride along on its back, eating bugs and chirping a warning if danger gets close.",
+      "Despite its enormous size, it can sprint faster than a human can run."
     ],
     "popularity": 58
   },
@@ -221,9 +221,9 @@
     "image": "images/animals/crocodile.png",
     "alt": "A close-up photo of a long, scaly reptile floating at the surface of murky water with just its eyes and snout showing.",
     "facts": [
-      "This reptile can hold its breath underwater for over an hour.",
-      "It has one of the strongest bites of any animal alive.",
-      "It often floats almost completely still in the water, waiting to ambush prey."
+      "It hasn't changed much in millions of years \u2014 its ancestors looked similar even when dinosaurs roamed the earth.",
+      "It can't chew its food, so it swallows large chunks whole or twists off bite-sized pieces.",
+      "It can stay almost perfectly motionless for hours, looking just like a floating log."
     ],
     "popularity": 60
   },
@@ -233,9 +233,9 @@
     "image": "images/animals/flamingo.png",
     "alt": "A close-up photo of a tall pink bird standing on one thin leg in shallow water.",
     "facts": [
-      "This bird's pink color comes from the shrimp and algae it eats.",
-      "It often stands and even sleeps balanced on just one leg.",
-      "Large groups of this bird gather together by the thousands in shallow lakes."
+      "Chicks are actually born gray or white \u2014 they only turn pink after eating enough of their shrimpy diet.",
+      "It can sip water that's almost boiling hot, straight from volcanic lakes.",
+      "Standing on one leg might actually help it conserve body heat while wading in chilly water."
     ],
     "popularity": 70
   },
@@ -245,9 +245,9 @@
     "image": "images/animals/peacock.png",
     "alt": "A close-up photo of a bird with a spectacular fan of blue and green eye-spotted tail feathers.",
     "facts": [
-      "The male of this bird species has a giant, colorful tail of feathers he fans out to attract mates.",
-      "His tail feathers are covered in shimmering blue and green eye-shaped spots.",
-      "Despite the huge tail, this bird can still fly short distances."
+      "Its giant tail can have over 200 feathers, each one stamped with its own eye-shaped pattern.",
+      "It can run surprisingly fast along the ground when it doesn't feel like flying off.",
+      "It shakes its tail feathers to make a rattling sound that humans barely notice but other birds pick up instantly."
     ],
     "popularity": 65
   },
@@ -257,9 +257,9 @@
     "image": "images/animals/owl.png",
     "alt": "A close-up photo of a round-faced bird with big forward-facing eyes, perched on a branch at night.",
     "facts": [
-      "This bird can turn its head almost all the way around to look behind itself.",
-      "It can fly almost silently, which helps it sneak up on prey at night.",
-      "Its eyes are so large that it can't move them \u2014 it has to turn its whole head to look around."
+      "It has extra neck bones, which is exactly why it can rotate its head about three-quarters of the way around.",
+      "Some kinds fly almost completely silently, thanks to special feathers that muffle sound.",
+      "It swallows small prey whole, then later coughs up a tidy little pellet of the leftover bones and fur."
     ],
     "popularity": 68
   },
@@ -269,9 +269,9 @@
     "image": "images/animals/eagle.png",
     "alt": "A close-up photo of a large bird of prey with a sharp curved beak, soaring with wings spread wide.",
     "facts": [
-      "This bird has incredibly sharp eyesight, letting it spot prey from high in the sky.",
-      "It builds huge nests, sometimes used and added to for many years.",
-      "Its strong, curved talons help it snatch fish right out of the water."
+      "Its eyesight is so sharp it could spot a rabbit from almost two miles away.",
+      "It can dive toward the ground at speeds over 100 miles per hour while hunting.",
+      "Some build nests that end up weighing as much as a small car after adding to them year after year."
     ],
     "popularity": 70
   },
@@ -281,9 +281,9 @@
     "image": "images/animals/penguin.png",
     "alt": "A close-up photo of a black-and-white bird standing upright on ice.",
     "facts": [
-      "This bird cannot fly, but it is an excellent swimmer, using its wings like flippers.",
-      "It huddles together in large groups to stay warm in freezing weather.",
-      "It waddles on land but glides gracefully underwater."
+      "It can launch straight up out of the water onto an ice ledge, almost like a torpedo with flippers.",
+      "Some dads sit on the eggs for months without eating a single bite, losing almost half their body weight.",
+      "It can swim faster underwater than most Olympic swimmers can move across the surface."
     ],
     "popularity": 80
   },
@@ -293,9 +293,9 @@
     "image": "images/animals/dolphin.png",
     "alt": "A close-up photo of a sleek gray sea animal leaping out of blue ocean water.",
     "facts": [
-      "This intelligent ocean animal uses clicks and whistles to communicate with others.",
-      "It can leap high out of the water and is known for playful behavior.",
-      "It uses echolocation, bouncing sound off objects, to find food in murky water."
+      "Each one might have its own unique whistle, almost like a name, that the rest of its group recognizes.",
+      "It sleeps with only half of its brain at a time, keeping one eye open to watch for danger.",
+      "It sometimes surfs the waves made by passing boats, seemingly just for fun."
     ],
     "popularity": 82
   },
@@ -305,9 +305,9 @@
     "image": "images/animals/octopus.png",
     "alt": "A close-up photo of a soft-bodied sea creature with eight long arms spread across a rocky reef.",
     "facts": [
-      "This sea animal has eight arms and can squeeze through incredibly tiny gaps.",
-      "It can change the color and texture of its skin to hide from danger.",
-      "It is considered one of the smartest invertebrates, able to solve puzzles and open jars."
+      "It has nearly 2,000 tiny suckers, and each one can actually taste whatever it's touching.",
+      "It can squeeze its entire boneless body through a hole no bigger than a coin.",
+      "If it loses an arm, it can simply grow a brand new one."
     ],
     "popularity": 60
   },
@@ -317,9 +317,9 @@
     "image": "images/animals/sea-turtle.png",
     "alt": "A close-up photo of a large turtle with a patterned shell swimming through clear blue ocean water.",
     "facts": [
-      "This animal can hold its breath for hours while resting underwater.",
-      "Females return to the very same beach where they were born to lay their own eggs.",
-      "It has a hard shell that protects it, but it cannot pull its flippers all the way inside like land turtles."
+      "It might swim thousands of miles across the ocean, then return to lay eggs on the very same beach where it hatched.",
+      "Its shell is actually fused to its skeleton \u2014 it's not something it could ever take off.",
+      "Hatchlings use the glow of moonlight over the ocean to help them find their way to the water."
     ],
     "popularity": 62
   },
@@ -329,9 +329,9 @@
     "image": "images/animals/shark.png",
     "alt": "A close-up photo of a large, gray fish with a pointed fin gliding through open ocean water.",
     "facts": [
-      "This ocean predator can sense a tiny amount of blood in the water from far away.",
-      "It has rows of sharp teeth that are constantly replaced throughout its life.",
-      "Some kinds of this fish must keep swimming constantly or they will sink."
+      "Some kinds have been swimming the oceans since long before dinosaurs ever existed.",
+      "Its skin is covered in tiny tooth-like scales, rough enough that it was once used like sandpaper.",
+      "It can detect the faint electric signals given off by a beating heart hidden in the sand."
     ],
     "popularity": 75
   },
@@ -341,9 +341,9 @@
     "image": "images/animals/ostrich.png",
     "alt": "A close-up photo of a tall, long-necked bird with fluffy feathers standing on the open plains.",
     "facts": [
-      "This is the largest bird in the world, but it cannot fly at all.",
-      "It can run faster than any other bird, reaching very high speeds.",
-      "Its eyes are bigger than its brain."
+      "Its powerful kick is strong enough to seriously injure a lion.",
+      "Its eggs are the largest of any bird \u2014 a single one could make an omelet for an entire family.",
+      "Despite the popular myth, it doesn't actually bury its head in the sand."
     ],
     "popularity": 55
   },
@@ -353,9 +353,9 @@
     "image": "images/animals/camel.png",
     "alt": "A close-up photo of a tan animal with one or two humps on its back, standing in a sandy desert.",
     "facts": [
-      "This animal can go for many days without drinking any water.",
-      "It stores fat, not water, in the hump on its back.",
-      "Its wide, padded feet keep it from sinking into soft desert sand."
+      "It can gulp down over 30 gallons of water in just a few minutes once it finally reaches a watering hole.",
+      "Its nostrils can close completely to keep out blowing desert sand.",
+      "It has a special set of eyelids and extra-long lashes that work almost like built-in goggles."
     ],
     "popularity": 58
   }
