@@ -1,18 +1,35 @@
-# Map-rendering tools
+# Content-pipeline tools
+
+Scripts that generate the images checked into `images/<module-id>/` when
+building a new module. None of this is part of the shipped app — the app
+only ever reads the image files these scripts produce, plus the
+hand-authored facts in `data/*.json`. Two approaches exist so far,
+depending on whether the module's items have a natural map representation:
+
+- **Map-rendering** (below) — for geography modules, render a map with
+  the item's borders highlighted.
+- **Photo-sourcing** (below) — for everything else so far (Animals, Pasta
+  Shapes), fetch a real photo per item from Wikipedia/Wikimedia Commons
+  instead of generating art.
+
+A future module without a map *or* a free-to-use real-world photo per
+item (e.g. a fictional-character topic) would still need actual
+AI-generated or hand-sourced art — that remains a content task with no
+tooling here yet.
+
+## Map-rendering tools
 
 These scripts generate the map images for the geography modules
 (Continents, Oceans, US States, and the six per-continent Country
-modules) from public geographic datasets. They're content-pipeline
-tools, not part of the shipped app — the app only ever reads the PNGs
-they produce, plus the hand-authored facts in `data/*.json`.
+modules) from public geographic datasets.
 
-## Setup
+### Setup
 
 ```
 pip install geopandas matplotlib shapely
 ```
 
-## Get the input data
+### Get the input data
 
 The scripts read from `tools/geo-data/`, which is gitignored (these are
 large third-party datasets, not project source). Download:
@@ -27,7 +44,7 @@ large third-party datasets, not project source). Download:
   `tools/geo-data/us-states.json`:
   https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json
 
-## Run
+### Run
 
 From the `tools/` directory:
 
@@ -48,7 +65,7 @@ text in `data/<module-id>.json` still have to be authored separately.
 ~165 countries it redraws the whole base map underneath the
 highlighted one, since the crop window differs per country.
 
-## Shared rendering conventions
+### Shared rendering conventions
 
 - **Palette**: land `#d8d3c4` fill / `#9c9588` edge, background (ocean)
   `#cfe8f3`, highlight `#ff7a45` fill / `#c8501f` edge for
@@ -79,3 +96,79 @@ highlighted one, since the crop window differs per country.
 - **IDs**: `slugify()` (NFKD-normalize, strip to ASCII, non-alphanumeric
   runs to hyphens) turns a display name into the item/file id, e.g.
   `"Côte d'Ivoire"` → `cote-d-ivoire`.
+
+## Photo-sourcing tools
+
+Used for modules whose items are real-world things best shown with an
+actual photo rather than a map (so far: Animals, Pasta Shapes). Fetches
+each item's lead image straight from Wikipedia/Wikimedia Commons, crops
+it to the standard 960×720 card size, and saves it as a JPEG.
+
+### Setup
+
+```
+pip install Pillow
+```
+
+### Run
+
+From the repo root:
+
+```
+python3 tools/fetch_wiki_photos.py <module-id> <sources.json>
+python3 tools/contact_sheet.py images/<module-id>/ /tmp/<module-id>_sheet.png
+```
+
+`sources.json` maps each item id to either a Wikipedia page title (its
+lead/`originalimage` is used) or a direct image URL override:
+
+```json
+{
+  "lion": "Lion",
+  "fusilli": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Fusilli_pasta.jpg"
+}
+```
+
+Write this file as a scratch/plan file alongside the module's other draft
+content (it doesn't need to be checked in once the module is published —
+same as the `.plan.json` files above). Items whose output file already
+exists are skipped on rerun (`--force` to redo), so a large module's
+photos can be fetched across several sessions without re-downloading
+everything.
+
+`contact_sheet.py` lays out every image in a module into one labeled grid
+PNG, so a whole module's photos can be visually scanned at once before
+publishing — much faster than opening each file individually to catch a
+bad crop or a photo that doesn't match its `alt` text.
+
+### When the Wikipedia lead image isn't usable
+
+For some items, the Wikipedia article's `originalimage` is missing
+entirely, or shows the wrong thing for a kid-facing flashcard (a cooked
+dish instead of the raw food shape, an unusual pose, the wrong color
+morph). When that happens:
+
+1. Try a different, more specific Wikipedia article title first (e.g.
+   "American flamingo" instead of "Flamingo" got a vivid pink one-legged
+   pose instead of two pale flamingos standing in water).
+2. If that doesn't help, search Wikimedia Commons directly —
+   `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=<query>&format=json`
+   or browse a `Category:<Topic>` page — for an alternate freely-licensed
+   photo, and put its direct file URL in `sources.json` as an override.
+3. Download a few candidates, view them, and pick the clearest one
+   before committing to a URL — `contact_sheet.py` or just opening the
+   candidate files works for this.
+
+### Crop conventions
+
+- Target size matches the other modules' cards: 960×720 (4:3).
+- Landscape sources wider than 4:3 are center-cropped horizontally.
+- Portrait sources are cropped vertically anchored 1/4 of the way down
+  from the top, not dead-center — subjects (an animal's head, a food's
+  shape) are usually framed nearer the top of a portrait photo, and a
+  center crop can cut off the part that matters (e.g. decapitating a
+  giraffe).
+- Saved as JPEG, quality 85 — real photos compress far better than the
+  flat-color map PNGs above; this keeps a 30+ item module's images in the
+  same size ballpark (~100-200KB each) as everything else in the repo,
+  instead of multi-megabyte lossless PNGs.

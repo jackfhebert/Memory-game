@@ -77,17 +77,22 @@ Item schema:
 - `image` — for geography modules, this is a world map with the item
   highlighted (e.g. Africa's outline highlighted on a world map), not a
   generic photo. This is how "find it on a map" sneaks into the MVP without
-  being a separate game mode. Images are AI-generated rather than sourced
-  from an existing library, keeping the whole content pipeline (facts,
-  popularity estimates, and images) self-contained and easy to regenerate
-  or extend to new modules.
+  being a separate game mode. These maps are rendered programmatically
+  from public geographic datasets (see
+  [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md)) rather than AI-generated
+  or sourced from an existing library, keeping the pipeline self-contained
+  and easy to regenerate or extend to new modules. Non-geography modules
+  (Animals, Pasta Shapes) instead use a real sourced photo per item, since
+  there's no map to render and a real-world photo exists.
 - `alt` — alt text describing what the image shows, for accessibility.
-  Like `fact`, it must not name the item — it describes the highlighted
-  shape/location, not what it's called, so it can't be used to shortcut
-  the guess.
-- `fact` — a short, kid-friendly sentence describing the item without
-  naming it, so the guess still requires connecting the picture and fact
-  to a name rather than just spotting the name written out.
+  Like `fact`, it must not name the item — for geography modules it
+  describes the highlighted shape/location rather than what it's called,
+  so it can't be used to shortcut the guess.
+- `fact` (or `facts`, an array — items can have more than one, with one
+  picked at random per card) — a short, kid-friendly sentence describing
+  the item without naming it, so the guess still requires connecting the
+  picture and fact to a name rather than just spotting the name written
+  out.
 - `popularity` — a 0–100 prior estimate of how well-known the item is to
   most people. This is authored once per item (not per player) and feeds
   both the introduction order and the initial mastery estimate (see
@@ -206,12 +211,12 @@ future idea once modules get bigger.
 
 ## Open questions / risks
 
-- **AI-generated map accuracy:** image generators aren't reliable at
-  precise cartography (exact borders/coastlines), so AI-generated
-  highlighted maps may come out geographically rough. Fine for a personal
-  MVP; worth a manual look once images are generated, and worth revisiting
-  (e.g. generating a stylized background and overlaying a precise highlight
-  programmatically) if accuracy turns out to matter more later.
+- **Map accuracy:** resolved — map images turned out rough when
+  AI-generated (image generators aren't reliable at precise cartography),
+  so geography modules switched to rendering maps programmatically from
+  real geographic datasets instead (see "Geography modules — generating
+  map images" in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md)), which
+  sidesteps the accuracy problem entirely.
 - **localStorage durability:** acceptable for MVP, but worth flagging that
   clearing browser data wipes all kids' progress, and progress won't follow
   a kid to a different device.

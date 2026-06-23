@@ -352,16 +352,37 @@ modules. The factual content — `facts` and non-naming `alt` text in
 or by an AI agent, with facts checked against a reliable source per
 Stage 2 above.
 
+## Photo-sourced modules — real photos instead of generated art
+
+Animals and Pasta Shapes don't have a map representation, but they are
+real-world things with freely-licensed photos already available, so
+neither needed AI-generated art either: each item's image is a real
+photo fetched from Wikipedia/Wikimedia Commons, cropped to the same
+960×720 card size as the geography modules.
+
+`tools/fetch_wiki_photos.py` does the fetch+crop+save in one pass per
+module, given a `sources.json` mapping item id → Wikipedia page title (or
+a direct image URL override for the handful of items whose Wikipedia
+lead image is missing or unsuitable — e.g. a cooked-dish photo instead of
+the raw pasta shape). `tools/contact_sheet.py` lays out a module's
+images into one grid for a quick visual pass before publishing. Full
+usage and the override workflow are documented in
+[`tools/README.md`](tools/README.md).
+
+Like the geography pipeline, this only covers the image half — `facts`
+and non-naming `alt` text in `data/<module-id>.json` still have to be
+authored separately and checked against a reliable source.
+
 ## What's deliberately deferred
 
 - The Elo/IRT mastery model and adaptive pool expansion from
   [DESIGN.md](DESIGN.md) — v1 uses random selection instead, but already
   records the per-item shown/correct counts that model will need.
-- AI-generated images for non-geography modules — the geography modules
-  (see above) use rendered map data instead; a future topic without a
-  natural map representation (e.g. Pokémon) would still need actual
-  AI-generated or hand-sourced art, which remains a content task, not a
-  code change.
+- AI-generated images — not needed yet. Geography modules use rendered
+  map data, and Animals/Pasta Shapes use real sourced photos (see above);
+  a future topic with neither a map nor a real-world photo per item
+  (e.g. a fictional-character topic) would still need actual AI-generated
+  or hand-sourced art, which remains a content task, not a code change.
 - Audio pronunciation, a dedicated map mode, and additional modules beyond
   Continents/Oceans — already deferred in [DESIGN.md](DESIGN.md).
 
