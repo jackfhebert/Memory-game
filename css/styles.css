@@ -73,6 +73,13 @@ body {
   color: #6b7088;
 }
 
+.tile-description {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6b7088;
+  text-align: center;
+}
+
 .add-player-form {
   display: flex;
   flex-direction: column;
@@ -160,6 +167,11 @@ body {
   cursor: default;
 }
 
+.answer-selected {
+  border-color: var(--color-primary);
+  background: #eaf1fb;
+}
+
 .answer-correct {
   border-color: var(--color-correct);
   background: #e4f6e9;
@@ -182,6 +194,19 @@ body {
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
+}
+
+.next-button:disabled {
+  background: var(--color-tile-border);
+  cursor: default;
+}
+
+.score-tally {
+  text-align: center;
+  margin-top: var(--spacing-md);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7088;
 }
 
 @media (min-width: 600px) {

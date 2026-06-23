@@ -8,10 +8,10 @@ const MODULES = [
 ];
 
 const ITEMS = [
-  { id: "africa", name: "Africa", image: "africa.png", alt: "Africa map", fact: "A continent." },
-  { id: "asia", name: "Asia", image: "asia.png", alt: "Asia map", fact: "A continent." },
-  { id: "europe", name: "Europe", image: "europe.png", alt: "Europe map", fact: "A continent." },
-  { id: "australia", name: "Australia", image: "australia.png", alt: "Australia map", fact: "A continent." },
+  { id: "africa", name: "Africa", image: "africa.png", alt: "Africa map", facts: ["A continent."] },
+  { id: "asia", name: "Asia", image: "asia.png", alt: "Asia map", facts: ["A continent."] },
+  { id: "europe", name: "Europe", image: "europe.png", alt: "Europe map", facts: ["A continent."] },
+  { id: "australia", name: "Australia", image: "australia.png", alt: "Australia map", facts: ["A continent."] },
 ];
 
 function fakeFetch(url) {
@@ -65,7 +65,7 @@ test("app.js: player select -> module select -> mode select -> flashcard -> exit
   assert.equal(activeScreen(dom), "screen-mode-select");
   const allCardsTile = [
     ...document.querySelectorAll("#screen-mode-select .tile"),
-  ].find((tile) => tile.textContent === "All Cards");
+  ].find((tile) => tile.querySelector(".tile-name").textContent === "All Cards");
   allCardsTile.dispatchEvent(new dom.window.Event("click"));
   await new Promise((resolve) => setTimeout(resolve, 0));
 
@@ -74,6 +74,33 @@ test("app.js: player select -> module select -> mode select -> flashcard -> exit
     "#screen-flashcard .answer-button",
   );
   assert.equal(answerButtons.length, 4);
+
+  assert.equal(
+    document.querySelector("#screen-flashcard .next-button").disabled,
+    true,
+  );
+
+  answerButtons[0].dispatchEvent(new dom.window.Event("click"));
+  assert.equal(
+    document.querySelector("#screen-flashcard .next-button").disabled,
+    false,
+  );
+  assert.equal(
+    document.querySelectorAll("#screen-flashcard .answer-correct").length,
+    0,
+  );
+
+  document
+    .querySelector("#screen-flashcard .next-button")
+    .dispatchEvent(new dom.window.Event("click"));
+  assert.equal(
+    document.querySelectorAll("#screen-flashcard .answer-correct").length,
+    1,
+  );
+  assert.match(
+    document.querySelector("#screen-flashcard .score-tally").textContent,
+    /✓ 1|✗ 1/,
+  );
 
   document
     .querySelector("#screen-flashcard .flashcard-exit")

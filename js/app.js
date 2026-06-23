@@ -55,14 +55,15 @@ async function goToModuleSelect() {
     tiles,
     onSelectModule: (moduleId) => {
       state.moduleId = moduleId;
-      goToModeSelect();
+      goToModeSelect(itemsByModuleId.get(moduleId).length);
     },
   });
   showScreen("module-select");
 }
 
-function goToModeSelect() {
+function goToModeSelect(totalCount) {
   renderModeSelect(screenContainer("mode-select"), {
+    totalCount,
     onSelectMode: (mode) => {
       state.mode = mode;
       goToFlashcards();

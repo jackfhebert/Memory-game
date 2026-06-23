@@ -4,7 +4,11 @@
     "name": "Africa",
     "image": "images/continents/africa.png",
     "alt": "A world map with a large landmass highlighted, straddling the equator with hot desert across its northern half.",
-    "fact": "Home to the Sahara, the largest hot desert in the world.",
+    "facts": [
+      "Home to the Sahara, the largest hot desert in the world.",
+      "This is the only continent that sits on the equator and stretches into both the Northern and Southern Hemispheres equally.",
+      "It has more countries than any other continent — over 50 of them."
+    ],
     "popularity": 80
   },
   {
@@ -12,7 +16,11 @@
     "name": "Antarctica",
     "image": "images/continents/antarctica.png",
     "alt": "A world map with the icy landmass at the very bottom of the globe highlighted.",
-    "fact": "It's so cold that almost no people live here — but lots of penguins do!",
+    "facts": [
+      "It's so cold that almost no people live here — but lots of penguins do!",
+      "This continent holds most of the world's fresh water, frozen into ice.",
+      "It has no permanent residents and no government of its own — scientists just visit to study it."
+    ],
     "popularity": 55
   },
   {
@@ -20,7 +28,11 @@
     "name": "Asia",
     "image": "images/continents/asia.png",
     "alt": "A world map with the largest landmass highlighted, stretching from the middle of the globe to its eastern edge.",
-    "fact": "This is the biggest continent — more than half of all the people in the world live here.",
+    "facts": [
+      "This is the biggest continent — more than half of all the people in the world live here.",
+      "It's home to Mount Everest, the tallest mountain on Earth.",
+      "It stretches so far that sunrise on its eastern edge happens hours before sunrise on its western edge."
+    ],
     "popularity": 85
   },
   {
@@ -28,7 +40,11 @@
     "name": "Australia",
     "image": "images/continents/australia.png",
     "alt": "A world map with one highlighted island-sized landmass, surrounded entirely by ocean, off by itself.",
-    "fact": "This is the only continent that is also just one country.",
+    "facts": [
+      "This is the only continent that is also just one country.",
+      "It's home to animals found almost nowhere else, like kangaroos and koalas.",
+      "It's the flattest continent, with no big mountain ranges like the others have."
+    ],
     "popularity": 60
   },
   {
@@ -36,7 +52,11 @@
     "name": "Europe",
     "image": "images/continents/europe.png",
     "alt": "A world map with a highlighted landmass made up of many small countries packed closely together.",
-    "fact": "This continent packs more than 40 different countries close together.",
+    "facts": [
+      "This continent packs more than 40 different countries close together.",
+      "It shares one giant landmass with Asia, though they're usually thought of as two different continents.",
+      "Many of its countries are small enough that you could drive across them in a single day."
+    ],
     "popularity": 75
   },
   {
@@ -44,7 +64,11 @@
     "name": "North America",
     "image": "images/continents/north-america.png",
     "alt": "A world map with a highlighted landmass spanning from icy northern land down to a narrow strip near the equator.",
-    "fact": "This continent stretches all the way from icy Canada down to sunny Mexico.",
+    "facts": [
+      "This continent stretches all the way from icy Canada down to sunny Mexico.",
+      "It's home to the Great Lakes, which together hold about a fifth of the world's fresh surface water.",
+      "It has only three really big countries — Canada, the United States, and Mexico — plus many smaller ones in Central America and the Caribbean."
+    ],
     "popularity": 90
   },
   {
@@ -52,7 +76,11 @@
     "name": "South America",
     "image": "images/continents/south-america.png",
     "alt": "A world map with a highlighted, triangle-shaped landmass south of a narrow strip of land, crossed by the equator.",
-    "fact": "Home to the Amazon rainforest, the largest rainforest on Earth.",
+    "facts": [
+      "Home to the Amazon rainforest, the largest rainforest on Earth.",
+      "It's home to the Andes, the longest mountain range in the world.",
+      "The Amazon River that runs through it carries more water than any other river on Earth."
+    ],
     "popularity": 65
   }
 ]

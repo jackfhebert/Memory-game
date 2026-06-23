@@ -12,5 +12,12 @@
     "dataFile": "oceans.json",
     "color": "#2BB3A3",
     "icon": "🌊"
+  },
+  {
+    "id": "states",
+    "name": "50 States",
+    "dataFile": "states.json",
+    "color": "#C66F4F",
+    "icon": "🗺️"
   }
 ]
