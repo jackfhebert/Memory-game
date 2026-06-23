@@ -3,35 +3,35 @@
     "id": "pacific",
     "name": "Pacific Ocean",
     "image": "images/oceans/pacific.png",
-    "fact": "The Pacific Ocean is the biggest ocean — it's bigger than all the continents put together!",
+    "fact": "This is the biggest ocean — it's bigger than all the continents put together!",
     "popularity": 90
   },
   {
     "id": "atlantic",
     "name": "Atlantic Ocean",
     "image": "images/oceans/atlantic.png",
-    "fact": "The Atlantic Ocean separates the Americas from Europe and Africa.",
+    "fact": "This ocean separates the Americas from Europe and Africa.",
     "popularity": 88
   },
   {
     "id": "indian",
     "name": "Indian Ocean",
     "image": "images/oceans/indian.png",
-    "fact": "The Indian Ocean is the warmest ocean in the world.",
+    "fact": "This is the warmest ocean in the world.",
     "popularity": 70
   },
   {
     "id": "arctic",
     "name": "Arctic Ocean",
     "image": "images/oceans/arctic.png",
-    "fact": "The Arctic Ocean is the smallest and coldest ocean, and parts of it are covered in ice.",
+    "fact": "This is the smallest and coldest ocean, and parts of it are covered in ice.",
     "popularity": 65
   },
   {
     "id": "southern",
     "name": "Southern Ocean",
     "image": "images/oceans/southern.png",
-    "fact": "The Southern Ocean surrounds Antarctica and is home to many penguins and whales.",
+    "fact": "This ocean surrounds Antarctica and is home to many penguins and whales.",
     "popularity": 45
   }
 ]
