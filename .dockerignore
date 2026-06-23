@@ -1,0 +1,8 @@
+node_modules
+test
+.git
+.github
+.gitignore
+*.md
+package.json
+package-lock.json
