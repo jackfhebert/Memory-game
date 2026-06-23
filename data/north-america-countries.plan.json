@@ -1,0 +1,66 @@
+[
+  {
+    "id": "bahamas",
+    "name": "Bahamas"
+  },
+  {
+    "id": "belize",
+    "name": "Belize"
+  },
+  {
+    "id": "canada",
+    "name": "Canada"
+  },
+  {
+    "id": "costa-rica",
+    "name": "Costa Rica"
+  },
+  {
+    "id": "cuba",
+    "name": "Cuba"
+  },
+  {
+    "id": "dominican-republic",
+    "name": "Dominican Republic"
+  },
+  {
+    "id": "el-salvador",
+    "name": "El Salvador"
+  },
+  {
+    "id": "guatemala",
+    "name": "Guatemala"
+  },
+  {
+    "id": "haiti",
+    "name": "Haiti"
+  },
+  {
+    "id": "honduras",
+    "name": "Honduras"
+  },
+  {
+    "id": "jamaica",
+    "name": "Jamaica"
+  },
+  {
+    "id": "mexico",
+    "name": "Mexico"
+  },
+  {
+    "id": "nicaragua",
+    "name": "Nicaragua"
+  },
+  {
+    "id": "panama",
+    "name": "Panama"
+  },
+  {
+    "id": "trinidad-and-tobago",
+    "name": "Trinidad and Tobago"
+  },
+  {
+    "id": "united-states",
+    "name": "United States"
+  }
+]

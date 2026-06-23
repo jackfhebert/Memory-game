@@ -1,0 +1,50 @@
+[
+  {
+    "id": "argentina",
+    "name": "Argentina"
+  },
+  {
+    "id": "bolivia",
+    "name": "Bolivia"
+  },
+  {
+    "id": "brazil",
+    "name": "Brazil"
+  },
+  {
+    "id": "chile",
+    "name": "Chile"
+  },
+  {
+    "id": "colombia",
+    "name": "Colombia"
+  },
+  {
+    "id": "ecuador",
+    "name": "Ecuador"
+  },
+  {
+    "id": "guyana",
+    "name": "Guyana"
+  },
+  {
+    "id": "paraguay",
+    "name": "Paraguay"
+  },
+  {
+    "id": "peru",
+    "name": "Peru"
+  },
+  {
+    "id": "suriname",
+    "name": "Suriname"
+  },
+  {
+    "id": "uruguay",
+    "name": "Uruguay"
+  },
+  {
+    "id": "venezuela",
+    "name": "Venezuela"
+  }
+]
