@@ -18,10 +18,12 @@ enough to make practice feel personalized.
 
 ## Status
 
-This project is in early planning. Upcoming documents in this repo:
+This project is in early planning — the docs below are written, the app
+itself isn't built yet:
 
-- **Design Doc** — how the game and modules are structured, and the overall
-  user experience
-- **Implementation Plan** — how the design will be built, step by step
-- **Production Overview** — what's needed to take the game from built to
-  running for real users
+- **[Design Doc](DESIGN.md)** — how the game and modules are structured,
+  and the overall user experience
+- **[Implementation Plan](IMPLEMENTATION_PLAN.md)** — how the design will
+  be built, step by step
+- **[Production Overview](PRODUCTION.md)** — what's needed to take the
+  game from built to running for real users
