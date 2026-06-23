@@ -6,6 +6,8 @@ import {
   pickDistractors,
   buildAnswerChoices,
   pickFact,
+  shouldExpandPool,
+  expandPool,
 } from "../js/flashcards.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 
@@ -95,4 +97,30 @@ test("pickFact returns one of the item's facts", () => {
 test("pickFact works with a single fact", () => {
   const item = { id: "item-0", facts: ["only fact"] };
   assert.equal(pickFact(item, fakeRng([0])), "only fact");
+});
+
+test("shouldExpandPool is true only in active-learning mode on the second correct answer", () => {
+  assert.equal(shouldExpandPool("active-learning", 2), true);
+  assert.equal(shouldExpandPool("active-learning", 1), false);
+  assert.equal(shouldExpandPool("active-learning", 3), false);
+  assert.equal(shouldExpandPool("all-cards", 2), false);
+});
+
+test("expandPool adds one item not already in the pool", () => {
+  const items = makeItems(7);
+  const pool = items.slice(0, 5);
+  const expanded = expandPool(pool, items, fakeRng([0]));
+  assert.equal(expanded.length, 6);
+  const addedIds = expanded.slice(5).map((i) => i.id);
+  assert.deepEqual(addedIds, ["item-5"]);
+  // original pool items are still present and untouched
+  assert.deepEqual(expanded.slice(0, 5), pool);
+});
+
+test("expandPool returns the same pool when every item is already active", () => {
+  const items = makeItems(5);
+  const pool = [...items];
+  const expanded = expandPool(pool, items, fakeRng([0]));
+  assert.equal(expanded.length, 5);
+  assert.deepEqual(expanded, pool);
 });

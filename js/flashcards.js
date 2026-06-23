@@ -63,6 +63,18 @@ export function pickFact(item, rng = Math.random) {
   return facts[Math.floor(rng() * facts.length)];
 }
 
+export function shouldExpandPool(mode, itemCorrectCount) {
+  return mode === "active-learning" && itemCorrectCount === 2;
+}
+
+export function expandPool(pool, items, rng = Math.random) {
+  const poolIds = new Set(pool.map((item) => item.id));
+  const candidates = items.filter((item) => !poolIds.has(item.id));
+  if (candidates.length === 0) return pool;
+  const index = Math.floor(rng() * candidates.length);
+  return [...pool, candidates[index]];
+}
+
 function buildCard(items, pool, previousItemId, rng) {
   const item = pickNextCard(pool, previousItemId, rng);
   const distractors = pickDistractors(items, item, DISTRACTOR_COUNT, rng);
@@ -72,7 +84,7 @@ function buildCard(items, pool, previousItemId, rng) {
 }
 
 export function startFlashcardSession(container, { player, moduleId, items, mode, onExit }) {
-  const pool = buildActivePool(items, mode);
+  let pool = buildActivePool(items, mode);
   let card = buildCard(items, pool, null);
   let selectedChoiceId = null;
   let revealed = false;
@@ -102,11 +114,15 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
     if (!revealed) {
       if (selectedChoiceId === null) return;
       const wasCorrect = selectedChoiceId === card.item.id;
-      recordAnswer(player, moduleId, card.item.id, wasCorrect);
+      const progress = recordAnswer(player, moduleId, card.item.id, wasCorrect);
       if (wasCorrect) {
         correctCount += 1;
       } else {
         wrongCount += 1;
+      }
+      const itemCorrectCount = progress.itemStats[card.item.id].correct;
+      if (shouldExpandPool(mode, itemCorrectCount)) {
+        pool = expandPool(pool, items);
       }
       revealed = true;
       renderCurrentCard();
