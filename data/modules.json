@@ -21,6 +21,13 @@
     "icon": "🗺️"
   },
   {
+    "id": "asia-countries",
+    "name": "Asian Countries",
+    "dataFile": "asia-countries.json",
+    "color": "#D14F6B",
+    "icon": "🏯"
+  },
+  {
     "id": "europe-countries",
     "name": "European Countries",
     "dataFile": "europe-countries.json",
