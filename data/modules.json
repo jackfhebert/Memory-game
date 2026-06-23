@@ -19,5 +19,19 @@
     "dataFile": "states.json",
     "color": "#C66F4F",
     "icon": "🗺️"
+  },
+  {
+    "id": "oceania-countries",
+    "name": "Oceania Countries",
+    "dataFile": "oceania-countries.json",
+    "color": "#3FA796",
+    "icon": "🏝️"
+  },
+  {
+    "id": "south-america-countries",
+    "name": "South American Countries",
+    "dataFile": "south-america-countries.json",
+    "color": "#E0A23B",
+    "icon": "🌎"
   }
 ]
