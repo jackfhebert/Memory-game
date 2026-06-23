@@ -26,9 +26,11 @@ progress.
 - **Player progress lives in browser localStorage** — it doesn't follow a
   kid between devices, and is lost if browser data is cleared. Acceptable
   for an MVP on one shared family device.
-- **First module(s): Continents and Oceans.** Small, fixed sets (7
-  continents, 5 oceans) — enough to prove out the core loop before adding
-  bigger content sets like U.S. states or World Cup countries.
+- **First two modules: Continents and Oceans.** Each is its own module file
+  (7 continents, 5 oceans) — starting with two separate modules from day
+  one proves out both the core flashcard loop and module-to-module
+  switching, before adding bigger content sets like U.S. states or World
+  Cup countries.
 
 ### Explicitly out of scope for MVP
 
@@ -70,9 +72,10 @@ Item schema:
 - `image` — for geography modules, this is a world map with the item
   highlighted (e.g. Africa's outline highlighted on a world map), not a
   generic photo. This is how "find it on a map" sneaks into the MVP without
-  being a separate game mode. Source images from Wikipedia/Wikimedia
-  Commons, which has freely-licensed highlighted-map images for continents,
-  oceans, countries, and U.S. states already available.
+  being a separate game mode. Images are AI-generated rather than sourced
+  from an existing library, keeping the whole content pipeline (facts,
+  popularity estimates, and images) self-contained and easy to regenerate
+  or extend to new modules.
 - `fact` — a short, kid-friendly sentence.
 - `popularity` — a 0–100 prior estimate of how well-known the item is to
   most people. This is authored once per item (not per player) and feeds
@@ -80,8 +83,8 @@ Item schema:
   Mastery Model below).
 
 Content for Continents and Oceans will be drafted as placeholder JSON
-(facts + popularity estimates) using Wikipedia map images, so the app is
-playable end-to-end before real content review.
+(facts + popularity estimates) with AI-generated map images, so the app is
+playable end-to-end before any real content review.
 
 ## Game Flow
 
@@ -192,9 +195,12 @@ future idea once modules get bigger.
 
 ## Open questions / risks
 
-- **Image licensing details:** Wikipedia/Wikimedia Commons images are
-  generally freely licensed, but each image's specific license and
-  attribution requirements should be checked before real use.
+- **AI-generated map accuracy:** image generators aren't reliable at
+  precise cartography (exact borders/coastlines), so AI-generated
+  highlighted maps may come out geographically rough. Fine for a personal
+  MVP; worth a manual look once images are generated, and worth revisiting
+  (e.g. generating a stylized background and overlaying a precise highlight
+  programmatically) if accuracy turns out to matter more later.
 - **localStorage durability:** acceptable for MVP, but worth flagging that
   clearing browser data wipes all kids' progress, and progress won't follow
   a kid to a different device.
