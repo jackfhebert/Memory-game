@@ -187,7 +187,7 @@ function renderFlashcard(
 
   const nextButton = document.createElement("button");
   nextButton.className = "next-button";
-  nextButton.textContent = "Next";
+  nextButton.textContent = revealed ? "Next Question" : "Answer";
   nextButton.disabled = !revealed && selectedChoiceId === null;
   nextButton.addEventListener("click", onNext);
   container.appendChild(nextButton);

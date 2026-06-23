@@ -1,0 +1,362 @@
+[
+  {
+    "id": "lion",
+    "name": "Lion",
+    "image": "images/animals/lion.png",
+    "alt": "A close-up photo of a large, golden-furred big cat with a thick mane, resting in tall grass.",
+    "facts": [
+      "Adult males in this species grow a thick mane of fur around their head and neck.",
+      "It is one of the only big cats that lives and hunts in family groups.",
+      "The females in its family group do most of the hunting."
+    ],
+    "popularity": 92
+  },
+  {
+    "id": "tiger",
+    "name": "Tiger",
+    "image": "images/animals/tiger.png",
+    "alt": "A close-up photo of a large orange-and-black striped big cat walking through jungle grass.",
+    "facts": [
+      "This is the largest of all big cats, with bold stripes on its fur.",
+      "No two of these animals have the exact same stripe pattern \u2014 they're like fingerprints.",
+      "It is an excellent swimmer and often cools off in rivers and ponds."
+    ],
+    "popularity": 90
+  },
+  {
+    "id": "elephant",
+    "name": "Elephant",
+    "image": "images/animals/elephant.png",
+    "alt": "A close-up photo of a huge gray animal with large ears, tusks, and a long trunk reaching toward the ground.",
+    "facts": [
+      "This is the largest land animal on Earth, with big floppy ears and a long trunk.",
+      "It uses its trunk like a hand, to grab food, drink water, and even give itself a shower.",
+      "It lives in close family herds usually led by an older female."
+    ],
+    "popularity": 90
+  },
+  {
+    "id": "giraffe",
+    "name": "Giraffe",
+    "image": "images/animals/giraffe.png",
+    "alt": "A close-up photo of a tall, patterned animal with a very long neck, reaching up to eat leaves from a tree.",
+    "facts": [
+      "This is the tallest land animal in the world, thanks to its very long neck and legs.",
+      "Its tongue can be over a foot long and helps it reach leaves high in trees.",
+      "Each one has a unique pattern of patches, just like a person's fingerprint."
+    ],
+    "popularity": 82
+  },
+  {
+    "id": "zebra",
+    "name": "Zebra",
+    "image": "images/animals/zebra.png",
+    "alt": "A close-up photo of a horse-like animal covered head to tail in bold black and white stripes.",
+    "facts": [
+      "This animal is covered in stripes, and no two patterns are exactly alike.",
+      "It lives in herds on the open grasslands of Africa.",
+      "Scientists think its stripe pattern may help confuse biting flies and predators."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "panda",
+    "name": "Panda",
+    "image": "images/animals/panda.png",
+    "alt": "A close-up photo of a round, black-and-white bear sitting and chewing on a bamboo stalk.",
+    "facts": [
+      "This black-and-white animal spends most of its day eating bamboo.",
+      "A newborn of this species is pink, hairless, and smaller than a stick of butter.",
+      "It's become a symbol of wildlife conservation around the world."
+    ],
+    "popularity": 85
+  },
+  {
+    "id": "koala",
+    "name": "Koala",
+    "image": "images/animals/koala.png",
+    "alt": "A close-up photo of a gray, round-eared animal clinging to a tree branch.",
+    "facts": [
+      "This animal sleeps up to 20 hours a day, mostly in the branches of trees.",
+      "It eats almost nothing but eucalyptus leaves.",
+      "Despite its appearance, it isn't actually a bear \u2014 it's a marsupial that carries its baby in a pouch."
+    ],
+    "popularity": 78
+  },
+  {
+    "id": "kangaroo",
+    "name": "Kangaroo",
+    "image": "images/animals/kangaroo.png",
+    "alt": "A close-up photo of a tan, long-legged animal balancing upright on its strong back legs and tail.",
+    "facts": [
+      "This animal can leap more than three times its own body length in a single hop.",
+      "It carries its baby, called a joey, in a pouch on its belly.",
+      "It uses its strong tail for balance while hopping and even as a prop while standing still."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "gorilla",
+    "name": "Gorilla",
+    "image": "images/animals/gorilla.png",
+    "alt": "A close-up photo of a large, dark-furred primate sitting calmly in green forest.",
+    "facts": [
+      "This is one of the largest primates and is closely related to humans.",
+      "Adult males develop a patch of silver-gray fur on their backs as they age.",
+      "It mostly eats leaves, stems, and fruit, and lives in close family groups."
+    ],
+    "popularity": 68
+  },
+  {
+    "id": "chimpanzee",
+    "name": "Chimpanzee",
+    "image": "images/animals/chimpanzee.png",
+    "alt": "A close-up photo of a small, dark-furred primate with an expressive face, sitting among green leaves.",
+    "facts": [
+      "This is one of the closest living relatives to humans, sharing most of our DNA.",
+      "It is known for using simple tools, like sticks, to get food.",
+      "It lives in social groups and communicates with calls, gestures, and facial expressions."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "polar-bear",
+    "name": "Polar Bear",
+    "image": "images/animals/polar-bear.png",
+    "alt": "A close-up photo of a huge white-furred bear standing on snow and ice.",
+    "facts": [
+      "This is the largest land predator, living on Arctic ice and snow.",
+      "Its fur looks white but is actually clear, and the skin underneath is black.",
+      "It is an excellent swimmer and can paddle for many miles searching for food."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "brown-bear",
+    "name": "Brown Bear",
+    "image": "images/animals/brown-bear.png",
+    "alt": "A close-up photo of a large, shaggy brown-furred animal standing near a forest stream.",
+    "facts": [
+      "This large, shaggy animal can stand on its back legs to look around or reach food.",
+      "It eats almost anything, including berries, fish, and small animals.",
+      "It sleeps through the coldest months of winter in a long rest called hibernation."
+    ],
+    "popularity": 72
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "image": "images/animals/wolf.png",
+    "alt": "A close-up photo of a gray, pointy-eared animal standing alert in a snowy forest.",
+    "facts": [
+      "This animal lives and hunts in family groups called packs.",
+      "It can howl loudly to communicate with other members of its group from far away.",
+      "It is the wild ancestor of every breed of pet dog."
+    ],
+    "popularity": 68
+  },
+  {
+    "id": "fox",
+    "name": "Fox",
+    "image": "images/animals/fox.png",
+    "alt": "A close-up photo of a small orange-furred animal with a pointed face and bushy tail.",
+    "facts": [
+      "This small, clever animal has big pointed ears and a long bushy tail.",
+      "It uses its excellent hearing to find small animals hiding under snow.",
+      "It can be found living in forests, deserts, and even cities."
+    ],
+    "popularity": 62
+  },
+  {
+    "id": "cheetah",
+    "name": "Cheetah",
+    "image": "images/animals/cheetah.png",
+    "alt": "A close-up photo of a slender, spotted cat crouched low and ready to sprint across grassland.",
+    "facts": [
+      "This animal is the fastest land animal on Earth, able to reach incredible bursts of speed.",
+      "It has dark, tear-shaped marks running from its eyes down its face.",
+      "Unlike most big cats, it hunts mostly during the day."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "leopard",
+    "name": "Leopard",
+    "image": "images/animals/leopard.png",
+    "alt": "A close-up photo of a spotted golden cat resting on a tree branch.",
+    "facts": [
+      "This big cat has dark, rosette-shaped spots covering its golden fur.",
+      "It is incredibly strong and often drags its prey up into trees to keep it safe from other predators.",
+      "It is mostly active at night and is an excellent, silent climber."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "hippopotamus",
+    "name": "Hippopotamus",
+    "image": "images/animals/hippopotamus.png",
+    "alt": "A close-up photo of a huge, round gray animal mostly submerged in muddy river water.",
+    "facts": [
+      "This huge animal spends most of the day resting in rivers and lakes to stay cool.",
+      "Despite its size, it can run surprisingly fast on land.",
+      "Its skin produces a natural reddish oil that protects it like sunscreen."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "rhinoceros",
+    "name": "Rhinoceros",
+    "image": "images/animals/rhinoceros.png",
+    "alt": "A close-up photo of a massive gray animal with thick skin and a large horn on its snout.",
+    "facts": [
+      "This animal has one or two large horns made of the same material as human fingernails.",
+      "Its skin is extremely thick and tough, like natural armor.",
+      "Despite weighing as much as a small car, it can charge at surprising speed."
+    ],
+    "popularity": 58
+  },
+  {
+    "id": "crocodile",
+    "name": "Crocodile",
+    "image": "images/animals/crocodile.png",
+    "alt": "A close-up photo of a long, scaly reptile floating at the surface of murky water with just its eyes and snout showing.",
+    "facts": [
+      "This reptile can hold its breath underwater for over an hour.",
+      "It has one of the strongest bites of any animal alive.",
+      "It often floats almost completely still in the water, waiting to ambush prey."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "flamingo",
+    "name": "Flamingo",
+    "image": "images/animals/flamingo.png",
+    "alt": "A close-up photo of a tall pink bird standing on one thin leg in shallow water.",
+    "facts": [
+      "This bird's pink color comes from the shrimp and algae it eats.",
+      "It often stands and even sleeps balanced on just one leg.",
+      "Large groups of this bird gather together by the thousands in shallow lakes."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "peacock",
+    "name": "Peacock",
+    "image": "images/animals/peacock.png",
+    "alt": "A close-up photo of a bird with a spectacular fan of blue and green eye-spotted tail feathers.",
+    "facts": [
+      "The male of this bird species has a giant, colorful tail of feathers he fans out to attract mates.",
+      "His tail feathers are covered in shimmering blue and green eye-shaped spots.",
+      "Despite the huge tail, this bird can still fly short distances."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "owl",
+    "name": "Owl",
+    "image": "images/animals/owl.png",
+    "alt": "A close-up photo of a round-faced bird with big forward-facing eyes, perched on a branch at night.",
+    "facts": [
+      "This bird can turn its head almost all the way around to look behind itself.",
+      "It can fly almost silently, which helps it sneak up on prey at night.",
+      "Its eyes are so large that it can't move them \u2014 it has to turn its whole head to look around."
+    ],
+    "popularity": 68
+  },
+  {
+    "id": "eagle",
+    "name": "Eagle",
+    "image": "images/animals/eagle.png",
+    "alt": "A close-up photo of a large bird of prey with a sharp curved beak, soaring with wings spread wide.",
+    "facts": [
+      "This bird has incredibly sharp eyesight, letting it spot prey from high in the sky.",
+      "It builds huge nests, sometimes used and added to for many years.",
+      "Its strong, curved talons help it snatch fish right out of the water."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "penguin",
+    "name": "Penguin",
+    "image": "images/animals/penguin.png",
+    "alt": "A close-up photo of a black-and-white bird standing upright on ice.",
+    "facts": [
+      "This bird cannot fly, but it is an excellent swimmer, using its wings like flippers.",
+      "It huddles together in large groups to stay warm in freezing weather.",
+      "It waddles on land but glides gracefully underwater."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "dolphin",
+    "name": "Dolphin",
+    "image": "images/animals/dolphin.png",
+    "alt": "A close-up photo of a sleek gray sea animal leaping out of blue ocean water.",
+    "facts": [
+      "This intelligent ocean animal uses clicks and whistles to communicate with others.",
+      "It can leap high out of the water and is known for playful behavior.",
+      "It uses echolocation, bouncing sound off objects, to find food in murky water."
+    ],
+    "popularity": 82
+  },
+  {
+    "id": "octopus",
+    "name": "Octopus",
+    "image": "images/animals/octopus.png",
+    "alt": "A close-up photo of a soft-bodied sea creature with eight long arms spread across a rocky reef.",
+    "facts": [
+      "This sea animal has eight arms and can squeeze through incredibly tiny gaps.",
+      "It can change the color and texture of its skin to hide from danger.",
+      "It is considered one of the smartest invertebrates, able to solve puzzles and open jars."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "sea-turtle",
+    "name": "Sea Turtle",
+    "image": "images/animals/sea-turtle.png",
+    "alt": "A close-up photo of a large turtle with a patterned shell swimming through clear blue ocean water.",
+    "facts": [
+      "This animal can hold its breath for hours while resting underwater.",
+      "Females return to the very same beach where they were born to lay their own eggs.",
+      "It has a hard shell that protects it, but it cannot pull its flippers all the way inside like land turtles."
+    ],
+    "popularity": 62
+  },
+  {
+    "id": "shark",
+    "name": "Shark",
+    "image": "images/animals/shark.png",
+    "alt": "A close-up photo of a large, gray fish with a pointed fin gliding through open ocean water.",
+    "facts": [
+      "This ocean predator can sense a tiny amount of blood in the water from far away.",
+      "It has rows of sharp teeth that are constantly replaced throughout its life.",
+      "Some kinds of this fish must keep swimming constantly or they will sink."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "ostrich",
+    "name": "Ostrich",
+    "image": "images/animals/ostrich.png",
+    "alt": "A close-up photo of a tall, long-necked bird with fluffy feathers standing on the open plains.",
+    "facts": [
+      "This is the largest bird in the world, but it cannot fly at all.",
+      "It can run faster than any other bird, reaching very high speeds.",
+      "Its eyes are bigger than its brain."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "camel",
+    "name": "Camel",
+    "image": "images/animals/camel.png",
+    "alt": "A close-up photo of a tan animal with one or two humps on its back, standing in a sandy desert.",
+    "facts": [
+      "This animal can go for many days without drinking any water.",
+      "It stores fat, not water, in the hump on its back.",
+      "Its wide, padded feet keep it from sinking into soft desert sand."
+    ],
+    "popularity": 58
+  }
+]
