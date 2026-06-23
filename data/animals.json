@@ -2,7 +2,7 @@
   {
     "id": "lion",
     "name": "Lion",
-    "image": "images/animals/lion.png",
+    "image": "images/animals/lion.jpg",
     "alt": "A close-up photo of a large, golden-furred big cat with a thick mane, resting in tall grass.",
     "facts": [
       "A male's roar can be heard from up to 5 miles away \u2014 loud enough to hear from a whole neighborhood over.",
@@ -14,7 +14,7 @@
   {
     "id": "tiger",
     "name": "Tiger",
-    "image": "images/animals/tiger.png",
+    "image": "images/animals/tiger.jpg",
     "alt": "A close-up photo of a large orange-and-black striped big cat walking through jungle grass.",
     "facts": [
       "Its skin is striped too, just like its fur \u2014 even if you shaved one, the stripe pattern would still show.",
@@ -26,7 +26,7 @@
   {
     "id": "elephant",
     "name": "Elephant",
-    "image": "images/animals/elephant.png",
+    "image": "images/animals/elephant.jpg",
     "alt": "A close-up photo of a huge gray animal with large ears, tusks, and a long trunk reaching toward the ground.",
     "facts": [
       "Its trunk has no bones at all, yet it's strong enough to lift a log and gentle enough to pick up a single berry.",
@@ -38,7 +38,7 @@
   {
     "id": "giraffe",
     "name": "Giraffe",
-    "image": "images/animals/giraffe.png",
+    "image": "images/animals/giraffe.jpg",
     "alt": "A close-up photo of a tall, patterned animal with a very long neck, reaching up to eat leaves from a tree.",
     "facts": [
       "It only needs about 30 minutes of sleep a day, often taken in tiny naps while standing up.",
@@ -50,7 +50,7 @@
   {
     "id": "zebra",
     "name": "Zebra",
-    "image": "images/animals/zebra.png",
+    "image": "images/animals/zebra.jpg",
     "alt": "A close-up photo of a horse-like animal covered head to tail in bold black and white stripes.",
     "facts": [
       "A newborn can already stand and run within an hour of being born \u2014 there's no time to nap when lions are nearby.",
@@ -62,7 +62,7 @@
   {
     "id": "panda",
     "name": "Panda",
-    "image": "images/animals/panda.png",
+    "image": "images/animals/panda.jpg",
     "alt": "A close-up photo of a round, black-and-white bear sitting and chewing on a bamboo stalk.",
     "facts": [
       "It can eat up to 40 pounds of bamboo every single day \u2014 like eating your own body weight in salad.",
@@ -74,7 +74,7 @@
   {
     "id": "koala",
     "name": "Koala",
-    "image": "images/animals/koala.png",
+    "image": "images/animals/koala.jpg",
     "alt": "A close-up photo of a gray, round-eared animal clinging to a tree branch.",
     "facts": [
       "Its fingerprints look so much like human fingerprints that they could actually confuse a crime scene investigator.",
@@ -86,7 +86,7 @@
   {
     "id": "kangaroo",
     "name": "Kangaroo",
-    "image": "images/animals/kangaroo.png",
+    "image": "images/animals/kangaroo.jpg",
     "alt": "A close-up photo of a tan, long-legged animal balancing upright on its strong back legs and tail.",
     "facts": [
       "It can hop at speeds of over 35 miles per hour \u2014 about as fast as a car cruising through a neighborhood.",
@@ -98,7 +98,7 @@
   {
     "id": "gorilla",
     "name": "Gorilla",
-    "image": "images/animals/gorilla.png",
+    "image": "images/animals/gorilla.jpg",
     "alt": "A close-up photo of a large, dark-furred primate sitting calmly in green forest.",
     "facts": [
       "It's strong enough to bend steel bars, but mostly spends its day calmly munching on leaves and stems.",
@@ -110,7 +110,7 @@
   {
     "id": "chimpanzee",
     "name": "Chimpanzee",
-    "image": "images/animals/chimpanzee.png",
+    "image": "images/animals/chimpanzee.jpg",
     "alt": "A close-up photo of a small, dark-furred primate with an expressive face, sitting among green leaves.",
     "facts": [
       "It can recognize itself in a mirror, something very few animals are able to do.",
@@ -122,7 +122,7 @@
   {
     "id": "polar-bear",
     "name": "Polar Bear",
-    "image": "images/animals/polar-bear.png",
+    "image": "images/animals/polar-bear.jpg",
     "alt": "A close-up photo of a huge white-furred bear standing on snow and ice.",
     "facts": [
       "It can smell a meal from nearly 20 miles away, even through thick ice and snow.",
@@ -134,7 +134,7 @@
   {
     "id": "brown-bear",
     "name": "Brown Bear",
-    "image": "images/animals/brown-bear.png",
+    "image": "images/animals/brown-bear.jpg",
     "alt": "A close-up photo of a large, shaggy brown-furred animal standing near a forest stream.",
     "facts": [
       "It can outrun a galloping horse for short bursts, even though it looks slow and lumbering.",
@@ -146,7 +146,7 @@
   {
     "id": "wolf",
     "name": "Wolf",
-    "image": "images/animals/wolf.png",
+    "image": "images/animals/wolf.jpg",
     "alt": "A close-up photo of a gray, pointy-eared animal standing alert in a snowy forest.",
     "facts": [
       "Its howl can travel for several miles across open land, almost like a long-distance phone call to the rest of its pack.",
@@ -158,7 +158,7 @@
   {
     "id": "fox",
     "name": "Fox",
-    "image": "images/animals/fox.png",
+    "image": "images/animals/fox.jpg",
     "alt": "A close-up photo of a small orange-furred animal with a pointed face and bushy tail.",
     "facts": [
       "It can hear a mouse squeak from about 100 feet away, and even pick up the sound of one burrowing underground.",
@@ -170,7 +170,7 @@
   {
     "id": "cheetah",
     "name": "Cheetah",
-    "image": "images/animals/cheetah.png",
+    "image": "images/animals/cheetah.jpg",
     "alt": "A close-up photo of a slender, spotted cat crouched low and ready to sprint across grassland.",
     "facts": [
       "It can go from a standstill to full speed faster than most sports cars.",
@@ -182,7 +182,7 @@
   {
     "id": "leopard",
     "name": "Leopard",
-    "image": "images/animals/leopard.png",
+    "image": "images/animals/leopard.jpg",
     "alt": "A close-up photo of a spotted golden cat resting on a tree branch.",
     "facts": [
       "It's strong enough to drag prey twice its own weight straight up into a tree.",
@@ -194,7 +194,7 @@
   {
     "id": "hippopotamus",
     "name": "Hippopotamus",
-    "image": "images/animals/hippopotamus.png",
+    "image": "images/animals/hippopotamus.jpg",
     "alt": "A close-up photo of a huge, round gray animal mostly submerged in muddy river water.",
     "facts": [
       "It can hold its breath underwater for about 5 minutes, even while it's fast asleep.",
@@ -206,7 +206,7 @@
   {
     "id": "rhinoceros",
     "name": "Rhinoceros",
-    "image": "images/animals/rhinoceros.png",
+    "image": "images/animals/rhinoceros.jpg",
     "alt": "A close-up photo of a massive gray animal with thick skin and a large horn on its snout.",
     "facts": [
       "Its horn keeps growing throughout its whole life, just like your fingernails.",
@@ -218,7 +218,7 @@
   {
     "id": "crocodile",
     "name": "Crocodile",
-    "image": "images/animals/crocodile.png",
+    "image": "images/animals/crocodile.jpg",
     "alt": "A close-up photo of a long, scaly reptile floating at the surface of murky water with just its eyes and snout showing.",
     "facts": [
       "It hasn't changed much in millions of years \u2014 its ancestors looked similar even when dinosaurs roamed the earth.",
@@ -230,7 +230,7 @@
   {
     "id": "flamingo",
     "name": "Flamingo",
-    "image": "images/animals/flamingo.png",
+    "image": "images/animals/flamingo.jpg",
     "alt": "A close-up photo of a tall pink bird standing on one thin leg in shallow water.",
     "facts": [
       "Chicks are actually born gray or white \u2014 they only turn pink after eating enough of their shrimpy diet.",
@@ -242,7 +242,7 @@
   {
     "id": "peacock",
     "name": "Peacock",
-    "image": "images/animals/peacock.png",
+    "image": "images/animals/peacock.jpg",
     "alt": "A close-up photo of a bird with a spectacular fan of blue and green eye-spotted tail feathers.",
     "facts": [
       "Its giant tail can have over 200 feathers, each one stamped with its own eye-shaped pattern.",
@@ -254,7 +254,7 @@
   {
     "id": "owl",
     "name": "Owl",
-    "image": "images/animals/owl.png",
+    "image": "images/animals/owl.jpg",
     "alt": "A close-up photo of a round-faced bird with big forward-facing eyes, perched on a branch at night.",
     "facts": [
       "It has extra neck bones, which is exactly why it can rotate its head about three-quarters of the way around.",
@@ -266,7 +266,7 @@
   {
     "id": "eagle",
     "name": "Eagle",
-    "image": "images/animals/eagle.png",
+    "image": "images/animals/eagle.jpg",
     "alt": "A close-up photo of a large bird of prey with a sharp curved beak, soaring with wings spread wide.",
     "facts": [
       "Its eyesight is so sharp it could spot a rabbit from almost two miles away.",
@@ -278,7 +278,7 @@
   {
     "id": "penguin",
     "name": "Penguin",
-    "image": "images/animals/penguin.png",
+    "image": "images/animals/penguin.jpg",
     "alt": "A close-up photo of a black-and-white bird standing upright on ice.",
     "facts": [
       "It can launch straight up out of the water onto an ice ledge, almost like a torpedo with flippers.",
@@ -290,7 +290,7 @@
   {
     "id": "dolphin",
     "name": "Dolphin",
-    "image": "images/animals/dolphin.png",
+    "image": "images/animals/dolphin.jpg",
     "alt": "A close-up photo of a sleek gray sea animal leaping out of blue ocean water.",
     "facts": [
       "Each one might have its own unique whistle, almost like a name, that the rest of its group recognizes.",
@@ -302,7 +302,7 @@
   {
     "id": "octopus",
     "name": "Octopus",
-    "image": "images/animals/octopus.png",
+    "image": "images/animals/octopus.jpg",
     "alt": "A close-up photo of a soft-bodied sea creature with eight long arms spread across a rocky reef.",
     "facts": [
       "It has nearly 2,000 tiny suckers, and each one can actually taste whatever it's touching.",
@@ -314,7 +314,7 @@
   {
     "id": "sea-turtle",
     "name": "Sea Turtle",
-    "image": "images/animals/sea-turtle.png",
+    "image": "images/animals/sea-turtle.jpg",
     "alt": "A close-up photo of a large turtle with a patterned shell swimming through clear blue ocean water.",
     "facts": [
       "It might swim thousands of miles across the ocean, then return to lay eggs on the very same beach where it hatched.",
@@ -326,7 +326,7 @@
   {
     "id": "shark",
     "name": "Shark",
-    "image": "images/animals/shark.png",
+    "image": "images/animals/shark.jpg",
     "alt": "A close-up photo of a large, gray fish with a pointed fin gliding through open ocean water.",
     "facts": [
       "Some kinds have been swimming the oceans since long before dinosaurs ever existed.",
@@ -338,7 +338,7 @@
   {
     "id": "ostrich",
     "name": "Ostrich",
-    "image": "images/animals/ostrich.png",
+    "image": "images/animals/ostrich.jpg",
     "alt": "A close-up photo of a tall, long-necked bird with fluffy feathers standing on the open plains.",
     "facts": [
       "Its powerful kick is strong enough to seriously injure a lion.",
@@ -350,7 +350,7 @@
   {
     "id": "camel",
     "name": "Camel",
-    "image": "images/animals/camel.png",
+    "image": "images/animals/camel.jpg",
     "alt": "A close-up photo of a tan animal with one or two humps on its back, standing in a sandy desert.",
     "facts": [
       "It can gulp down over 30 gallons of water in just a few minutes once it finally reaches a watering hole.",
