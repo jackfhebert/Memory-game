@@ -1,0 +1,182 @@
+[
+  {
+    "id": "spaghetti",
+    "name": "Spaghetti",
+    "image": "images/pasta/spaghetti.jpg",
+    "alt": "A close-up photo of a bundle of long, thin, round noodles lying together.",
+    "facts": [
+      "A single strand is long enough that twirling it around a fork takes most kids a few tries to master.",
+      "It used to be sold by the yard before factories started packaging it by weight in boxes.",
+      "Snapping a handful in half before cooking is considered a kitchen crime in much of Italy."
+    ],
+    "popularity": 95
+  },
+  {
+    "id": "penne",
+    "name": "Penne",
+    "image": "images/pasta/penne.jpg",
+    "alt": "A close-up photo of short, ridged tube-shaped noodles with diagonally cut ends.",
+    "facts": [
+      "Its angled ends are cut to look like the tip of a quill pen.",
+      "The ridges on its outside aren't just decoration — they help sauce cling on instead of sliding off.",
+      "Its hollow tube shape means a little pocket of sauce can hide inside every single piece."
+    ],
+    "popularity": 88
+  },
+  {
+    "id": "fusilli",
+    "name": "Fusilli",
+    "image": "images/pasta/fusilli.jpg",
+    "alt": "A close-up photo of corkscrew-shaped noodles twisted into tight spirals.",
+    "facts": [
+      "Its spiral shape was traditionally made by winding fresh dough around a thin knitting needle.",
+      "Because it's curly instead of smooth, every twist traps tiny bits of sauce.",
+      "It's a popular pick for cold pasta salads since the twists hold dressing well even after cooling."
+    ],
+    "popularity": 78
+  },
+  {
+    "id": "rigatoni",
+    "name": "Rigatoni",
+    "image": "images/pasta/rigatoni.jpg",
+    "alt": "A close-up photo of large, ridged tube-shaped noodles with straight-cut ends.",
+    "facts": [
+      "It's one of the bigger tube shapes, wide enough that cheese or meat can be stuffed inside.",
+      "Its ridged surface comes from the grooved metal dies the dough gets pushed through.",
+      "Its wide tube and straight ends make it a favorite for hearty baked casseroles."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "farfalle",
+    "name": "Farfalle",
+    "image": "images/pasta/farfalle.jpg",
+    "alt": "A close-up photo of bowtie-shaped noodles with pinched, ruffled centers.",
+    "facts": [
+      "Its name means 'butterflies' in Italian, after its pinched, winged shape.",
+      "Home cooks once pinched the centers of little dough rectangles by hand to make this shape.",
+      "Its ruffled edges and pinched waist make it easy to spot in any pasta salad."
+    ],
+    "popularity": 62
+  },
+  {
+    "id": "linguine",
+    "name": "Linguine",
+    "image": "images/pasta/linguine.jpg",
+    "alt": "A close-up photo of long, flat, narrow ribbon-shaped noodles.",
+    "facts": [
+      "Its name comes from the Italian word for 'little tongues,' describing its flat, narrow shape.",
+      "It's flatter than a round strand noodle but much narrower than a wide ribbon noodle.",
+      "It pairs well with seafood sauces because its flatter shape catches small bits of clam or shrimp."
+    ],
+    "popularity": 58
+  },
+  {
+    "id": "fettuccine",
+    "name": "Fettuccine",
+    "image": "images/pasta/fettuccine.jpg",
+    "alt": "A close-up photo of long, flat, wide ribbon-shaped noodles.",
+    "facts": [
+      "Its name means 'little ribbons' in Italian, describing its broad, flat shape.",
+      "It's traditionally cut from a sheet of fresh egg dough rolled out and sliced into wide strips.",
+      "Its wide surface area makes it especially good at holding onto thick, creamy sauces."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "lasagna",
+    "name": "Lasagna",
+    "image": "images/pasta/lasagna.jpg",
+    "alt": "A close-up photo of wide, flat rectangular pasta sheets fanned out on a table.",
+    "facts": [
+      "It's rolled out wide and flat, then layered with sauce and cheese in between each sheet.",
+      "Some versions have ruffled edges on both sides, which helps each layer grip the one above it.",
+      "A single sheet is big enough to cover almost an entire baking dish on its own."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "ravioli",
+    "name": "Ravioli",
+    "image": "images/pasta/ravioli.jpg",
+    "alt": "A close-up photo of square pasta pockets with crimped edges, arranged in neat rows on a tray.",
+    "facts": [
+      "Each little square is really two layers of dough pressed together around a hidden filling.",
+      "Its crimped, wavy edges aren't just for looks — they help seal in whatever filling is tucked inside.",
+      "Long ago, cooks sealed the edges by hand with just their fingers before crimping tools existed."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "tortellini",
+    "name": "Tortellini",
+    "image": "images/pasta/tortellini.jpg",
+    "alt": "A close-up photo of small ring-shaped stuffed pasta scattered on a wooden surface.",
+    "facts": [
+      "Legend says its curled ring shape was inspired by a cook peeking at a belly button through a keyhole.",
+      "It's folded around a filling, then pinched into a tiny ring instead of staying a flat square.",
+      "It's small enough to eat by the spoonful, often served floating in a warm broth."
+    ],
+    "popularity": 68
+  },
+  {
+    "id": "orzo",
+    "name": "Orzo",
+    "image": "images/pasta/orzo.jpg",
+    "alt": "A close-up photo of small grain-shaped noodles scattered next to a coin for scale.",
+    "facts": [
+      "Its name means 'barley' in Italian, since it was shaped to look like a plump grain.",
+      "It's small enough to scoop up with a spoon instead of twirling on a fork.",
+      "It cooks much faster than larger pasta shapes because each piece is so tiny."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "macaroni",
+    "name": "Macaroni",
+    "image": "images/pasta/macaroni.jpg",
+    "alt": "A close-up photo of two small curved tube-shaped noodles crossed over each other.",
+    "facts": [
+      "Its short, curved tube is hollow all the way through, perfect for trapping melted cheese.",
+      "It became famous in America mostly thanks to a cheesy baked dish named after it.",
+      "Its gentle curve happens naturally as the short tube dries and slightly bends."
+    ],
+    "popularity": 82
+  },
+  {
+    "id": "ziti",
+    "name": "Ziti",
+    "image": "images/pasta/ziti.jpg",
+    "alt": "A close-up photo of medium, smooth, straight tube-shaped noodles bundled together.",
+    "facts": [
+      "Unlike some of its ridged cousins, its outer surface is smooth instead of grooved.",
+      "It's traditionally served at celebrations in parts of Italy, especially weddings.",
+      "Its straight hollow tube is wide enough that sauce can seep all the way inside."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "conchiglie",
+    "name": "Conchiglie",
+    "image": "images/pasta/conchiglie.jpg",
+    "alt": "A close-up photo of shell-shaped noodles with ridged outer curves.",
+    "facts": [
+      "Its name means 'shells' in Italian, after its curved, seashell-like shape.",
+      "Its hollow, cupped shape is great at scooping up chunky sauce like a tiny spoon.",
+      "Bigger versions of this same shape are often stuffed with cheese and baked."
+    ],
+    "popularity": 52
+  },
+  {
+    "id": "cavatappi",
+    "name": "Cavatappi",
+    "image": "images/pasta/cavatappi.jpg",
+    "alt": "A close-up photo of small corkscrew-shaped hollow tube noodles scattered together.",
+    "facts": [
+      "Its name means 'corkscrew' in Italian, describing its spiral tube shape.",
+      "It's basically a hollow tube that's been twisted into a spiral instead of left straight.",
+      "Its ridged, curly shape makes it a favorite for cold pasta salads at picnics."
+    ],
+    "popularity": 48
+  }
+]

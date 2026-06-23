@@ -26,5 +26,12 @@
     "dataFile": "animals.json",
     "color": "#5B8C3A",
     "icon": "🦁"
+  },
+  {
+    "id": "pasta",
+    "name": "Pasta Shapes",
+    "dataFile": "pasta.json",
+    "color": "#D4A017",
+    "icon": "🍝"
   }
 ]
