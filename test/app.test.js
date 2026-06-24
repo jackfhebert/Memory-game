@@ -99,7 +99,7 @@ test("app.js: player select -> module select -> mode select -> flashcard -> exit
   );
   assert.match(
     document.querySelector("#screen-flashcard .score-tally").textContent,
-    /✓ 1|✗ 1/,
+    /1 Correct|1 Try Again/,
   );
 
   document

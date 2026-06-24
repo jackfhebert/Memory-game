@@ -217,8 +217,18 @@ function renderFlashcard(
   nextButton.addEventListener("click", onNext);
   container.appendChild(nextButton);
 
-  const tally = document.createElement("p");
+  const tally = document.createElement("div");
   tally.className = "score-tally";
-  tally.textContent = `✓ ${correctCount}    ✗ ${wrongCount}`;
+
+  const correctChip = document.createElement("span");
+  correctChip.className = "score-chip score-chip-correct";
+  correctChip.textContent = `⭐ ${correctCount} Correct`;
+  tally.appendChild(correctChip);
+
+  const wrongChip = document.createElement("span");
+  wrongChip.className = "score-chip score-chip-wrong";
+  wrongChip.textContent = `🔁 ${wrongCount} Try Again`;
+  tally.appendChild(wrongChip);
+
   container.appendChild(tally);
 }

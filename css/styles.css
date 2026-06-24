@@ -203,11 +203,28 @@ body {
 }
 
 .score-tally {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
   margin-top: var(--spacing-md);
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6b7088;
+}
+
+.score-chip {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.score-chip-correct {
+  background: #e4f6e9;
+  color: var(--color-correct);
+}
+
+.score-chip-wrong {
+  background: #fbe6e7;
+  color: var(--color-wrong);
 }
 
 @media (min-width: 600px) {
