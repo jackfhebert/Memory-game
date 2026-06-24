@@ -1,0 +1,482 @@
+[
+  {
+    "id": "johann-sebastian-bach",
+    "name": "Johann Sebastian Bach",
+    "image": "images/composers/johann-sebastian-bach.jpg",
+    "alt": "An oil painting of an older man in 18th-century dress with a powdered wig, holding a rolled sheet of music.",
+    "facts": [
+      "He wrote a brand-new piece of music almost every single week for years while working as a church choirmaster in Germany.",
+      "He had over 20 children, and several of them grew up to become composers too.",
+      "He once walked roughly 250 miles, mostly on foot, just to hear another organist play."
+    ],
+    "popularity": 92
+  },
+  {
+    "id": "wolfgang-amadeus-mozart",
+    "name": "Wolfgang Amadeus Mozart",
+    "image": "images/composers/wolfgang-amadeus-mozart.jpg",
+    "alt": "An oil painting of a young man with powdered hair and a red coat, gazing slightly sideways.",
+    "facts": [
+      "He was composing his own music before he turned 5 years old.",
+      "He secretly copied down a piece of church music from memory after hearing it performed just once, even though copying it was forbidden.",
+      "He could compose an entire piece in his head before ever putting pen to paper."
+    ],
+    "popularity": 97
+  },
+  {
+    "id": "giovanni-pierluigi-da-palestrina",
+    "name": "Giovanni Pierluigi da Palestrina",
+    "image": "images/composers/giovanni-pierluigi-da-palestrina.jpg",
+    "alt": "An old engraved portrait of a bearded man in a long dark robe.",
+    "facts": [
+      "He spent most of his career as the music director at one of the most important churches in Rome.",
+      "His smooth, calm style of choral writing became the model that church composers were told to imitate for centuries afterward.",
+      "Legend credits him with saving elaborate church polyphony from being banned outright by leaders who worried the words were getting lost in the music."
+    ],
+    "popularity": 38
+  },
+  {
+    "id": "george-frideric-handel",
+    "name": "George Frideric Handel",
+    "image": "images/composers/george-frideric-handel.jpg",
+    "alt": "An oil painting of a heavyset man in a powdered wig and dark coat, facing forward.",
+    "facts": [
+      "He wrote one of his most famous works, about the life of Jesus, in only about three weeks.",
+      "He moved from Germany to England and became so beloved there that he's buried in a hall reserved for the country's national heroes.",
+      "Audiences have stood up during one particular chorus of his ever since a king supposedly did the same."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "antonio-vivaldi",
+    "name": "Antonio Vivaldi",
+    "image": "images/composers/antonio-vivaldi.jpg",
+    "alt": "An old engraving of a man with curly red hair playing a violin.",
+    "facts": [
+      "He was ordained as a priest but became so famous for music that people nicknamed him after his red hair instead of his collar.",
+      "He taught violin at an orphanage for girls for most of his career, writing much of his most famous music for his students to perform.",
+      "He wrote more than 500 concertos, including a famous set inspired by the four seasons of the year."
+    ],
+    "popularity": 76
+  },
+  {
+    "id": "gabriel-faure",
+    "name": "Gabriel Fauré",
+    "image": "images/composers/gabriel-faure.jpg",
+    "alt": "A black-and-white photo of an older man with a thick white mustache and beard.",
+    "facts": [
+      "He spent over 15 years as the organist at a grand church in Paris while writing music on the side.",
+      "One of his most famous choral works was written for a funeral, but he said he wanted it to feel peaceful rather than frightening.",
+      "He eventually became the director of one of France's top music schools, after years of supporting himself mainly by teaching piano."
+    ],
+    "popularity": 52
+  },
+  {
+    "id": "franz-schubert",
+    "name": "Franz Schubert",
+    "image": "images/composers/franz-schubert.jpg",
+    "alt": "An oil painting of a young man with curly hair and small round glasses.",
+    "facts": [
+      "He wrote more than 600 songs in a lifetime that lasted only 31 years.",
+      "He set a famous prayer to music so beautifully that it's still sung at weddings and funerals two centuries later.",
+      "He was so shy about sharing his own music that many of his greatest works weren't performed in public until after he had died."
+    ],
+    "popularity": 68
+  },
+  {
+    "id": "tomas-luis-de-victoria",
+    "name": "Tomás Luis de Victoria",
+    "image": "images/composers/tomas-luis-de-victoria.jpg",
+    "alt": "An old engraved portrait of a man in a plain clerical collar.",
+    "facts": [
+      "He left his home country to study for the priesthood in Rome, where he also became one of the leading composers of his time.",
+      "He spent his final years as chaplain to a dowager empress, writing sacred music for her private chapel.",
+      "His choral music is still sung in churches today, written entirely for voices alone, with no instruments at all."
+    ],
+    "popularity": 24
+  },
+  {
+    "id": "gregorio-allegri",
+    "name": "Gregorio Allegri",
+    "image": "images/composers/gregorio-allegri.jpg",
+    "alt": "An old painting of a man in dark religious robes with a white collar.",
+    "facts": [
+      "He wrote a piece for the Sistine Chapel that the Pope decreed could never be copied or performed anywhere else.",
+      "For over a century, the only way to hear his most famous work was to travel to Rome during Holy Week.",
+      "A teenage visitor is famously said to have broken the secrecy by listening to it twice and writing the whole thing down from memory."
+    ],
+    "popularity": 28
+  },
+  {
+    "id": "johannes-brahms",
+    "name": "Johannes Brahms",
+    "image": "images/composers/johannes-brahms.jpg",
+    "alt": "A black-and-white photo of an older man with a long white beard and round glasses.",
+    "facts": [
+      "He took over 20 years to finish his first symphony because he felt so much pressure to live up to earlier German composers.",
+      "He wrote a large-scale choral work to comfort the living after losing his mother and his mentor in the same year, rather than focusing on judgment day like older requiems did.",
+      "He had a reputation for being gruff and blunt in person, even though his music is full of warmth."
+    ],
+    "popularity": 73
+  },
+  {
+    "id": "giuseppe-verdi",
+    "name": "Giuseppe Verdi",
+    "image": "images/composers/giuseppe-verdi.jpg",
+    "alt": "A black-and-white photo of an older man with a thick white beard, looking off to the side.",
+    "facts": [
+      "He's best known for his operas, but he also wrote a dramatic Requiem so theatrical that one famous conductor called it 'an opera in church robes.'",
+      "He grew up the son of a village innkeeper and almost failed the entrance exam to the music conservatory in Milan.",
+      "He donated much of his fortune to build a retirement home for musicians who had fallen on hard times."
+    ],
+    "popularity": 77
+  },
+  {
+    "id": "charles-gounod",
+    "name": "Charles Gounod",
+    "image": "images/composers/charles-gounod.jpg",
+    "alt": "An old sepia-toned photo of a man with long gray hair and a thick beard.",
+    "facts": [
+      "He once seriously considered becoming a priest before deciding to dedicate his life to music instead.",
+      "His most famous melody was written as a tribute layered on top of a keyboard piece written by another composer a century earlier.",
+      "He composed an opera based on a famous tragic love story that's still one of the most performed operas in the world."
+    ],
+    "popularity": 44
+  },
+  {
+    "id": "cesar-franck",
+    "name": "César Franck",
+    "image": "images/composers/cesar-franck.jpg",
+    "alt": "A black-and-white photo of an elderly man with glasses and a long white beard.",
+    "facts": [
+      "He worked for over 30 years as the organist of a single Paris church, playing for services nearly every week.",
+      "He didn't become widely famous as a composer until very late in life, after decades known mainly as a teacher.",
+      "One of his most beloved pieces was written simply enough for an amateur church choir to sing, using just voice, harp, cello, and organ."
+    ],
+    "popularity": 34
+  },
+  {
+    "id": "maurice-durufle",
+    "name": "Maurice Duruflé",
+    "image": "images/composers/maurice-durufle.jpg",
+    "alt": "A black-and-white photo of a young man with dark, neatly combed hair.",
+    "facts": [
+      "He was such a perfectionist that he published only a small handful of works in his entire career, revising pieces for years before letting them go.",
+      "He based one of his most famous works almost entirely on ancient chant melodies that monks have sung for over a thousand years.",
+      "He worked for over four decades as the organist of the same Paris church, a job he only gave up after a serious car accident."
+    ],
+    "popularity": 22
+  },
+  {
+    "id": "john-rutter",
+    "name": "John Rutter",
+    "image": "images/composers/john-rutter.jpg",
+    "alt": "A color photo of an older man with white hair, smiling warmly.",
+    "facts": [
+      "He turned down a job leading a famous choir at Cambridge so he'd have more time to compose.",
+      "Choirs around the world perform his music every December, even though his most famous Christmas carols are entirely original, not old folk tunes.",
+      "He started his own small choir specifically so he could hear his own choral music performed exactly the way he imagined it."
+    ],
+    "popularity": 48
+  },
+  {
+    "id": "eric-whitacre",
+    "name": "Eric Whitacre",
+    "image": "images/composers/eric-whitacre.jpg",
+    "alt": "A color photo of a man with short, light-colored hair against a dark background.",
+    "facts": [
+      "He didn't learn to read music until college, after starting out as a music major who could barely play piano.",
+      "He brought together thousands of singers from dozens of countries who had never met in person, using nothing but webcams and the internet.",
+      "He says the spark that made him fall in love with choral music was joining a college choir almost by accident."
+    ],
+    "popularity": 42
+  },
+  {
+    "id": "ralph-vaughan-williams",
+    "name": "Ralph Vaughan Williams",
+    "image": "images/composers/ralph-vaughan-williams.jpg",
+    "alt": "A black-and-white photo of a middle-aged man with thick eyebrows and tousled hair.",
+    "facts": [
+      "He traveled the English countryside with a notebook, collecting old folk songs before they could be forgotten, and wove their melodies into his own music.",
+      "He helped edit a hymn book still used in churches today, and wrote one of its best-loved tunes himself.",
+      "He kept composing well into his 80s, finishing a symphony just a couple of years before he died."
+    ],
+    "popularity": 36
+  },
+  {
+    "id": "felix-mendelssohn",
+    "name": "Felix Mendelssohn",
+    "image": "images/composers/felix-mendelssohn.jpg",
+    "alt": "An oil painting of a young man with dark curly hair and sideburns.",
+    "facts": [
+      "He was such a musical prodigy that he wrote a piece still performed today by the time he was 17.",
+      "He's credited with reviving interest in a much earlier composer's work after organizing a performance of a piece that had been mostly forgotten for about a century.",
+      "He composed the tune millions of people sing every December without realizing it first celebrated the invention of the printing press, not Christmas."
+    ],
+    "popularity": 62
+  },
+  {
+    "id": "hildegard-of-bingen",
+    "name": "Hildegard of Bingen",
+    "image": "images/composers/hildegard-of-bingen.jpg",
+    "alt": "An illuminated manuscript painting of a robed woman seated in an arched doorway, with flames above her head, dictating to a monk.",
+    "facts": [
+      "She was running a religious community by her early 30s and is one of the earliest composers in history whose name we actually know.",
+      "She wrote her own original chant melodies, an unusually creative thing for someone in her position at the time, when most music was anonymous.",
+      "She also wrote about medicine, theology, and natural science, and described visions she said she'd had since childhood."
+    ],
+    "popularity": 47
+  },
+  {
+    "id": "claudio-monteverdi",
+    "name": "Claudio Monteverdi",
+    "image": "images/composers/claudio-monteverdi.jpg",
+    "alt": "An oil painting of a man with a long gray beard, dressed in dark robes.",
+    "facts": [
+      "He helped invent a brand-new kind of musical storytelling that eventually grew into what we now call opera.",
+      "He wrote an enormous setting of evening prayers that calls for multiple choirs, soloists, and instrumental groups all at once.",
+      "Late in life, after losing his wife, he became a priest while continuing to compose some of his most ambitious music."
+    ],
+    "popularity": 41
+  },
+  {
+    "id": "josquin-des-prez",
+    "name": "Josquin des Prez",
+    "image": "images/composers/josquin-des-prez.jpg",
+    "alt": "An old woodcut portrait of a man wearing a round cap, shown inside a circular frame.",
+    "facts": [
+      "Other composers of his era admired him so much that they wrote pieces specifically imitating his style, as a kind of tribute.",
+      "Music historians often credit him with making Renaissance vocal music feel truly expressive, rather than just technically clever.",
+      "A leading music printer of the time devoted entire songbooks to just his work, an honor almost no other composer received during his lifetime."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "orlande-de-lassus",
+    "name": "Orlande de Lassus",
+    "image": "images/composers/orlande-de-lassus.jpg",
+    "alt": "An old oil portrait of a balding man in dark clothing with a ruffled collar.",
+    "facts": [
+      "He was so famous in his own lifetime that a Pope made him a knight in recognition of his music.",
+      "He wrote more than 2,000 pieces in nearly every style and language popular in his era.",
+      "He spent over 30 years working for the same royal court in Germany, eventually becoming its most celebrated employee."
+    ],
+    "popularity": 26
+  },
+  {
+    "id": "william-byrd",
+    "name": "William Byrd",
+    "image": "images/composers/william-byrd.jpg",
+    "alt": "An old engraved portrait of a bearded man with curly hair and a ruffled collar, shown inside a circular frame.",
+    "facts": [
+      "He wrote music for two very different, sometimes dangerous religious communities at once, composing quietly for one faith while officially serving the other.",
+      "He held a rare legal monopoly that let him control music printing across his entire country for years.",
+      "He's remembered as one of the finest keyboard composers of his time, even though he's best known today for his choral music."
+    ],
+    "popularity": 33
+  },
+  {
+    "id": "guillaume-dufay",
+    "name": "Guillaume Dufay",
+    "image": "images/composers/guillaume-dufay.jpg",
+    "alt": "A colorful medieval illustration of a robed man in a red cap, standing beside a small pipe organ.",
+    "facts": [
+      "He was so renowned in his lifetime that a king and several dukes competed to employ him.",
+      "He helped develop musical techniques that composers kept building on for the next century.",
+      "He asked for two of his own pieces to be sung at his deathbed, and singers gathered to grant his wish."
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "dietrich-buxtehude",
+    "name": "Dietrich Buxtehude",
+    "image": "images/composers/dietrich-buxtehude.jpg",
+    "alt": "An old painting showing a man playing a viola da gamba alongside other musicians.",
+    "facts": [
+      "A famous younger composer once walked for days just to spend a few months studying with him.",
+      "He spent decades as the organist of a major church in northern Germany, where his performances drew huge crowds.",
+      "He's remembered today mostly for his bold, dramatic organ music, even though he also wrote vocal works for his church."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "marc-antoine-charpentier",
+    "name": "Marc-Antoine Charpentier",
+    "image": "images/composers/marc-antoine-charpentier.jpg",
+    "alt": "A small, faded old engraving of a curly-haired man, shown inside an oval frame.",
+    "facts": [
+      "One of his short instrumental pieces became famous centuries later as the fanfare introducing a major international television broadcast.",
+      "He worked for a powerful French duchess for nearly 20 years, writing most of his major works for her household chapel.",
+      "Much of his music was nearly lost forever, staying unpublished in private manuscripts for over a century after his death."
+    ],
+    "popularity": 24
+  },
+  {
+    "id": "arvo-part",
+    "name": "Arvo Pärt",
+    "image": "images/composers/arvo-part.jpg",
+    "alt": "A photo of an older bald man with a full beard, smiling and shown in profile.",
+    "facts": [
+      "He invented his own simple, bell-like composing style only after years of feeling frustrated and going silent as a composer for most of a decade.",
+      "His music has been used in major films and dance performances worldwide, even though much of it was written for church choirs.",
+      "He grew up under a government that restricted religious music, so for years his sacred works could only be performed in secret or abroad."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "morten-lauridsen",
+    "name": "Morten Lauridsen",
+    "image": "images/composers/morten-lauridsen.jpg",
+    "alt": "A color photo of an older man with a long gray beard, looking off to the side near a lake.",
+    "facts": [
+      "He spent decades teaching composition at a West Coast university while quietly becoming one of the most performed choral composers alive.",
+      "One of his most beloved choral works was inspired by foggy walks near his cabin on a small island.",
+      "He received a major national arts medal from a U.S. president for his contribution to choral music."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "ola-gjeilo",
+    "name": "Ola Gjeilo",
+    "image": "images/composers/ola-gjeilo.jpg",
+    "alt": "A color close-up photo of a smiling bald man with a beard, looking to the side.",
+    "facts": [
+      "He moved from Northern Europe to the United States as a teenager specifically to study film scoring and composition.",
+      "His choral pieces are now some of the most frequently performed contemporary works by choirs around the world.",
+      "He often performs his own piano improvisations alongside choirs in concert, blending a classical choral sound with a more cinematic style."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "james-macmillan",
+    "name": "James MacMillan",
+    "image": "images/composers/james-macmillan.jpg",
+    "alt": "A color photo of a smiling man with short gray hair, wearing a casual collared shirt.",
+    "facts": [
+      "He once wrote a major orchestral work inspired by witch trials that took place in his home country centuries earlier.",
+      "He founded his own summer music festival in rural Scotland to bring world-class performances to a small local audience.",
+      "He was invited to compose music performed at the wedding of a future king and queen of his home country."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "fanny-mendelssohn",
+    "name": "Fanny Mendelssohn",
+    "image": "images/composers/fanny-mendelssohn.jpg",
+    "alt": "An oil painting of a young woman with dark curly hair styled in ringlets, wearing a lace collar.",
+    "facts": [
+      "She wrote hundreds of pieces of music in her lifetime, but her family discouraged her from publishing most of them because she was a woman.",
+      "Her own brother, a famous composer himself, sometimes performed her songs in public without telling the audience who had actually written them.",
+      "She finally began publishing music under her own name just a year before she died suddenly at the piano."
+    ],
+    "popularity": 44
+  },
+  {
+    "id": "clara-schumann",
+    "name": "Clara Schumann",
+    "image": "images/composers/clara-schumann.jpg",
+    "alt": "A black-and-white photo of a young woman with center-parted hair, wearing a dark Victorian dress.",
+    "facts": [
+      "She began touring Europe as a celebrated concert pianist while still a child, years before she ever published a note of her own music.",
+      "She raised eight children largely on her own while continuing to perform and compose, after her husband, also a famous composer, became seriously ill.",
+      "She kept performing into her 70s and became one of the first people to teach at a major German music conservatory."
+    ],
+    "popularity": 58
+  },
+  {
+    "id": "lili-boulanger",
+    "name": "Lili Boulanger",
+    "image": "images/composers/lili-boulanger.jpg",
+    "alt": "A black-and-white photo of a young woman with short dark hair and bangs, wearing a lace-trimmed collar.",
+    "facts": [
+      "She became the first woman ever to win one of the most prestigious composition prizes in her country, beating out male competitors twice her age.",
+      "She battled chronic illness for almost her entire life and died before turning 25, racing to finish her last major work from her sickbed.",
+      "Her older sister was also a respected composer, and the two grew up surrounded by some of the most famous musicians of their era."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "amy-beach",
+    "name": "Amy Beach",
+    "image": "images/composers/amy-beach.jpg",
+    "alt": "An old black-and-white photo of a woman with hair pulled back, gazing directly at the camera.",
+    "facts": [
+      "She became the first woman in her country to have a large-scale symphony performed by a major orchestra.",
+      "She largely taught herself composition by studying scores, since her husband didn't want her taking formal lessons after their marriage.",
+      "After her husband died, she kept touring as a concert pianist well into her 60s, performing her own works across the country."
+    ],
+    "popularity": 48
+  },
+  {
+    "id": "florence-price",
+    "name": "Florence Price",
+    "image": "images/composers/florence-price.jpg",
+    "alt": "A sepia-toned studio photo of a woman with curled gray hair, wearing pearl earrings.",
+    "facts": [
+      "She became the first Black woman in her country to have a symphony she wrote performed by a major orchestra.",
+      "She sometimes submitted her compositions to contests without revealing her race, fearing it would keep her music from even being considered.",
+      "For decades after her death, boxes of her unpublished scores sat forgotten in an old house until they were rediscovered by chance."
+    ],
+    "popularity": 47
+  },
+  {
+    "id": "margaret-bonds",
+    "name": "Margaret Bonds",
+    "image": "images/composers/margaret-bonds.jpg",
+    "alt": "A black-and-white photo of a woman with short curled hair, smiling gently at the camera.",
+    "facts": [
+      "She was mentored as a teenager by an older woman composer who became one of her closest lifelong friends and collaborators.",
+      "She set the words of a famous poet of her era to music so often that their two names are still closely linked today.",
+      "She was one of the first Black musicians to perform as a soloist with a major American symphony orchestra."
+    ],
+    "popularity": 32
+  },
+  {
+    "id": "caroline-shaw",
+    "name": "Caroline Shaw",
+    "image": "images/composers/caroline-shaw.jpg",
+    "alt": "A color photo of a woman with shoulder-length wavy hair, smiling outdoors.",
+    "facts": [
+      "She became the youngest person ever to win one of the most prestigious prizes in American music composition.",
+      "She still regularly performs as a violinist and singer in addition to composing, often in the same concerts as her own pieces.",
+      "Her breakout piece for eight voices uses no instruments at all, just close harmony and unconventional vocal sounds."
+    ],
+    "popularity": 38
+  },
+  {
+    "id": "errollyn-wallen",
+    "name": "Errollyn Wallen",
+    "image": "images/composers/errollyn-wallen.jpg",
+    "alt": "A color photo of a smiling woman with natural hair, seated near a piano.",
+    "facts": [
+      "She wrote a piece performed live at the opening ceremony of a major international sporting event watched by billions of people.",
+      "She left a science degree to retrain as a dancer before eventually turning to composing and performing her own songs.",
+      "She was honored by her adopted country's monarchy for her services to music."
+    ],
+    "popularity": 33
+  },
+  {
+    "id": "joan-tower",
+    "name": "Joan Tower",
+    "image": "images/composers/joan-tower.jpg",
+    "alt": "A color close-up photo of a smiling older woman with short hair.",
+    "facts": [
+      "She wrote a series of fanfares directly answering a much older, more famous set of fanfares honoring a different kind of person.",
+      "She played percussion in her own new-music ensemble for over a decade before focusing on composing full time.",
+      "She became the first woman to win one of the most significant prizes in American orchestral composition."
+    ],
+    "popularity": 36
+  },
+  {
+    "id": "libby-larsen",
+    "name": "Libby Larsen",
+    "image": "images/composers/libby-larsen.jpg",
+    "alt": "A color photo of a smiling older woman with short gray hair, captured mid-applause.",
+    "facts": [
+      "She co-founded one of the first composer-run organizations in her country dedicated to helping composers get their orchestral works performed.",
+      "She has written more than 15 operas, along with hundreds of other pieces across nearly every musical genre.",
+      "One of her works was inspired by the letters and diary entries of a famous frontier-era woman."
+    ],
+    "popularity": 34
+  }
+]

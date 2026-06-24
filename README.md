@@ -27,3 +27,12 @@ itself isn't built yet:
   be built, step by step
 - **[Production Overview](PRODUCTION.md)** — what's needed to take the
   game from built to running for real users
+- **[Testing](TESTING.md)** — automated unit tests, plus the manual
+  browser walkthrough for verifying module content and the flashcard UI
+
+## Branching
+
+`main` is the production branch — every push to it redeploys the live
+app (see [PRODUCTION.md](PRODUCTION.md#branch-policy-main-is-live)). Do
+work on a separate branch and run the checks in
+[TESTING.md](TESTING.md) before merging or pushing to `main`.
