@@ -69,7 +69,11 @@ Item schema:
   "name": "Africa",
   "image": "images/continents/africa.png",
   "alt": "A world map with a large landmass highlighted, straddling the equator.",
-  "fact": "Home to the Sahara, the largest hot desert in the world.",
+  "facts": [
+    "Home to the Sahara, the largest hot desert in the world.",
+    "This is the only continent that sits on the equator and stretches into both the Northern and Southern Hemispheres equally.",
+    "It has more countries than any other continent — over 50 of them."
+  ],
   "popularity": 90
 }
 ```
@@ -85,18 +89,34 @@ Item schema:
   (Animals, Pasta Shapes) instead use a real sourced photo per item, since
   there's no map to render and a real-world photo exists.
 - `alt` — alt text describing what the image shows, for accessibility.
-  Like `fact`, it must not name the item — for geography modules it
+  Like `facts`, it must not name the item — for geography modules it
   describes the highlighted shape/location rather than what it's called,
   so it can't be used to shortcut the guess.
-- `fact` (or `facts`, an array — items can have more than one, with one
-  picked at random per card) — a short, kid-friendly sentence describing
-  the item without naming it, so the guess still requires connecting the
-  picture and fact to a name rather than just spotting the name written
-  out.
+- `facts` — an array of short, kid-friendly sentences describing the item
+  without naming it, so the guess still requires connecting the picture
+  and fact to a name rather than just spotting the name written out. One
+  is picked at random per card. Every existing module uses exactly 3,
+  except Oceans and Continents, which were later expanded to 8 — match
+  the module you're extending, or default to 3 for a new one. See "The
+  no-self-naming rule" below for exactly what "without naming it" means
+  in practice.
 - `popularity` — a 0–100 prior estimate of how well-known the item is to
   most people. This is authored once per item (not per player) and feeds
   both the introduction order and the initial mastery estimate (see
   Mastery Model below).
+
+### The no-self-naming rule
+
+Neither `alt` nor any `facts` entry may contain a word of 4+ letters taken
+from the item's own `name` — e.g. an item named "Dragon Roll" can't use
+"dragon" anywhere in its own clues. The one exception is generic words
+that name the module's *category* rather than the specific item — "ocean,"
+"continent," "country," "roll," "composer" are all fine, since they're
+true of every item in the module and so give away nothing. Before
+publishing a batch, check every item's `alt` + `facts` against this rule
+(a short script that splits the item's `name` into words ≥4 letters and
+greps for each one in its own `alt`/`facts` text is enough to catch
+slips).
 
 Content for Continents and Oceans will be drafted as placeholder JSON
 (facts + popularity estimates) with AI-generated map images, so the app is

@@ -270,9 +270,10 @@ each module to have at least 4 items — see the module-size note below.
 ## Adding a new module
 
 1. Create `data/<module-id>.json` with an item list matching the
-   [DESIGN.md](DESIGN.md) schema (`id`, `name`, `image`, `alt`, `fact`,
-   `popularity`). Needs at least 4 items, since each card needs 3
-   distractors.
+   [DESIGN.md](DESIGN.md) schema (`id`, `name`, `image`, `alt`, `facts`,
+   `popularity`). `facts` is an array — 3 entries, matching every existing
+   module (Oceans/Continents are the one exception, at 8). Needs at least
+   4 items, since each card needs 3 distractors.
 2. Create an `images/<module-id>/` directory with one image per item,
    matching the paths referenced in the JSON.
 3. Add an entry for it to `data/modules.json` (`id`, `name`, `dataFile`,
@@ -314,11 +315,18 @@ item selection.
 For a small batch of items at a time (e.g. 5-10), for each one not yet
 present in `data/<module-id>.json`:
 
-1. Write its `name`, a short kid-friendly `fact`, and a `popularity`
+1. Write its `name`, 3 short kid-friendly `facts`, and a `popularity`
    estimate (0-100). Facts should be checked against a reliable source
    rather than generated from memory alone, since they're presented to a
-   kid as true. Neither the `fact` nor the `alt` text should name the
-   item — both need to describe it without giving away the answer.
+   kid as true. Neither `facts` nor `alt` text should name the item —
+   both need to describe it without giving away the answer. Precisely:
+   no word of 4+ letters from the item's `name` may appear in its own
+   `alt`/`facts`, except generic words naming the module's category
+   itself (e.g. "ocean," "country," "roll," "composer" are fine; the
+   item's own distinguishing word(s) are not). Check every item in the
+   batch against this before committing — a quick script that splits
+   each item's `name` into words ≥4 letters and greps for each one in
+   its own `alt`/`facts` text catches slips fast.
 2. Generate its image, then resize it to the module's standard dimensions
    (the same size used by other modules) and save it to
    `images/<module-id>/<item-id>.png`. Resizing is a one-off

@@ -24,7 +24,10 @@ itself isn't built yet:
 - **[Design Doc](DESIGN.md)** — how the game and modules are structured,
   and the overall user experience
 - **[Implementation Plan](IMPLEMENTATION_PLAN.md)** — how the design will
-  be built, step by step
+  be built, step by step. To add a new module, see
+  [Adding a new module](IMPLEMENTATION_PLAN.md#adding-a-new-module) and
+  the [AI-assisted module creation
+  workflow](IMPLEMENTATION_PLAN.md#ai-assisted-module-creation-workflow)
 - **[Production Overview](PRODUCTION.md)** — what's needed to take the
   game from built to running for real users
 - **[Testing](TESTING.md)** — automated unit tests, plus the manual
