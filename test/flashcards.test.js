@@ -13,6 +13,7 @@ import {
   buildSelectionProbabilities,
   pickWeightedCard,
   selectPreloadTargets,
+  isDebugPlayer,
 } from "../js/flashcards.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 
@@ -223,4 +224,16 @@ test("selectPreloadTargets returns fewer items when the pool is small", () => {
   const targets = selectPreloadTargets(pool, "item-0", 3, fakeRng([0]));
   assert.equal(targets.length, 1);
   assert.equal(targets[0].id, "item-1");
+});
+
+test("isDebugPlayer matches the player name 'debug' regardless of case or whitespace", () => {
+  assert.equal(isDebugPlayer("debug"), true);
+  assert.equal(isDebugPlayer("Debug"), true);
+  assert.equal(isDebugPlayer("  DEBUG  "), true);
+});
+
+test("isDebugPlayer is false for any other player name", () => {
+  assert.equal(isDebugPlayer("Sam"), false);
+  assert.equal(isDebugPlayer(""), false);
+  assert.equal(isDebugPlayer(undefined), false);
 });

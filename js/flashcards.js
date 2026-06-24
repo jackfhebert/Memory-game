@@ -1,7 +1,12 @@
-import { recordAnswer, getProgress, isItemKnown } from "./storage.js";
+import { recordAnswer, getProgress, isItemKnown, getMasteryEstimate } from "./storage.js";
 
 export const ACTIVE_LEARNING_POOL_SIZE = 5;
 const DISTRACTOR_COUNT = 3;
+const DEBUG_PLAYER_NAME = "debug";
+
+export function isDebugPlayer(player) {
+  return player?.trim().toLowerCase() === DEBUG_PLAYER_NAME;
+}
 
 function sampleWithoutReplacement(items, count, rng) {
   const pool = [...items];
@@ -186,6 +191,17 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
   }
   preloadUpcoming();
 
+  function buildDebugInfo() {
+    const progress = getProgress(player, moduleId);
+    const stats = progress.itemStats[card.item.id];
+    return {
+      popularity: card.item.popularity,
+      recent: stats?.recent ?? [],
+      known: isItemKnown(stats, card.item.popularity),
+      ...getMasteryEstimate(player, moduleId, card.item.id, card.item.popularity),
+    };
+  }
+
   function renderCurrentCard() {
     renderFlashcard(container, {
       card,
@@ -195,6 +211,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
       revealed,
       correctCount,
       wrongCount,
+      debugInfo: isDebugPlayer(player) ? buildDebugInfo() : null,
       onSelect,
       onNext,
       onExit,
@@ -212,7 +229,13 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
       if (selectedChoiceId === null) return;
       const wasCorrect = selectedChoiceId === card.item.id;
       const knownCountBefore = countKnownInPool(getProgress(player, moduleId));
-      const progress = recordAnswer(player, moduleId, card.item.id, wasCorrect);
+      const progress = recordAnswer(
+        player,
+        moduleId,
+        card.item.id,
+        wasCorrect,
+        card.item.popularity,
+      );
       if (wasCorrect) {
         correctCount += 1;
       } else {
@@ -247,6 +270,7 @@ function renderFlashcard(
     revealed,
     correctCount,
     wrongCount,
+    debugInfo,
     onSelect,
     onNext,
     onExit,
@@ -321,4 +345,41 @@ function renderFlashcard(
   tally.appendChild(wrongChip);
 
   container.appendChild(tally);
+
+  if (debugInfo) {
+    container.appendChild(renderDebugPanel(debugInfo));
+  }
+}
+
+function renderDebugPanel(debugInfo) {
+  const panel = document.createElement("div");
+  panel.className = "debug-panel";
+
+  const title = document.createElement("p");
+  title.className = "debug-panel-title";
+  title.textContent = "Debug: P(known) estimate";
+  panel.appendChild(title);
+
+  const rows = [
+    ["Popularity", debugInfo.popularity],
+    ["Difficulty", debugInfo.difficulty.toFixed(2)],
+    ["Ability", debugInfo.ability.toFixed(2)],
+    ["Item offset", debugInfo.itemOffset.toFixed(2)],
+    ["P(known)", `${Math.round(debugInfo.probability * 100)}%`],
+    [
+      "Recent answers",
+      debugInfo.recent.length
+        ? debugInfo.recent.map((correct) => (correct ? "✓" : "✗")).join(" ")
+        : "none yet",
+    ],
+    ["Known (pacing)", debugInfo.known ? "yes" : "no"],
+  ];
+  rows.forEach(([label, value]) => {
+    const row = document.createElement("p");
+    row.className = "debug-panel-row";
+    row.textContent = `${label}: ${value}`;
+    panel.appendChild(row);
+  });
+
+  return panel;
 }

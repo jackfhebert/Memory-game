@@ -235,6 +235,26 @@ body {
   color: var(--color-wrong);
 }
 
+.debug-panel {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: #1e1e2e;
+  color: #a6e3a1;
+  border-radius: var(--radius);
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+}
+
+.debug-panel-title {
+  margin: 0 0 var(--spacing-sm);
+  font-weight: 700;
+  color: #f9e2af;
+}
+
+.debug-panel-row {
+  margin: 0.15rem 0;
+}
+
 @media (min-width: 600px) {
   .answer-grid {
     gap: var(--spacing-md);
