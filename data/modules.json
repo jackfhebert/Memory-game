@@ -82,5 +82,12 @@
     "dataFile": "composers.json",
     "color": "#8C5A8C",
     "icon": "🎼"
+  },
+  {
+    "id": "sushi",
+    "name": "Sushi",
+    "dataFile": "sushi.json",
+    "color": "#D9534F",
+    "icon": "🍣"
   }
 ]
