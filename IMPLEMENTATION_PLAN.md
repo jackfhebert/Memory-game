@@ -150,24 +150,25 @@ memory-game/
 ```json
 [
   {
-    "id": "continents",
-    "name": "Continents",
-    "dataFile": "continents.json",
-    "color": "#4F86C6",
-    "icon": "🌍"
-  },
-  {
     "id": "oceans",
     "name": "Oceans",
     "dataFile": "oceans.json",
     "color": "#2BB3A3",
     "icon": "🌊"
+  },
+  {
+    "id": "continents",
+    "name": "Continents",
+    "dataFile": "continents.json",
+    "color": "#4F86C6",
+    "icon": "🌍"
   }
 ]
 ```
 
 This is fetched at startup to populate Module Select. The `color`/`icon`
-per entry drive the tile look without needing any per-module code.
+per entry drive the tile look without needing any per-module code, and
+the array order is the tile order shown to the kid.
 
 ## Screens
 
@@ -182,7 +183,9 @@ per entry drive the tile look without needing any per-module code.
 ### Module Select
 
 - Same tile visual language, one tile per entry in the module manifest,
-  colored/iconed per its manifest entry.
+  colored/iconed per its manifest entry, in the same order as the
+  manifest array — there's no separate sort step, so reordering the
+  modules a kid sees is just reordering `data/modules.json`.
 - Each tile shows a small progress chip, e.g. "3 of 7" — the count of
   items the player has answered correctly at least once, out of the
   module's total item count. Simple and meaningful without needing the
@@ -203,6 +206,9 @@ per entry drive the tile look without needing any per-module code.
 - Tapping an answer flips the card: the correct name is highlighted, and
   the tapped choice is marked right or wrong.
 - A "Next" button advances to another card from the active pool.
+- Below the answer grid, a running tally shows two labeled, colored
+  chips for the session — "⭐ N Correct" and "🔁 N Try Again" — instead
+  of bare ✓/✗ symbols, which kids found hard to read at a glance.
 - Each time a card is shown, up to 3 other images from the active pool are
   preloaded (an off-DOM `<img>` per target) so the next card's picture is
   likely already cached by the time it's drawn — masking image load time
