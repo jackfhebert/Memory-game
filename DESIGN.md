@@ -145,8 +145,11 @@ Two distinct ideas feed into how the game decides what a player knows:
   strong that player is on this module's content overall.
 
 These combine, Elo/IRT-style, into a per-item, per-player **probability the
-player knows this item**, which is what actually drives pacing and review
-frequency.
+player knows this item** (`P(known)`). This is implemented in
+`js/storage.js` (`getMasteryEstimate`, `recordAnswer`) and currently
+surfaces only in the Debug Player panel (see below) — it does not yet
+drive pacing or review frequency; see Adaptive Pacing below for what
+actually does today.
 
 **Setup, per item:**
 
@@ -187,8 +190,32 @@ When a player answers item *i* (outcome = 1 if correct, 0 if incorrect):
    direct evidence about one item should move that item's own estimate more
    than it moves the player's general ability).
 
-An item counts as "known" for pacing purposes once `P(known) >= 0.8`. This
-threshold is internal — it's never shown to the kid as a score or grade.
+**From P(known) to P(answer correctly):**
+
+Each flashcard is multiple-choice (1 correct answer + 3 distractors), so a
+player can answer correctly without knowing the item, just by guessing. The
+probability of a correct answer is therefore higher than `P(known)`:
+
+```
+P(correct) = guessRate + (1 - guessRate) * P(known)
+```
+
+where `guessRate = 1 / numChoices` (1/4 with the current 4-choice cards).
+This guess-adjusted figure is also display-only for now (Debug Player
+panel) and isn't used to update `ability` or `itemOffset` — that update
+still uses `P(known)` as the predicted value, per the formula above.
+
+## Debug Player
+
+Any player named "debug" (case-insensitive, e.g. "Debug", "DEBUG ") sees an
+extra panel on the Flashcard Screen, below the score tally, showing the
+current card's mastery data: popularity, difficulty, ability, itemOffset,
+`P(known)`, `P(correct)`, the player's last 5 answers for that item, and
+whether the item currently counts as "known" for pacing (see Adaptive
+Pacing). This exists to make the otherwise-invisible mastery model
+inspectable while it's tuned, ahead of (or instead of) wiring it into
+pacing. It's implemented in `js/flashcards.js` (`isDebugPlayer`,
+`renderDebugPanel`).
 
 ## Adaptive Pacing
 
@@ -235,6 +262,9 @@ future idea once modules get bigger.
 - **Module art direction:** the module-select screen needs some visual
   identity per module; not blocking for MVP but worth a pass before kids
   actually use it.
-- **Mastery model tuning:** the logit scaling factor and the `K_ability` /
-  `K_item` step sizes above are starting guesses — they'll likely need
-  tuning once there's real play data to look at.
+- **Mastery model tuning:** the model is implemented, but the logit scaling
+  factor and the `K_ability` / `K_item` step sizes are still starting
+  guesses — they'll likely need tuning once there's real play data to look
+  at. The Debug Player panel exists to make this data visible in the
+  meantime. The model also doesn't drive pacing yet (see Adaptive Pacing) —
+  whether and how to wire it in is an open question.
