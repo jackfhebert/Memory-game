@@ -14,7 +14,9 @@ import {
   pickWeightedCard,
   selectPreloadTargets,
   isDebugPlayer,
+  ANSWER_CHOICE_COUNT,
 } from "../js/flashcards.js";
+import { probabilityCorrect } from "../js/storage.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 
 function makeItems(n) {
@@ -162,52 +164,56 @@ test("expandPool returns the same pool when every item is already active", () =>
   assert.deepEqual(expanded, pool);
 });
 
-test("buildSelectionProbabilities splits 75% across unknown items and 25% across known items", () => {
-  const items = makeItems(4); // all popularity < 50, so two correct answers are needed to count as known
-  const progress = {
-    itemStats: {
-      "item-0": { recent: [true, true] },
-      "item-1": { recent: [true, true] },
-    },
-  };
+test("buildSelectionProbabilities weights candidates by 1 - P(correct), favoring less-known items", () => {
+  const items = [
+    { id: "item-0", popularity: 50 },
+    { id: "item-1", popularity: 50 },
+  ];
+  const progress = { itemStats: { "item-0": { itemOffset: 3 } }, ability: 0 };
   const probs = buildSelectionProbabilities(items, progress);
   const byId = Object.fromEntries(probs.map((p) => [p.item.id, p.probability]));
-  assert.equal(byId["item-0"], 0.125); // known, splits 25% two ways
-  assert.equal(byId["item-1"], 0.125);
-  assert.equal(byId["item-2"], 0.375); // unknown, splits 75% two ways
-  assert.equal(byId["item-3"], 0.375);
+
+  const REVIEW_WEIGHT_FLOOR = 0.05;
+  const weight0 = Math.max(1 - probabilityCorrect(0, 3, 50, ANSWER_CHOICE_COUNT), REVIEW_WEIGHT_FLOOR);
+  const weight1 = Math.max(1 - probabilityCorrect(0, 0, 50, ANSWER_CHOICE_COUNT), REVIEW_WEIGHT_FLOOR);
+  const total = weight0 + weight1;
+  assert.ok(Math.abs(byId["item-0"] - weight0 / total) < 1e-9);
+  assert.ok(Math.abs(byId["item-1"] - weight1 / total) < 1e-9);
+  assert.ok(byId["item-0"] < byId["item-1"]); // item-0 is better known, so it's weighted lower
 });
 
-test("buildSelectionProbabilities gives every item a share when all are known or all are unknown", () => {
-  const items = makeItems(3);
-  const allUnknown = buildSelectionProbabilities(items, { itemStats: {} });
-  allUnknown.forEach((p) => assert.equal(p.probability, 1 / 3));
-
-  const allKnownProgress = {
-    itemStats: Object.fromEntries(items.map((i) => [i.id, { recent: [true, true] }])),
-  };
-  const allKnown = buildSelectionProbabilities(items, allKnownProgress);
-  allKnown.forEach((p) => assert.equal(p.probability, 1 / 3));
+test("buildSelectionProbabilities splits weight evenly across identical, evidence-free items", () => {
+  const items = [
+    { id: "item-0", popularity: 50 },
+    { id: "item-1", popularity: 50 },
+    { id: "item-2", popularity: 50 },
+  ];
+  const probs = buildSelectionProbabilities(items, { itemStats: {}, ability: 0 });
+  probs.forEach((p) => assert.ok(Math.abs(p.probability - 1 / 3) < 1e-9));
 });
 
-test("pickWeightedCard never assigns zero probability to a candidate", () => {
+test("buildSelectionProbabilities never assigns zero probability to a candidate, even when near-mastered", () => {
   const items = makeItems(4);
-  const progress = { itemStats: { "item-0": { recent: [true, true] } } };
+  const progress = { itemStats: { "item-0": { itemOffset: 10 } }, ability: 5 };
   const probs = buildSelectionProbabilities(items, progress);
   probs.forEach((p) => assert.ok(p.probability > 0));
 });
 
 test("pickWeightedCard excludes the previous item and respects the cumulative weighting", () => {
-  const items = makeItems(3); // item-0 known, item-1 and item-2 unknown
-  const progress = { itemStats: { "item-0": { recent: [true, true] } } };
-  // candidates (excluding item-0 as previous) are item-1, item-2, each unknown -> 0.5/0.5
+  const items = [
+    { id: "item-0", popularity: 50 },
+    { id: "item-1", popularity: 50 },
+    { id: "item-2", popularity: 50 },
+  ];
+  const progress = { itemStats: { "item-0": { itemOffset: 5 } }, ability: 0 };
+  // candidates (excluding item-0 as previous) are item-1, item-2, both evidence-free -> 0.5/0.5
   assert.equal(pickWeightedCard(items, "item-0", progress, fakeRng([0.1])).id, "item-1");
   assert.equal(pickWeightedCard(items, "item-0", progress, fakeRng([0.9])).id, "item-2");
 });
 
 test("pickWeightedCard returns the only item when the pool has exactly one item", () => {
   const items = makeItems(1);
-  const progress = { itemStats: {} };
+  const progress = { itemStats: {}, ability: 0 };
   assert.equal(pickWeightedCard(items, "item-0", progress).id, "item-0");
 });
 

@@ -146,10 +146,10 @@ Two distinct ideas feed into how the game decides what a player knows:
 
 These combine, Elo/IRT-style, into a per-item, per-player **probability the
 player knows this item** (`P(known)`). This is implemented in
-`js/storage.js` (`getMasteryEstimate`, `recordAnswer`) and currently
-surfaces only in the Debug Player panel (see below) — it does not yet
-drive pacing or review frequency; see Adaptive Pacing below for what
-actually does today.
+`js/storage.js` (`getMasteryEstimate`, `getItemMasteryEstimate`,
+`recordAnswer`), surfaces in the Debug Player panel (see below), and now
+also drives card selection and the "known" milestone used for pacing and
+progress chips — see Adaptive Pacing below.
 
 **Setup, per item:**
 
@@ -201,9 +201,28 @@ P(correct) = guessRate + (1 - guessRate) * P(known)
 ```
 
 where `guessRate = 1 / numChoices` (1/4 with the current 4-choice cards).
-This guess-adjusted figure is also display-only for now (Debug Player
-panel) and isn't used to update `ability` or `itemOffset` — that update
-still uses `P(known)` as the predicted value, per the formula above.
+This guess-adjusted figure feeds card-selection weighting (see Adaptive
+Pacing) and the Debug Player panel, but isn't used to update `ability` or
+`itemOffset` — that update still uses `P(known)` as the predicted value,
+per the formula above.
+
+**From P(known) to "mastered":**
+
+Pacing and the module-select progress chip need a binary "does the player
+know this item" signal, not just a continuous probability. An item counts
+as **mastered** (`js/storage.js`, `isItemMastered`) once two things are
+both true:
+
+- the player has answered it at least once, and
+- `P(known) >= MASTERY_KNOWN_THRESHOLD` (0.8).
+
+The evidence requirement matters: popularity alone can push `P(known)`
+above 0.8 for a very popular item (e.g. a continent with `popularity` 90)
+even before the player has ever been asked about it. Without requiring at
+least one answer, such an item would show as already "known" for a brand
+new player, and the active pool could expand past the starter set before
+any questions had been answered. Requiring evidence first keeps "mastered"
+meaning "demonstrated," not just "popular."
 
 ## Debug Player
 
@@ -211,35 +230,35 @@ Any player named "debug" (case-insensitive, e.g. "Debug", "DEBUG ") sees an
 extra panel on the Flashcard Screen, below the score tally, showing the
 current card's mastery data: popularity, difficulty, ability, itemOffset,
 `P(known)`, `P(correct)`, the player's last 5 answers for that item, and
-whether the item currently counts as "known" for pacing (see Adaptive
+whether the item currently counts as "mastered" for pacing (see Adaptive
 Pacing). This exists to make the otherwise-invisible mastery model
-inspectable while it's tuned, ahead of (or instead of) wiring it into
-pacing. It's implemented in `js/flashcards.js` (`isDebugPlayer`,
-`renderDebugPanel`).
+inspectable while it's tuned. It's implemented in `js/flashcards.js`
+(`isDebugPlayer`, `renderDebugPanel`).
 
 ## Adaptive Pacing
 
 How the active pool behaves depends on the mode chosen in Mode Select. Both
-modes use the recent-answer-based "known" signal described in
-`js/storage.js` (`isItemKnown`), not the Elo/IRT `P(known)` formula above.
+modes are driven by the Elo/IRT mastery model above, via `isItemMastered`
+and `getItemMasteryEstimate` in `js/storage.js`.
 
 - **All Cards** — every item in the module is in the active pool from the
   start.
 - **Active Learning** — the active pool starts with the top
   `ACTIVE_LEARNING_POOL_SIZE` (5) items by `popularity` (or all items, if
   the module has fewer than 5 — relevant for the 5-item Oceans module).
-  Once every item in the pool but one is known, the next-most-popular item
-  not yet in the pool is added. This repeats until every item in the module
-  is active.
+  Once every item in the pool but one is mastered, the next-most-popular
+  item not yet in the pool is added. This repeats until every item in the
+  module is active.
 
 In Active Learning, the next card is chosen at random from the active pool
-(minus whichever card was just answered), weighted toward items the player
-doesn't yet know: not-yet-known items split 75% of the selection
-probability evenly among themselves, and known items split the remaining
-25% — so review still happens, but less-known items come up more often. No
-candidate ever has a zero chance. All Cards instead walks the pool in a
-fixed order on the first pass through the module, then falls back to
-uniform random selection — it doesn't use this weighting.
+(minus whichever card was just answered), weighted continuously by
+`1 - P(correct)` per candidate (`js/flashcards.js`,
+`buildSelectionProbabilities`): items the player is less likely to answer
+correctly get proportionally more selection weight, with a small floor so
+no candidate — however well mastered — ever has a zero chance of review.
+All Cards instead walks the pool in a fixed order on the first pass through
+the module, then falls back to uniform random selection — it doesn't use
+this weighting.
 
 ## Distractor selection
 
@@ -262,9 +281,9 @@ future idea once modules get bigger.
 - **Module art direction:** the module-select screen needs some visual
   identity per module; not blocking for MVP but worth a pass before kids
   actually use it.
-- **Mastery model tuning:** the model is implemented, but the logit scaling
-  factor and the `K_ability` / `K_item` step sizes are still starting
+- **Mastery model tuning:** the model now drives pacing directly (see
+  Adaptive Pacing), but the logit scaling factor, the `K_ability` /
+  `K_item` step sizes, and `MASTERY_KNOWN_THRESHOLD` are still starting
   guesses — they'll likely need tuning once there's real play data to look
   at. The Debug Player panel exists to make this data visible in the
-  meantime. The model also doesn't drive pacing yet (see Adaptive Pacing) —
-  whether and how to wire it in is an open question.
+  meantime.

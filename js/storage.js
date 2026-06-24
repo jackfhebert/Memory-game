@@ -1,11 +1,9 @@
 const PLAYERS_KEY = "memorygame:players";
 export const RECENT_WINDOW_SIZE = 5;
-const POPULAR_THRESHOLD = 50;
-const STREAK_OVERRIDE = 3;
+export const MASTERY_KNOWN_THRESHOLD = 0.8;
 
-// Elo/IRT-style mastery model (see DESIGN.md "Mastery Model"). Separate from
-// the recent-streak `isItemKnown` signal above, which still drives pacing;
-// this feeds the player-strength estimate shown in the debug panel.
+// Elo/IRT-style mastery model (see DESIGN.md "Mastery Model"). Drives both
+// pacing (via getItemMasteryEstimate/isItemMastered) and the debug panel.
 const K_ABILITY = 0.2;
 const K_ITEM_OFFSET = 0.5;
 
@@ -77,8 +75,10 @@ export function probabilityCorrect(ability, itemOffset, popularity, numChoices) 
   return guessRate + (1 - guessRate) * probabilityKnown(ability, itemOffset, popularity);
 }
 
-export function getMasteryEstimate(player, moduleId, itemId, popularity, numChoices) {
-  const progress = getProgress(player, moduleId);
+// Pure variant of getMasteryEstimate that takes an already-fetched `progress`
+// object instead of reading localStorage, so pacing logic (which already has
+// `progress` in hand) doesn't re-fetch it per item.
+export function getItemMasteryEstimate(progress, itemId, popularity, numChoices) {
   const ability = progress.ability;
   const itemOffset = getItemOffset(progress.itemStats[itemId]);
   return {
@@ -88,6 +88,23 @@ export function getMasteryEstimate(player, moduleId, itemId, popularity, numChoi
     probability: probabilityKnown(ability, itemOffset, popularity),
     probabilityCorrect: probabilityCorrect(ability, itemOffset, popularity, numChoices),
   };
+}
+
+export function getMasteryEstimate(player, moduleId, itemId, popularity, numChoices) {
+  const progress = getProgress(player, moduleId);
+  return getItemMasteryEstimate(progress, itemId, popularity, numChoices);
+}
+
+// "Mastered" is the pacing/progress-chip milestone: the player must have
+// actually answered this item at least once (otherwise a popular item's
+// prior alone could clear the threshold for a player who's never been
+// asked about it), and P(known) must have crossed MASTERY_KNOWN_THRESHOLD.
+export function isItemMastered(progress, itemId, popularity) {
+  const stats = progress.itemStats[itemId];
+  const hasEvidence = Array.isArray(stats?.recent) && stats.recent.length > 0;
+  if (!hasEvidence) return false;
+  const itemOffset = getItemOffset(stats);
+  return probabilityKnown(progress.ability, itemOffset, popularity) >= MASTERY_KNOWN_THRESHOLD;
 }
 
 export function recordAnswer(player, moduleId, itemId, wasCorrect, popularity) {
@@ -109,25 +126,3 @@ export function recordAnswer(player, moduleId, itemId, wasCorrect, popularity) {
   return progress;
 }
 
-function trailingCorrectStreak(recent) {
-  let streak = 0;
-  for (let i = recent.length - 1; i >= 0 && recent[i]; i--) {
-    streak += 1;
-  }
-  return streak;
-}
-
-// "Known" is based on recent answers plus the item's popularity, not a
-// lifetime sum: a popular item only needs one correct answer to count as
-// known, an unpopular one needs two, and a run of mixed results needs a
-// fresh streak of 3 in a row to override the earlier misses.
-export function isItemKnown(stats, popularity) {
-  if (!stats || !Array.isArray(stats.recent) || stats.recent.length === 0) return false;
-  const recent = stats.recent;
-  if (trailingCorrectStreak(recent) >= STREAK_OVERRIDE) return true;
-  if (recent.every(Boolean)) {
-    const required = popularity >= POPULAR_THRESHOLD ? 1 : 2;
-    return recent.length >= required;
-  }
-  return false;
-}

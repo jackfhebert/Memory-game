@@ -17,34 +17,32 @@ const ITEMS = [
   { id: "europe", name: "Europe", popularity: 50 },
 ];
 
-test("countKnownItems counts a popular item known after one correct answer", () => {
+test("countKnownItems counts items whose P(known) has crossed the mastery threshold", () => {
   const progress = {
     itemStats: {
-      africa: { recent: [true] },
-      asia: { recent: [false, false] },
+      // popularity 90, ability 0 -> well past the mastery threshold, with evidence
+      africa: { recent: [true], itemOffset: 3 },
+      // popularity 20, answered but no offset evidence yet -> below threshold
+      asia: { recent: [true], itemOffset: 0 },
     },
+    ability: 0,
   };
   assert.equal(countKnownItems(ITEMS, progress), 1);
 });
 
-test("countKnownItems requires two correct answers for an unpopular item", () => {
-  const progress = {
-    itemStats: {
-      asia: { recent: [true] },
-    },
-  };
+test("countKnownItems requires more itemOffset evidence for a less popular item", () => {
+  const progress = { itemStats: { asia: { recent: [true], itemOffset: 1 } }, ability: 0 };
   assert.equal(countKnownItems(ITEMS, progress), 0);
 
-  const progressAfterSecondCorrect = {
-    itemStats: {
-      asia: { recent: [true, true] },
-    },
+  const progressWithMoreEvidence = {
+    itemStats: { asia: { recent: [true], itemOffset: 5 } },
+    ability: 0,
   };
-  assert.equal(countKnownItems(ITEMS, progressAfterSecondCorrect), 1);
+  assert.equal(countKnownItems(ITEMS, progressWithMoreEvidence), 1);
 });
 
-test("countKnownItems is 0 when nothing has been answered", () => {
-  assert.equal(countKnownItems(ITEMS, { itemStats: {} }), 0);
+test("countKnownItems is 0 when nothing has been answered, even for a popular item", () => {
+  assert.equal(countKnownItems(ITEMS, { itemStats: {}, ability: 0 }), 0);
 });
 
 test("buildModuleTiles combines manifest data with per-module progress", () => {

@@ -1,7 +1,14 @@
-import { recordAnswer, getProgress, isItemKnown, getMasteryEstimate } from "./storage.js";
+import {
+  recordAnswer,
+  getProgress,
+  isItemMastered,
+  getMasteryEstimate,
+  getItemMasteryEstimate,
+} from "./storage.js";
 
 export const ACTIVE_LEARNING_POOL_SIZE = 5;
 const DISTRACTOR_COUNT = 3;
+export const ANSWER_CHOICE_COUNT = DISTRACTOR_COUNT + 1;
 const DEBUG_PLAYER_NAME = "debug";
 
 export function isDebugPlayer(player) {
@@ -108,19 +115,24 @@ export function expandPool(pool, items) {
   return [...pool, next];
 }
 
-const UNKNOWN_SELECTION_SHARE = 0.75;
+// A small floor keeps every candidate selectable, even a near-certain one,
+// so review still happens instead of a mastered item never coming up again.
+const REVIEW_WEIGHT_FLOOR = 0.05;
 
 export function buildSelectionProbabilities(candidates, progress) {
-  const isKnown = (item) => isItemKnown(progress.itemStats[item.id], item.popularity);
-  const unknownItems = candidates.filter((item) => !isKnown(item));
-  const knownItems = candidates.filter(isKnown);
-  const unknownShare =
-    knownItems.length === 0 ? 1 : unknownItems.length === 0 ? 0 : UNKNOWN_SELECTION_SHARE;
-  const unknownWeight = unknownItems.length === 0 ? 0 : unknownShare / unknownItems.length;
-  const knownWeight = knownItems.length === 0 ? 0 : (1 - unknownShare) / knownItems.length;
-  return candidates.map((item) => ({
+  const weights = candidates.map((item) => {
+    const { probabilityCorrect } = getItemMasteryEstimate(
+      progress,
+      item.id,
+      item.popularity,
+      ANSWER_CHOICE_COUNT,
+    );
+    return Math.max(1 - probabilityCorrect, REVIEW_WEIGHT_FLOOR);
+  });
+  const total = weights.reduce((sum, weight) => sum + weight, 0);
+  return candidates.map((item, index) => ({
     item,
-    probability: isKnown(item) ? knownWeight : unknownWeight,
+    probability: weights[index] / total,
   }));
 }
 
@@ -166,8 +178,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
   let cardsShown = 0;
 
   function countKnownInPool(progress) {
-    return pool.filter((item) => isItemKnown(progress.itemStats[item.id], item.popularity))
-      .length;
+    return pool.filter((item) => isItemMastered(progress, item.id, item.popularity)).length;
   }
 
   function selectItem(previousItemId, rng = Math.random) {
@@ -197,7 +208,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
     return {
       popularity: card.item.popularity,
       recent: stats?.recent ?? [],
-      known: isItemKnown(stats, card.item.popularity),
+      known: isItemMastered(progress, card.item.id, card.item.popularity),
       ...getMasteryEstimate(
         player,
         moduleId,

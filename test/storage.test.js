@@ -11,10 +11,12 @@ const {
   addPlayer,
   getProgress,
   recordAnswer,
-  isItemKnown,
   probabilityKnown,
   probabilityCorrect,
   getMasteryEstimate,
+  getItemMasteryEstimate,
+  isItemMastered,
+  MASTERY_KNOWN_THRESHOLD,
 } = await import("../js/storage.js");
 
 test("getPlayers returns an empty array when nothing is stored", () => {
@@ -93,15 +95,6 @@ test("recordAnswer keeps separate stats per player and per module", () => {
   assert.deepEqual(getProgress("Sam", "oceans").itemStats.africa.recent, [false]);
 });
 
-test("isItemKnown is false when there's no answer history", () => {
-  assert.equal(isItemKnown(undefined, 90), false);
-  assert.equal(isItemKnown({ recent: [] }, 90), false);
-});
-
-test("isItemKnown treats a pre-recency itemStats shape as no history instead of throwing", () => {
-  assert.equal(isItemKnown({ shown: 4, correct: 3 }, 90), false);
-});
-
 test("recordAnswer starts fresh history for a pre-recency itemStats shape instead of throwing", () => {
   localStorage.setItem(
     "memorygame:progress:Sam:continents",
@@ -109,33 +102,6 @@ test("recordAnswer starts fresh history for a pre-recency itemStats shape instea
   );
   recordAnswer("Sam", "continents", "africa", true);
   assert.deepEqual(getProgress("Sam", "continents").itemStats.africa.recent, [true]);
-});
-
-test("isItemKnown counts a popular item known after a single correct answer", () => {
-  assert.equal(isItemKnown({ recent: [true] }, 50), true);
-  assert.equal(isItemKnown({ recent: [true] }, 100), true);
-});
-
-test("isItemKnown requires two correct answers for an unpopular item", () => {
-  assert.equal(isItemKnown({ recent: [true] }, 49), false);
-  assert.equal(isItemKnown({ recent: [true] }, 0), false);
-  assert.equal(isItemKnown({ recent: [true, true] }, 0), true);
-});
-
-test("isItemKnown is false for mixed results without a fresh streak", () => {
-  assert.equal(isItemKnown({ recent: [true, false] }, 100), false);
-  assert.equal(isItemKnown({ recent: [false, true] }, 100), false);
-  assert.equal(isItemKnown({ recent: [true, false, true] }, 100), false);
-});
-
-test("isItemKnown is true once the trailing streak reaches 3, overriding earlier misses", () => {
-  assert.equal(isItemKnown({ recent: [false, true, true, true] }, 0), true);
-  assert.equal(isItemKnown({ recent: [true, false, true, true] }, 0), false);
-});
-
-test("isItemKnown reflects a drop in recent performance, not just lifetime correct answers", () => {
-  const stats = { recent: [true, false, false, false, false] };
-  assert.equal(isItemKnown(stats, 100), false);
 });
 
 test("probabilityKnown is 0.5 for a neutral-difficulty item with no ability or evidence", () => {
@@ -195,4 +161,41 @@ test("getMasteryEstimate reflects ability and itemOffset accumulated via recordA
   assert.equal(estimate.itemOffset, 0.25);
   assert.equal(estimate.probability, probabilityKnown(0.1, 0.25, 50));
   assert.equal(estimate.probabilityCorrect, probabilityCorrect(0.1, 0.25, 50, 4));
+});
+
+test("getItemMasteryEstimate matches getMasteryEstimate given the same progress, item, and popularity", () => {
+  recordAnswer("Sam", "continents", "africa", true, 50);
+  const progress = getProgress("Sam", "continents");
+  const viaProgress = getItemMasteryEstimate(progress, "africa", 50, 4);
+  const viaPlayer = getMasteryEstimate("Sam", "continents", "africa", 50, 4);
+  assert.deepEqual(viaProgress, viaPlayer);
+});
+
+test("isItemMastered is false for a fresh player with no evidence, even for a very popular item", () => {
+  const progress = { itemStats: {}, ability: 0 };
+  assert.equal(isItemMastered(progress, "africa", 50), false);
+  // popularity alone clears MASTERY_KNOWN_THRESHOLD here, but no answer has been recorded yet
+  assert.ok(probabilityKnown(0, 0, 90) >= MASTERY_KNOWN_THRESHOLD);
+  assert.equal(isItemMastered(progress, "africa", 90), false);
+});
+
+test("isItemMastered is true once P(known) crosses MASTERY_KNOWN_THRESHOLD, given evidence", () => {
+  const progress = { itemStats: { africa: { recent: [true], itemOffset: 0 } }, ability: 0 };
+  assert.ok(probabilityKnown(0, 0, 50) < MASTERY_KNOWN_THRESHOLD);
+  assert.equal(isItemMastered(progress, "africa", 50), false);
+
+  const masteredProgress = {
+    itemStats: { africa: { recent: [true], itemOffset: 3 } },
+    ability: 0,
+  };
+  assert.ok(probabilityKnown(0, 3, 50) >= MASTERY_KNOWN_THRESHOLD);
+  assert.equal(isItemMastered(masteredProgress, "africa", 50), true);
+});
+
+test("isItemMastered reaches the threshold after enough correct answers via recordAnswer", () => {
+  let progress;
+  for (let i = 0; i < 10; i++) {
+    progress = recordAnswer("Sam", "continents", "africa", true, 90);
+  }
+  assert.equal(isItemMastered(progress, "africa", 90), true);
 });
