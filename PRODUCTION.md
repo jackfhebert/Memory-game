@@ -106,25 +106,6 @@ not worth it unless the simple version stops being enough.
   yet — see [DESIGN.md](DESIGN.md)'s note on localStorage-based,
   account-free players).
 
-## A note on tooling
-
-This Claude Code session built and tried to test the `Dockerfile` locally,
-but this sandbox's network policy blocks the Docker Hub CDN
-(`production.cloudfront.docker.com` returns a policy-denied 403), so the
-image couldn't actually be built or run here — only written and reviewed.
-The `Dockerfile`/`nginx.conf.template` follow a standard, well-documented
-pattern (nginx's own template-substitution feature for `$PORT`), but
-they're untested by me. Worth doing one build of the image — either via
-the Cloud Run Console setup above (which builds it for you on Google's
-side) or from any machine with working Docker — to confirm the static
-file paths resolve before relying on it as the "test version."
-
-The actual one-time GCP setup (creating a project, attaching billing,
-authorizing the GitHub App, creating the Cloud Run service) has to happen
-in your GCP/GitHub accounts directly — that's not something this session
-can click through on your behalf, but as noted above it's all
-browser-based and phone-friendly.
-
 ## Open questions
 
 - Custom domain and access-control, as noted above.

@@ -1,8 +1,8 @@
 # Testing
 
-This project has two layers of testing: automated unit tests, and a manual
-browser walkthrough for anything that touches real content (a module's
-images, facts, or alt text) or the flashcard/answer flow itself.
+This project has two layers of testing: automated unit tests, and a
+real-rendering browser check for anything that touches real content (a
+module's images, facts, or alt text) or the flashcard/answer flow itself.
 
 ## Automated unit tests
 
@@ -25,22 +25,15 @@ This layer exists to verify the two things unit tests can't see: that
 **rendering** is correct in a real browser engine (images decode, CSS
 layout looks right, answer-button styling actually applies).
 
-### Why this runs in CI instead of in an agent sandbox
+### Where this runs
 
-Earlier attempts ran this with Playwright directly inside an AI agent's
-sandbox. The recurring failure mode was the browser binary download
-(`playwright install chromium`, ~300MB) dying or being unreliable in a
-restricted, often-ephemeral container — there's no persistent disk for a
-downloaded binary to survive on between sessions, so every attempt paid
-the download cost again and sometimes failed partway through.
-
-None of that is a Playwright-specific problem — any real-browser tool
-(Puppeteer, Cypress, Selenium) needs the same binary. The fix is moving
-*where it runs*: a GitHub Actions runner has normal, reliable network
-access, and the browser binary can be cached across runs with
-`actions/cache`, so the download problem doesn't recur. Sandbox
-restrictions on a given agent session no longer matter once this lives in
-CI.
+This check runs in GitHub Actions, not in a local agent sandbox.
+GitHub-hosted runners have normal, reliable network access, and the
+Playwright browser binary is cached across runs with `actions/cache`, so
+a run starts from a working setup instead of re-downloading the browser
+every time. Running it this way also means it's not tied to any one
+agent session — anyone (or any future session) can dispatch the same
+workflow and get the same result.
 
 ### Trigger model
 
@@ -55,8 +48,7 @@ without remembering to dispatch it by hand?)*
 ### What the workflow does
 
 1. Checkout, `npm ci`.
-2. Add Playwright as a real devDependency (safe now — installed by CI's
-   normal network, not an agent sandbox) and `npx playwright install
+2. Add Playwright as a real devDependency and `npx playwright install
    --with-deps chromium`.
 3. Serve the static app (`python3 -m http.server 8088` or equivalent) in
    the background.
@@ -77,9 +69,9 @@ without remembering to dispatch it by hand?)*
 5. Upload screenshots (and a Playwright trace, for debugging failures) as
    workflow artifacts.
 
-Unlike the old version of this doc, the script should **assert and exit
-non-zero on failure** rather than just `console.log` things for a human
-to read — this runs unattended in CI, nobody's watching it live.
+The script should **assert and exit non-zero on failure** rather than
+just `console.log` things for a human to read — this runs unattended in
+CI, nobody's watching it live.
 
 ### How to check the results afterward
 
@@ -94,7 +86,7 @@ Actions run in the GitHub UI. *(Open question: is screenshot review
 something you'll do by hand in the UI, or does that need to be solved
 too?)*
 
-### Gotchas (carried over, still true)
+### Gotchas
 
 - `.next-button`'s label/behavior changes between "Answer" (pick a
   choice first) and "Next Question" (advance) — one click reveals, a
