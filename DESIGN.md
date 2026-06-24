@@ -139,48 +139,72 @@ playable end-to-end before any real content review.
 Two distinct ideas feed into how the game decides what a player knows:
 
 - **Popularity** (`popularity`, 0–100) — authored per item, shared by all
-  players. Used to order which items get introduced first, both for the
-  Active Learning starting pool and for the order items are added as it
-  expands.
-- **Recent-answer history** (per player, per item) — a capped list of that
-  player's last 5 answers for the item (`true`/`false`, most recent last).
+  players. A prior belief about how likely *anyone* is to already know this
+  item, before they've ever been asked about it.
+- **Ability** (per player, per module) — a single running estimate of how
+  strong that player is on this module's content overall.
 
-Recent behavior is a better predictor of how a kid will do next time than
-an all-time correct/incorrect count — a kid who got an item right several
-times last month but has missed it twice in a row recently needs more
-practice now, not credit for an old streak. So rather than accumulating
-lifetime totals, the game only looks at this short rolling window.
+These combine, Elo/IRT-style, into a per-item, per-player **probability the
+player knows this item**, which is what actually drives pacing and review
+frequency.
 
-**Estimating whether an item is known:**
+**Setup, per item:**
 
-An item counts as "known" once at least 80% of its recent-answer history
-(up to the last 5 answers) was correct. With only one answer on record, a
-single correct answer is enough to count as known — there's no minimum
-sample size beyond "has been asked at least once." An item with no answer
-history yet (never asked) is not counted as known.
+- Convert `popularity` into a difficulty in logit space:
+  `difficulty = (50 - popularity) / 10`. A very popular item (popularity
+  100) has difficulty -5 (easy); an obscure item (popularity 0) has
+  difficulty +5 (hard); a middling item (popularity 50) is neutral.
 
-This threshold is internal — it's never shown to the kid as a score or
-grade. It drives the "X of Y known" count on the Module Select tile and the
-Active Learning pool-expansion trigger below.
+**Setup, per player + module:**
+
+- `ability` starts at 0 the first time a player opens a module.
+- Each item also tracks an `itemOffset`, starting at 0 — this is where
+  direct evidence about *that specific item* accumulates, separate from the
+  player's general ability.
+
+**Estimating P(known) for any item, asked or not:**
+
+```
+P(known) = sigmoid(ability - difficulty + itemOffset)
+```
+
+Because this formula only needs `ability` and the item's `popularity`, it
+gives every item in the module a reasonable estimate even before the player
+has ever been asked about it — exactly the "less popular items are less
+likely to be known until asked" behavior we want. Once an item has actually
+been asked, its `itemOffset` lets the estimate diverge from what popularity
+alone would predict.
+
+**Updating after each answer:**
+
+When a player answers item *i* (outcome = 1 if correct, 0 if incorrect):
+
+1. Compute `predicted = P(known)` for that item *before* this update.
+2. `error = outcome - predicted`
+3. `ability += K_ability * error` (small step, e.g. `K_ability = 0.2` —
+   nudges the overall sense of how strong the player is at this module).
+4. `itemOffset += K_item * error` (bigger step, e.g. `K_item = 0.5` —
+   direct evidence about one item should move that item's own estimate more
+   than it moves the player's general ability).
+
+An item counts as "known" for pacing purposes once `P(known) >= 0.8`. This
+threshold is internal — it's never shown to the kid as a score or grade.
 
 ## Adaptive Pacing
 
 How the active pool behaves depends on the mode chosen in Mode Select:
 
 - **All Cards** — every item in the module is in the active pool from the
-  start, shown in `popularity` order on the first pass through the module,
-  then in random order (never immediately repeating the previous card)
-  after that.
-- **Active Learning** — the active pool starts with the top few items by
-  `popularity` (or all items, if the module has fewer). Whenever an item in
-  the pool newly crosses the "known" threshold above — i.e. it wasn't known
-  before this answer but is now — the next-most-popular item not yet in the
-  pool is added. This repeats until every item in the module is active.
+  start.
+- **Active Learning** — the active pool starts with the top 4 items by
+  `popularity` (or all items, if the module has fewer than 4 — relevant for
+  the 5-item Oceans module). Whenever the *average* `P(known)` across the
+  active pool reaches 0.8, the next-most-popular item not yet in the pool
+  is added. This repeats until every item in the module is active.
 
-In both modes, the next card is chosen at random from the active pool
-(never immediately repeating the previous card). There's no weighting
-toward less-known items yet — that's a future idea once there's more play
-data to justify the added complexity.
+In both modes, the next card to show is chosen at random from the active
+pool, weighted toward lower `P(known)` — so unmastered items come up more
+often, but everything still gets reviewed occasionally.
 
 ## Distractor selection
 
@@ -203,6 +227,6 @@ future idea once modules get bigger.
 - **Module art direction:** the module-select screen needs some visual
   identity per module; not blocking for MVP but worth a pass before kids
   actually use it.
-- **Mastery model tuning:** the recent-answer window size (5) and the
-  "known" threshold (80%) above are starting guesses — they'll likely need
+- **Mastery model tuning:** the logit scaling factor and the `K_ability` /
+  `K_item` step sizes above are starting guesses — they'll likely need
   tuning once there's real play data to look at.
