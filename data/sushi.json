@@ -180,9 +180,9 @@
     "id": "spicy-tuna-roll",
     "name": "Spicy Tuna Roll",
     "image": "images/sushi/spicy-tuna-roll.jpg",
-    "alt": "A sushi roll topped with a reddish, spicy-looking filling, held up with chopsticks.",
+    "alt": "A sushi roll with a reddish, fiery-looking filling, held up with chopsticks.",
     "facts": [
-      "This roll mixes chopped raw tuna with a spicy, creamy sauce before rolling it up.",
+      "This roll mixes chopped raw fish with a fiery, creamy sauce before rolling it up.",
       "It's one of the most popular rolls ordered at sushi restaurants in the U.S."
     ],
     "popularity": 80
@@ -193,8 +193,8 @@
     "image": "images/sushi/dragon-roll.jpg",
     "alt": "A sushi roll topped with overlapping thin green slices arranged like scales.",
     "facts": [
-      "Thin slices of avocado are arranged on top to look like a dragon's scaly skin.",
-      "It's often filled with shrimp tempura and cucumber."
+      "Thin slices of avocado are arranged on top to look like a mythical creature's scaly skin.",
+      "It's often filled with fried shrimp and cucumber."
     ],
     "popularity": 60
   },
@@ -202,7 +202,7 @@
     "id": "rainbow-roll",
     "name": "Rainbow Roll",
     "image": "images/sushi/rainbow-roll.jpg",
-    "alt": "A sushi roll topped with a rainbow of different colored fish slices laid side by side.",
+    "alt": "A sushi roll topped with many different colored raw fish slices laid side by side.",
     "facts": [
       "Several different colorful raw fish are draped over the top, one slice of each, in a row.",
       "Underneath the colorful topping is usually a roll a lot like the very first popular American sushi roll."
@@ -217,6 +217,116 @@
     "facts": [
       "This roll combines smoked salmon with a soft, tangy cream cheese filling.",
       "It mixes a Japanese cooking tradition with an ingredient more typically found on a bagel."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "spider-roll",
+    "name": "Spider Roll",
+    "image": "images/sushi/spider-roll.jpg",
+    "alt": "A sushi roll with crispy fried legs sticking out from both ends.",
+    "facts": [
+      "This roll is filled with a whole deep-fried soft-shell crab, legs and all.",
+      "The crab's crispy legs often stick out from the ends of the roll."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "caterpillar-roll",
+    "name": "Caterpillar Roll",
+    "image": "images/sushi/caterpillar-roll.jpg",
+    "alt": "A sushi roll topped with overlapping thin green avocado slices that look like a small creature's segmented back.",
+    "facts": [
+      "Thin slices of avocado are layered on top to resemble a small creature's segmented body.",
+      "It's usually filled with grilled eel and cucumber."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "alaska-roll",
+    "name": "Alaska Roll",
+    "image": "images/sushi/alaska-roll.jpg",
+    "alt": "A sushi roll with a pink fish topping over a pale green and white filling.",
+    "facts": [
+      "This roll combines raw salmon with creamy avocado and crisp cucumber.",
+      "It's named for the cold northern Pacific waters its main ingredient often comes from."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "negitoro-roll",
+    "name": "Negitoro Roll",
+    "image": "images/sushi/negitoro-roll.jpg",
+    "alt": "A sushi cup wrapped in seaweed and filled with finely chopped, marbled pink fish flecked with green onion.",
+    "facts": [
+      "This roll is filled with finely chopped fatty tuna mixed with chopped green onion.",
+      "Because the fish is scraped and minced rather than sliced, it has a soft, almost creamy texture."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "futomaki",
+    "name": "Futomaki",
+    "image": "images/sushi/futomaki.jpg",
+    "alt": "A thick, large sushi roll cut into rounds, with several different colorful fillings visible inside.",
+    "facts": [
+      "This roll is rolled extra thick, often with five or more different fillings packed inside.",
+      "It often includes cooked ingredients like egg and simmered vegetables, not just raw fish."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "tekka-maki",
+    "name": "Tekka Maki",
+    "image": "images/sushi/tekka-maki.jpg",
+    "alt": "A small sushi roll cut into rounds, filled with a single strip of dark red fish in the center.",
+    "facts": [
+      "This roll is one of the simplest on a sushi menu: just one ingredient rolled up with rice and seaweed.",
+      "Its name is said to come from gambling parlors, where it was a quick snack players could eat without getting their cards greasy."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "kappa-maki",
+    "name": "Kappa Maki",
+    "image": "images/sushi/kappa-maki.jpg",
+    "alt": "A small sushi roll cut into rounds, with a pale green vegetable strip visible in the center.",
+    "facts": [
+      "This roll contains no fish at all -- just a crunchy vegetable filling.",
+      "It's named after a mischievous water spirit from Japanese folklore that's said to love this vegetable."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "unagi-roll",
+    "name": "Unagi Roll",
+    "image": "images/sushi/unagi-roll.jpg",
+    "alt": "A sushi roll topped with glossy, dark-glazed grilled strips.",
+    "facts": [
+      "This roll is filled with a sweet, grilled topping that's brushed with a sticky glaze.",
+      "Its filling is always cooked, never served raw."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "volcano-roll",
+    "name": "Volcano Roll",
+    "image": "images/sushi/volcano-roll.jpg",
+    "alt": "A sushi roll piled high with a warm, mounded, creamy orange topping.",
+    "facts": [
+      "This roll is topped with a warm, baked, creamy mixture that's sometimes briefly torched before serving.",
+      "Its bumpy, mounded topping is meant to look like a small eruption."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "shrimp-tempura-roll",
+    "name": "Shrimp Tempura Roll",
+    "image": "images/sushi/shrimp-tempura-roll.jpg",
+    "alt": "A sushi roll with a golden, crispy fried tail peeking out from one end.",
+    "facts": [
+      "This roll is filled with a shellfish that's been battered and deep-fried until crunchy.",
+      "Because the shellfish is fried whole, it gives the roll a crispy bite in the middle instead of a chewy one."
     ],
     "popularity": 65
   }
