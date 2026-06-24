@@ -75,5 +75,12 @@
     "dataFile": "pasta.json",
     "color": "#D4A017",
     "icon": "🍝"
+  },
+  {
+    "id": "composers",
+    "name": "Composers",
+    "dataFile": "composers.json",
+    "color": "#8C5A8C",
+    "icon": "🎼"
   }
 ]
