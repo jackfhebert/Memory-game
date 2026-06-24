@@ -108,5 +108,116 @@
       "Its color can range from pale yellow to deep orange depending on where it's harvested."
     ],
     "popularity": 35
+  },
+  {
+    "id": "toro",
+    "name": "Toro",
+    "image": "images/sushi/toro.jpg",
+    "alt": "A pale pink slice of fish with light marbled streaks draped over rice.",
+    "facts": [
+      "This topping comes from the fattiest part of the fish, which makes it melt in your mouth.",
+      "Its pale, marbled streaks look a little like a slice of fine steak."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "anago",
+    "name": "Anago",
+    "image": "images/sushi/anago.jpg",
+    "alt": "A pale, soft, light-brown topping laid flat over a mound of rice.",
+    "facts": [
+      "This topping is simmered until tender instead of being grilled.",
+      "It's a lighter, milder cousin of another popular grilled eel topping."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "tamago",
+    "name": "Tamago",
+    "image": "images/sushi/tamago.jpg",
+    "alt": "A few thick, golden-yellow slices of a sweet, layered omelette stacked on a plate.",
+    "facts": [
+      "This topping is made from a lightly sweetened omelette, cooked in thin layers and rolled up.",
+      "It's one of the few sushi toppings that's a favorite with kids who don't love seafood."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "saba",
+    "name": "Saba",
+    "image": "images/sushi/saba.jpg",
+    "alt": "Pieces of fish with shiny, dark striped skin on top and pale flesh below, resting on rice.",
+    "facts": [
+      "This topping is cured in salt and vinegar before serving, which gives it a tangy bite.",
+      "Its skin is left on and has a shiny, striped pattern."
+    ],
+    "popularity": 35
+  },
+  {
+    "id": "amaebi",
+    "name": "Amaebi",
+    "image": "images/sushi/amaebi.jpg",
+    "alt": "A pale pink, glossy raw shellfish draped over a mound of rice.",
+    "facts": [
+      "This shellfish is served raw, with a soft texture and a delicate, sweet flavor.",
+      "Chefs sometimes fry the head separately afterward as a crunchy little snack."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "california-roll",
+    "name": "California Roll",
+    "image": "images/sushi/california-roll.jpg",
+    "alt": "A sushi roll with rice on the outside, dotted with small orange roe, and a creamy filling visible inside.",
+    "facts": [
+      "This roll was invented in North America, not Japan, as an easier introduction to sushi.",
+      "It's usually rolled with the seaweed on the inside and rice on the outside, so it looks less unusual to new sushi eaters.",
+      "It typically combines creamy avocado, crab, and cucumber."
+    ],
+    "popularity": 95
+  },
+  {
+    "id": "spicy-tuna-roll",
+    "name": "Spicy Tuna Roll",
+    "image": "images/sushi/spicy-tuna-roll.jpg",
+    "alt": "A sushi roll topped with a reddish, spicy-looking filling, held up with chopsticks.",
+    "facts": [
+      "This roll mixes chopped raw tuna with a spicy, creamy sauce before rolling it up.",
+      "It's one of the most popular rolls ordered at sushi restaurants in the U.S."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "dragon-roll",
+    "name": "Dragon Roll",
+    "image": "images/sushi/dragon-roll.jpg",
+    "alt": "A sushi roll topped with overlapping thin green slices arranged like scales.",
+    "facts": [
+      "Thin slices of avocado are arranged on top to look like a dragon's scaly skin.",
+      "It's often filled with shrimp tempura and cucumber."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "rainbow-roll",
+    "name": "Rainbow Roll",
+    "image": "images/sushi/rainbow-roll.jpg",
+    "alt": "A sushi roll topped with a rainbow of different colored fish slices laid side by side.",
+    "facts": [
+      "Several different colorful raw fish are draped over the top, one slice of each, in a row.",
+      "Underneath the colorful topping is usually a roll a lot like the very first popular American sushi roll."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "philadelphia-roll",
+    "name": "Philadelphia Roll",
+    "image": "images/sushi/philadelphia-roll.jpg",
+    "alt": "A sushi roll with a creamy white filling and a pink fish topping draped over rice.",
+    "facts": [
+      "This roll combines smoked salmon with a soft, tangy cream cheese filling.",
+      "It mixes a Japanese cooking tradition with an ingredient more typically found on a bagel."
+    ],
+    "popularity": 65
   }
 ]
