@@ -1,0 +1,112 @@
+[
+  {
+    "id": "maguro",
+    "name": "Maguro",
+    "image": "images/sushi/maguro.jpg",
+    "alt": "A reddish-pink slice of raw fish draped over a small mound of rice.",
+    "facts": [
+      "This deep red fish is one of the most popular sushi fish in the whole world.",
+      "It can swim in fast bursts, which is part of why it's prized for its firm, meaty texture."
+    ],
+    "popularity": 85
+  },
+  {
+    "id": "sake",
+    "name": "Sake",
+    "image": "images/sushi/sake.jpg",
+    "alt": "A bright orange-pink slice of raw fish on top of a small mound of rice.",
+    "facts": [
+      "This is the single most popular fish used in sushi in the United States.",
+      "Its bright orange color comes partly from the tiny shrimp-like creatures it eats in the wild."
+    ],
+    "popularity": 88
+  },
+  {
+    "id": "hamachi",
+    "name": "Hamachi",
+    "image": "images/sushi/hamachi.jpg",
+    "alt": "A pale, glossy slice of raw white fish over a mound of rice.",
+    "facts": [
+      "This fish is named for a yellow stripe that runs along its side.",
+      "Chefs prize it for a buttery, mild flavor that's milder than redder sushi fish."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "ebi",
+    "name": "Ebi",
+    "image": "images/sushi/ebi.jpg",
+    "alt": "A curled, pink-and-white cooked shellfish draped over a mound of rice.",
+    "facts": [
+      "This topping is cooked first, then split open and laid flat over the rice.",
+      "Its curled shape and pink-and-white stripes make it easy to spot on a sushi plate."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "unagi",
+    "name": "Unagi",
+    "image": "images/sushi/unagi.jpg",
+    "alt": "A glossy, dark-brown grilled topping glazed with sauce, laid over rice.",
+    "facts": [
+      "This topping is grilled and brushed with a sweet, sticky sauce before serving.",
+      "Unlike most sushi toppings, it's never served raw."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "tako",
+    "name": "Tako",
+    "image": "images/sushi/tako.jpg",
+    "alt": "A pale, bumpy-textured slice with a reddish-purple edge draped over rice.",
+    "facts": [
+      "This topping is boiled until tender, which turns its edge from gray to a reddish-purple.",
+      "Its bumpy texture comes from rows of tiny suckers."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "ika",
+    "name": "Ika",
+    "image": "images/sushi/ika.jpg",
+    "alt": "A smooth, milky-white slice with fine crisscross markings over a mound of rice.",
+    "facts": [
+      "Chefs score this topping with tiny crisscross cuts so it's easier to chew.",
+      "It has a mild flavor and a slightly chewy, springy texture."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "hotate",
+    "name": "Hotate",
+    "image": "images/sushi/hotate.jpg",
+    "alt": "A round, pale ivory-colored piece of shellfish resting on a mound of rice.",
+    "facts": [
+      "This topping comes from a shellfish that can actually swim by clapping its shell open and shut.",
+      "It has a naturally sweet taste and a soft, tender bite."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "ikura",
+    "name": "Ikura",
+    "image": "images/sushi/ikura.jpg",
+    "alt": "A small cup of rice wrapped in seaweed and piled high with glistening orange eggs.",
+    "facts": [
+      "This topping is made of hundreds of tiny, glistening orange eggs.",
+      "Each little egg pops gently when you bite into it."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "uni",
+    "name": "Uni",
+    "image": "images/sushi/uni.jpg",
+    "alt": "A soft, golden-yellow, custard-like topping piled in a small seaweed-wrapped cup of rice.",
+    "facts": [
+      "This topping comes from a spiky sea creature and has a soft, custardy texture.",
+      "Its color can range from pale yellow to deep orange depending on where it's harvested."
+    ],
+    "popularity": 35
+  }
+]
