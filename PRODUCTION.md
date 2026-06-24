@@ -10,6 +10,25 @@ This is a static, no-backend web app (see [DESIGN.md](DESIGN.md) and
 server-side logic. That keeps "getting it running" mostly a question of
 how the static files get served, not a question of infrastructure.
 
+## Branch policy: `main` is live
+
+Cloud Run's continuous deploy (set up below) redeploys on every push to
+`main` — there's no staging slot in between. That makes `main` the de
+facto production branch: whatever's there is what's running for real
+users, usually within a minute or two of the push.
+
+Practically, that means:
+
+- Do feature/content work on a separate branch, not directly on `main`.
+- Before merging into `main` (or pushing straight to it), run `npm test`
+  and, for anything touching module content or the flashcard/answer UI,
+  the manual browser walkthrough in [TESTING.md](TESTING.md). Don't rely
+  on Cloud Run's build succeeding as the only check — a clean Docker
+  build just means the static files copied correctly, not that the app
+  behaves correctly.
+- Treat a broken `main` as urgent — fix forward or revert promptly,
+  since it's live the moment it's pushed.
+
 ## Running locally
 
 The app loads module JSON via `fetch()`, which most browsers block over a
