@@ -1,5 +1,12 @@
 [
   {
+    "id": "oceans",
+    "name": "Oceans",
+    "dataFile": "oceans.json",
+    "color": "#2BB3A3",
+    "icon": "🌊"
+  },
+  {
     "id": "continents",
     "name": "Continents",
     "dataFile": "continents.json",
@@ -7,11 +14,18 @@
     "icon": "🌍"
   },
   {
-    "id": "oceans",
-    "name": "Oceans",
-    "dataFile": "oceans.json",
-    "color": "#2BB3A3",
-    "icon": "🌊"
+    "id": "animals",
+    "name": "Animals",
+    "dataFile": "animals.json",
+    "color": "#5B8C3A",
+    "icon": "🦁"
+  },
+  {
+    "id": "pasta",
+    "name": "Pasta Shapes",
+    "dataFile": "pasta.json",
+    "color": "#D4A017",
+    "icon": "🍝"
   },
   {
     "id": "states",
@@ -61,19 +75,5 @@
     "dataFile": "south-america-countries.json",
     "color": "#E0A23B",
     "icon": "🌎"
-  },
-  {
-    "id": "animals",
-    "name": "Animals",
-    "dataFile": "animals.json",
-    "color": "#5B8C3A",
-    "icon": "🦁"
-  },
-  {
-    "id": "pasta",
-    "name": "Pasta Shapes",
-    "dataFile": "pasta.json",
-    "color": "#D4A017",
-    "icon": "🍝"
   }
 ]
