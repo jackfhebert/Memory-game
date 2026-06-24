@@ -35,6 +35,20 @@
     "icon": "🗺️"
   },
   {
+    "id": "composers",
+    "name": "Composers",
+    "dataFile": "composers.json",
+    "color": "#8C5A8C",
+    "icon": "🎼"
+  },
+  {
+    "id": "sushi",
+    "name": "Sushi",
+    "dataFile": "sushi.json",
+    "color": "#D9534F",
+    "icon": "🍣"
+  },
+  {
     "id": "africa-countries",
     "name": "African Countries",
     "dataFile": "africa-countries.json",
@@ -75,19 +89,5 @@
     "dataFile": "south-america-countries.json",
     "color": "#E0A23B",
     "icon": "🌎"
-  },
-  {
-    "id": "composers",
-    "name": "Composers",
-    "dataFile": "composers.json",
-    "color": "#8C5A8C",
-    "icon": "🎼"
-  },
-  {
-    "id": "sushi",
-    "name": "Sushi",
-    "dataFile": "sushi.json",
-    "color": "#D9534F",
-    "icon": "🍣"
   }
 ]
