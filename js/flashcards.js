@@ -22,11 +22,15 @@ function shuffle(array, rng) {
   return result;
 }
 
-export function buildActivePool(items, mode, rng = Math.random) {
+function sortByPopularityDesc(items) {
+  return [...items].sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0));
+}
+
+export function buildActivePool(items, mode) {
   if (mode === "all-cards" || items.length <= ACTIVE_LEARNING_POOL_SIZE) {
     return [...items];
   }
-  return sampleWithoutReplacement(items, ACTIVE_LEARNING_POOL_SIZE, rng);
+  return sortByPopularityDesc(items).slice(0, ACTIVE_LEARNING_POOL_SIZE);
 }
 
 export function pickNextCard(pool, previousItemId, rng = Math.random) {
@@ -67,12 +71,26 @@ export function shouldExpandPool(mode, itemCorrectCount) {
   return mode === "active-learning" && itemCorrectCount === 2;
 }
 
-export function expandPool(pool, items, rng = Math.random) {
+export function expandPool(pool, items) {
   const poolIds = new Set(pool.map((item) => item.id));
   const candidates = items.filter((item) => !poolIds.has(item.id));
   if (candidates.length === 0) return pool;
-  const index = Math.floor(rng() * candidates.length);
-  return [...pool, candidates[index]];
+  const [next] = sortByPopularityDesc(candidates);
+  return [...pool, next];
+}
+
+const PRELOAD_AHEAD = 3;
+
+export function selectPreloadTargets(pool, excludeId, count = PRELOAD_AHEAD, rng = Math.random) {
+  const candidates = pool.filter((item) => item.id !== excludeId);
+  return sampleWithoutReplacement(candidates, Math.min(count, candidates.length), rng);
+}
+
+function preloadImages(urls) {
+  urls.forEach((url) => {
+    const img = document.createElement("img");
+    img.src = url;
+  });
 }
 
 function buildCard(items, pool, previousItemId, rng) {
@@ -90,6 +108,12 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
   let revealed = false;
   let correctCount = 0;
   let wrongCount = 0;
+
+  function preloadUpcoming() {
+    const targets = selectPreloadTargets(pool, card.item.id);
+    preloadImages(targets.map((item) => item.image));
+  }
+  preloadUpcoming();
 
   function renderCurrentCard() {
     renderFlashcard(container, {
@@ -130,6 +154,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
     }
 
     card = buildCard(items, pool, card.item.id);
+    preloadUpcoming();
     selectedChoiceId = null;
     revealed = false;
     renderCurrentCard();

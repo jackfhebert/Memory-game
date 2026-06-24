@@ -8,24 +8,27 @@ import {
   pickFact,
   shouldExpandPool,
   expandPool,
+  selectPreloadTargets,
 } from "../js/flashcards.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 
 function makeItems(n) {
+  // popularity descends with index: item-0 is the most popular, item-(n-1) the least.
   return Array.from({ length: n }, (_, i) => ({
     id: `item-${i}`,
     name: `Item ${i}`,
+    popularity: n - i,
   }));
 }
 
-test("buildActivePool samples 5 items for active-learning when more are available", () => {
+test("buildActivePool selects the most popular items for active-learning when more are available", () => {
   const items = makeItems(7);
-  const pool = buildActivePool(items, "active-learning", fakeRng([0]));
+  const pool = buildActivePool(items, "active-learning");
   assert.equal(pool.length, 5);
-  // every sampled item must come from the original module
-  pool.forEach((item) => assert.ok(items.includes(item)));
-  // no duplicates
-  assert.equal(new Set(pool.map((i) => i.id)).size, 5);
+  assert.deepEqual(
+    pool.map((i) => i.id),
+    ["item-0", "item-1", "item-2", "item-3", "item-4"],
+  );
 });
 
 test("buildActivePool uses every item when the module has 5 or fewer", () => {
@@ -106,13 +109,12 @@ test("shouldExpandPool is true only in active-learning mode on the second correc
   assert.equal(shouldExpandPool("all-cards", 2), false);
 });
 
-test("expandPool adds one item not already in the pool", () => {
-  const items = makeItems(7);
-  const pool = items.slice(0, 5);
-  const expanded = expandPool(pool, items, fakeRng([0]));
+test("expandPool adds the most popular item not already in the pool", () => {
+  const items = makeItems(7); // item-0 (popularity 7) .. item-6 (popularity 1)
+  const pool = items.slice(2, 7); // missing item-0 and item-1, the two most popular
+  const expanded = expandPool(pool, items);
   assert.equal(expanded.length, 6);
-  const addedIds = expanded.slice(5).map((i) => i.id);
-  assert.deepEqual(addedIds, ["item-5"]);
+  assert.equal(expanded[5].id, "item-0");
   // original pool items are still present and untouched
   assert.deepEqual(expanded.slice(0, 5), pool);
 });
@@ -120,7 +122,22 @@ test("expandPool adds one item not already in the pool", () => {
 test("expandPool returns the same pool when every item is already active", () => {
   const items = makeItems(5);
   const pool = [...items];
-  const expanded = expandPool(pool, items, fakeRng([0]));
+  const expanded = expandPool(pool, items);
   assert.equal(expanded.length, 5);
   assert.deepEqual(expanded, pool);
+});
+
+test("selectPreloadTargets picks up to 3 other items from the pool", () => {
+  const pool = makeItems(5);
+  const targets = selectPreloadTargets(pool, "item-0", 3, fakeRng([0, 0.5, 0.9]));
+  assert.equal(targets.length, 3);
+  assert.ok(targets.every((t) => t.id !== "item-0"));
+  assert.equal(new Set(targets.map((t) => t.id)).size, 3);
+});
+
+test("selectPreloadTargets returns fewer items when the pool is small", () => {
+  const pool = makeItems(2);
+  const targets = selectPreloadTargets(pool, "item-0", 3, fakeRng([0]));
+  assert.equal(targets.length, 1);
+  assert.equal(targets[0].id, "item-1");
 });

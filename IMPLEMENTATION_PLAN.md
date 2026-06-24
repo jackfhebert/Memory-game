@@ -203,6 +203,15 @@ per entry drive the tile look without needing any per-module code.
 - Tapping an answer flips the card: the correct name is highlighted, and
   the tapped choice is marked right or wrong.
 - A "Next" button advances to another card from the active pool.
+- Each time a card is shown, up to 3 other images from the active pool are
+  preloaded (an off-DOM `<img>` per target) so the next card's picture is
+  likely already cached by the time it's drawn — masking image load time
+  rather than eliminating it, since the next card is picked at random
+  from the pool rather than a known fixed sequence.
+- `.flashcard-image` reserves a 4:3 `aspect-ratio` box before its image
+  loads (every module's images are saved at that ratio — see
+  [`tools/README.md`](tools/README.md)), so the fact text and answer
+  grid below it don't jump down once the picture finishes loading.
 
 ## Data model — player progress (localStorage)
 
@@ -224,9 +233,13 @@ the Module Select progress chip reads from.
 
 ## Card selection logic (v1, simplified)
 
-- **Active Learning** — at the start of a session, randomly sample 5 items
-  from the module (or all items, if the module has fewer than 5) to form
-  the active pool.
+- **Active Learning** — at the start of a session, the active pool is the
+  5 most popular items in the module by `popularity` (or all items, if the
+  module has fewer than 5). Whenever a player answers an item correctly
+  twice, the single most-popular item not yet in the pool is added —
+  borrowing the "introduce by popularity" shape of the full mastery model
+  from [DESIGN.md](DESIGN.md) without its P(known)-based trigger, which is
+  still deferred.
 - **All Cards** — the active pool is every item in the module, immediately.
 - In both modes, the next card is drawn uniformly at random from the
   active pool, avoiding an immediate repeat of the same card when the pool
