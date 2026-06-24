@@ -5,7 +5,9 @@
     "image": "images/states/alabama.png",
     "alt": "A close-up map with a state highlighted that's roughly rectangular, sitting along the Gulf of Mexico with a short stretch of coastline at its southern tip.",
     "facts": [
-      "This southern state is home to the U.S. Space and Rocket Center, where many astronauts trained."
+      "This southern state is home to the U.S. Space and Rocket Center, where many astronauts trained.",
+      "This state's capital city served as the first capital of the Confederacy during the Civil War.",
+      "A famous bus boycott here, sparked when Rosa Parks refused to give up her seat, helped launch the civil rights movement."
     ],
     "popularity": 50
   },
@@ -15,7 +17,9 @@
     "image": "images/states/alaska.png",
     "alt": "A close-up map with a huge highlighted state far in the northwest corner, much bigger than its neighbors and reaching up near the Arctic.",
     "facts": [
-      "This is the largest state by far, but has fewer people than almost any other state."
+      "This is the largest state by far, but has fewer people than almost any other state.",
+      "It has more coastline than all the other states put together.",
+      "Parts of this state are so far north that the sun barely sets at all in the middle of summer."
     ],
     "popularity": 80
   },
@@ -25,7 +29,9 @@
     "image": "images/states/arizona.png",
     "alt": "A close-up map with a roughly square highlighted state in the desert southwest, bordered by a long diagonal river along part of its edge.",
     "facts": [
-      "This state is home to the Grand Canyon, one of the most famous canyons in the world."
+      "This state is home to the Grand Canyon, one of the most famous canyons in the world.",
+      "Part of the largest Native American reservation in the country lies within this state.",
+      "Giant cactus plants called saguaros, some growing over 30 feet tall, fill its desert landscape."
     ],
     "popularity": 72
   },
@@ -35,7 +41,9 @@
     "image": "images/states/arkansas.png",
     "alt": "A close-up map with a highlighted state shaped like a rough rectangle, sitting just west of a big river that forms part of its eastern border.",
     "facts": [
-      "This is the only U.S. state with a diamond mine where visitors can dig and keep what they find."
+      "This is the only U.S. state with a diamond mine where visitors can dig and keep what they find.",
+      "Steamy natural hot springs bubbling up from underground gave one of its towns its name.",
+      "The world's largest retail company, known for its blue-and-yellow stores, was founded here."
     ],
     "popularity": 42
   },
@@ -45,7 +53,9 @@
     "image": "images/states/california.png",
     "alt": "A close-up map with a long, narrow highlighted state running down the entire Pacific coastline.",
     "facts": [
-      "This is the most populated state, and home to Hollywood, the movie capital of the world."
+      "This is the most populated state, and home to Hollywood, the movie capital of the world.",
+      "It's home to the tallest trees on Earth, towering redwoods that can grow over 350 feet.",
+      "One of the hottest, driest places on the planet, a desert valley below sea level, lies within its borders."
     ],
     "popularity": 95
   },
@@ -55,7 +65,9 @@
     "image": "images/states/colorado.png",
     "alt": "A close-up map with a perfectly rectangular highlighted state sitting high in the Rocky Mountains.",
     "facts": [
-      "This state has the highest average elevation of any state, with many tall mountain peaks."
+      "This state has the highest average elevation of any state, with many tall mountain peaks.",
+      "Its capital city is nicknamed the Mile High City because it sits about one mile above sea level.",
+      "A national park here is packed with jagged peaks that rise over 14,000 feet, nicknamed 'fourteeners.'"
     ],
     "popularity": 75
   },
@@ -65,7 +77,9 @@
     "image": "images/states/connecticut.png",
     "alt": "A close-up map with a small highlighted state tucked into the northeast, between bigger neighbors.",
     "facts": [
-      "This small state is home to one of the oldest universities in the country."
+      "This small state is home to one of the oldest universities in the country.",
+      "Its capital city is sometimes called the Insurance Capital of the World because so many insurance companies are based there.",
+      "The hamburger and the lollipop are both said to have been invented in a small diner and a candy shop here."
     ],
     "popularity": 50
   },
@@ -75,7 +89,9 @@
     "image": "images/states/delaware.png",
     "alt": "A close-up map with a tiny, narrow highlighted state along the Atlantic coast, one of the smallest shapes on the map.",
     "facts": [
-      "This was the very first state to join the United States."
+      "This was the very first state to join the United States.",
+      "This state charges no sales tax, so shoppers don't pay extra at the register.",
+      "It's the second-smallest state in the country by area, just a bit bigger than the smallest."
     ],
     "popularity": 40
   },
@@ -85,7 +101,9 @@
     "image": "images/states/florida.png",
     "alt": "A close-up map with a long highlighted peninsula stretching south into warm waters, with a curved panhandle on its western side.",
     "facts": [
-      "This state is shaped like a long peninsula and is home to a famous theme park resort."
+      "This state is shaped like a long peninsula and is home to a famous theme park resort.",
+      "Rockets blast off into space from a famous launch site along its eastern coast.",
+      "A vast, swampy wilderness full of alligators and panthers covers much of its southern tip."
     ],
     "popularity": 90
   },
@@ -95,7 +113,9 @@
     "image": "images/states/georgia.png",
     "alt": "A close-up map with a highlighted state shaped like a rough triangle, bordered by ocean on its southeast edge.",
     "facts": [
-      "This state is the country's top grower of peaches and pecans."
+      "This state is the country's top grower of peaches and pecans.",
+      "The world-famous soft drink Coca-Cola was invented in its capital city.",
+      "A massive, ancient swamp along its southern border is one of the largest in the country."
     ],
     "popularity": 68
   },
@@ -105,7 +125,9 @@
     "image": "images/states/hawaii.png",
     "alt": "A close-up map with a chain of small highlighted islands surrounded entirely by deep blue ocean, far from any other land.",
     "facts": [
-      "This is the only state made up entirely of islands, far out in the Pacific Ocean."
+      "This is the only state made up entirely of islands, far out in the Pacific Ocean.",
+      "It's the only state that grows coffee beans commercially, on the slopes of its volcanoes.",
+      "Active volcanoes here still add brand-new land to one of its islands almost every year."
     ],
     "popularity": 85
   },
@@ -115,7 +137,9 @@
     "image": "images/states/idaho.png",
     "alt": "A close-up map with a highlighted state shaped almost like a boot, narrow at the top and wider toward the bottom.",
     "facts": [
-      "This state grows more potatoes than any other state in the country."
+      "This state grows more potatoes than any other state in the country.",
+      "It's home to Hells Canyon, the deepest river gorge in all of North America.",
+      "Many of its rivers run wild and undammed, making it a favorite spot for whitewater rafting."
     ],
     "popularity": 40
   },
@@ -125,7 +149,9 @@
     "image": "images/states/illinois.png",
     "alt": "A close-up map with a long, narrow highlighted state running north to south, with a big lake along part of its northeastern edge.",
     "facts": [
-      "This state is home to a city famous for its very tall skyscrapers along a Great Lake."
+      "This state is home to a city famous for its very tall skyscrapers along a Great Lake.",
+      "Its tallest skyscraper was once the tallest building in the entire world.",
+      "Abraham Lincoln practiced law and launched his political career here, long before becoming president."
     ],
     "popularity": 78
   },
@@ -135,7 +161,9 @@
     "image": "images/states/indiana.png",
     "alt": "A close-up map with a small, roughly rectangular highlighted state nestled between two larger neighbors.",
     "facts": [
-      "This state hosts one of the most famous car races in the world, held every spring."
+      "This state hosts one of the most famous car races in the world, held every spring.",
+      "Passion for basketball runs deep here, with high school championship games once watched by the whole state.",
+      "Limestone quarried in this state was used to build the Empire State Building and the Pentagon."
     ],
     "popularity": 50
   },
@@ -145,7 +173,9 @@
     "image": "images/states/iowa.png",
     "alt": "A close-up map with a highlighted state shaped like a rounded square, bordered by rivers on its eastern and western sides.",
     "facts": [
-      "This state grows more corn than almost any other state."
+      "This state grows more corn than almost any other state.",
+      "Every four years, this state holds the very first votes in choosing the country's presidential candidates.",
+      "It raises more hogs than any other state, with millions of pigs on its farms."
     ],
     "popularity": 45
   },
@@ -155,7 +185,9 @@
     "image": "images/states/kansas.png",
     "alt": "A close-up map with a highlighted state shaped like a perfect rectangle, sitting right in the middle of the country.",
     "facts": [
-      "This state is famous for its wide-open wheat fields and is one of the flattest in the country."
+      "This state is famous for its wide-open wheat fields and is one of the flattest in the country.",
+      "The exact geographic center of the lower 48 states is marked within this state.",
+      "A famous story about a girl named Dorothy swept away by a tornado is set here."
     ],
     "popularity": 45
   },
@@ -165,7 +197,9 @@
     "image": "images/states/kentucky.png",
     "alt": "A close-up map with a long, narrow highlighted state stretching east to west, with a wavy river border along its north.",
     "facts": [
-      "This state is famous for raising racehorses and holding a famous derby race each spring."
+      "This state is famous for raising racehorses and holding a famous derby race each spring.",
+      "The world's longest known cave system winds for hundreds of miles underground here.",
+      "Nearly all of the world's bourbon whiskey is distilled in this state."
     ],
     "popularity": 55
   },
@@ -175,7 +209,9 @@
     "image": "images/states/louisiana.png",
     "alt": "A close-up map with a highlighted state shaped a bit like a boot, with a wide river delta fanning out near the coast.",
     "facts": [
-      "This state's biggest city is famous for jazz music and a colorful Mardi Gras parade."
+      "This state's biggest city is famous for jazz music and a colorful Mardi Gras parade.",
+      "Instead of counties, this state divides its land into areas called parishes.",
+      "Much of its biggest city sits below sea level, protected by levees and pumps."
     ],
     "popularity": 70
   },
@@ -185,7 +221,9 @@
     "image": "images/states/maine.png",
     "alt": "A close-up map with a highlighted state in the far northeast corner, shaped like a rugged, pointed wedge.",
     "facts": [
-      "This is the easternmost state and catches more lobster than any other."
+      "This is the easternmost state and catches more lobster than any other.",
+      "It's the first place in the continental U.S. to see the sunrise each morning.",
+      "Wild blueberries grow here by the millions, more than in any other state."
     ],
     "popularity": 50
   },
@@ -195,7 +233,9 @@
     "image": "images/states/maryland.png",
     "alt": "A close-up map with a small, oddly shaped highlighted state wrapped around a wide bay, with a thin strip stretching west.",
     "facts": [
-      "This small state nearly surrounds the nation's capital and has a famous bay full of crabs."
+      "This small state nearly surrounds the nation's capital and has a famous bay full of crabs.",
+      "The song that became the national anthem was written after a battle at a fort in this state's harbor.",
+      "Jousting knights on horseback compete here every year in the state's official sport."
     ],
     "popularity": 55
   },
@@ -205,7 +245,9 @@
     "image": "images/states/massachusetts.png",
     "alt": "A close-up map with a highlighted state shaped like an arm, with a curled peninsula reaching out into the Atlantic.",
     "facts": [
-      "The first Thanksgiving is said to have happened here, where the Pilgrims landed."
+      "The first Thanksgiving is said to have happened here, where the Pilgrims landed.",
+      "The first shots of the American Revolution were fired in this state, at Lexington and Concord.",
+      "The game of basketball was invented in one of its gyms back in 1891."
     ],
     "popularity": 75
   },
@@ -215,7 +257,9 @@
     "image": "images/states/michigan.png",
     "alt": "A close-up map with a highlighted state split into two separate parts, surrounded by several huge lakes.",
     "facts": [
-      "This state is shaped like a mitten and touches four of the five Great Lakes."
+      "This state is shaped like a mitten and touches four of the five Great Lakes.",
+      "One of its biggest cities became known as the car-making capital of the country.",
+      "It has more freshwater shoreline than any other state, thanks to the Great Lakes surrounding it."
     ],
     "popularity": 70
   },
@@ -225,7 +269,9 @@
     "image": "images/states/minnesota.png",
     "alt": "A close-up map with a highlighted state near the Canadian border, dotted with thousands of small blue lakes.",
     "facts": [
-      "This state calls itself the Land of 10,000 Lakes."
+      "This state calls itself the Land of 10,000 Lakes.",
+      "One of the largest shopping malls in the country, with its own indoor amusement park, is located here.",
+      "Winters here are among the coldest in the country, with temperatures sometimes dropping below -30°F."
     ],
     "popularity": 60
   },
@@ -235,7 +281,9 @@
     "image": "images/states/mississippi.png",
     "alt": "A close-up map with a highlighted state shaped like a rectangle, with a long river forming its western border.",
     "facts": [
-      "This state is named after the long river that runs along its western border."
+      "This state is named after the long river that runs along its western border.",
+      "Blues music, a style that helped shape rock and roll, got its start along this state's river delta.",
+      "Elvis Presley, one of the most famous musicians ever, was born in this state."
     ],
     "popularity": 48
   },
@@ -245,7 +293,9 @@
     "image": "images/states/missouri.png",
     "alt": "A close-up map with a highlighted state shaped a bit like a boot, sitting in the middle of the country along two major rivers.",
     "facts": [
-      "This state is home to a giant silver arch standing beside a major river."
+      "This state is home to a giant silver arch standing beside a major river.",
+      "The famous author Mark Twain grew up along the river that runs through this state.",
+      "One of its cities is famous for a smoky style of barbecue and as a birthplace of jazz music."
     ],
     "popularity": 55
   },
@@ -255,7 +305,9 @@
     "image": "images/states/montana.png",
     "alt": "A close-up map with a large, roughly rectangular highlighted state along the Canadian border, covered partly by mountains.",
     "facts": [
-      "This state is nicknamed Big Sky Country for its wide open land and huge skies."
+      "This state is nicknamed Big Sky Country for its wide open land and huge skies.",
+      "Part of Yellowstone, the world's first national park, stretches into this state.",
+      "Glacier National Park here is home to grizzly bears and ancient mountain glaciers."
     ],
     "popularity": 45
   },
@@ -265,7 +317,9 @@
     "image": "images/states/nebraska.png",
     "alt": "A close-up map with a highlighted state shaped almost like a rectangle, with a narrow panhandle stretching west.",
     "facts": [
-      "This state is famous for its wide open plains and cattle ranches."
+      "This state is famous for its wide open plains and cattle ranches.",
+      "Arbor Day, a holiday for planting trees, was first celebrated in this state.",
+      "Pioneers heading west on the Oregon Trail used a tall rock formation here as a landmark."
     ],
     "popularity": 42
   },
@@ -275,7 +329,9 @@
     "image": "images/states/nevada.png",
     "alt": "A close-up map with a highlighted state shaped like a triangle, mostly covered in dry desert land.",
     "facts": [
-      "This state is home to a famous city known for its bright lights and big shows."
+      "This state is home to a famous city known for its bright lights and big shows.",
+      "It's the driest state in the country, with desert covering most of its land.",
+      "A massive dam on its border with a neighboring state created one of the largest reservoirs in the country."
     ],
     "popularity": 75
   },
@@ -285,7 +341,9 @@
     "image": "images/states/new-hampshire.png",
     "alt": "A close-up map with a small, narrow highlighted state with a short sliver of coastline at its southeastern tip.",
     "facts": [
-      "This state's motto, carved on its license plates, is 'Live Free or Die.'"
+      "This state's motto, carved on its license plates, is 'Live Free or Die.'",
+      "It holds the first primary election in the country every time someone runs for president.",
+      "A mountain here once recorded one of the strongest wind gusts ever measured on Earth."
     ],
     "popularity": 45
   },
@@ -295,7 +353,9 @@
     "image": "images/states/new-jersey.png",
     "alt": "A close-up map with a small highlighted state squeezed between two big bays, shaped a bit like a flattened triangle.",
     "facts": [
-      "This small but crowded state is nicknamed the Garden State."
+      "This small but crowded state is nicknamed the Garden State.",
+      "Inventor Thomas Edison created the lightbulb and the phonograph in his laboratory here.",
+      "It has more diners than anywhere else in the world, earning it a tasty nickname."
     ],
     "popularity": 60
   },
@@ -305,7 +365,9 @@
     "image": "images/states/new-mexico.png",
     "alt": "A close-up map with a highlighted state shaped almost like a rectangle, covered in desert in the southwest.",
     "facts": [
-      "This state is home to a desert covered in brilliant white sand dunes."
+      "This state is home to a desert covered in brilliant white sand dunes.",
+      "The world's first atomic bomb was developed and tested in this state.",
+      "Every fall, hundreds of hot air balloons fill the sky during one of the world's largest balloon festivals here."
     ],
     "popularity": 58
   },
@@ -315,7 +377,9 @@
     "image": "images/states/new-york.png",
     "alt": "A close-up map with a highlighted state shaped a bit like an arrowhead, with a long thin panhandle on its eastern side.",
     "facts": [
-      "This state's biggest city has a famous statue standing in its harbor."
+      "This state's biggest city has a famous statue standing in its harbor.",
+      "Niagara Falls, one of the most powerful waterfalls in the world, sits on its border with Canada.",
+      "Its biggest city is home to Broadway, famous for big, bright musical theater shows."
     ],
     "popularity": 92
   },
@@ -325,7 +389,9 @@
     "image": "images/states/north-carolina.png",
     "alt": "A close-up map with a highlighted state stretching from inland mountains to a curving string of barrier islands on the coast.",
     "facts": [
-      "Two brothers flew the first airplane on the sandy beaches of this state."
+      "Two brothers flew the first airplane on the sandy beaches of this state.",
+      "The soft drink Pepsi was first created by a pharmacist in this state.",
+      "Its Blue Ridge Mountains are part of one of the oldest mountain ranges on Earth."
     ],
     "popularity": 62
   },
@@ -335,7 +401,9 @@
     "image": "images/states/north-dakota.png",
     "alt": "A close-up map with a highlighted state shaped like a perfect rectangle, sitting right along the Canadian border.",
     "facts": [
-      "This state lies along the Canadian border and is one of the least visited in the country."
+      "This state lies along the Canadian border and is one of the least visited in the country.",
+      "The exact geographic center of North America is marked in this state.",
+      "Theodore Roosevelt fell in love with ranching here, in its rugged badlands, before becoming president."
     ],
     "popularity": 35
   },
@@ -345,7 +413,9 @@
     "image": "images/states/ohio.png",
     "alt": "A close-up map with a highlighted state shaped a bit like a kite, with a curving lake along its northern edge.",
     "facts": [
-      "This state is home to a famous music hall of fame beside one of the Great Lakes."
+      "This state is home to a famous music hall of fame beside one of the Great Lakes.",
+      "Astronaut Neil Armstrong, the first person to walk on the Moon, was born in this state.",
+      "The Wright brothers, who invented the airplane, grew up here, earning it the nickname 'Birthplace of Aviation.'"
     ],
     "popularity": 65
   },
@@ -355,7 +425,9 @@
     "image": "images/states/oklahoma.png",
     "alt": "A close-up map with a highlighted state shaped like a pot with a long handle, called its panhandle, sticking out to the west.",
     "facts": [
-      "This state's name comes from Choctaw words meaning 'red people.'"
+      "This state's name comes from Choctaw words meaning 'red people.'",
+      "This state was the site of a famous 'land run,' when thousands of settlers raced to claim land at noon on a single day.",
+      "The shopping cart was invented by a grocery store owner in this state."
     ],
     "popularity": 48
   },
@@ -365,7 +437,9 @@
     "image": "images/states/oregon.png",
     "alt": "A close-up map with a highlighted state shaped like a near-perfect rectangle along the Pacific coastline.",
     "facts": [
-      "This state has a coastline along the Pacific Ocean and is famous for its rainy, green forests."
+      "This state has a coastline along the Pacific Ocean and is famous for its rainy, green forests.",
+      "The deepest lake in the country formed inside an ancient collapsed volcano here.",
+      "Like only a few other states, it charges no sales tax on purchases."
     ],
     "popularity": 65
   },
@@ -375,7 +449,9 @@
     "image": "images/states/pennsylvania.png",
     "alt": "A close-up map with a highlighted state shaped like a rectangle, with a tiny sliver of lakeshore along its northwestern corner.",
     "facts": [
-      "This state is where the Declaration of Independence was signed, in one of its biggest cities."
+      "This state is where the Declaration of Independence was signed, in one of its biggest cities.",
+      "Every February 2nd, a famous groundhog in this state predicts how much longer winter will last.",
+      "The cracked Liberty Bell, a symbol of American independence, is on display in one of its cities."
     ],
     "popularity": 72
   },
@@ -385,7 +461,9 @@
     "image": "images/states/rhode-island.png",
     "alt": "A close-up map with a tiny highlighted state, the smallest shape of all its neighbors, wrapped around a narrow bay.",
     "facts": [
-      "This is the smallest state in the entire country by area."
+      "This is the smallest state in the entire country by area.",
+      "It was the first of the original colonies to declare independence from Britain, months before the others.",
+      "Sailing and yachting are hugely popular here, and its waters once hosted one of sailing's most famous races for decades."
     ],
     "popularity": 42
   },
@@ -395,7 +473,9 @@
     "image": "images/states/south-carolina.png",
     "alt": "A close-up map with a highlighted state shaped like a triangle, with a curved coastline along the Atlantic.",
     "facts": [
-      "The first shots of the Civil War were fired here, at a fort in its harbor."
+      "The first shots of the Civil War were fired here, at a fort in its harbor.",
+      "More peaches are grown here most years than in the neighboring state famous for its 'Peach State' nickname.",
+      "Spanish moss drapes from oak trees across its coastal Lowcountry region."
     ],
     "popularity": 58
   },
@@ -405,7 +485,9 @@
     "image": "images/states/south-dakota.png",
     "alt": "A close-up map with a highlighted state shaped like a rectangle, split by a wide river running north to south.",
     "facts": [
-      "This state is home to a mountain with four presidents' faces carved into it."
+      "This state is home to a mountain with four presidents' faces carved into it.",
+      "Not far from its famous mountain carving, jagged rock formations in a national park here look almost like another planet.",
+      "One town here decorates an entire building's exterior with corn and other crops every single year."
     ],
     "popularity": 42
   },
@@ -415,7 +497,9 @@
     "image": "images/states/tennessee.png",
     "alt": "A close-up map with a long, narrow highlighted state stretching east to west, much wider than it is tall.",
     "facts": [
-      "This state's capital city is famous as the home of country music."
+      "This state's capital city is famous as the home of country music.",
+      "The most visited national park in the country, known for its smoky-looking mountain mist, straddles its eastern border.",
+      "One of the world's most famous whiskey brands has been distilled in this state since the 1800s."
     ],
     "popularity": 65
   },
@@ -425,7 +509,9 @@
     "image": "images/states/texas.png",
     "alt": "A close-up map with a huge highlighted state shaped a bit like a thick arrowhead, much larger than all its neighbors.",
     "facts": [
-      "This is the second-biggest state by both size and population."
+      "This is the second-biggest state by both size and population.",
+      "A small mission called the Alamo was the site of a famous battle during this state's fight for independence from Mexico.",
+      "Mission Control for NASA's astronauts is located in one of its cities."
     ],
     "popularity": 92
   },
@@ -435,7 +521,9 @@
     "image": "images/states/utah.png",
     "alt": "A close-up map with a highlighted state shaped almost like a rectangle, with a notch cut out of its northeastern corner.",
     "facts": [
-      "This state is home to five national parks full of red rock canyons and arches."
+      "This state is home to five national parks full of red rock canyons and arches.",
+      "A giant lake here is so salty that almost nothing can live in it except tiny shrimp.",
+      "Flat, white salt flats here are so smooth that race car drivers have set land speed records on them."
     ],
     "popularity": 62
   },
@@ -445,7 +533,9 @@
     "image": "images/states/vermont.png",
     "alt": "A close-up map with a small, narrow highlighted state wedged between bigger neighbors, with no coastline at all.",
     "facts": [
-      "This state is one of the top producers of maple syrup in the country."
+      "This state is one of the top producers of maple syrup in the country.",
+      "It's one of the only states that bans big roadside billboards, keeping its highways scenic.",
+      "A famous ice cream brand known for quirky flavors was founded by two friends in this state."
     ],
     "popularity": 48
   },
@@ -455,7 +545,9 @@
     "image": "images/states/virginia.png",
     "alt": "A close-up map with a highlighted state shaped like a triangle with a thin peninsula reaching out toward the Atlantic.",
     "facts": [
-      "Many early U.S. presidents were born in this state, earning it a famous nickname."
+      "Many early U.S. presidents were born in this state, earning it a famous nickname.",
+      "The first permanent English settlement in America was founded here in 1607.",
+      "The Pentagon, one of the largest office buildings in the world, sits in this state just across the river from the nation's capital."
     ],
     "popularity": 65
   },
@@ -465,7 +557,9 @@
     "image": "images/states/washington.png",
     "alt": "A close-up map with a highlighted state in the far northwest corner, with a deeply notched coastline and a large inland sound.",
     "facts": [
-      "This state is home to a huge snow-capped volcano that towers over a nearby city."
+      "This state is home to a huge snow-capped volcano that towers over a nearby city.",
+      "The world's first Starbucks coffee shop opened in one of its cities in 1971.",
+      "Its largest city is famous for cloudy, gray skies for much of the year."
     ],
     "popularity": 73
   },
@@ -475,7 +569,9 @@
     "image": "images/states/west-virginia.png",
     "alt": "A close-up map with a highlighted state shaped like an odd zigzag, with no straight borders at all.",
     "facts": [
-      "This state is covered almost entirely by a long mountain range."
+      "This state is covered almost entirely by a long mountain range.",
+      "It's the only state that was created by breaking away from another state, during the Civil War.",
+      "One of the longest steel arch bridges in the world spans a deep gorge here."
     ],
     "popularity": 40
   },
@@ -485,7 +581,9 @@
     "image": "images/states/wisconsin.png",
     "alt": "A close-up map with a highlighted state shaped like a mitten's thumb, bordered by a huge lake on its east.",
     "facts": [
-      "This state produces more cheese than any other state in the country."
+      "This state produces more cheese than any other state in the country.",
+      "The first typewriter was built and patented in this state.",
+      "The famous motorcycle brand Harley-Davidson was founded in one of its cities in 1903."
     ],
     "popularity": 55
   },
@@ -495,7 +593,9 @@
     "image": "images/states/wyoming.png",
     "alt": "A close-up map with a highlighted state shaped like a perfect rectangle, sitting high in the Rocky Mountains.",
     "facts": [
-      "This state is home to the first national park ever created."
+      "This state is home to the first national park ever created.",
+      "This was the first state to give women the right to vote, back in 1869 while it was still a territory.",
+      "It's the least populated state in the entire country."
     ],
     "popularity": 38
   }
