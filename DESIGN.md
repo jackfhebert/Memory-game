@@ -192,19 +192,27 @@ threshold is internal — it's never shown to the kid as a score or grade.
 
 ## Adaptive Pacing
 
-How the active pool behaves depends on the mode chosen in Mode Select:
+How the active pool behaves depends on the mode chosen in Mode Select. Both
+modes use the recent-answer-based "known" signal described in
+`js/storage.js` (`isItemKnown`), not the Elo/IRT `P(known)` formula above.
 
 - **All Cards** — every item in the module is in the active pool from the
   start.
-- **Active Learning** — the active pool starts with the top 4 items by
-  `popularity` (or all items, if the module has fewer than 4 — relevant for
-  the 5-item Oceans module). Whenever the *average* `P(known)` across the
-  active pool reaches 0.8, the next-most-popular item not yet in the pool
-  is added. This repeats until every item in the module is active.
+- **Active Learning** — the active pool starts with the top
+  `ACTIVE_LEARNING_POOL_SIZE` (5) items by `popularity` (or all items, if
+  the module has fewer than 5 — relevant for the 5-item Oceans module).
+  Once every item in the pool but one is known, the next-most-popular item
+  not yet in the pool is added. This repeats until every item in the module
+  is active.
 
-In both modes, the next card to show is chosen at random from the active
-pool, weighted toward lower `P(known)` — so unmastered items come up more
-often, but everything still gets reviewed occasionally.
+In Active Learning, the next card is chosen at random from the active pool
+(minus whichever card was just answered), weighted toward items the player
+doesn't yet know: not-yet-known items split 75% of the selection
+probability evenly among themselves, and known items split the remaining
+25% — so review still happens, but less-known items come up more often. No
+candidate ever has a zero chance. All Cards instead walks the pool in a
+fixed order on the first pass through the module, then falls back to
+uniform random selection — it doesn't use this weighting.
 
 ## Distractor selection
 
