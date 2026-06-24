@@ -168,6 +168,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
       const wasCorrect = selectedChoiceId === card.item.id;
       const wasKnown = isItemKnown(
         getProgress(player, moduleId).itemStats[card.item.id],
+        card.item.popularity,
       );
       const progress = recordAnswer(player, moduleId, card.item.id, wasCorrect);
       if (wasCorrect) {
@@ -175,7 +176,10 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
       } else {
         wrongCount += 1;
       }
-      const isKnown = isItemKnown(progress.itemStats[card.item.id]);
+      const isKnown = isItemKnown(
+        progress.itemStats[card.item.id],
+        card.item.popularity,
+      );
       if (shouldExpandPool(mode, wasKnown, isKnown)) {
         pool = expandPool(pool, items);
       }

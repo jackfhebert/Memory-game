@@ -1,6 +1,7 @@
 const PLAYERS_KEY = "memorygame:players";
 export const RECENT_WINDOW_SIZE = 5;
-const KNOWN_THRESHOLD = 0.8;
+const POPULAR_THRESHOLD = 50;
+const STREAK_OVERRIDE = 3;
 
 function progressKey(player, moduleId) {
   return `memorygame:progress:${player}:${moduleId}`;
@@ -49,10 +50,25 @@ export function recordAnswer(player, moduleId, itemId, wasCorrect) {
   return progress;
 }
 
-// "Known" is based on recent answers, not all-time totals, since recent
-// behavior predicts future performance better than a lifetime sum does.
-export function isItemKnown(stats) {
+function trailingCorrectStreak(recent) {
+  let streak = 0;
+  for (let i = recent.length - 1; i >= 0 && recent[i]; i--) {
+    streak += 1;
+  }
+  return streak;
+}
+
+// "Known" is based on recent answers plus the item's popularity, not a
+// lifetime sum: a popular item only needs one correct answer to count as
+// known, an unpopular one needs two, and a run of mixed results needs a
+// fresh streak of 3 in a row to override the earlier misses.
+export function isItemKnown(stats, popularity) {
   if (!stats || stats.recent.length === 0) return false;
-  const correctCount = stats.recent.filter(Boolean).length;
-  return correctCount / stats.recent.length >= KNOWN_THRESHOLD;
+  const recent = stats.recent;
+  if (trailingCorrectStreak(recent) >= STREAK_OVERRIDE) return true;
+  if (recent.every(Boolean)) {
+    const required = popularity >= POPULAR_THRESHOLD ? 1 : 2;
+    return recent.length >= required;
+  }
+  return false;
 }
