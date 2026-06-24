@@ -89,20 +89,33 @@ test("recordAnswer keeps separate stats per player and per module", () => {
 });
 
 test("isItemKnown is false when there's no answer history", () => {
-  assert.equal(isItemKnown(undefined), false);
-  assert.equal(isItemKnown({ recent: [] }), false);
+  assert.equal(isItemKnown(undefined, 90), false);
+  assert.equal(isItemKnown({ recent: [] }, 90), false);
 });
 
-test("isItemKnown is true once the recent correct rate reaches 80%", () => {
-  assert.equal(isItemKnown({ recent: [true] }), true);
-  assert.equal(isItemKnown({ recent: [true, true, true, true, false] }), true);
-  assert.equal(
-    isItemKnown({ recent: [true, true, true, false, false] }),
-    false,
-  );
+test("isItemKnown counts a popular item known after a single correct answer", () => {
+  assert.equal(isItemKnown({ recent: [true] }, 50), true);
+  assert.equal(isItemKnown({ recent: [true] }, 100), true);
+});
+
+test("isItemKnown requires two correct answers for an unpopular item", () => {
+  assert.equal(isItemKnown({ recent: [true] }, 49), false);
+  assert.equal(isItemKnown({ recent: [true] }, 0), false);
+  assert.equal(isItemKnown({ recent: [true, true] }, 0), true);
+});
+
+test("isItemKnown is false for mixed results without a fresh streak", () => {
+  assert.equal(isItemKnown({ recent: [true, false] }, 100), false);
+  assert.equal(isItemKnown({ recent: [false, true] }, 100), false);
+  assert.equal(isItemKnown({ recent: [true, false, true] }, 100), false);
+});
+
+test("isItemKnown is true once the trailing streak reaches 3, overriding earlier misses", () => {
+  assert.equal(isItemKnown({ recent: [false, true, true, true] }, 0), true);
+  assert.equal(isItemKnown({ recent: [true, false, true, true] }, 0), false);
 });
 
 test("isItemKnown reflects a drop in recent performance, not just lifetime correct answers", () => {
   const stats = { recent: [true, false, false, false, false] };
-  assert.equal(isItemKnown(stats), false);
+  assert.equal(isItemKnown(stats, 100), false);
 });

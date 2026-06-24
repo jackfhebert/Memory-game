@@ -10,6 +10,8 @@ import {
   pickFact,
   shouldExpandPool,
   expandPool,
+  buildSelectionProbabilities,
+  pickWeightedCard,
   selectPreloadTargets,
 } from "../js/flashcards.js";
 import { fakeRng } from "./helpers/fakeRng.js";
@@ -132,12 +134,13 @@ test("pickFact works with a single fact", () => {
   assert.equal(pickFact(item, fakeRng([0])), "only fact");
 });
 
-test("shouldExpandPool fires only on the unknown-to-known transition in active-learning mode", () => {
-  assert.equal(shouldExpandPool("active-learning", false, true), true);
-  assert.equal(shouldExpandPool("active-learning", true, true), false);
-  assert.equal(shouldExpandPool("active-learning", false, false), false);
-  assert.equal(shouldExpandPool("active-learning", true, false), false);
-  assert.equal(shouldExpandPool("all-cards", false, true), false);
+test("shouldExpandPool fires only when the pool crosses into all-but-one-known, in active-learning mode", () => {
+  // pool of 5: "almost known" means knownCount >= 4 (at most one unknown item left)
+  assert.equal(shouldExpandPool("active-learning", 3, 4, 5), true);
+  assert.equal(shouldExpandPool("active-learning", 4, 4, 5), false);
+  assert.equal(shouldExpandPool("active-learning", 4, 5, 5), false);
+  assert.equal(shouldExpandPool("active-learning", 2, 3, 5), false);
+  assert.equal(shouldExpandPool("all-cards", 3, 4, 5), false);
 });
 
 test("expandPool adds the most popular item not already in the pool", () => {
@@ -156,6 +159,55 @@ test("expandPool returns the same pool when every item is already active", () =>
   const expanded = expandPool(pool, items);
   assert.equal(expanded.length, 5);
   assert.deepEqual(expanded, pool);
+});
+
+test("buildSelectionProbabilities splits 75% across unknown items and 25% across known items", () => {
+  const items = makeItems(4); // all popularity < 50, so two correct answers are needed to count as known
+  const progress = {
+    itemStats: {
+      "item-0": { recent: [true, true] },
+      "item-1": { recent: [true, true] },
+    },
+  };
+  const probs = buildSelectionProbabilities(items, progress);
+  const byId = Object.fromEntries(probs.map((p) => [p.item.id, p.probability]));
+  assert.equal(byId["item-0"], 0.125); // known, splits 25% two ways
+  assert.equal(byId["item-1"], 0.125);
+  assert.equal(byId["item-2"], 0.375); // unknown, splits 75% two ways
+  assert.equal(byId["item-3"], 0.375);
+});
+
+test("buildSelectionProbabilities gives every item a share when all are known or all are unknown", () => {
+  const items = makeItems(3);
+  const allUnknown = buildSelectionProbabilities(items, { itemStats: {} });
+  allUnknown.forEach((p) => assert.equal(p.probability, 1 / 3));
+
+  const allKnownProgress = {
+    itemStats: Object.fromEntries(items.map((i) => [i.id, { recent: [true, true] }])),
+  };
+  const allKnown = buildSelectionProbabilities(items, allKnownProgress);
+  allKnown.forEach((p) => assert.equal(p.probability, 1 / 3));
+});
+
+test("pickWeightedCard never assigns zero probability to a candidate", () => {
+  const items = makeItems(4);
+  const progress = { itemStats: { "item-0": { recent: [true, true] } } };
+  const probs = buildSelectionProbabilities(items, progress);
+  probs.forEach((p) => assert.ok(p.probability > 0));
+});
+
+test("pickWeightedCard excludes the previous item and respects the cumulative weighting", () => {
+  const items = makeItems(3); // item-0 known, item-1 and item-2 unknown
+  const progress = { itemStats: { "item-0": { recent: [true, true] } } };
+  // candidates (excluding item-0 as previous) are item-1, item-2, each unknown -> 0.5/0.5
+  assert.equal(pickWeightedCard(items, "item-0", progress, fakeRng([0.1])).id, "item-1");
+  assert.equal(pickWeightedCard(items, "item-0", progress, fakeRng([0.9])).id, "item-2");
+});
+
+test("pickWeightedCard returns the only item when the pool has exactly one item", () => {
+  const items = makeItems(1);
+  const progress = { itemStats: {} };
+  assert.equal(pickWeightedCard(items, "item-0", progress).id, "item-0");
 });
 
 test("selectPreloadTargets picks up to 3 other items from the pool", () => {

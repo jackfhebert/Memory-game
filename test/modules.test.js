@@ -12,12 +12,12 @@ const { countKnownItems, buildModuleTiles, renderModuleSelect, renderModeSelect 
 const { recordAnswer } = await import("../js/storage.js");
 
 const ITEMS = [
-  { id: "africa", name: "Africa" },
-  { id: "asia", name: "Asia" },
-  { id: "europe", name: "Europe" },
+  { id: "africa", name: "Africa", popularity: 90 },
+  { id: "asia", name: "Asia", popularity: 20 },
+  { id: "europe", name: "Europe", popularity: 50 },
 ];
 
-test("countKnownItems counts items whose recent answers are mostly correct", () => {
+test("countKnownItems counts a popular item known after one correct answer", () => {
   const progress = {
     itemStats: {
       africa: { recent: [true] },
@@ -25,6 +25,22 @@ test("countKnownItems counts items whose recent answers are mostly correct", () 
     },
   };
   assert.equal(countKnownItems(ITEMS, progress), 1);
+});
+
+test("countKnownItems requires two correct answers for an unpopular item", () => {
+  const progress = {
+    itemStats: {
+      asia: { recent: [true] },
+    },
+  };
+  assert.equal(countKnownItems(ITEMS, progress), 0);
+
+  const progressAfterSecondCorrect = {
+    itemStats: {
+      asia: { recent: [true, true] },
+    },
+  };
+  assert.equal(countKnownItems(ITEMS, progressAfterSecondCorrect), 1);
 });
 
 test("countKnownItems is 0 when nothing has been answered", () => {

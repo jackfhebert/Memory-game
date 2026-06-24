@@ -83,8 +83,16 @@ export function pickFact(item, rng = Math.random) {
   return facts[Math.floor(rng() * facts.length)];
 }
 
-export function shouldExpandPool(mode, wasKnown, isKnown) {
-  return mode === "active-learning" && isKnown && !wasKnown;
+function isPoolAlmostKnown(knownCount, poolSize) {
+  return poolSize - knownCount <= 1;
+}
+
+export function shouldExpandPool(mode, knownCountBefore, knownCountAfter, poolSize) {
+  return (
+    mode === "active-learning" &&
+    isPoolAlmostKnown(knownCountAfter, poolSize) &&
+    !isPoolAlmostKnown(knownCountBefore, poolSize)
+  );
 }
 
 export function expandPool(pool, items) {
@@ -93,6 +101,38 @@ export function expandPool(pool, items) {
   if (candidates.length === 0) return pool;
   const [next] = sortByPopularityDesc(candidates);
   return [...pool, next];
+}
+
+const UNKNOWN_SELECTION_SHARE = 0.75;
+
+export function buildSelectionProbabilities(candidates, progress) {
+  const isKnown = (item) => isItemKnown(progress.itemStats[item.id], item.popularity);
+  const unknownItems = candidates.filter((item) => !isKnown(item));
+  const knownItems = candidates.filter(isKnown);
+  const unknownShare =
+    knownItems.length === 0 ? 1 : unknownItems.length === 0 ? 0 : UNKNOWN_SELECTION_SHARE;
+  const unknownWeight = unknownItems.length === 0 ? 0 : unknownShare / unknownItems.length;
+  const knownWeight = knownItems.length === 0 ? 0 : (1 - unknownShare) / knownItems.length;
+  return candidates.map((item) => ({
+    item,
+    probability: isKnown(item) ? knownWeight : unknownWeight,
+  }));
+}
+
+export function pickWeightedCard(pool, previousItemId, progress, rng = Math.random) {
+  if (pool.length === 0) {
+    throw new Error("Cannot pick a card from an empty pool");
+  }
+  const candidates =
+    pool.length > 1 ? pool.filter((item) => item.id !== previousItemId) : pool;
+  const weighted = buildSelectionProbabilities(candidates, progress);
+  const roll = rng();
+  let cumulative = 0;
+  for (const { item, probability } of weighted) {
+    cumulative += probability;
+    if (roll < cumulative) return item;
+  }
+  return weighted[weighted.length - 1].item;
 }
 
 const PRELOAD_AHEAD = 3;
@@ -120,11 +160,16 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
   let pool = buildActivePool(items, mode);
   let cardsShown = 0;
 
+  function countKnownInPool(progress) {
+    return pool.filter((item) => isItemKnown(progress.itemStats[item.id], item.popularity))
+      .length;
+  }
+
   function selectItem(previousItemId, rng = Math.random) {
     const item =
       mode === "all-cards"
         ? pickOrderedOrRandomCard(pool, cardsShown, previousItemId, rng)
-        : pickNextCard(pool, previousItemId, rng);
+        : pickWeightedCard(pool, previousItemId, getProgress(player, moduleId), rng);
     cardsShown += 1;
     return item;
   }
@@ -166,17 +211,15 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
     if (!revealed) {
       if (selectedChoiceId === null) return;
       const wasCorrect = selectedChoiceId === card.item.id;
-      const wasKnown = isItemKnown(
-        getProgress(player, moduleId).itemStats[card.item.id],
-      );
+      const knownCountBefore = countKnownInPool(getProgress(player, moduleId));
       const progress = recordAnswer(player, moduleId, card.item.id, wasCorrect);
       if (wasCorrect) {
         correctCount += 1;
       } else {
         wrongCount += 1;
       }
-      const isKnown = isItemKnown(progress.itemStats[card.item.id]);
-      if (shouldExpandPool(mode, wasKnown, isKnown)) {
+      const knownCountAfter = countKnownInPool(progress);
+      if (shouldExpandPool(mode, knownCountBefore, knownCountAfter, pool.length)) {
         pool = expandPool(pool, items);
       }
       revealed = true;

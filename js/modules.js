@@ -23,7 +23,9 @@ export async function getModuleItems(moduleId) {
 }
 
 export function countKnownItems(items, progress) {
-  return items.filter((item) => isItemKnown(progress.itemStats[item.id])).length;
+  return items.filter((item) =>
+    isItemKnown(progress.itemStats[item.id], item.popularity),
+  ).length;
 }
 
 export function buildModuleTiles(modules, itemsByModuleId, player) {
