@@ -75,5 +75,12 @@
     "dataFile": "south-america-countries.json",
     "color": "#E0A23B",
     "icon": "🌎"
+  },
+  {
+    "id": "composers",
+    "name": "Composers",
+    "dataFile": "composers.json",
+    "color": "#8C5A8C",
+    "icon": "🎼"
   }
 ]
