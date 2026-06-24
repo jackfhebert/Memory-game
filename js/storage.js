@@ -43,8 +43,11 @@ export function getProgress(player, moduleId) {
 
 export function recordAnswer(player, moduleId, itemId, wasCorrect) {
   const progress = getProgress(player, moduleId);
-  const stats = progress.itemStats[itemId] || { recent: [] };
-  stats.recent = [...stats.recent, wasCorrect].slice(-RECENT_WINDOW_SIZE);
+  const existing = progress.itemStats[itemId];
+  // Older profiles may have a pre-recency itemStats shape (no `recent`
+  // array) - treat that as no history rather than crashing.
+  const recent = Array.isArray(existing?.recent) ? existing.recent : [];
+  const stats = { recent: [...recent, wasCorrect].slice(-RECENT_WINDOW_SIZE) };
   progress.itemStats[itemId] = stats;
   localStorage.setItem(progressKey(player, moduleId), JSON.stringify(progress));
   return progress;
@@ -63,7 +66,7 @@ function trailingCorrectStreak(recent) {
 // known, an unpopular one needs two, and a run of mixed results needs a
 // fresh streak of 3 in a row to override the earlier misses.
 export function isItemKnown(stats, popularity) {
-  if (!stats || stats.recent.length === 0) return false;
+  if (!stats || !Array.isArray(stats.recent) || stats.recent.length === 0) return false;
   const recent = stats.recent;
   if (trailingCorrectStreak(recent) >= STREAK_OVERRIDE) return true;
   if (recent.every(Boolean)) {

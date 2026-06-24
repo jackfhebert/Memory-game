@@ -93,6 +93,21 @@ test("isItemKnown is false when there's no answer history", () => {
   assert.equal(isItemKnown({ recent: [] }, 90), false);
 });
 
+test("isItemKnown treats a pre-recency itemStats shape as no history instead of throwing", () => {
+  assert.equal(isItemKnown({ shown: 4, correct: 3 }, 90), false);
+});
+
+test("recordAnswer starts fresh history for a pre-recency itemStats shape instead of throwing", () => {
+  localStorage.setItem(
+    "memorygame:progress:Sam:continents",
+    JSON.stringify({ itemStats: { africa: { shown: 4, correct: 3 } } }),
+  );
+  recordAnswer("Sam", "continents", "africa", true);
+  assert.deepEqual(getProgress("Sam", "continents"), {
+    itemStats: { africa: { recent: [true] } },
+  });
+});
+
 test("isItemKnown counts a popular item known after a single correct answer", () => {
   assert.equal(isItemKnown({ recent: [true] }, 50), true);
   assert.equal(isItemKnown({ recent: [true] }, 100), true);
