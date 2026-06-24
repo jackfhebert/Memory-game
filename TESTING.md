@@ -18,92 +18,96 @@ that any particular module's content actually renders correctly or that
 its images load. Adding or editing a module's JSON/images doesn't need
 new unit tests and won't be caught by the existing ones.
 
-## Manual end-to-end verification
+## Real-rendering browser check (runs in CI, not locally)
 
-Run this after adding or changing module content, or touching the
-flashcard/answer UI, before calling the change done.
+This layer exists to verify the two things unit tests can't see: that
+**clicking** actually drives the UI through real DOM events, and that
+**rendering** is correct in a real browser engine (images decode, CSS
+layout looks right, answer-button styling actually applies).
 
-### 1. Serve the app
+### Why this runs in CI instead of in an agent sandbox
 
-```
-python3 -m http.server 8088
-```
+Earlier attempts ran this with Playwright directly inside an AI agent's
+sandbox. The recurring failure mode was the browser binary download
+(`playwright install chromium`, ~300MB) dying or being unreliable in a
+restricted, often-ephemeral container — there's no persistent disk for a
+downloaded binary to survive on between sessions, so every attempt paid
+the download cost again and sometimes failed partway through.
 
-### 2. Drive it with Playwright
+None of that is a Playwright-specific problem — any real-browser tool
+(Puppeteer, Cypress, Selenium) needs the same binary. The fix is moving
+*where it runs*: a GitHub Actions runner has normal, reliable network
+access, and the browser binary can be cached across runs with
+`actions/cache`, so the download problem doesn't recur. Sandbox
+restrictions on a given agent session no longer matter once this lives in
+CI.
 
-There's no Playwright devDependency checked into this repo yet (it's a
-static, no-build app, and Playwright's browser download is heavy/flaky in
-some sandboxes) — install it ad hoc in a scratch directory rather than
-touching `package.json`:
+### Trigger model
 
-```
-mkdir -p /tmp/verify-scratch && cd /tmp/verify-scratch
-npm init -y && npm install playwright
-npx playwright install chromium
-```
+This check is intentionally **not** run on every push — it's heavyweight
+relative to `npm test`, so it only makes sense once code, docs, and unit
+tests already look right. Proposed trigger: `workflow_dispatch` (manual,
+on-demand from the Actions tab or `gh`/MCP tooling), not a push/PR
+trigger. *(Open question: do we also want it gated on a PR label, e.g.
+`needs-browser-check`, for cases where you want it before merging
+without remembering to dispatch it by hand?)*
 
-If the browser download fails partway through, look for an
-already-downloaded Chromium binary elsewhere on the machine (e.g. under
-`~/.cache/ms-playwright/` or wherever an earlier attempt landed) and pass
-it via `executablePath` instead of retrying the download.
+### What the workflow does
 
-Then drive the app with a script like:
+1. Checkout, `npm ci`.
+2. Add Playwright as a real devDependency (safe now — installed by CI's
+   normal network, not an agent sandbox) and `npx playwright install
+   --with-deps chromium`.
+3. Serve the static app (`python3 -m http.server 8088` or equivalent) in
+   the background.
+4. Run a driving script (e.g. `test/browser/click-and-render.mjs`) with
+   headless Chromium that:
+   - Adds a player, opens a module, switches to "All Cards."
+   - Asserts the module tile shows the right name/icon and an accurate
+     `"0 of N"` count.
+   - Spot-checks several cards' `<img>` `src`/`alt` against expected
+     content (not just the first card).
+   - Clicks through one correct and one incorrect answer, asserting
+     `.answer-correct`/`.answer-wrong` classes apply and the `✓`/`✗`
+     tally updates.
+   - Fails the run on any `pageerror` console event.
+   - Saves a screenshot per checked card as a build artifact, so a
+     blank/broken-looking frame can be caught by eye even if no script
+     error was thrown.
+5. Upload screenshots (and a Playwright trace, for debugging failures) as
+   workflow artifacts.
 
-```js
-import { chromium } from 'playwright';
+Unlike the old version of this doc, the script should **assert and exit
+non-zero on failure** rather than just `console.log` things for a human
+to read — this runs unattended in CI, nobody's watching it live.
 
-const browser = await chromium.launch({ args: ['--no-sandbox'] });
-const page = await browser.newPage({ viewport: { width: 480, height: 900 } });
-page.on('pageerror', (err) => console.log('PAGEERROR', err.message));
+### How to check the results afterward
 
-await page.goto('http://127.0.0.1:8088/index.html');
+From a Claude Code session (this one or a future one), via the GitHub
+MCP tools: `actions_list`/`actions_get` to find the run,
+`get_job_logs` to read its output, `get_commit`/`get_check_run` to see
+pass/fail status tied to a commit. For a PR specifically,
+`subscribe_pr_activity` pushes the CI result automatically instead of
+polling. Artifact *download* (the screenshots themselves) isn't exposed
+through the current MCP toolset — viewing those today means going to the
+Actions run in the GitHub UI. *(Open question: is screenshot review
+something you'll do by hand in the UI, or does that need to be solved
+too?)*
 
-// Add a player (first-run screen)
-await page.locator('.tile-add').click();
-await page.locator('.add-player-form input').fill('Tester');
-await page.locator('.add-player-form button').click();
-
-// Open the module under test, then "All Cards"
-await page.locator('.tile', { hasText: 'Composers' }).first().click();
-await page.getByText('All Cards', { exact: false }).first().click();
-
-// Inspect a card
-console.log(await page.locator('.flashcard-image').getAttribute('src'));
-console.log(await page.locator('.flashcard-fact').innerText());
-console.log(await page.locator('.answer-button').allTextContents());
-
-// Answer it. .next-button does two different things depending on state:
-// first click reveals correct/wrong (adds .answer-correct/.answer-wrong
-// classes to the buttons), second click advances to the next card.
-await page.locator('.answer-button').first().click();
-await page.locator('.next-button').click(); // reveal
-await page.locator('.next-button').click(); // advance
-
-await page.screenshot({ path: '/tmp/verify-scratch/card.png' });
-await browser.close();
-```
-
-### 3. What to check
-
-- The module tile on the module-select screen shows the right name/icon
-  and an accurate `"0 of N"` count.
-- Spot-check several cards (not just the first), confirming each image
-  actually matches its `alt` text and facts.
-- Click through the answer flow for at least one correct and one
-  incorrect choice, confirming `.answer-correct`/`.answer-wrong` styling
-  and the running `✓`/`✗` tally update as expected.
-- No `pageerror` console output.
-- Actually open the screenshot — a blank or broken-looking frame is a
-  failure even if no script error was thrown.
-
-### Gotchas
+### Gotchas (carried over, still true)
 
 - `.next-button`'s label/behavior changes between "Answer" (pick a
   choice first) and "Next Question" (advance) — one click reveals, a
   second click advances. Don't expect a single click to do both.
-- Playwright's browser download can die partway through in this
-  environment; reusing a previously-downloaded binary's `executablePath`
-  is more reliable than retrying `playwright install`.
+
+### Local iteration on the test script itself
+
+Writing/debugging the driving script is still easier with a real browser
+window open locally. That's a different machine than an agent sandbox —
+if you (the human) have Playwright's browser binary cached locally
+already, `npx playwright test --headed` works the normal way. This section
+is about where the check *runs as part of the workflow*, not a ban on
+ever opening a local browser while developing it.
 
 ## Content-pipeline QA (photo-sourced modules)
 
