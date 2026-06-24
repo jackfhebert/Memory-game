@@ -1,6 +1,9 @@
-"""Render the US States module images from the PublicaMundi states GeoJSON.
+"""Render the US States module images from Natural Earth's 1:50m admin-1
+states-provinces GeoJSON, with world countries drawn underneath for
+neighboring-country context (so Canada/Mexico/the Caribbean read as land,
+not as the ocean background, near border states).
 
-See tools/README.md for how to fetch the input GeoJSON file and run this.
+See tools/README.md for how to fetch the input GeoJSON files and run this.
 """
 
 from pathlib import Path
@@ -33,8 +36,15 @@ def slug(name):
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    states = gpd.read_file(GEO_DATA_DIR / "us-states.json")
-    states = states[~states["name"].isin(["District of Columbia", "Puerto Rico"])]
+    states = gpd.read_file(GEO_DATA_DIR / "us-states.geojson")
+    states = states[
+        (states["admin"] == "United States of America") & (states["type"] == "State")
+    ]
+
+    # World countries, drawn underneath the states so Canada, Mexico, Cuba,
+    # etc. read as land rather than the ocean background near border states.
+    countries = gpd.read_file(GEO_DATA_DIR / "countries.geojson")
+    countries = countries[countries["NAME"] != "United States of America"]
 
     for _, row in states.iterrows():
         name = row["name"]
@@ -44,6 +54,7 @@ def main():
         fig, ax = plt.subplots(figsize=FIGSIZE, dpi=DPI)
         ax.set_facecolor(BG)
 
+        countries.plot(ax=ax, color=LAND_BASE, edgecolor=LAND_EDGE, linewidth=0.4)
         states.plot(ax=ax, color=LAND_BASE, edgecolor=LAND_EDGE, linewidth=0.4)
         gpd.GeoSeries([geom], crs=states.crs).plot(
             ax=ax, color=HILITE_FILL, edgecolor=HILITE_EDGE, linewidth=1.2

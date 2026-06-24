@@ -36,7 +36,7 @@ BG = "#cfe8f3"
 
 FIGSIZE = (8, 6)
 DPI = 120
-PAD_FRACTION = 0.45
+PAD_FRACTION = 0.9  # zoomed out ~50% from the original 0.45 for more continental context
 
 CONTINENT_MODULES = {
     "Africa": ("africa-countries", "African Countries"),

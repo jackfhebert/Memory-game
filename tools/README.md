@@ -40,9 +40,12 @@ large third-party datasets, not project source). Download:
 - **Oceans** — Natural Earth 1:110m geography-marine-polys, as
   `tools/geo-data/marine.geojson`:
   https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_geography_marine_polys.geojson
-- **US States** — PublicaMundi's states GeoJSON, as
-  `tools/geo-data/us-states.json`:
-  https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json
+- **US States** — Natural Earth 1:50m admin-1 states-provinces, as
+  `tools/geo-data/us-states.geojson`:
+  https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_1_states_provinces.geojson
+  (this replaced PublicaMundi's states GeoJSON, whose state outlines were
+  too simplified — e.g. Florida's coastline was only ~80 points — to look
+  good zoomed in to a single state's bounding box)
 
 ### Run
 
@@ -73,10 +76,16 @@ highlighted one, since the crop window differs per country.
   oceans.
 - **Crop-to-bounds**: states and countries crop to the highlighted
   item's own bounding box plus padding (`PAD_FRACTION`, 0.35 for
-  states, 0.45 for countries), so small and large items both fill the
-  frame appropriately. Continents and oceans instead render the full
-  fixed `-180..180 / -90..90` world, since they're large enough that a
-  fixed frame already reads well.
+  states, 0.9 for countries — countries are padded out further so
+  neighboring countries give a sense of the highlighted one's place in
+  the continent), so small and large items both fill the frame
+  appropriately. Continents and oceans instead render the full fixed
+  `-180..180 / -90..90` world, since they're large enough that a fixed
+  frame already reads well.
+- **States' neighboring-country context**: `render_states.py` draws the
+  world `countries.geojson` underneath the states layer, so Canada,
+  Mexico, and Caribbean countries near border states render as land
+  instead of the ocean background color.
 - **Antimeridian**: Russia and Fiji straddle the 180°/-180° seam.
   `render_countries.py` unwraps each country's geometry (shifting parts
   with negative-longitude centroids by +360) before computing its crop
