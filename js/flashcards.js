@@ -198,7 +198,13 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
       popularity: card.item.popularity,
       recent: stats?.recent ?? [],
       known: isItemKnown(stats, card.item.popularity),
-      ...getMasteryEstimate(player, moduleId, card.item.id, card.item.popularity),
+      ...getMasteryEstimate(
+        player,
+        moduleId,
+        card.item.id,
+        card.item.popularity,
+        card.choices.length,
+      ),
     };
   }
 
@@ -361,11 +367,12 @@ function renderDebugPanel(debugInfo) {
   panel.appendChild(title);
 
   const rows = [
+    ["P(answer correctly)", `${Math.round(debugInfo.probabilityCorrect * 100)}%`],
+    ["P(known)", `${Math.round(debugInfo.probability * 100)}%`],
     ["Popularity", debugInfo.popularity],
     ["Difficulty", debugInfo.difficulty.toFixed(2)],
     ["Ability", debugInfo.ability.toFixed(2)],
     ["Item offset", debugInfo.itemOffset.toFixed(2)],
-    ["P(known)", `${Math.round(debugInfo.probability * 100)}%`],
     [
       "Recent answers",
       debugInfo.recent.length

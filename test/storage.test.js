@@ -13,6 +13,7 @@ const {
   recordAnswer,
   isItemKnown,
   probabilityKnown,
+  probabilityCorrect,
   getMasteryEstimate,
 } = await import("../js/storage.js");
 
@@ -147,8 +148,24 @@ test("probabilityKnown rises with popularity and falls with rarity, all else equ
 });
 
 test("getMasteryEstimate gives a fresh player a 0.5 prior on a neutral-popularity item", () => {
-  const estimate = getMasteryEstimate("Sam", "continents", "africa", 50);
-  assert.deepEqual(estimate, { ability: 0, itemOffset: 0, difficulty: 0, probability: 0.5 });
+  const estimate = getMasteryEstimate("Sam", "continents", "africa", 50, 4);
+  assert.deepEqual(estimate, {
+    ability: 0,
+    itemOffset: 0,
+    difficulty: 0,
+    probability: 0.5,
+    probabilityCorrect: 0.625,
+  });
+});
+
+test("probabilityCorrect adds a guessing floor on top of P(known) for multiple-choice cards", () => {
+  assert.equal(probabilityCorrect(0, 0, 50, 4), 0.625); // 0.25 + 0.75 * 0.5
+  assert.equal(probabilityCorrect(0, 0, 100, 4), 0.25 + 0.75 * probabilityKnown(0, 0, 100));
+});
+
+test("probabilityCorrect is always at least the guessing floor, even for a fully unknown item", () => {
+  assert.ok(probabilityCorrect(-10, 0, 0, 4) > 0.25);
+  assert.ok(probabilityCorrect(-10, 0, 0, 4) < 0.26);
 });
 
 test("recordAnswer raises ability and itemOffset after a correct answer", () => {
@@ -173,8 +190,9 @@ test("recordAnswer's itemOffset gain shrinks as more evidence confirms the same 
 
 test("getMasteryEstimate reflects ability and itemOffset accumulated via recordAnswer", () => {
   recordAnswer("Sam", "continents", "africa", true, 50);
-  const estimate = getMasteryEstimate("Sam", "continents", "africa", 50);
+  const estimate = getMasteryEstimate("Sam", "continents", "africa", 50, 4);
   assert.equal(estimate.ability, 0.1);
   assert.equal(estimate.itemOffset, 0.25);
   assert.equal(estimate.probability, probabilityKnown(0.1, 0.25, 50));
+  assert.equal(estimate.probabilityCorrect, probabilityCorrect(0.1, 0.25, 50, 4));
 });

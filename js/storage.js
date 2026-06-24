@@ -67,7 +67,17 @@ export function probabilityKnown(ability, itemOffset, popularity) {
   return sigmoid(ability - difficultyFromPopularity(popularity) + itemOffset);
 }
 
-export function getMasteryEstimate(player, moduleId, itemId, popularity) {
+// P(known) is the latent "does the player actually know this" estimate. The
+// flashcard is multiple-choice, so the actual chance of answering correctly
+// is higher: even a fully unknown item can be guessed right at a 1/numChoices
+// floor. This is display-only - recordAnswer still updates ability/itemOffset
+// from P(known) per DESIGN.md, not this guess-adjusted figure.
+export function probabilityCorrect(ability, itemOffset, popularity, numChoices) {
+  const guessRate = 1 / numChoices;
+  return guessRate + (1 - guessRate) * probabilityKnown(ability, itemOffset, popularity);
+}
+
+export function getMasteryEstimate(player, moduleId, itemId, popularity, numChoices) {
   const progress = getProgress(player, moduleId);
   const ability = progress.ability;
   const itemOffset = getItemOffset(progress.itemStats[itemId]);
@@ -76,6 +86,7 @@ export function getMasteryEstimate(player, moduleId, itemId, popularity) {
     itemOffset,
     difficulty: difficultyFromPopularity(popularity),
     probability: probabilityKnown(ability, itemOffset, popularity),
+    probabilityCorrect: probabilityCorrect(ability, itemOffset, popularity, numChoices),
   };
 }
 
