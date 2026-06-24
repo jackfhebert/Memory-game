@@ -39,38 +39,40 @@ workflow and get the same result.
 
 This check is intentionally **not** run on every push — it's heavyweight
 relative to `npm test`, so it only makes sense once code, docs, and unit
-tests already look right. Proposed trigger: `workflow_dispatch` (manual,
-on-demand from the Actions tab or `gh`/MCP tooling), not a push/PR
-trigger. *(Open question: do we also want it gated on a PR label, e.g.
-`needs-browser-check`, for cases where you want it before merging
-without remembering to dispatch it by hand?)*
+tests already look right. It's defined in
+[`.github/workflows/browser-check.yml`](.github/workflows/browser-check.yml)
+with a `workflow_dispatch` trigger — dispatch it manually from the Actions
+tab, the `gh` CLI, or GitHub MCP tooling. *(Open question: do we also
+want it gated on a PR label, e.g. `needs-browser-check`, for cases where
+you want it before merging without remembering to dispatch it by hand?
+Not built yet.)*
 
 ### What the workflow does
 
-1. Checkout, `npm ci`.
-2. Add Playwright as a real devDependency and `npx playwright install
-   --with-deps chromium`.
-3. Serve the static app (`python3 -m http.server 8088` or equivalent) in
-   the background.
-4. Run a driving script (e.g. `test/browser/click-and-render.mjs`) with
-   headless Chromium that:
-   - Adds a player, opens a module, switches to "All Cards."
-   - Asserts the module tile shows the right name/icon and an accurate
-     `"0 of N"` count.
-   - Spot-checks several cards' `<img>` `src`/`alt` against expected
-     content (not just the first card).
-   - Clicks through one correct and one incorrect answer, asserting
-     `.answer-correct`/`.answer-wrong` classes apply and the `✓`/`✗`
-     tally updates.
-   - Fails the run on any `pageerror` console event.
-   - Saves a screenshot per checked card as a build artifact, so a
-     blank/broken-looking frame can be caught by eye even if no script
-     error was thrown.
-5. Upload screenshots (and a Playwright trace, for debugging failures) as
-   workflow artifacts.
+The workflow runs `npm run test:browser`, which drives
+[`test/browser/click-and-render.mjs`](test/browser/click-and-render.mjs)
+against the app served locally on the runner:
 
-The script should **assert and exit non-zero on failure** rather than
-just `console.log` things for a human to read — this runs unattended in
+1. Checkout, `npm ci`, `npx playwright install --with-deps chromium`
+   (the binary is cached across runs via `actions/cache`, keyed on
+   `package-lock.json`'s hash).
+2. Serve the static app (`python3 -m http.server`) in the background.
+3. Drive it with headless Chromium:
+   - Adds a player, opens the Continents module, switches to "All Cards."
+   - Asserts the module tile's progress text matches `"N of M"`.
+   - For the first two cards: asserts the image has a `src`, the fact
+     text is non-empty, and there are exactly 4 answer choices.
+   - Clicks an answer, reveals it, and asserts exactly one
+     `.answer-correct` button exists and the correct/wrong tally chip
+     incremented to match.
+   - Screenshots each card into `SCREENSHOT_DIR`.
+   - Fails (non-zero exit) on any `pageerror` console event or a failed
+     assertion.
+4. Upload the screenshots as a workflow artifact (`browser-check-screenshots`),
+   even on failure.
+
+The script asserts and exits non-zero on failure rather than just
+`console.log`-ing things for a human to read — this runs unattended in
 CI, nobody's watching it live.
 
 ### How to check the results afterward
