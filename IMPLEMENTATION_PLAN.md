@@ -203,6 +203,10 @@ the array order is the tile order shown to the kid.
 - Large picture, fact text, and a 2×2 grid of 4 answer buttons sized for
   thumbs.
 - An "X" in a corner, always tappable, returns to Module Select.
+- A "Card X of Y" indicator above the picture shows the current item's
+  rank within the active pool (X) and the active pool's current size (Y).
+  For Active Learning, Y grows over the session as `expandPool` adds items;
+  for All Cards, Y is fixed at the module's full item count.
 - Tapping an answer flips the card: the correct name is highlighted, and
   the tapped choice is marked right or wrong.
 - A "Next" button advances to another card from the active pool.
@@ -245,11 +249,18 @@ the Module Select progress chip reads from.
   twice, the single most-popular item not yet in the pool is added —
   borrowing the "introduce by popularity" shape of the full mastery model
   from [DESIGN.md](DESIGN.md) without its P(known)-based trigger, which is
-  still deferred.
-- **All Cards** — the active pool is every item in the module, immediately.
-- In both modes, the next card is drawn uniformly at random from the
+  still deferred. The next card is drawn uniformly at random from the
   active pool, avoiding an immediate repeat of the same card when the pool
   has more than one item.
+- **All Cards** — the active pool is every item in the module, immediately,
+  sorted by `popularity` descending. The first pass through a session walks
+  the pool in that order (most popular item first); once every card in the
+  pool has been shown once, subsequent cards are drawn uniformly at random
+  (same immediate-repeat avoidance as Active Learning).
+- In both modes, the active pool's array order is always popularity-sorted
+  descending, so an item's 1-indexed position in that array doubles as its
+  popularity rank — this is what the Flashcard Screen's "Card X of Y"
+  indicator reads from.
 - This logic is the part that gets replaced wholesale once the mastery
   model is implemented — everything else (screens, data model, distractor
   selection) stays the same.

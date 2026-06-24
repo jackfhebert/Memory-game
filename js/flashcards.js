@@ -28,7 +28,7 @@ function sortByPopularityDesc(items) {
 
 export function buildActivePool(items, mode) {
   if (mode === "all-cards" || items.length <= ACTIVE_LEARNING_POOL_SIZE) {
-    return [...items];
+    return sortByPopularityDesc(items);
   }
   return sortByPopularityDesc(items).slice(0, ACTIVE_LEARNING_POOL_SIZE);
 }
@@ -41,6 +41,22 @@ export function pickNextCard(pool, previousItemId, rng = Math.random) {
     pool.length > 1 ? pool.filter((item) => item.id !== previousItemId) : pool;
   const index = Math.floor(rng() * candidates.length);
   return candidates[index];
+}
+
+export function pickOrderedOrRandomCard(
+  pool,
+  cardsShown,
+  previousItemId,
+  rng = Math.random,
+) {
+  if (cardsShown < pool.length) {
+    return pool[cardsShown];
+  }
+  return pickNextCard(pool, previousItemId, rng);
+}
+
+export function cardPosition(pool, itemId) {
+  return pool.findIndex((item) => item.id === itemId) + 1;
 }
 
 export function pickDistractors(
@@ -93,8 +109,7 @@ function preloadImages(urls) {
   });
 }
 
-function buildCard(items, pool, previousItemId, rng) {
-  const item = pickNextCard(pool, previousItemId, rng);
+function buildCard(items, item, rng) {
   const distractors = pickDistractors(items, item, DISTRACTOR_COUNT, rng);
   const choices = buildAnswerChoices(item, distractors, rng);
   const fact = pickFact(item, rng);
@@ -103,7 +118,18 @@ function buildCard(items, pool, previousItemId, rng) {
 
 export function startFlashcardSession(container, { player, moduleId, items, mode, onExit }) {
   let pool = buildActivePool(items, mode);
-  let card = buildCard(items, pool, null);
+  let cardsShown = 0;
+
+  function selectItem(previousItemId, rng = Math.random) {
+    const item =
+      mode === "all-cards"
+        ? pickOrderedOrRandomCard(pool, cardsShown, previousItemId, rng)
+        : pickNextCard(pool, previousItemId, rng);
+    cardsShown += 1;
+    return item;
+  }
+
+  let card = buildCard(items, selectItem(null));
   let selectedChoiceId = null;
   let revealed = false;
   let correctCount = 0;
@@ -118,6 +144,8 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
   function renderCurrentCard() {
     renderFlashcard(container, {
       card,
+      cardPosition: cardPosition(pool, card.item.id),
+      poolSize: pool.length,
       selectedChoiceId,
       revealed,
       correctCount,
@@ -153,7 +181,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
       return;
     }
 
-    card = buildCard(items, pool, card.item.id);
+    card = buildCard(items, selectItem(card.item.id));
     preloadUpcoming();
     selectedChoiceId = null;
     revealed = false;
@@ -165,7 +193,18 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
 
 function renderFlashcard(
   container,
-  { card, selectedChoiceId, revealed, correctCount, wrongCount, onSelect, onNext, onExit },
+  {
+    card,
+    cardPosition,
+    poolSize,
+    selectedChoiceId,
+    revealed,
+    correctCount,
+    wrongCount,
+    onSelect,
+    onNext,
+    onExit,
+  },
 ) {
   container.innerHTML = "";
 
@@ -175,6 +214,11 @@ function renderFlashcard(
   exitButton.setAttribute("aria-label", "Exit to module select");
   exitButton.addEventListener("click", onExit);
   container.appendChild(exitButton);
+
+  const positionIndicator = document.createElement("p");
+  positionIndicator.className = "flashcard-position";
+  positionIndicator.textContent = `Card ${cardPosition} of ${poolSize}`;
+  container.appendChild(positionIndicator);
 
   const image = document.createElement("img");
   image.className = "flashcard-image";

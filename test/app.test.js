@@ -70,6 +70,10 @@ test("app.js: player select -> module select -> mode select -> flashcard -> exit
   await new Promise((resolve) => setTimeout(resolve, 0));
 
   assert.equal(activeScreen(dom), "screen-flashcard");
+  assert.equal(
+    document.querySelector("#screen-flashcard .flashcard-position").textContent,
+    "Card 1 of 4",
+  );
   const answerButtons = document.querySelectorAll(
     "#screen-flashcard .answer-button",
   );

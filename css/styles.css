@@ -131,6 +131,14 @@ body {
   cursor: pointer;
 }
 
+.flashcard-position {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #6b7088;
+  margin: var(--spacing-lg) 0 0;
+}
+
 .flashcard-image {
   display: block;
   width: 100%;
@@ -138,7 +146,7 @@ body {
   aspect-ratio: 4 / 3;
   object-fit: contain;
   border-radius: var(--radius);
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-sm);
 }
 
 .flashcard-fact {

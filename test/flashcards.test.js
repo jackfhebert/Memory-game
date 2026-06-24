@@ -3,6 +3,8 @@ import assert from "node:assert/strict";
 import {
   buildActivePool,
   pickNextCard,
+  pickOrderedOrRandomCard,
+  cardPosition,
   pickDistractors,
   buildAnswerChoices,
   pickFact,
@@ -41,10 +43,14 @@ test("buildActivePool uses every item when the module has 5 or fewer", () => {
   );
 });
 
-test("buildActivePool uses every item immediately for all-cards", () => {
+test("buildActivePool uses every item immediately for all-cards, sorted by popularity", () => {
   const items = makeItems(7);
   const pool = buildActivePool(items, "all-cards");
   assert.equal(pool.length, 7);
+  assert.deepEqual(
+    pool.map((i) => i.id),
+    ["item-0", "item-1", "item-2", "item-3", "item-4", "item-5", "item-6"],
+  );
 });
 
 test("pickNextCard avoids an immediate repeat when the pool has more than one item", () => {
@@ -64,6 +70,30 @@ test("pickNextCard returns the only item when the pool has exactly one item", ()
 
 test("pickNextCard throws on an empty pool", () => {
   assert.throws(() => pickNextCard([], null));
+});
+
+test("pickOrderedOrRandomCard walks the pool in order during the first pass", () => {
+  const pool = makeItems(4);
+  assert.equal(pickOrderedOrRandomCard(pool, 0, null).id, "item-0");
+  assert.equal(pickOrderedOrRandomCard(pool, 1, "item-0").id, "item-1");
+  assert.equal(pickOrderedOrRandomCard(pool, 2, "item-1").id, "item-2");
+  assert.equal(pickOrderedOrRandomCard(pool, 3, "item-2").id, "item-3");
+});
+
+test("pickOrderedOrRandomCard falls back to random selection after the first pass", () => {
+  const pool = makeItems(3);
+  for (let trial = 0; trial < 20; trial++) {
+    const rng = fakeRng([trial / 20]);
+    const next = pickOrderedOrRandomCard(pool, 3, "item-0", rng);
+    assert.notEqual(next.id, "item-0");
+  }
+});
+
+test("cardPosition returns the 1-indexed rank of an item within the pool", () => {
+  const pool = makeItems(5);
+  assert.equal(cardPosition(pool, "item-0"), 1);
+  assert.equal(cardPosition(pool, "item-2"), 3);
+  assert.equal(cardPosition(pool, "item-4"), 5);
 });
 
 test("pickDistractors returns the requested count, excluding the correct item", () => {
