@@ -17,11 +17,11 @@ const ITEMS = [
   { id: "europe", name: "Europe" },
 ];
 
-test("countKnownItems counts items with at least one correct answer", () => {
+test("countKnownItems counts items whose recent answers are mostly correct", () => {
   const progress = {
     itemStats: {
-      africa: { shown: 2, correct: 1 },
-      asia: { shown: 3, correct: 0 },
+      africa: { recent: [true] },
+      asia: { recent: [false, false] },
     },
   };
   assert.equal(countKnownItems(ITEMS, progress), 1);

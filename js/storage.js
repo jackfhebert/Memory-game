@@ -1,4 +1,6 @@
 const PLAYERS_KEY = "memorygame:players";
+export const RECENT_WINDOW_SIZE = 5;
+const KNOWN_THRESHOLD = 0.8;
 
 function progressKey(player, moduleId) {
   return `memorygame:progress:${player}:${moduleId}`;
@@ -40,10 +42,17 @@ export function getProgress(player, moduleId) {
 
 export function recordAnswer(player, moduleId, itemId, wasCorrect) {
   const progress = getProgress(player, moduleId);
-  const stats = progress.itemStats[itemId] || { shown: 0, correct: 0 };
-  stats.shown += 1;
-  if (wasCorrect) stats.correct += 1;
+  const stats = progress.itemStats[itemId] || { recent: [] };
+  stats.recent = [...stats.recent, wasCorrect].slice(-RECENT_WINDOW_SIZE);
   progress.itemStats[itemId] = stats;
   localStorage.setItem(progressKey(player, moduleId), JSON.stringify(progress));
   return progress;
+}
+
+// "Known" is based on recent answers, not all-time totals, since recent
+// behavior predicts future performance better than a lifetime sum does.
+export function isItemKnown(stats) {
+  if (!stats || stats.recent.length === 0) return false;
+  const correctCount = stats.recent.filter(Boolean).length;
+  return correctCount / stats.recent.length >= KNOWN_THRESHOLD;
 }

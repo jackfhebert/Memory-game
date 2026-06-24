@@ -1,4 +1,4 @@
-import { recordAnswer } from "./storage.js";
+import { recordAnswer, getProgress, isItemKnown } from "./storage.js";
 
 export const ACTIVE_LEARNING_POOL_SIZE = 5;
 const DISTRACTOR_COUNT = 3;
@@ -83,8 +83,8 @@ export function pickFact(item, rng = Math.random) {
   return facts[Math.floor(rng() * facts.length)];
 }
 
-export function shouldExpandPool(mode, itemCorrectCount) {
-  return mode === "active-learning" && itemCorrectCount === 2;
+export function shouldExpandPool(mode, wasKnown, isKnown) {
+  return mode === "active-learning" && isKnown && !wasKnown;
 }
 
 export function expandPool(pool, items) {
@@ -166,14 +166,17 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
     if (!revealed) {
       if (selectedChoiceId === null) return;
       const wasCorrect = selectedChoiceId === card.item.id;
+      const wasKnown = isItemKnown(
+        getProgress(player, moduleId).itemStats[card.item.id],
+      );
       const progress = recordAnswer(player, moduleId, card.item.id, wasCorrect);
       if (wasCorrect) {
         correctCount += 1;
       } else {
         wrongCount += 1;
       }
-      const itemCorrectCount = progress.itemStats[card.item.id].correct;
-      if (shouldExpandPool(mode, itemCorrectCount)) {
+      const isKnown = isItemKnown(progress.itemStats[card.item.id]);
+      if (shouldExpandPool(mode, wasKnown, isKnown)) {
         pool = expandPool(pool, items);
       }
       revealed = true;
