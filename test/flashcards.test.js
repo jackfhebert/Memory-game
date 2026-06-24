@@ -132,11 +132,12 @@ test("pickFact works with a single fact", () => {
   assert.equal(pickFact(item, fakeRng([0])), "only fact");
 });
 
-test("shouldExpandPool is true only in active-learning mode on the second correct answer", () => {
-  assert.equal(shouldExpandPool("active-learning", 2), true);
-  assert.equal(shouldExpandPool("active-learning", 1), false);
-  assert.equal(shouldExpandPool("active-learning", 3), false);
-  assert.equal(shouldExpandPool("all-cards", 2), false);
+test("shouldExpandPool fires only on the unknown-to-known transition in active-learning mode", () => {
+  assert.equal(shouldExpandPool("active-learning", false, true), true);
+  assert.equal(shouldExpandPool("active-learning", true, true), false);
+  assert.equal(shouldExpandPool("active-learning", false, false), false);
+  assert.equal(shouldExpandPool("active-learning", true, false), false);
+  assert.equal(shouldExpandPool("all-cards", false, true), false);
 });
 
 test("expandPool adds the most popular item not already in the pool", () => {

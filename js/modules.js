@@ -1,4 +1,4 @@
-import { getProgress } from "./storage.js";
+import { getProgress, isItemKnown } from "./storage.js";
 import { ACTIVE_LEARNING_POOL_SIZE } from "./flashcards.js";
 
 let manifestCache = null;
@@ -23,10 +23,7 @@ export async function getModuleItems(moduleId) {
 }
 
 export function countKnownItems(items, progress) {
-  return items.filter((item) => {
-    const stats = progress.itemStats[item.id];
-    return stats && stats.correct > 0;
-  }).length;
+  return items.filter((item) => isItemKnown(progress.itemStats[item.id])).length;
 }
 
 export function buildModuleTiles(modules, itemsByModuleId, player) {

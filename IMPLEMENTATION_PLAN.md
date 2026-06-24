@@ -9,18 +9,15 @@ Get a real, playable version of the [design doc](DESIGN.md) running end to
 end: Player Select → Module Select → Mode Select → Flashcard loop, for the
 Continents and Oceans modules, on a phone/tablet-sized screen.
 
-Two pieces from [DESIGN.md](DESIGN.md) are deliberately simplified for
-this first pass, to be filled in once the rest works:
+One piece from [DESIGN.md](DESIGN.md) is still deliberately simplified:
 
-- **Active Learning mode** just samples 5 random cards as its pool, instead
-  of the Elo/IRT-style adaptive pacing model.
 - **Card selection within a pool** is uniform random for now, instead of
-  weighted toward lower `P(known)` — there's no mastery model yet to weight
-  with.
+  weighted toward less-known items — that's a future idea once there's more
+  play data to justify the added complexity.
 
-The app already records the raw per-item stats the real mastery model will
-need (see Data Model below), so swapping in the smarts later shouldn't
-require reworking the screens.
+Active Learning's pool-expansion trigger and the Module Select progress
+chip both use the real recency-based "known" model from DESIGN.md's
+Mastery Model section (see Data Model below), not a placeholder.
 
 ## Tech stack
 
@@ -187,9 +184,8 @@ the array order is the tile order shown to the kid.
   manifest array — there's no separate sort step, so reordering the
   modules a kid sees is just reordering `data/modules.json`.
 - Each tile shows a small progress chip, e.g. "3 of 7" — the count of
-  items the player has answered correctly at least once, out of the
-  module's total item count. Simple and meaningful without needing the
-  real mastery model.
+  items currently "known" under the recency-based mastery model in
+  [DESIGN.md](DESIGN.md), out of the module's total item count.
 - Tapping a module moves to Mode Select.
 
 ### Mode Select
@@ -231,27 +227,27 @@ One entry per player + module, e.g. key
 ```json
 {
   "itemStats": {
-    "africa": { "shown": 4, "correct": 3 }
+    "africa": { "recent": [true, false, true, true] }
   }
 }
 ```
 
-This is written on every answer regardless of mode. It's not used for
-selection logic yet, but it's exactly the history the Elo/IRT mastery
-model in [DESIGN.md](DESIGN.md) will need to bootstrap from, and it's what
-the Module Select progress chip reads from.
+`recent` holds that item's last 5 answers (oldest dropped off the front as
+new ones are added). This is written on every answer regardless of mode,
+and is exactly what feeds the "known" check in DESIGN.md's Mastery Model
+section — both the Module Select progress chip and the Active Learning
+pool-expansion trigger below read from it.
 
 ## Card selection logic (v1, simplified)
 
 - **Active Learning** — at the start of a session, the active pool is the
   5 most popular items in the module by `popularity` (or all items, if the
-  module has fewer than 5). Whenever a player answers an item correctly
-  twice, the single most-popular item not yet in the pool is added —
-  borrowing the "introduce by popularity" shape of the full mastery model
-  from [DESIGN.md](DESIGN.md) without its P(known)-based trigger, which is
-  still deferred. The next card is drawn uniformly at random from the
-  active pool, avoiding an immediate repeat of the same card when the pool
-  has more than one item.
+  module has fewer than 5). Whenever an item in the pool newly becomes
+  "known" under DESIGN.md's recency-based mastery model — i.e. it wasn't
+  known before this answer but is now — the single most-popular item not
+  yet in the pool is added. The next card is drawn uniformly at random from
+  the active pool, avoiding an immediate repeat of the same card when the
+  pool has more than one item.
 - **All Cards** — the active pool is every item in the module, immediately,
   sorted by `popularity` descending. The first pass through a session walks
   the pool in that order (most popular item first); once every card in the
@@ -405,9 +401,9 @@ authored separately and checked against a reliable source.
 
 ## What's deliberately deferred
 
-- The Elo/IRT mastery model and adaptive pool expansion from
-  [DESIGN.md](DESIGN.md) — v1 uses random selection instead, but already
-  records the per-item shown/correct counts that model will need.
+- Weighting card selection toward less-known items within the active pool
+  — cards are drawn uniformly at random for now (see "Card selection logic"
+  above).
 - AI-generated images — not needed yet. Geography modules use rendered
   map data, and Animals/Pasta Shapes use real sourced photos (see above);
   a future topic with neither a map nor a real-world photo per item
