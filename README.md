@@ -27,3 +27,5 @@ itself isn't built yet:
   be built, step by step
 - **[Production Overview](PRODUCTION.md)** — what's needed to take the
   game from built to running for real users
+- **[Testing](TESTING.md)** — automated unit tests, plus the manual
+  browser walkthrough for verifying module content and the flashcard UI
