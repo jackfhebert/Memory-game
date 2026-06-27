@@ -4,90 +4,103 @@
     "name": "Oceans",
     "dataFile": "oceans.json",
     "color": "#2BB3A3",
-    "icon": "🌊"
+    "icon": "🌊",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "continents",
     "name": "Continents",
     "dataFile": "continents.json",
     "color": "#4F86C6",
-    "icon": "🌍"
+    "icon": "🌍",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "animals",
     "name": "Animals",
     "dataFile": "animals.json",
     "color": "#5B8C3A",
-    "icon": "🦁"
+    "icon": "🦁",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "pasta",
     "name": "Pasta Shapes",
     "dataFile": "pasta.json",
     "color": "#D4A017",
-    "icon": "🍝"
+    "icon": "🍝",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "states",
     "name": "50 States",
     "dataFile": "states.json",
     "color": "#C66F4F",
-    "icon": "🗺️"
+    "icon": "🗺️",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "composers",
     "name": "Composers",
     "dataFile": "composers.json",
     "color": "#8C5A8C",
-    "icon": "🎼"
+    "icon": "🎼",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "sushi",
     "name": "Sushi",
     "dataFile": "sushi.json",
     "color": "#D9534F",
-    "icon": "🍣"
+    "icon": "🍣",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "africa-countries",
     "name": "African Countries",
     "dataFile": "africa-countries.json",
     "color": "#C9A227",
-    "icon": "🦁"
+    "icon": "🦁",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "asia-countries",
     "name": "Asian Countries",
     "dataFile": "asia-countries.json",
     "color": "#D14F6B",
-    "icon": "🏯"
+    "icon": "🏯",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "europe-countries",
     "name": "European Countries",
     "dataFile": "europe-countries.json",
     "color": "#7B6FA6",
-    "icon": "🏰"
+    "icon": "🏰",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "north-america-countries",
     "name": "North American Countries",
     "dataFile": "north-america-countries.json",
     "color": "#5A8F4F",
-    "icon": "🌎"
+    "icon": "🌎",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "oceania-countries",
     "name": "Oceania Countries",
     "dataFile": "oceania-countries.json",
     "color": "#3FA796",
-    "icon": "🏝️"
+    "icon": "🏝️",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "south-america-countries",
     "name": "South American Countries",
     "dataFile": "south-america-countries.json",
     "color": "#E0A23B",
-    "icon": "🌎"
+    "icon": "🌎",
+    "version": "2026-06-27T18:03:13Z"
   }
 ]
