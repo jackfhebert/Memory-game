@@ -151,14 +151,16 @@ memory-game/
     "name": "Oceans",
     "dataFile": "oceans.json",
     "color": "#2BB3A3",
-    "icon": "🌊"
+    "icon": "🌊",
+    "version": "2026-06-27T18:03:13Z"
   },
   {
     "id": "continents",
     "name": "Continents",
     "dataFile": "continents.json",
     "color": "#4F86C6",
-    "icon": "🌍"
+    "icon": "🌍",
+    "version": "2026-06-27T18:03:13Z"
   }
 ]
 ```
@@ -166,6 +168,12 @@ memory-game/
 This is fetched at startup to populate Module Select. The `color`/`icon`
 per entry drive the tile look without needing any per-module code, and
 the array order is the tile order shown to the kid.
+
+- `version` — an ISO timestamp marking when the module's content
+  (`dataFile`, or its images) last changed. Set it to the current time
+  when a module is first published, and bump it to the current time
+  again whenever you edit an existing module's data file or images.
+  Nothing in the app reads it yet; it exists for tracking/versioning.
 
 ## Screens
 
@@ -276,7 +284,7 @@ each module to have at least 4 items — see the module-size note below.
 2. Create an `images/<module-id>/` directory with one image per item,
    matching the paths referenced in the JSON.
 3. Add an entry for it to `data/modules.json` (`id`, `name`, `dataFile`,
-   `color`, `icon`).
+   `color`, `icon`, `version` — set `version` to the current timestamp).
 4. No code changes required — Player Select, Module Select, Mode Select,
    and the Flashcard screen are all generic over the manifest and item
    schema.
@@ -338,9 +346,10 @@ while work is still in progress.
 
 Once every item in the plan file has a matching entry in
 `data/<module-id>.json`, add the module's entry to `data/modules.json`
-(`id`, `name`, `dataFile`, `color`, `icon`) — this is the single step that
-makes the module appear on Module Select. The plan file can be deleted at
-that point, or left as a record of what was selected and why.
+(`id`, `name`, `dataFile`, `color`, `icon`, `version` set to the current
+timestamp) — this is the single step that makes the module appear on
+Module Select. The plan file can be deleted at that point, or left as a
+record of what was selected and why.
 
 This mirrors the order in "Adding a new module" above: content and images
 are authored and checked in first, and the manifest is only touched last,
