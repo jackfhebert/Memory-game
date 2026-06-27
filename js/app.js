@@ -18,6 +18,7 @@ const SCREENS = [
 const state = {
   player: null,
   moduleId: null,
+  moduleVersion: null,
   mode: null,
 };
 
@@ -55,6 +56,7 @@ async function goToModuleSelect() {
     tiles,
     onSelectModule: (moduleId) => {
       state.moduleId = moduleId;
+      state.moduleVersion = modules.find((module) => module.id === moduleId).version;
       goToModeSelect(itemsByModuleId.get(moduleId).length);
     },
   });
@@ -77,6 +79,7 @@ async function goToFlashcards() {
   startFlashcardSession(screenContainer("flashcard"), {
     player: state.player,
     moduleId: state.moduleId,
+    moduleVersion: state.moduleVersion,
     items,
     mode: state.mode,
     onExit: goToModuleSelect,

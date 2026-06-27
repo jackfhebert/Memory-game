@@ -46,9 +46,9 @@ test("countKnownItems is 0 when nothing has been answered, even for a popular it
 });
 
 test("buildModuleTiles combines manifest data with per-module progress", () => {
-  recordAnswer("Sam", "continents", "africa", true);
+  recordAnswer("Sam", "continents", "africa", true, undefined, "v1");
   const modules = [
-    { id: "continents", name: "Continents", color: "#4F86C6", icon: "🌍" },
+    { id: "continents", name: "Continents", color: "#4F86C6", icon: "🌍", version: "v1" },
   ];
   const itemsByModuleId = new Map([["continents", ITEMS]]);
   const tiles = buildModuleTiles(modules, itemsByModuleId, "Sam");

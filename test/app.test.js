@@ -4,7 +4,14 @@ import { JSDOM } from "jsdom";
 import { createFakeStorage } from "./helpers/fakeStorage.js";
 
 const MODULES = [
-  { id: "continents", name: "Continents", dataFile: "continents.json", color: "#4F86C6", icon: "🌍" },
+  {
+    id: "continents",
+    name: "Continents",
+    dataFile: "continents.json",
+    color: "#4F86C6",
+    icon: "🌍",
+    version: "2026-06-27T00:00:00Z",
+  },
 ];
 
 const ITEMS = [

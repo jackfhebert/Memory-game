@@ -183,7 +183,10 @@ function buildCard(items, item, rng) {
   return { item, choices, fact };
 }
 
-export function startFlashcardSession(container, { player, moduleId, items, mode, onExit }) {
+export function startFlashcardSession(
+  container,
+  { player, moduleId, moduleVersion, items, mode, onExit },
+) {
   let pool = buildActivePool(items, mode);
   let cardsShown = 0;
 
@@ -195,7 +198,12 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
     const item =
       mode === "all-cards"
         ? pickOrderedOrRandomCard(pool, cardsShown, previousItemId, rng)
-        : pickWeightedCard(pool, previousItemId, getProgress(player, moduleId), rng);
+        : pickWeightedCard(
+            pool,
+            previousItemId,
+            getProgress(player, moduleId, moduleVersion),
+            rng,
+          );
     cardsShown += 1;
     return item;
   }
@@ -213,7 +221,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
   preloadUpcoming();
 
   function buildDebugInfo() {
-    const progress = getProgress(player, moduleId);
+    const progress = getProgress(player, moduleId, moduleVersion);
     const stats = progress.itemStats[card.item.id];
     return {
       popularity: card.item.popularity,
@@ -225,6 +233,7 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
         card.item.id,
         card.item.popularity,
         card.choices.length,
+        moduleVersion,
       ),
     };
   }
@@ -255,13 +264,16 @@ export function startFlashcardSession(container, { player, moduleId, items, mode
     if (!revealed) {
       if (selectedChoiceId === null) return;
       const wasCorrect = selectedChoiceId === card.item.id;
-      const knownCountBefore = countKnownInPool(getProgress(player, moduleId));
+      const knownCountBefore = countKnownInPool(
+        getProgress(player, moduleId, moduleVersion),
+      );
       const progress = recordAnswer(
         player,
         moduleId,
         card.item.id,
         wasCorrect,
         card.item.popularity,
+        moduleVersion,
       );
       if (wasCorrect) {
         correctCount += 1;

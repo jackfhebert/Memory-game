@@ -31,18 +31,30 @@ export function addPlayer(name) {
   return updated;
 }
 
-export function getProgress(player, moduleId) {
+// Stats are recorded against a specific module version (see
+// data/modules.json). A stored version that's missing entirely (predates
+// versioning) or doesn't match the module's current version means the
+// content underneath those stats may have changed, so they're treated as
+// no history rather than risking stale stats against new/changed items.
+function hasCurrentVersion(progress, version) {
+  return typeof progress.version === "string" && progress.version === version;
+}
+
+export function getProgress(player, moduleId, version) {
   const raw = localStorage.getItem(progressKey(player, moduleId));
-  if (!raw) return { itemStats: {}, ability: 0 };
+  if (!raw) return { itemStats: {}, ability: 0, version };
   try {
     const progress = JSON.parse(raw);
     if (!progress || typeof progress !== "object" || !progress.itemStats) {
-      return { itemStats: {}, ability: 0 };
+      return { itemStats: {}, ability: 0, version };
+    }
+    if (!hasCurrentVersion(progress, version)) {
+      return { itemStats: {}, ability: 0, version };
     }
     if (typeof progress.ability !== "number") progress.ability = 0;
     return progress;
   } catch {
-    return { itemStats: {}, ability: 0 };
+    return { itemStats: {}, ability: 0, version };
   }
 }
 
@@ -90,8 +102,8 @@ export function getItemMasteryEstimate(progress, itemId, popularity, numChoices)
   };
 }
 
-export function getMasteryEstimate(player, moduleId, itemId, popularity, numChoices) {
-  const progress = getProgress(player, moduleId);
+export function getMasteryEstimate(player, moduleId, itemId, popularity, numChoices, version) {
+  const progress = getProgress(player, moduleId, version);
   return getItemMasteryEstimate(progress, itemId, popularity, numChoices);
 }
 
@@ -107,8 +119,8 @@ export function isItemMastered(progress, itemId, popularity) {
   return probabilityKnown(progress.ability, itemOffset, popularity) >= MASTERY_KNOWN_THRESHOLD;
 }
 
-export function recordAnswer(player, moduleId, itemId, wasCorrect, popularity) {
-  const progress = getProgress(player, moduleId);
+export function recordAnswer(player, moduleId, itemId, wasCorrect, popularity, version) {
+  const progress = getProgress(player, moduleId, version);
   const existing = progress.itemStats[itemId];
   // Older profiles may have a pre-recency itemStats shape (no `recent`
   // array) - treat that as no history rather than crashing.

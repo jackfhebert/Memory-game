@@ -29,7 +29,7 @@ export function countKnownItems(items, progress) {
 export function buildModuleTiles(modules, itemsByModuleId, player) {
   return modules.map((module) => {
     const items = itemsByModuleId.get(module.id) || [];
-    const progress = getProgress(player, module.id);
+    const progress = getProgress(player, module.id, module.version);
     return {
       id: module.id,
       name: module.name,
