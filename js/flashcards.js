@@ -95,10 +95,16 @@ export function pickFact(item, rng = Math.random) {
   return facts[Math.floor(rng() * facts.length)];
 }
 
+// Triggers expansion a card early (at 1 unknown left, not 0) so a player who
+// just mastered the pool gets a new card immediately instead of seeing the
+// same already-known cards repeat while waiting for the last one to flip.
 function isPoolAlmostKnown(knownCount, poolSize) {
   return poolSize - knownCount <= 1;
 }
 
+// Only expand on the transition into "almost known", not every answer after
+// it, so each mastery milestone adds exactly one card instead of piling on
+// more every time the player answers correctly with one slot already free.
 export function shouldExpandPool(mode, knownCountBefore, knownCountAfter, poolSize) {
   return (
     mode === "active-learning" &&
@@ -143,6 +149,10 @@ export function pickWeightedCard(pool, previousItemId, progress, rng = Math.rand
   const candidates =
     pool.length > 1 ? pool.filter((item) => item.id !== previousItemId) : pool;
   const weighted = buildSelectionProbabilities(candidates, progress);
+  // Walks the weights as cumulative buckets along [0, 1) and returns whichever
+  // item's bucket the roll lands in, so items get picked in proportion to
+  // their weight; the final return is a float-rounding fallback, not a
+  // distinct case.
   const roll = rng();
   let cumulative = 0;
   for (const { item, probability } of weighted) {
