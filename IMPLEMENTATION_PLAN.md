@@ -41,7 +41,8 @@ memory-game/
 │   ├── players.js       # player list, create/select (localStorage)
 │   ├── modules.js        # load manifest + per-module JSON
 │   ├── flashcards.js     # card pool + selection logic
-│   └── storage.js        # localStorage read/write helpers
+│   ├── storage.js        # localStorage read/write helpers
+│   └── effects.js        # celebratory canvas animations (e.g. correct-answer fireworks)
 ├── data/
 │   ├── modules.json       # manifest of available modules
 │   ├── continents.json
@@ -127,6 +128,19 @@ memory-game/
   flip/reveal on answer, and the "Next" / "X" buttons.
 - Calls `storage.recordAnswer(...)` whenever the kid answers, regardless
   of mode.
+- On a correct answer, calls `effects.celebrateCorrectAnswer(...)` with the
+  revealed `.answer-correct` button as the animation's anchor point.
+
+### `js/effects.js`
+
+- Purely decorative canvas animations, currently one: `celebrateCorrectAnswer(anchorElement)`,
+  a brief (~1s) glowing firework burst centered on the answer button, drawn
+  on a `position: fixed`, `pointer-events: none` canvas overlay appended to
+  `document.body` and removed once every particle has faded.
+- Never blocks input or the "Next Question" flow — it's fire-and-forget,
+  with no return value the caller waits on.
+- Degrades to a silent no-op if `canvas.getContext("2d")` is unavailable
+  (e.g. under jsdom in tests), rather than throwing.
 
 ### `js/app.js`
 

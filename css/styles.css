@@ -235,6 +235,16 @@ body {
   color: var(--color-wrong);
 }
 
+.celebration-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
 .debug-panel {
   margin-top: var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);

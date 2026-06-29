@@ -5,6 +5,7 @@ import {
   getMasteryEstimate,
   getItemMasteryEstimate,
 } from "./storage.js";
+import { celebrateCorrectAnswer } from "./effects.js";
 
 export const ACTIVE_LEARNING_POOL_SIZE = 5;
 const DISTRACTOR_COUNT = 3;
@@ -286,6 +287,9 @@ export function startFlashcardSession(
       }
       revealed = true;
       renderCurrentCard();
+      if (wasCorrect) {
+        celebrateCorrectAnswer(container.querySelector(".answer-correct"));
+      }
       return;
     }
 

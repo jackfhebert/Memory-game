@@ -123,7 +123,10 @@ playable end-to-end before any real content review.
       testing.
    3. The kid taps a choice.
    4. **Card flips** to reveal the correct name (highlighted) and whether
-      their tap was right or wrong.
+      their tap was right or wrong. A correct answer also triggers a brief,
+      non-blocking firework-burst animation (`js/effects.js`) centered on
+      the correct-answer button — purely celebratory, never delays the
+      "Next" flow.
    5. Kid taps "Next" to continue.
    6. A running tally stays visible during the session: two labeled,
       colored chips — "⭐ N Correct" and "🔁 N Try Again" — update after
