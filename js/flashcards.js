@@ -163,6 +163,20 @@ export function pickWeightedCard(pool, previousItemId, progress, rng = Math.rand
   return weighted[weighted.length - 1].item;
 }
 
+// Points reward belief shift, not just correctness: an answer that swings
+// P(known) a lot (an unfamiliar item just proven known) is worth more than
+// one that barely moves an already-near-certain item. SCALE is a tunable
+// knob, like K_ABILITY/K_ITEM_OFFSET in storage.js - not a calibrated value.
+const POINTS_SCALE = 100;
+
+export function pointsForAnswer(progressBefore, progressAfter, item, numChoices) {
+  const before = getItemMasteryEstimate(progressBefore, item.id, item.popularity, numChoices)
+    .probability;
+  const after = getItemMasteryEstimate(progressAfter, item.id, item.popularity, numChoices)
+    .probability;
+  return Math.max(1, Math.round((after - before) * POINTS_SCALE));
+}
+
 const PRELOAD_AHEAD = 3;
 
 export function selectPreloadTargets(pool, excludeId, count = PRELOAD_AHEAD, rng = Math.random) {
@@ -186,7 +200,7 @@ function buildCard(items, item, rng) {
 
 export function startFlashcardSession(
   container,
-  { player, moduleId, moduleVersion, items, mode, onExit },
+  { player, moduleId, moduleVersion, items, mode, onExit, onPointsEarned },
 ) {
   let pool = buildActivePool(items, mode);
   let cardsShown = 0;
@@ -214,6 +228,7 @@ export function startFlashcardSession(
   let revealed = false;
   let correctCount = 0;
   let wrongCount = 0;
+  let pointsEarned = 0;
 
   function preloadUpcoming() {
     const targets = selectPreloadTargets(pool, card.item.id);
@@ -248,6 +263,7 @@ export function startFlashcardSession(
       revealed,
       correctCount,
       wrongCount,
+      pointsEarned,
       debugInfo: isDebugPlayer(player) ? buildDebugInfo() : null,
       onSelect,
       onNext,
@@ -265,9 +281,8 @@ export function startFlashcardSession(
     if (!revealed) {
       if (selectedChoiceId === null) return;
       const wasCorrect = selectedChoiceId === card.item.id;
-      const knownCountBefore = countKnownInPool(
-        getProgress(player, moduleId, moduleVersion),
-      );
+      const progressBefore = getProgress(player, moduleId, moduleVersion);
+      const knownCountBefore = countKnownInPool(progressBefore);
       const progress = recordAnswer(
         player,
         moduleId,
@@ -278,8 +293,11 @@ export function startFlashcardSession(
       );
       if (wasCorrect) {
         correctCount += 1;
+        pointsEarned = pointsForAnswer(progressBefore, progress, card.item, card.choices.length);
+        onPointsEarned?.(pointsEarned);
       } else {
         wrongCount += 1;
+        pointsEarned = 0;
       }
       const knownCountAfter = countKnownInPool(progress);
       if (shouldExpandPool(mode, knownCountBefore, knownCountAfter, pool.length)) {
@@ -297,6 +315,7 @@ export function startFlashcardSession(
     preloadUpcoming();
     selectedChoiceId = null;
     revealed = false;
+    pointsEarned = 0;
     renderCurrentCard();
   }
 
@@ -313,6 +332,7 @@ function renderFlashcard(
     revealed,
     correctCount,
     wrongCount,
+    pointsEarned,
     debugInfo,
     onSelect,
     onNext,
@@ -386,6 +406,13 @@ function renderFlashcard(
   wrongChip.className = "score-chip score-chip-wrong";
   wrongChip.textContent = `🔁 ${wrongCount} Try Again`;
   tally.appendChild(wrongChip);
+
+  if (revealed && pointsEarned > 0) {
+    const pointsChip = document.createElement("span");
+    pointsChip.className = "score-chip score-chip-points";
+    pointsChip.textContent = `✨ +${pointsEarned}`;
+    tally.appendChild(pointsChip);
+  }
 
   container.appendChild(tally);
 

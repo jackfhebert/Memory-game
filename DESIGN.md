@@ -131,11 +131,40 @@ playable end-to-end before any real content review.
    6. A running tally stays visible during the session: two labeled,
       colored chips — "⭐ N Correct" and "🔁 N Try Again" — update after
       each answer, giving the kid an at-a-glance sense of how the session's
-      going without it feeling like a test score.
+      going without it feeling like a test score. A correct answer also
+      shows a third "✨ +N" chip with the points earned for that answer (see
+      Session Points below).
 5. This repeats indefinitely, cycling through the active pool. An "X" is
    always visible during Flashcard Mode so the kid can exit back to Module
    Select whenever they're done — there's no separate "finished" state to
    design for.
+
+## Session Points
+
+A separate, cross-module running total — distinct from the per-module
+"⭐ N Correct" tally above — meant for a parent to set a goal against (e.g.
+"play until you hit 50 points"), regardless of which module(s) the kid
+switches between to get there.
+
+- **Points per correct answer** are based on how much that answer moved the
+  mastery model's belief about the item, not a flat amount: `points =
+  max(1, round((P(known)_after - P(known)_before) * 100))`, computed in
+  `js/flashcards.js` (`pointsForAnswer`) from the same `P(known)` estimates
+  the Mastery Model already produces. Correctly answering an item the model
+  was unsure about is worth more than confirming an already-near-certain
+  one; the floor of 1 keeps every correct answer feeling positive even when
+  the move is negligible. A wrong answer earns 0 points (never negative) —
+  consistent with the tally above, this stays encouragement, not a test
+  score.
+- **Tracked across modules**, not reset on a module switch: the running
+  total lives in `js/app.js` (`state.sessionPoints`), accumulated via an
+  `onPointsEarned` callback passed into `startFlashcardSession`. It resets
+  to 0 only when a player is (re)selected at Player Select.
+- **Displayed in two places:** the "✨ +N" chip on the just-answered card
+  (per-answer, in `js/flashcards.js`) and a persistent "⭐ N points" bar
+  fixed to the bottom of the viewport, visible on every screen once a
+  player is chosen (`#session-points-bar` in `index.html`, rendered by
+  `js/app.js`).
 
 ## Mastery Model
 

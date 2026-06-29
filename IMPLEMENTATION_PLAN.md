@@ -130,6 +130,11 @@ memory-game/
   of mode.
 - On a correct answer, calls `effects.celebrateCorrectAnswer(...)` with the
   revealed `.answer-correct` button as the animation's anchor point.
+- On a correct answer, also computes that answer's session points
+  (`pointsForAnswer`, from the before/after `P(known)` shift — see
+  DESIGN.md "Session Points"), shows them in a "✨ +N" chip, and reports
+  them up via the `onPointsEarned` callback passed into
+  `startFlashcardSession`.
 
 ### `js/effects.js`
 
@@ -145,16 +150,22 @@ memory-game/
 ### `js/app.js`
 
 - The entry point loaded by `index.html`.
-- Holds the one piece of shared app state (current player, module, mode)
-  and a `showScreen(name)` function that toggles the `.active` class
-  between the four screen containers.
+- Holds the one piece of shared app state (current player, module, mode,
+  and the cross-module `sessionPoints` running total) and a
+  `showScreen(name)` function that toggles the `.active` class between the
+  four screen containers.
 - Wires the screens together: Player Select's "tile tapped" callback sets
   the player and calls into `modules.js` to render Module Select; Module
   Select's tap renders Mode Select; Mode Select's tap calls into
   `flashcards.js` to start the loop; the flashcard screen's "X" calls back
   into `modules.js` to re-render Module Select.
-- Has no rendering logic of its own beyond this routing — every screen's
-  actual markup is built by the file that owns it.
+- Accumulates `state.sessionPoints` via the `onPointsEarned` callback
+  passed into `startFlashcardSession`, and renders it into the persistent
+  `#session-points-bar` element (visible on every screen once a player is
+  picked, hidden at Player Select). Resets to 0 whenever a player is
+  (re)selected — see DESIGN.md "Session Points".
+- Has no rendering logic of its own beyond this routing/points bar — every
+  screen's actual markup is built by the file that owns it.
 
 ## Module manifest (`data/modules.json`)
 

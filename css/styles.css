@@ -18,9 +18,29 @@
 
 body {
   margin: 0;
+  padding-bottom: 3rem;
   font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
+}
+
+.session-points-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--color-tile-bg);
+  border-top: 2px solid var(--color-tile-border);
+  color: var(--color-primary);
+}
+
+.session-points-bar.active {
+  display: block;
 }
 
 .screen {
@@ -233,6 +253,11 @@ body {
 .score-chip-wrong {
   background: #fbe6e7;
   color: var(--color-wrong);
+}
+
+.score-chip-points {
+  background: #fdf3d9;
+  color: #b8860b;
 }
 
 .celebration-canvas {

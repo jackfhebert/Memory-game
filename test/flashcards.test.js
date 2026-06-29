@@ -14,9 +14,10 @@ import {
   pickWeightedCard,
   selectPreloadTargets,
   isDebugPlayer,
+  pointsForAnswer,
   ANSWER_CHOICE_COUNT,
 } from "../js/flashcards.js";
-import { probabilityCorrect } from "../js/storage.js";
+import { probabilityCorrect, getItemMasteryEstimate } from "../js/storage.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 
 function makeItems(n) {
@@ -242,4 +243,26 @@ test("isDebugPlayer is false for any other player name", () => {
   assert.equal(isDebugPlayer("Sam"), false);
   assert.equal(isDebugPlayer(""), false);
   assert.equal(isDebugPlayer(undefined), false);
+});
+
+test("pointsForAnswer scales with how much the answer moved P(known)", () => {
+  const item = { id: "item-0", popularity: 50 };
+  const progressBefore = { itemStats: {}, ability: 0 };
+  const progressAfter = { itemStats: { "item-0": { itemOffset: 0.5 } }, ability: 0.2 };
+
+  const before = getItemMasteryEstimate(progressBefore, item.id, item.popularity, 4).probability;
+  const after = getItemMasteryEstimate(progressAfter, item.id, item.popularity, 4).probability;
+  const expected = Math.max(1, Math.round((after - before) * 100));
+
+  assert.equal(pointsForAnswer(progressBefore, progressAfter, item, 4), expected);
+  assert.ok(expected > 1); // a coin-flip item moving toward known should clear the floor
+});
+
+test("pointsForAnswer floors at 1 even when the belief shift is negligible", () => {
+  const item = { id: "item-0", popularity: 50 };
+  // Already near-certain, so a correct answer barely moves P(known).
+  const progressBefore = { itemStats: { "item-0": { itemOffset: 10 } }, ability: 0 };
+  const progressAfter = { itemStats: { "item-0": { itemOffset: 10.05 } }, ability: 0.01 };
+
+  assert.equal(pointsForAnswer(progressBefore, progressAfter, item, 4), 1);
 });

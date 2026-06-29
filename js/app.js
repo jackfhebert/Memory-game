@@ -20,6 +20,7 @@ const state = {
   moduleId: null,
   moduleVersion: null,
   mode: null,
+  sessionPoints: 0,
 };
 
 export function showScreen(name) {
@@ -28,16 +29,33 @@ export function showScreen(name) {
     if (!el) return;
     el.classList.toggle("active", screen === name);
   });
+  renderSessionPointsBar();
 }
 
 function screenContainer(name) {
   return document.getElementById(`screen-${name}`);
 }
 
+// Running point total for the current play session, carried across module
+// switches (not just within one flashcard session) - resets only when a
+// player is (re)selected at Player Select. See DESIGN.md "Session Points".
+function renderSessionPointsBar() {
+  const bar = document.getElementById("session-points-bar");
+  if (!bar) return;
+  bar.classList.toggle("active", state.player !== null);
+  bar.textContent = `⭐ ${state.sessionPoints} points`;
+}
+
+function addSessionPoints(points) {
+  state.sessionPoints += points;
+  renderSessionPointsBar();
+}
+
 async function goToPlayerSelect() {
   renderPlayerSelect(screenContainer("player-select"), {
     onSelectPlayer: (player) => {
       state.player = player;
+      state.sessionPoints = 0;
       goToModuleSelect();
     },
   });
@@ -83,6 +101,7 @@ async function goToFlashcards() {
     items,
     mode: state.mode,
     onExit: goToModuleSelect,
+    onPointsEarned: addSessionPoints,
   });
   showScreen("flashcard");
 }
