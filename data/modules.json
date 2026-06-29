@@ -102,5 +102,13 @@
     "color": "#E0A23B",
     "icon": "🌎",
     "version": "2026-06-27T18:03:13Z"
+  },
+  {
+    "id": "us-presidents",
+    "name": "US Presidents",
+    "dataFile": "us-presidents.json",
+    "color": "#3C3B6E",
+    "icon": "🎩",
+    "version": "2026-06-29T00:00:00Z"
   }
 ]

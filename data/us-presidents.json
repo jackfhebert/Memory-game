@@ -1,0 +1,542 @@
+[
+  {
+    "id": "george-washington",
+    "name": "George Washington",
+    "image": "images/us-presidents/george-washington.jpg",
+    "alt": "An oil painting of an older man with white powdered hair, wearing a dark coat against a plain background.",
+    "facts": [
+      "He led an army of ordinary colonists to victory in the war that won independence for a brand-new country.",
+      "He could have stayed in the top job as long as he wanted, but chose to step down after two terms, setting an example future leaders followed for over a century.",
+      "He never got to live in the famous house built for the country's leaders to live and work in — it wasn't finished until after he left office."
+    ],
+    "popularity": 99
+  },
+  {
+    "id": "john-adams",
+    "name": "John Adams",
+    "image": "images/us-presidents/john-adams.jpg",
+    "alt": "An oil painting of a stout man with white hair pulled back, wearing a dark coat and white cravat.",
+    "facts": [
+      "He spent years serving as a diplomat in Europe, helping convince other countries to support the fight for independence.",
+      "He and the man who beat him for a second term became bitter political rivals, then reconciled later in life and wrote each other letters for years.",
+      "He died on the 4th of July, fifty years to the day after a famous document was signed — and so did his old rival, on the very same day."
+    ],
+    "popularity": 75
+  },
+  {
+    "id": "thomas-jefferson",
+    "name": "Thomas Jefferson",
+    "image": "images/us-presidents/thomas-jefferson.jpg",
+    "alt": "An oil painting of a man with reddish hair swept back, wearing a dark coat in front of a warm brown background.",
+    "facts": [
+      "He wrote the document that explained why a group of colonies wanted to break away and govern themselves.",
+      "He roughly doubled the size of the young country by purchasing a huge stretch of land from France.",
+      "He designed his own mountaintop home and filled it with inventions and gadgets he tinkered with himself."
+    ],
+    "popularity": 90
+  },
+  {
+    "id": "james-madison",
+    "name": "James Madison",
+    "image": "images/us-presidents/james-madison.jpg",
+    "alt": "An oil painting of a small, slender man with white hair, wearing a dark coat in front of a deep red curtain.",
+    "facts": [
+      "He's remembered as the main architect behind the country's founding rulebook, helping write much of it himself.",
+      "He was the shortest and lightest person to ever hold the job, reportedly standing only about 5 foot 4.",
+      "During a war with Britain, enemy troops set fire to the home where he worked and lived, and his wife famously saved a painting of an earlier leader before fleeing."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "james-monroe",
+    "name": "James Monroe",
+    "image": "images/us-presidents/james-monroe.jpg",
+    "alt": "An oil painting of a man with gray hair brushed back, wearing a dark coat against a muted brown background.",
+    "facts": [
+      "His time in office became known for such political calm that historians later nicknamed it after good feelings.",
+      "He issued a famous warning telling European powers to stay out of the Americas, a stance that shaped foreign policy for generations.",
+      "He was the last one of these leaders to have fought in the war for independence as a young soldier, and was wounded in an early battle."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "john-quincy-adams",
+    "name": "John Quincy Adams",
+    "image": "images/us-presidents/john-quincy-adams.jpg",
+    "alt": "A portrait of a balding man with graying hair, wearing a dark coat and white collar.",
+    "facts": [
+      "His father had held the very same job decades earlier, making them the first father-and-son pair to do so.",
+      "After losing his bid for a second term, he spent nearly two decades representing his district in the House, the only one of these leaders to do that.",
+      "He argued a case before the country's highest court that helped a group of freed, kidnapped Africans win their freedom."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "andrew-jackson",
+    "name": "Andrew Jackson",
+    "image": "images/us-presidents/andrew-jackson.jpg",
+    "alt": "An oil painting of a sharp-featured man with thick white hair, wearing a dark coat with a red collar.",
+    "facts": [
+      "He survived a duel years earlier with a bullet lodged near his heart that doctors never removed.",
+      "He was the first one of these leaders to have been born in a log cabin rather than wealth and privilege.",
+      "An assassin's pistols both misfired when aimed at him at close range, and he reportedly fought back by beating the man with his cane."
+    ],
+    "popularity": 65
+  },
+  {
+    "id": "martin-van-buren",
+    "name": "Martin Van Buren",
+    "image": "images/us-presidents/martin-van-buren.jpg",
+    "alt": "An oil painting of a balding man with light, wispy hair, dressed in formal dark clothing.",
+    "facts": [
+      "He was the first one of these leaders who had been born a citizen of the new country rather than a subject of Britain.",
+      "He helped build one of the country's first major political parties, organizing it almost like a modern campaign machine.",
+      "Growing up in a small New York town, his first language at home was Dutch, not English."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "william-henry-harrison",
+    "name": "William Henry Harrison",
+    "image": "images/us-presidents/william-henry-harrison.jpg",
+    "alt": "An oil painting of an older man with gray hair, wearing a dark coat and high collar.",
+    "facts": [
+      "He served the shortest time in the job of anyone who's ever held it — about a month.",
+      "He gave the longest inaugural speech in the country's history, over two hours long, outdoors in cold, wet weather.",
+      "He first became famous as a general, winning a battle named after a river that became his lifelong nickname."
+    ],
+    "popularity": 28
+  },
+  {
+    "id": "john-tyler",
+    "name": "John Tyler",
+    "image": "images/us-presidents/john-tyler.jpg",
+    "alt": "A portrait of a slim man with light, swept-back hair, wearing a dark coat and bow tie.",
+    "facts": [
+      "He suddenly took over the top job after his predecessor died just a month into the term, the first time that had ever happened.",
+      "He had more children than anyone who's held the position — fifteen in total, from two marriages.",
+      "Decades after leaving office, he sided with a breakaway group of states and was elected to their legislature, though he died before he could take his seat."
+    ],
+    "popularity": 25
+  },
+  {
+    "id": "james-k-polk",
+    "name": "James K. Polk",
+    "image": "images/us-presidents/james-k-polk.jpg",
+    "alt": "An old black-and-white photo of a serious-looking man with hair swept back, wearing a dark coat.",
+    "facts": [
+      "He promised voters he'd serve only one term, and then he actually kept that promise and retired.",
+      "During his four years in office, the country's territory grew by roughly a third, including a stretch of the Pacific coast.",
+      "He worked so relentlessly at his desk that he rarely took vacations, and historians think it wore down his health badly — he died just months after leaving office."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "zachary-taylor",
+    "name": "Zachary Taylor",
+    "image": "images/us-presidents/zachary-taylor.jpg",
+    "alt": "An old photograph of a weathered-looking older man with short hair, dressed in dark formal clothing.",
+    "facts": [
+      "He was a career military general, nicknamed for being tough as old wood, before he ever ran for the top office.",
+      "He had never even voted in a presidential election before he was elected to the job himself.",
+      "He died suddenly of a stomach illness after just sixteen months in office."
+    ],
+    "popularity": 28
+  },
+  {
+    "id": "millard-fillmore",
+    "name": "Millard Fillmore",
+    "image": "images/us-presidents/millard-fillmore.jpg",
+    "alt": "A black-and-white photo of a clean-shaven man with neat hair, wearing a dark coat and high collar.",
+    "facts": [
+      "He grew up so poor that he was apprenticed to a cloth-maker as a teenager before teaching himself law.",
+      "During his term, the country opened up trade with an island nation that had kept its ports closed to the West for centuries.",
+      "He later turned down an honorary degree from a famous English university, joking he hadn't had the classical schooling to deserve it."
+    ],
+    "popularity": 18
+  },
+  {
+    "id": "franklin-pierce",
+    "name": "Franklin Pierce",
+    "image": "images/us-presidents/franklin-pierce.jpg",
+    "alt": "A black-and-white photo of a clean-shaven man with wavy dark hair, gazing slightly to the side.",
+    "facts": [
+      "Weeks before he took office, he survived a train derailment that killed his young son right in front of him.",
+      "He was a war hero who, despite a painful injury, refused to leave his troops on the battlefield.",
+      "His personal struggles with grief and heavy drinking are now widely seen by historians as having overshadowed his time in office."
+    ],
+    "popularity": 14
+  },
+  {
+    "id": "james-buchanan",
+    "name": "James Buchanan",
+    "image": "images/us-presidents/james-buchanan.jpg",
+    "alt": "A black-and-white photo of an older man with white hair and a high white collar.",
+    "facts": [
+      "He remains the only one of these leaders to never marry.",
+      "One of his eyes saw close-up well and the other was better for distance, so he developed a habit of tilting his head depending on what he looked at.",
+      "He watched the country splinter apart during his final months in office and openly admitted he didn't know how to stop it."
+    ],
+    "popularity": 16
+  },
+  {
+    "id": "abraham-lincoln",
+    "name": "Abraham Lincoln",
+    "image": "images/us-presidents/abraham-lincoln.jpg",
+    "alt": "A black-and-white photo of a tall, gaunt man with a distinctive beard along his jawline.",
+    "facts": [
+      "He taught himself law and grammar largely by reading borrowed books late at night by candlelight.",
+      "He led the country through its bloodiest war and issued an order that began freeing millions of enslaved people.",
+      "He was the first one of these leaders to be assassinated, shot at a theater just days after the war finally ended."
+    ],
+    "popularity": 99
+  },
+  {
+    "id": "andrew-johnson",
+    "name": "Andrew Johnson",
+    "image": "images/us-presidents/andrew-johnson.jpg",
+    "alt": "A black-and-white photo of a clean-shaven man with dark hair, wearing a dark coat and bow tie.",
+    "facts": [
+      "He never attended school a single day in his life and taught himself to read as a young tailor's apprentice.",
+      "He became the first one of these leaders to be impeached, though the Senate fell one vote short of removing him.",
+      "He returned to government years after leaving office, becoming the only former one of these leaders to later serve in the Senate."
+    ],
+    "popularity": 26
+  },
+  {
+    "id": "ulysses-s-grant",
+    "name": "Ulysses S. Grant",
+    "image": "images/us-presidents/ulysses-s-grant.jpg",
+    "alt": "A black-and-white photo of a bearded man in a dark coat, looking directly at the camera.",
+    "facts": [
+      "He commanded the winning side's armies in a brutal civil war before he ever held political office.",
+      "After leaving office, he traveled around the entire world for over two years, drawing huge crowds wherever he went.",
+      "Dying of cancer, he raced to finish writing his memoirs, completing them just days before he died."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "rutherford-b-hayes",
+    "name": "Rutherford B. Hayes",
+    "image": "images/us-presidents/rutherford-b-hayes.jpg",
+    "alt": "A sepia-toned photo of an older man with a long, full beard.",
+    "facts": [
+      "He won an incredibly disputed election that had to be settled by a special commission instead of a normal vote count.",
+      "He promised ahead of time to serve only one term, and he stuck to that promise.",
+      "At his wife's request, alcohol was banned from formal dinners at the place where he lived and worked."
+    ],
+    "popularity": 22
+  },
+  {
+    "id": "james-a-garfield",
+    "name": "James A. Garfield",
+    "image": "images/us-presidents/james-a-garfield.jpg",
+    "alt": "A black-and-white photo of a bearded man resting his hand near his chin.",
+    "facts": [
+      "He's the only one of these leaders to have also worked as a college president before entering politics.",
+      "He partly paid his own way through college by working as the school's janitor and bell-ringer.",
+      "He was shot by a disappointed office-seeker just months into his term and suffered for weeks before dying from the wound."
+    ],
+    "popularity": 20
+  },
+  {
+    "id": "chester-a-arthur",
+    "name": "Chester A. Arthur",
+    "image": "images/us-presidents/chester-a-arthur.jpg",
+    "alt": "A sepia-toned photo of a mustached man with neatly combed hair, dressed sharply.",
+    "facts": [
+      "He was a fairly obscure party insider before suddenly being thrust into the top job after a shocking assassination.",
+      "Surprising his own old political allies, he championed a law that overhauled how government jobs were handed out, weakening the favor-trading system that had helped his own career.",
+      "He was such a snappy dresser that he reportedly owned more than 80 pairs of trousers and changed outfits several times a day."
+    ],
+    "popularity": 14
+  },
+  {
+    "id": "grover-cleveland",
+    "name": "Grover Cleveland",
+    "image": "images/us-presidents/grover-cleveland.jpg",
+    "alt": "A black-and-white photo of a heavyset man with a thick mustache.",
+    "facts": [
+      "He's one of only two of these leaders to serve two terms that weren't back-to-back, leaving office and then winning again four years later.",
+      "He got married in the very house where he lived and worked, the only wedding of its kind ever held there.",
+      "He secretly had surgery on a friend's yacht to remove a tumor from his mouth, keeping it hidden from the public for decades."
+    ],
+    "popularity": 26
+  },
+  {
+    "id": "benjamin-harrison",
+    "name": "Benjamin Harrison",
+    "image": "images/us-presidents/benjamin-harrison.jpg",
+    "alt": "A black-and-white photo of an older man with a short, full beard.",
+    "facts": [
+      "He was the grandson of another man who had briefly held the very same job decades earlier.",
+      "Electric lighting was installed in the place he lived and worked for the first time during his term, though he and his family were reportedly nervous about touching the switches.",
+      "He lost his bid for a second term to the very same opponent he had defeated four years earlier."
+    ],
+    "popularity": 19
+  },
+  {
+    "id": "william-mckinley",
+    "name": "William McKinley",
+    "image": "images/us-presidents/william-mckinley.jpg",
+    "alt": "A black-and-white photo of a clean-shaven man with thinning hair, wearing a dark formal coat.",
+    "facts": [
+      "He was the first one of these leaders to campaign by telephone, fielding calls from his own front porch instead of touring the country.",
+      "He carried a red flower as a personal good-luck charm and had just given it away to a young girl moments before he was shot.",
+      "He was shot by an anarchist while greeting a long line of well-wishers at a public fair."
+    ],
+    "popularity": 30
+  },
+  {
+    "id": "theodore-roosevelt",
+    "name": "Theodore Roosevelt",
+    "image": "images/us-presidents/theodore-roosevelt.jpg",
+    "alt": "A black-and-white photo of a mustached man wearing round spectacles.",
+    "facts": [
+      "He became the youngest person ever to hold the top job after a sudden assassination put him in charge at just 42.",
+      "An avid outdoorsman, he helped create the country's national park system and once survived a shooting during a campaign speech, then finished the speech anyway with the bullet still in his chest.",
+      "He won a major international peace prize for helping end a war between two other countries."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "william-howard-taft",
+    "name": "William Howard Taft",
+    "image": "images/us-presidents/william-howard-taft.jpg",
+    "alt": "A sepia-toned photo of a large, mustached man dressed in formal attire.",
+    "facts": [
+      "He's the only one of these leaders to later go on to lead the country's highest court after his time as its top political leader.",
+      "He was large enough that a specially built, oversized bathtub — big enough for four average-sized men — was installed for him where he lived and worked.",
+      "He started the tradition of throwing out the first ceremonial pitch at a baseball game."
+    ],
+    "popularity": 24
+  },
+  {
+    "id": "woodrow-wilson",
+    "name": "Woodrow Wilson",
+    "image": "images/us-presidents/woodrow-wilson.jpg",
+    "alt": "A black-and-white photo of a thin-faced man wearing wire-rimmed glasses.",
+    "facts": [
+      "He led the country through a major world war and helped design an international organization meant to prevent future ones.",
+      "He suffered a severe stroke in office that left him partly paralyzed, and his wife secretly helped manage many of his duties afterward.",
+      "Before politics, he was a university president, and he remains the only one of these leaders to also hold a doctorate degree."
+    ],
+    "popularity": 40
+  },
+  {
+    "id": "warren-g-harding",
+    "name": "Warren G. Harding",
+    "image": "images/us-presidents/warren-g-harding.jpg",
+    "alt": "A formal portrait photo of a silver-haired man with a strong jaw, dressed in a dark suit.",
+    "facts": [
+      "He promised a return to simpler, calmer times after a difficult world war, using a catchy slogan about getting back to normal.",
+      "He died suddenly of a heart attack while still in office, during a long cross-country speaking trip.",
+      "Scandals involving corrupt associates in his administration came to light only after his death, badly damaging his reputation."
+    ],
+    "popularity": 22
+  },
+  {
+    "id": "calvin-coolidge",
+    "name": "Calvin Coolidge",
+    "image": "images/us-presidents/calvin-coolidge.jpg",
+    "alt": "A black-and-white photo of a thin-faced man with neatly parted hair, looking off to the side.",
+    "facts": [
+      "He earned a famous nickname for being a man of remarkably few words, even at his own dinner parties.",
+      "He was sworn in by his own father, a small-town notary public, by lamplight in their family farmhouse after his predecessor died suddenly.",
+      "He kept a pet raccoon and several other animals as part of a small menagerie at the place he lived and worked."
+    ],
+    "popularity": 24
+  },
+  {
+    "id": "herbert-hoover",
+    "name": "Herbert Hoover",
+    "image": "images/us-presidents/herbert-hoover.jpg",
+    "alt": "A black-and-white photo of a round-faced man in a dark suit and tie.",
+    "facts": [
+      "Before entering politics, he made a fortune as a mining engineer working on projects around the world.",
+      "He took office just months before a massive stock market crash plunged the country into its worst economic crisis.",
+      "Years earlier, he had organized huge international relief efforts that fed millions of starving people in Europe after a world war."
+    ],
+    "popularity": 26
+  },
+  {
+    "id": "franklin-d-roosevelt",
+    "name": "Franklin D. Roosevelt",
+    "image": "images/us-presidents/franklin-d-roosevelt.jpg",
+    "alt": "A black-and-white photo of a silver-haired man in a dark suit, looking slightly upward with a determined expression.",
+    "facts": [
+      "He's the only one of these leaders ever elected to the job four separate times.",
+      "He lost the use of his legs to a paralyzing illness years before taking office, but rarely let the public see him using a wheelchair.",
+      "He led the country through both its worst economic crisis and a second world war, working from the same desk through both."
+    ],
+    "popularity": 85
+  },
+  {
+    "id": "harry-s-truman",
+    "name": "Harry S. Truman",
+    "image": "images/us-presidents/harry-s-truman.jpg",
+    "alt": "A color portrait of a silver-haired man wearing glasses and a dark suit.",
+    "facts": [
+      "He had no college degree, unlike most who've held the job, and once ran a men's clothing store before entering politics.",
+      "He had to make the decision to use a devastating new weapon to help end a world war.",
+      "He kept a sign on his desk reminding everyone that responsibility for the toughest decisions stopped with him."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "dwight-d-eisenhower",
+    "name": "Dwight D. Eisenhower",
+    "image": "images/us-presidents/dwight-d-eisenhower.jpg",
+    "alt": "A color photo of a balding older man with a broad smile, wearing a dark suit.",
+    "facts": [
+      "He commanded the allied forces that stormed the beaches of Europe to help defeat a wartime enemy.",
+      "On his way out of office, he famously warned about the dangers of letting military spending grow too powerful and unchecked.",
+      "He helped start construction of the country's massive highway system, partly inspired by road networks he'd seen used by his old wartime rivals."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "john-f-kennedy",
+    "name": "John F. Kennedy",
+    "image": "images/us-presidents/john-f-kennedy.jpg",
+    "alt": "A color photo of a young, dark-haired man smiling, dressed in a dark suit.",
+    "facts": [
+      "He's the youngest person ever elected to the job, and also one of the youngest to die in it.",
+      "He challenged the country to land people on the moon before the end of the decade, even though the technology to do it didn't exist yet.",
+      "He was assassinated while riding in a parade through a Texas city, an event watched and replayed on television by millions."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "lyndon-b-johnson",
+    "name": "Lyndon B. Johnson",
+    "image": "images/us-presidents/lyndon-b-johnson.jpg",
+    "alt": "A black-and-white photo of a tall man with large ears, wearing a dark suit.",
+    "facts": [
+      "He took the oath of office aboard an airplane just hours after his predecessor was assassinated.",
+      "He pushed through sweeping laws banning racial discrimination, even though he knew it would cost his political party support in parts of the country.",
+      "He chose not to run for another term while an unpopular war overseas dragged on and divided the country."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "richard-nixon",
+    "name": "Richard Nixon",
+    "image": "images/us-presidents/richard-nixon.jpg",
+    "alt": "A color portrait of a dark-haired man with a serious expression, standing in front of a flag.",
+    "facts": [
+      "He resigned from the job rather than face near-certain removal after a break-in scandal traced back to his own re-election team.",
+      "He's the only one of these leaders to resign from the job before finishing his term.",
+      "He opened formal relations with a huge country that had been isolated from the West for decades, surprising much of the world."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "gerald-ford",
+    "name": "Gerald Ford",
+    "image": "images/us-presidents/gerald-ford.jpg",
+    "alt": "A color photo of a silver-haired man smiling in front of a flag and an eagle emblem.",
+    "facts": [
+      "He's the only one of these leaders never elected to either the top job or the second-in-command role, rising to the top spot through resignations rather than a vote.",
+      "He had been such a talented college football player that professional teams tried to recruit him.",
+      "He pardoned his disgraced predecessor just a month into his own term, a controversial move that may have cost him the next election."
+    ],
+    "popularity": 32
+  },
+  {
+    "id": "jimmy-carter",
+    "name": "Jimmy Carter",
+    "image": "images/us-presidents/jimmy-carter.jpg",
+    "alt": "A color photo of a smiling, light-haired man standing in front of striped flags.",
+    "facts": [
+      "Before politics, he ran his family's peanut farm in a small Georgia town.",
+      "He brokered a historic peace agreement between two longtime rival nations in the Middle East, hosting marathon talks at a presidential retreat.",
+      "After leaving office, he spent decades building houses for families in need and later won a global peace prize for his humanitarian work."
+    ],
+    "popularity": 50
+  },
+  {
+    "id": "ronald-reagan",
+    "name": "Ronald Reagan",
+    "image": "images/us-presidents/ronald-reagan.jpg",
+    "alt": "A color portrait of a dark-haired older man smiling gently in front of a flag.",
+    "facts": [
+      "He spent years as a Hollywood actor before turning to politics, eventually leading a major actors' union.",
+      "He survived being shot just months into his first term and reportedly joked with doctors right before surgery.",
+      "When he was first elected, he was the oldest person yet to win the job, leaving office in his late 70s."
+    ],
+    "popularity": 70
+  },
+  {
+    "id": "george-h-w-bush",
+    "name": "George H. W. Bush",
+    "image": "images/us-presidents/george-h-w-bush.jpg",
+    "alt": "A color photo of a silver-haired man smiling broadly in a dark suit.",
+    "facts": [
+      "He flew dozens of combat missions as a Navy pilot in World War II and was shot down once over the Pacific.",
+      "He led the country's main intelligence agency before ever becoming its top political leader.",
+      "His son went on to hold the very same job decades later, making them only the second father-and-son pair in the country's history to do so."
+    ],
+    "popularity": 45
+  },
+  {
+    "id": "bill-clinton",
+    "name": "Bill Clinton",
+    "image": "images/us-presidents/bill-clinton.jpg",
+    "alt": "A color photo of a gray-haired man smiling widely in front of a flag and bookshelves.",
+    "facts": [
+      "He became just the second one of these leaders to be impeached, though, like the first, he was not removed from office.",
+      "The federal budget was balanced for the first time in decades during his time in office.",
+      "He played the saxophone on a late-night talk show during his first campaign, surprising audiences with his musical side."
+    ],
+    "popularity": 60
+  },
+  {
+    "id": "george-w-bush",
+    "name": "George W. Bush",
+    "image": "images/us-presidents/george-w-bush.jpg",
+    "alt": "A color photo of a smiling man with short hair, standing in front of a flag.",
+    "facts": [
+      "He was in office during a devastating terrorist attack on the country that reshaped American foreign policy for years.",
+      "He owned part of a Major League Baseball team before entering politics full time.",
+      "He's the second son of a former office-holder to win the very same job his father once held."
+    ],
+    "popularity": 55
+  },
+  {
+    "id": "barack-obama",
+    "name": "Barack Obama",
+    "image": "images/us-presidents/barack-obama.jpg",
+    "alt": "A color photo of a smiling man with short dark hair, standing in front of flags and curtains.",
+    "facts": [
+      "He became the first Black person elected to lead the country.",
+      "He worked as a community organizer in Chicago before going into law and politics.",
+      "He won a major international peace prize less than a year into his first term, before most of his policies had even taken effect."
+    ],
+    "popularity": 80
+  },
+  {
+    "id": "donald-trump",
+    "name": "Donald Trump",
+    "image": "images/us-presidents/donald-trump.jpg",
+    "alt": "A color photo of a man with distinctive light-colored hair, wearing a dark suit and tie.",
+    "facts": [
+      "Before politics, he spent decades as a real estate developer and hosted a reality television show about business competitions.",
+      "He left office, then later won election again four years afterward — only one earlier leader in the country's history had also pulled that off.",
+      "He was sworn in as the oldest person yet to take the oath for this job, and survived an assassination attempt at an outdoor rally just months earlier."
+    ],
+    "popularity": 88
+  },
+  {
+    "id": "joe-biden",
+    "name": "Joe Biden",
+    "image": "images/us-presidents/joe-biden.jpg",
+    "alt": "A color photo of a smiling white-haired man in a dark suit, standing in front of a flag.",
+    "facts": [
+      "He served for decades as a senator before spending eight years as second-in-command to his predecessor.",
+      "When he first took the oath of office, he was the oldest person yet to do so, at 78 — a record broken by the very next person to hold the job.",
+      "He overcame a childhood stutter that he's spoken openly about throughout his career."
+    ],
+    "popularity": 65
+  }
+]
