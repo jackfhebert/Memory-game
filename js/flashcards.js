@@ -169,10 +169,16 @@ export function pickWeightedCard(pool, previousItemId, progress, rng = Math.rand
 // knob, like K_ABILITY/K_ITEM_OFFSET in storage.js - not a calibrated value.
 const POINTS_SCALE = 100;
 
+// Use a neutral popularity so points reflect only the player's accumulated
+// evidence (ability + itemOffset), not the item's popularity prior. Without
+// this, high-popularity items start with P(known)≈1 and every answer earns
+// the minimum 1 point regardless of actual learning.
+const SCORING_NEUTRAL_POPULARITY = 50;
+
 export function pointsForAnswer(progressBefore, progressAfter, item, numChoices) {
-  const before = getItemMasteryEstimate(progressBefore, item.id, item.popularity, numChoices)
+  const before = getItemMasteryEstimate(progressBefore, item.id, SCORING_NEUTRAL_POPULARITY, numChoices)
     .probability;
-  const after = getItemMasteryEstimate(progressAfter, item.id, item.popularity, numChoices)
+  const after = getItemMasteryEstimate(progressAfter, item.id, SCORING_NEUTRAL_POPULARITY, numChoices)
     .probability;
   return Math.max(1, Math.round((after - before) * POINTS_SCALE));
 }
