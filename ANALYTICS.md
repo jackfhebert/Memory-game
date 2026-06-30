@@ -237,3 +237,23 @@ Either way, the static site's `Dockerfile`/nginx config doesn't change.
   with no build step, so it can't be injected at build time the way a bundler would;
   a plain exported `const ANALYTICS_ENDPOINT = "https://..."` is consistent with how
   the rest of the codebase already hardcodes things like `POINTS_SCALE`).
+- `PRODUCTION_HOSTNAME` — `js/analytics.js` only sends events when
+  `location.hostname` matches this constant. This is what keeps CI and local
+  dev from polluting the real dataset (see "CI safety" below) without needing
+  an env var or build step to distinguish environments.
+
+### CI safety
+
+`test/browser/click-and-render.mjs` (the real-rendering browser check, see
+TESTING.md) clicks through a real answer, hitting the same `onNext()` code
+path in `js/flashcards.js` that production traffic uses. That check runs in
+GitHub Actions, which has normal network access, and serves the app on
+`127.0.0.1` — so without a guard, every CI run would submit a real (if
+synthetic) answer to the live `answers`/`rate_limits` collections.
+
+`recordAnswerEvent` avoids this by checking `location.hostname ===
+PRODUCTION_HOSTNAME` before doing anything else — no UUID lookup, no token
+fetch, no network call. CI (`127.0.0.1`) and local dev (`localhost` or a
+LAN IP) both fail that check and silently no-op, the same way a dropped
+answer does. This needs no env var or build-time substitution, so it works
+for a static site with no build step.

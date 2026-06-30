@@ -40,7 +40,7 @@ async function setUpApp() {
   globalThis.window = dom.window;
 
   // Cache-bust so each test gets a fresh module instance (and re-runs init()).
-  await import(`../js/app.js?t=${Date.now()}-${Math.random()}`);
+  await import(`../js/app.v2.js?t=${Date.now()}-${Math.random()}`);
   // Let the player-select screen's initial render (a microtask chain) settle.
   await new Promise((resolve) => setTimeout(resolve, 0));
   return dom;
@@ -50,7 +50,7 @@ function activeScreen(dom) {
   return dom.window.document.querySelector(".screen.active").id;
 }
 
-test("app.js: player select -> module select -> mode select -> flashcard -> exit", async () => {
+test("app.v2.js: player select -> module select -> mode select -> flashcard -> exit", async () => {
   const dom = await setUpApp();
   const { document } = dom.window;
 
