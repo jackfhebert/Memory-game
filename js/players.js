@@ -26,6 +26,11 @@ export function renderPlayerSelect(container, { onSelectPlayer }) {
   grid.appendChild(addButton);
 
   container.appendChild(grid);
+
+  const version = document.createElement("p");
+  version.className = "app-version";
+  version.textContent = "v1.0.0";
+  container.appendChild(version);
 }
 
 function renderAddPlayerForm(grid, addButton, { onSelectPlayer }) {
