@@ -1,0 +1,14 @@
+{
+  "name": "memory-game-analytics",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Backend for Memory Game answer-event analytics. See ../ANALYTICS.md.",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.11.0"
+  }
+}
