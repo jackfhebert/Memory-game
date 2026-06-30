@@ -69,8 +69,24 @@ with its UUID. The server returns a short-lived HMAC token:
 token = HMAC-SHA256(uuid + ":" + date_utc, SERVER_SECRET)
 ```
 
-The client caches `{ token, date }` in localStorage. It re-fetches only when the stored
-date no longer matches today.
+**Expiry is pinned to midnight UTC, not 24 hours after issuance.** Because `date_utc` is
+the calendar date (e.g. `2026-06-30`), the token is only ever valid for that one UTC day —
+a token issued at 11:58 PM UTC expires two minutes later, while one issued just after
+midnight is good for nearly 24 hours. This is intentional: it keeps the token's validity
+window identical to the rate-limit counter's window (see `rate_limits` below), so the two
+always reset together. The slightly uneven window length is harmless for a kids' game.
+
+**Renewal is lazy, not proactive.** The client caches `{ token, date }` in localStorage
+(`memorygame:analytics_token`, `memorygame:analytics_token_date`). Before every answer
+submission, it compares the cached `date` to today's UTC date:
+
+- **Match** → reuse the cached token, no network call.
+- **Mismatch** (first answer after midnight, or first-ever use) → call
+  `POST /analytics/token` to fetch a fresh token, cache it with today's date, then proceed.
+
+There's no timer or background refresh — the check happens inline as part of submitting
+an answer, so a device that's idle over midnight does nothing until the player answers
+another card.
 
 **Answer submission.** Every answer event is sent to `POST /analytics/answer` with the
 token. The server:
@@ -137,56 +153,87 @@ attempt-0 answers per card).
 
 ## Code to Write
 
-### 1. `js/analytics.js` (new client module)
+### New files
 
-Responsibilities:
+| File | Purpose |
+|---|---|
+| `js/analytics.js` | Client module — identity, token cache, attempt counting, `recordAnswerEvent()` |
+| `test/analytics.test.js` | Unit tests for the client module (mocking `fetch` and localStorage, same pattern as `test/storage.test.js`) |
+| `server/index.js` (or `functions/analytics/index.js`) | Backend handler — see below for which platform |
+| `server/package.json` | Backend's own dependencies (`firebase-admin` or `@google-cloud/firestore`), separate from the static-site `package.json` |
+| `firestore.rules` | Security rules: deny all client reads/writes |
+| `firestore.indexes.json` | Only needed once popularity re-estimation queries by `module_id`+`module_version`+`card_id` — not required for this phase |
+
+### Modified files
+
+| File | Change |
+|---|---|
+| `js/flashcards.js` | In `onNext()`, call `recordAnswerEvent(moduleId, moduleVersion, card.item.id, wasCorrect)` alongside the existing `recordAnswer()` call. Fire-and-forget — no change to control flow or return values. |
+| `Dockerfile` | Unchanged if the backend is a separate Cloud Run service/Cloud Function. If folded into the same nginx container, would need an nginx `location` proxy block — **not recommended**, see "Deployment shape" below. |
+
+### `js/analytics.js` responsibilities
+
 - Read or generate the anonymous UUID from `memorygame:analytics_id` in localStorage.
-- Fetch and cache the daily HMAC token from the backend (`POST /analytics/token`).
-  Cache as `memorygame:analytics_token` + `memorygame:analytics_token_date`; re-fetch
-  when the stored date != today (UTC).
+- Fetch and cache the daily HMAC token per the renewal rules above.
 - Track per-card attempt counts locally in localStorage
-  (`memorygame:attempt_counts:{moduleId}:{moduleVersion}`) so that `attempt_number` can
-  be computed client-side before submitting.
+  (`memorygame:attempt_counts:{moduleId}:{moduleVersion}`) so `attempt_number` can be
+  computed client-side before submitting, then incremented after a successful submit.
 - Export a single function:
   ```js
   recordAnswerEvent(moduleId, moduleVersion, cardId, correct)
   ```
-  This is **fire-and-forget**: it never throws, never awaits user interaction, and any
-  network or server error is swallowed silently.
+  Fire-and-forget: never throws, never awaited by the caller, swallows all network/server
+  errors internally.
 
-### 2. Integration in `js/flashcards.js`
+### Backend handler
 
-Call `recordAnswerEvent(...)` in `onNext()` alongside the existing `recordAnswer()` call.
-No changes to the return value or control flow — analytics is purely a side effect.
-
-### 3. Backend handler
-
-A single Cloud Run service (or Cloud Function) with two endpoints:
+Two endpoints, regardless of hosting platform (see below):
 
 **`POST /analytics/token`**
 - Body: `{ user_id: string }`
-- Generates and returns `{ token: string }` — the HMAC for today.
-- No Firestore writes; purely computational.
-- Should be callable by any origin (CORS open).
+- Returns `{ token: string }` — today's HMAC for that UUID.
+- No Firestore access; purely computational.
+- CORS: open (any origin can request a token; tokens are useless without also passing
+  rate limiting on `/analytics/answer`).
 
 **`POST /analytics/answer`**
 - Body: `{ user_id, token, module_id, module_version, card_id, correct, attempt_number }`
-- Validates the HMAC token.
-- Reads/increments the rate-limit counter in `rate_limits`.
-- On success, writes to `answers` with a server-set timestamp.
-- Always returns 200 (rate-limited or invalid submissions are silently dropped).
+- Validates the HMAC token against today's UTC date.
+- Reads/increments the day's counter in `rate_limits/{user_id}:{date}` (Firestore
+  transaction or `FieldValue.increment`).
+- On success, writes one document to `answers` with `timestamp: FieldValue.serverTimestamp()`.
+- Always responds `200` — rate-limited and invalid-token cases drop silently.
 
-### 4. Firestore setup
+### Deployment shape — decision needed
 
-- Enable Firestore in Native mode on the existing GCP project.
-- Security rules: deny all client-side reads and writes; only the backend service account
-  has write access.
-- Enable TTL on `rate_limits.expires` to auto-delete old counters.
+The existing app is a single nginx-on-Cloud-Run static file server (see `Dockerfile`).
+Two ways to add the backend:
 
-### 5. Infrastructure / config
+1. **New, separate Cloud Run service** (recommended) — a small Node/Express (or plain
+   `http`) server deployed independently, e.g. `memory-game-analytics`. Keeps the static
+   site simple and lets the backend scale/redeploy independently. The client calls its
+   full URL directly (CORS, not same-origin).
+2. **Cloud Functions (2nd gen)** — same effective behavior as #1 but no Dockerfile/server
+   process to manage, billed per-invocation. Simpler for a low-traffic kids' game.
 
-- `SERVER_SECRET`: stored as a Cloud Run/Cloud Function environment secret (not in source).
-- `DAILY_LIMIT`: configurable env var, default 500.
-- CORS: backend should allow requests from the game's origin only in production.
-- The backend URL needs to be baked into the client (env var at build time, or a
-  hardcoded constant in `analytics.js`).
+Either way, the static site's `Dockerfile`/nginx config doesn't change.
+
+### GCP setup (manual, one-time)
+
+- **Enable APIs**: Firestore API (`firestore.googleapis.com`), and if going the Cloud
+  Functions route, Cloud Functions API + Cloud Build API + Artifact Registry API.
+- **Create Firestore database** in Native mode, same project as the existing Cloud Run
+  service, in `us-central1` to match.
+- **Security rules**: deny-all for client SDK access — all reads/writes happen through
+  the backend's service account, never directly from the browser.
+- **Secret**: `SERVER_SECRET` for HMAC signing, stored in Secret Manager and mounted as
+  an env var on the backend service/function — never committed to source.
+- **IAM**: backend's runtime service account needs `roles/datastore.user` on the project.
+
+### Config / constants
+
+- `DAILY_LIMIT` — env var on the backend, default 500.
+- Backend base URL — baked into `js/analytics.js` as a constant (this is a static site
+  with no build step, so it can't be injected at build time the way a bundler would;
+  a plain exported `const ANALYTICS_ENDPOINT = "https://..."` is consistent with how
+  the rest of the codebase already hardcodes things like `POINTS_SCALE`).
