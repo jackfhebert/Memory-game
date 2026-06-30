@@ -9,7 +9,7 @@
       "Almost all of its people live clustered near the coast, leaving its vast red center mostly empty.",
       "It's home to more kinds of venomous snakes than any other country in the world."
     ],
-    "popularity": 85
+    "popularity": 60
   },
   {
     "id": "fiji",
@@ -21,7 +21,7 @@
       "A single friendly word — 'Bula' — gets shouted as a greeting pretty much everywhere you go here.",
       "Its national rugby team is so beloved that the whole country basically pauses for big matches."
     ],
-    "popularity": 35
+    "popularity": 26
   },
   {
     "id": "new-zealand",
@@ -33,7 +33,7 @@
       "It was one of the last large landmasses on Earth to be settled by people, only a few hundred years before Europeans showed up.",
       "Its dramatic mountains and green hills got turned into an entire fantasy world for the big screen."
     ],
-    "popularity": 60
+    "popularity": 43
   },
   {
     "id": "papua-new-guinea",
@@ -45,7 +45,7 @@
       "So much of its land is steep mountains and thick rainforest that some remote villages can only be reached by small plane.",
       "It's home to the world's largest butterfly, with wings about as wide as a dinner plate."
     ],
-    "popularity": 25
+    "popularity": 19
   },
   {
     "id": "solomon-islands",
@@ -57,7 +57,7 @@
       "Its coral reefs are so packed with fish and sea life that scientists rank them among the richest underwater worlds on Earth.",
       "After a huge World War II naval battle, its waters earned the nickname 'Ironbottom Sound' for all the sunken ships resting there."
     ],
-    "popularity": 15
+    "popularity": 12
   },
   {
     "id": "vanuatu",
@@ -69,6 +69,6 @@
       "On one island, villagers tie vines to their ankles and leap from tall wooden towers — a tradition some say inspired modern bungee jumping.",
       "It's regularly ranked among the happiest places on Earth, despite facing more natural disasters than almost anywhere else."
     ],
-    "popularity": 12
+    "popularity": 10
   }
 ]

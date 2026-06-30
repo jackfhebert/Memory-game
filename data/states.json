@@ -9,7 +9,7 @@
       "This state's capital city served as the first capital of the Confederacy during the Civil War.",
       "A famous bus boycott here, sparked when Rosa Parks refused to give up her seat, helped launch the civil rights movement."
     ],
-    "popularity": 50
+    "popularity": 23
   },
   {
     "id": "alaska",
@@ -21,7 +21,7 @@
       "It has more coastline than all the other states put together.",
       "Parts of this state are so far north that the sun barely sets at all in the middle of summer."
     ],
-    "popularity": 80
+    "popularity": 48
   },
   {
     "id": "arizona",
@@ -33,7 +33,7 @@
       "Part of the largest Native American reservation in the country lies within this state.",
       "Giant cactus plants called saguaros, some growing over 30 feet tall, fill its desert landscape."
     ],
-    "popularity": 72
+    "popularity": 41
   },
   {
     "id": "arkansas",
@@ -45,7 +45,7 @@
       "Steamy natural hot springs bubbling up from underground gave one of its towns its name.",
       "The world's largest retail company, known for its blue-and-yellow stores, was founded here."
     ],
-    "popularity": 42
+    "popularity": 16
   },
   {
     "id": "california",
@@ -57,7 +57,7 @@
       "It's home to the tallest trees on Earth, towering redwoods that can grow over 350 feet.",
       "One of the hottest, driest places on the planet, a desert valley below sea level, lies within its borders."
     ],
-    "popularity": 95
+    "popularity": 60
   },
   {
     "id": "colorado",
@@ -69,7 +69,7 @@
       "Its capital city is nicknamed the Mile High City because it sits about one mile above sea level.",
       "A national park here is packed with jagged peaks that rise over 14,000 feet, nicknamed 'fourteeners.'"
     ],
-    "popularity": 75
+    "popularity": 43
   },
   {
     "id": "connecticut",
@@ -81,7 +81,7 @@
       "Its capital city is sometimes called the Insurance Capital of the World because so many insurance companies are based there.",
       "The hamburger and the lollipop are both said to have been invented in a small diner and a candy shop here."
     ],
-    "popularity": 50
+    "popularity": 23
   },
   {
     "id": "delaware",
@@ -93,7 +93,7 @@
       "This state charges no sales tax, so shoppers don't pay extra at the register.",
       "It's the second-smallest state in the country by area, just a bit bigger than the smallest."
     ],
-    "popularity": 40
+    "popularity": 14
   },
   {
     "id": "florida",
@@ -105,7 +105,7 @@
       "Rockets blast off into space from a famous launch site along its eastern coast.",
       "A vast, swampy wilderness full of alligators and panthers covers much of its southern tip."
     ],
-    "popularity": 90
+    "popularity": 56
   },
   {
     "id": "georgia",
@@ -117,7 +117,7 @@
       "The world-famous soft drink Coca-Cola was invented in its capital city.",
       "A massive, ancient swamp along its southern border is one of the largest in the country."
     ],
-    "popularity": 68
+    "popularity": 38
   },
   {
     "id": "hawaii",
@@ -129,7 +129,7 @@
       "It's the only state that grows coffee beans commercially, on the slopes of its volcanoes.",
       "Active volcanoes here still add brand-new land to one of its islands almost every year."
     ],
-    "popularity": 85
+    "popularity": 52
   },
   {
     "id": "idaho",
@@ -141,7 +141,7 @@
       "It's home to Hells Canyon, the deepest river gorge in all of North America.",
       "Many of its rivers run wild and undammed, making it a favorite spot for whitewater rafting."
     ],
-    "popularity": 40
+    "popularity": 14
   },
   {
     "id": "illinois",
@@ -153,7 +153,7 @@
       "Its tallest skyscraper was once the tallest building in the entire world.",
       "Abraham Lincoln practiced law and launched his political career here, long before becoming president."
     ],
-    "popularity": 78
+    "popularity": 46
   },
   {
     "id": "indiana",
@@ -165,7 +165,7 @@
       "Passion for basketball runs deep here, with high school championship games once watched by the whole state.",
       "Limestone quarried in this state was used to build the Empire State Building and the Pentagon."
     ],
-    "popularity": 50
+    "popularity": 23
   },
   {
     "id": "iowa",
@@ -177,7 +177,7 @@
       "Every four years, this state holds the very first votes in choosing the country's presidential candidates.",
       "It raises more hogs than any other state, with millions of pigs on its farms."
     ],
-    "popularity": 45
+    "popularity": 18
   },
   {
     "id": "kansas",
@@ -189,7 +189,7 @@
       "The exact geographic center of the lower 48 states is marked within this state.",
       "A famous story about a girl named Dorothy swept away by a tornado is set here."
     ],
-    "popularity": 45
+    "popularity": 18
   },
   {
     "id": "kentucky",
@@ -201,7 +201,7 @@
       "The world's longest known cave system winds for hundreds of miles underground here.",
       "Nearly all of the world's bourbon whiskey is distilled in this state."
     ],
-    "popularity": 55
+    "popularity": 27
   },
   {
     "id": "louisiana",
@@ -213,7 +213,7 @@
       "Instead of counties, this state divides its land into areas called parishes.",
       "Much of its biggest city sits below sea level, protected by levees and pumps."
     ],
-    "popularity": 70
+    "popularity": 39
   },
   {
     "id": "maine",
@@ -225,7 +225,7 @@
       "It's the first place in the continental U.S. to see the sunrise each morning.",
       "Wild blueberries grow here by the millions, more than in any other state."
     ],
-    "popularity": 50
+    "popularity": 23
   },
   {
     "id": "maryland",
@@ -237,7 +237,7 @@
       "The song that became the national anthem was written after a battle at a fort in this state's harbor.",
       "Jousting knights on horseback compete here every year in the state's official sport."
     ],
-    "popularity": 55
+    "popularity": 27
   },
   {
     "id": "massachusetts",
@@ -249,7 +249,7 @@
       "The first shots of the American Revolution were fired in this state, at Lexington and Concord.",
       "The game of basketball was invented in one of its gyms back in 1891."
     ],
-    "popularity": 75
+    "popularity": 43
   },
   {
     "id": "michigan",
@@ -261,7 +261,7 @@
       "One of its biggest cities became known as the car-making capital of the country.",
       "It has more freshwater shoreline than any other state, thanks to the Great Lakes surrounding it."
     ],
-    "popularity": 70
+    "popularity": 39
   },
   {
     "id": "minnesota",
@@ -273,7 +273,7 @@
       "One of the largest shopping malls in the country, with its own indoor amusement park, is located here.",
       "Winters here are among the coldest in the country, with temperatures sometimes dropping below -30°F."
     ],
-    "popularity": 60
+    "popularity": 31
   },
   {
     "id": "mississippi",
@@ -285,7 +285,7 @@
       "Blues music, a style that helped shape rock and roll, got its start along this state's river delta.",
       "Elvis Presley, one of the most famous musicians ever, was born in this state."
     ],
-    "popularity": 48
+    "popularity": 21
   },
   {
     "id": "missouri",
@@ -297,7 +297,7 @@
       "The famous author Mark Twain grew up along the river that runs through this state.",
       "One of its cities is famous for a smoky style of barbecue and as a birthplace of jazz music."
     ],
-    "popularity": 55
+    "popularity": 27
   },
   {
     "id": "montana",
@@ -309,7 +309,7 @@
       "Part of Yellowstone, the world's first national park, stretches into this state.",
       "Glacier National Park here is home to grizzly bears and ancient mountain glaciers."
     ],
-    "popularity": 45
+    "popularity": 18
   },
   {
     "id": "nebraska",
@@ -321,7 +321,7 @@
       "Arbor Day, a holiday for planting trees, was first celebrated in this state.",
       "Pioneers heading west on the Oregon Trail used a tall rock formation here as a landmark."
     ],
-    "popularity": 42
+    "popularity": 16
   },
   {
     "id": "nevada",
@@ -333,7 +333,7 @@
       "It's the driest state in the country, with desert covering most of its land.",
       "A massive dam on its border with a neighboring state created one of the largest reservoirs in the country."
     ],
-    "popularity": 75
+    "popularity": 43
   },
   {
     "id": "new-hampshire",
@@ -345,7 +345,7 @@
       "It holds the first primary election in the country every time someone runs for president.",
       "A mountain here once recorded one of the strongest wind gusts ever measured on Earth."
     ],
-    "popularity": 45
+    "popularity": 18
   },
   {
     "id": "new-jersey",
@@ -357,7 +357,7 @@
       "Inventor Thomas Edison created the lightbulb and the phonograph in his laboratory here.",
       "It has more diners than anywhere else in the world, earning it a tasty nickname."
     ],
-    "popularity": 60
+    "popularity": 31
   },
   {
     "id": "new-mexico",
@@ -369,7 +369,7 @@
       "The world's first atomic bomb was developed and tested in this state.",
       "Every fall, hundreds of hot air balloons fill the sky during one of the world's largest balloon festivals here."
     ],
-    "popularity": 58
+    "popularity": 29
   },
   {
     "id": "new-york",
@@ -381,7 +381,7 @@
       "Niagara Falls, one of the most powerful waterfalls in the world, sits on its border with Canada.",
       "Its biggest city is home to Broadway, famous for big, bright musical theater shows."
     ],
-    "popularity": 92
+    "popularity": 58
   },
   {
     "id": "north-carolina",
@@ -393,7 +393,7 @@
       "The soft drink Pepsi was first created by a pharmacist in this state.",
       "Its Blue Ridge Mountains are part of one of the oldest mountain ranges on Earth."
     ],
-    "popularity": 62
+    "popularity": 33
   },
   {
     "id": "north-dakota",
@@ -405,7 +405,7 @@
       "The exact geographic center of North America is marked in this state.",
       "Theodore Roosevelt fell in love with ranching here, in its rugged badlands, before becoming president."
     ],
-    "popularity": 35
+    "popularity": 10
   },
   {
     "id": "ohio",
@@ -417,7 +417,7 @@
       "Astronaut Neil Armstrong, the first person to walk on the Moon, was born in this state.",
       "The Wright brothers, who invented the airplane, grew up here, earning it the nickname 'Birthplace of Aviation.'"
     ],
-    "popularity": 65
+    "popularity": 35
   },
   {
     "id": "oklahoma",
@@ -429,7 +429,7 @@
       "This state was the site of a famous 'land run,' when thousands of settlers raced to claim land at noon on a single day.",
       "The shopping cart was invented by a grocery store owner in this state."
     ],
-    "popularity": 48
+    "popularity": 21
   },
   {
     "id": "oregon",
@@ -441,7 +441,7 @@
       "The deepest lake in the country formed inside an ancient collapsed volcano here.",
       "Like only a few other states, it charges no sales tax on purchases."
     ],
-    "popularity": 65
+    "popularity": 35
   },
   {
     "id": "pennsylvania",
@@ -453,7 +453,7 @@
       "Every February 2nd, a famous groundhog in this state predicts how much longer winter will last.",
       "The cracked Liberty Bell, a symbol of American independence, is on display in one of its cities."
     ],
-    "popularity": 72
+    "popularity": 41
   },
   {
     "id": "rhode-island",
@@ -465,7 +465,7 @@
       "It was the first of the original colonies to declare independence from Britain, months before the others.",
       "Sailing and yachting are hugely popular here, and its waters once hosted one of sailing's most famous races for decades."
     ],
-    "popularity": 42
+    "popularity": 16
   },
   {
     "id": "south-carolina",
@@ -477,7 +477,7 @@
       "More peaches are grown here most years than in the neighboring state famous for its 'Peach State' nickname.",
       "Spanish moss drapes from oak trees across its coastal Lowcountry region."
     ],
-    "popularity": 58
+    "popularity": 29
   },
   {
     "id": "south-dakota",
@@ -489,7 +489,7 @@
       "Not far from its famous mountain carving, jagged rock formations in a national park here look almost like another planet.",
       "One town here decorates an entire building's exterior with corn and other crops every single year."
     ],
-    "popularity": 42
+    "popularity": 16
   },
   {
     "id": "tennessee",
@@ -501,7 +501,7 @@
       "The most visited national park in the country, known for its smoky-looking mountain mist, straddles its eastern border.",
       "One of the world's most famous whiskey brands has been distilled in this state since the 1800s."
     ],
-    "popularity": 65
+    "popularity": 35
   },
   {
     "id": "texas",
@@ -513,7 +513,7 @@
       "A small mission called the Alamo was the site of a famous battle during this state's fight for independence from Mexico.",
       "Mission Control for NASA's astronauts is located in one of its cities."
     ],
-    "popularity": 92
+    "popularity": 58
   },
   {
     "id": "utah",
@@ -525,7 +525,7 @@
       "A giant lake here is so salty that almost nothing can live in it except tiny shrimp.",
       "Flat, white salt flats here are so smooth that race car drivers have set land speed records on them."
     ],
-    "popularity": 62
+    "popularity": 33
   },
   {
     "id": "vermont",
@@ -537,7 +537,7 @@
       "It's one of the only states that bans big roadside billboards, keeping its highways scenic.",
       "A famous ice cream brand known for quirky flavors was founded by two friends in this state."
     ],
-    "popularity": 48
+    "popularity": 21
   },
   {
     "id": "virginia",
@@ -549,7 +549,7 @@
       "The first permanent English settlement in America was founded here in 1607.",
       "The Pentagon, one of the largest office buildings in the world, sits in this state just across the river from the nation's capital."
     ],
-    "popularity": 65
+    "popularity": 35
   },
   {
     "id": "washington",
@@ -561,7 +561,7 @@
       "The world's first Starbucks coffee shop opened in one of its cities in 1971.",
       "Its largest city is famous for cloudy, gray skies for much of the year."
     ],
-    "popularity": 73
+    "popularity": 42
   },
   {
     "id": "west-virginia",
@@ -573,7 +573,7 @@
       "It's the only state that was created by breaking away from another state, during the Civil War.",
       "One of the longest steel arch bridges in the world spans a deep gorge here."
     ],
-    "popularity": 40
+    "popularity": 14
   },
   {
     "id": "wisconsin",
@@ -585,7 +585,7 @@
       "The first typewriter was built and patented in this state.",
       "The famous motorcycle brand Harley-Davidson was founded in one of its cities in 1903."
     ],
-    "popularity": 55
+    "popularity": 27
   },
   {
     "id": "wyoming",
@@ -597,6 +597,6 @@
       "This was the first state to give women the right to vote, back in 1869 while it was still a territory.",
       "It's the least populated state in the entire country."
     ],
-    "popularity": 38
+    "popularity": 13
   }
 ]

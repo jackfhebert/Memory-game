@@ -5,11 +5,11 @@
     "image": "images/animals/lion.jpg",
     "alt": "A close-up photo of a large, golden-furred big cat with a thick mane, resting in tall grass.",
     "facts": [
-      "A male's roar can be heard from up to 5 miles away \u2014 loud enough to hear from a whole neighborhood over.",
+      "A male's roar can be heard from up to 5 miles away — loud enough to hear from a whole neighborhood over.",
       "It can sleep up to 20 hours a day, making it one of the laziest big cats around.",
       "A newborn cub can't even open its eyes until about a week after it's born."
     ],
-    "popularity": 92
+    "popularity": 60
   },
   {
     "id": "tiger",
@@ -17,11 +17,11 @@
     "image": "images/animals/tiger.jpg",
     "alt": "A close-up photo of a large orange-and-black striped big cat walking through jungle grass.",
     "facts": [
-      "Its skin is striped too, just like its fur \u2014 even if you shaved one, the stripe pattern would still show.",
+      "Its skin is striped too, just like its fur — even if you shaved one, the stripe pattern would still show.",
       "It can leap forward more than 30 feet in a single bound, about the length of a school bus.",
       "It marks its territory with a scent spray that some people say smells like buttered popcorn."
     ],
-    "popularity": 90
+    "popularity": 57
   },
   {
     "id": "elephant",
@@ -30,10 +30,10 @@
     "alt": "A close-up photo of a huge gray animal with large ears, tusks, and a long trunk reaching toward the ground.",
     "facts": [
       "Its trunk has no bones at all, yet it's strong enough to lift a log and gentle enough to pick up a single berry.",
-      "It can sense other members of its herd rumbling to each other from over a mile away \u2014 through vibrations in the ground.",
+      "It can sense other members of its herd rumbling to each other from over a mile away — through vibrations in the ground.",
       "Babies sometimes suck on their own trunk for comfort, the same way a human baby might suck its thumb."
     ],
-    "popularity": 90
+    "popularity": 57
   },
   {
     "id": "giraffe",
@@ -43,9 +43,9 @@
     "facts": [
       "It only needs about 30 minutes of sleep a day, often taken in tiny naps while standing up.",
       "Its heart weighs around 25 pounds and pumps extra hard just to send blood all the way up that long neck.",
-      "Even with that towering neck, it has the same number of neck bones you do \u2014 just much, much bigger ones."
+      "Even with that towering neck, it has the same number of neck bones you do — just much, much bigger ones."
     ],
-    "popularity": 82
+    "popularity": 46
   },
   {
     "id": "zebra",
@@ -53,11 +53,11 @@
     "image": "images/animals/zebra.jpg",
     "alt": "A close-up photo of a horse-like animal covered head to tail in bold black and white stripes.",
     "facts": [
-      "A newborn can already stand and run within an hour of being born \u2014 there's no time to nap when lions are nearby.",
+      "A newborn can already stand and run within an hour of being born — there's no time to nap when lions are nearby.",
       "When startled, an entire herd bunches together so their stripes blur into one confusing blob.",
       "No two have the exact same pattern, almost like each one is wearing its own custom-printed coat."
     ],
-    "popularity": 75
+    "popularity": 37
   },
   {
     "id": "panda",
@@ -65,11 +65,11 @@
     "image": "images/animals/panda.jpg",
     "alt": "A close-up photo of a round, black-and-white bear sitting and chewing on a bamboo stalk.",
     "facts": [
-      "It can eat up to 40 pounds of bamboo every single day \u2014 like eating your own body weight in salad.",
+      "It can eat up to 40 pounds of bamboo every single day — like eating your own body weight in salad.",
       "Its black eye patches might work a bit like sunglasses, cutting glare and signaling toughness to rivals.",
       "Even though it looks slow and cuddly, it's a surprisingly good tree climber and can even swim."
     ],
-    "popularity": 85
+    "popularity": 51
   },
   {
     "id": "koala",
@@ -81,7 +81,7 @@
       "Eucalyptus leaves are mildly toxic, so its liver works overtime just to keep it from getting sick.",
       "Babies eat a special soft snack from their mom to pick up the right gut bacteria for digesting tough leaves."
     ],
-    "popularity": 78
+    "popularity": 41
   },
   {
     "id": "kangaroo",
@@ -89,11 +89,11 @@
     "image": "images/animals/kangaroo.jpg",
     "alt": "A close-up photo of a tan, long-legged animal balancing upright on its strong back legs and tail.",
     "facts": [
-      "It can hop at speeds of over 35 miles per hour \u2014 about as fast as a car cruising through a neighborhood.",
+      "It can hop at speeds of over 35 miles per hour — about as fast as a car cruising through a neighborhood.",
       "A newborn joey is about the size of a jellybean and crawls straight into its mother's pouch right after birth.",
-      "It physically can't walk backwards \u2014 its giant tail and legs are built only for moving forward."
+      "It physically can't walk backwards — its giant tail and legs are built only for moving forward."
     ],
-    "popularity": 70
+    "popularity": 30
   },
   {
     "id": "gorilla",
@@ -105,7 +105,7 @@
       "Each one has a unique nose print, just like a human fingerprint.",
       "When it's relaxed and happy, it sometimes makes a deep chuckling sound that almost sounds like laughing."
     ],
-    "popularity": 68
+    "popularity": 28
   },
   {
     "id": "chimpanzee",
@@ -117,7 +117,7 @@
       "It sometimes uses leaves as makeshift napkins or sponges to clean itself up.",
       "It can run along the ground but is just as comfortable swinging through the treetops overhead."
     ],
-    "popularity": 65
+    "popularity": 24
   },
   {
     "id": "polar-bear",
@@ -129,7 +129,7 @@
       "Underneath all that fluffy white fur, its skin is actually jet black.",
       "It's such a strong swimmer that sailors have spotted them paddling in open ocean, far from any land."
     ],
-    "popularity": 80
+    "popularity": 44
   },
   {
     "id": "brown-bear",
@@ -141,7 +141,7 @@
       "Before its long winter nap, it eats so much that it can gain several pounds in a single day.",
       "Its sense of smell is so sharp it puts even a bloodhound to shame."
     ],
-    "popularity": 72
+    "popularity": 33
   },
   {
     "id": "wolf",
@@ -150,10 +150,10 @@
     "alt": "A close-up photo of a gray, pointy-eared animal standing alert in a snowy forest.",
     "facts": [
       "Its howl can travel for several miles across open land, almost like a long-distance phone call to the rest of its pack.",
-      "Each pack member has its own personality \u2014 some are natural-born leaders, others happily follow.",
+      "Each pack member has its own personality — some are natural-born leaders, others happily follow.",
       "Its paw prints are sometimes mistaken for a large dog's, until you spot the deep claw marks."
     ],
-    "popularity": 68
+    "popularity": 28
   },
   {
     "id": "fox",
@@ -165,7 +165,7 @@
       "It sometimes pounces on prey hidden under deep snow by diving in headfirst.",
       "Its bushy tail helps it balance while running and curls around its body like a built-in blanket while it sleeps."
     ],
-    "popularity": 62
+    "popularity": 19
   },
   {
     "id": "cheetah",
@@ -174,10 +174,10 @@
     "alt": "A close-up photo of a slender, spotted cat crouched low and ready to sprint across grassland.",
     "facts": [
       "It can go from a standstill to full speed faster than most sports cars.",
-      "Unlike other big cats, it can't fully retract its claws \u2014 they work a bit like the spikes on running shoes.",
-      "It can't roar like a lion \u2014 instead, it chirps, almost like a bird."
+      "Unlike other big cats, it can't fully retract its claws — they work a bit like the spikes on running shoes.",
+      "It can't roar like a lion — instead, it chirps, almost like a bird."
     ],
-    "popularity": 75
+    "popularity": 37
   },
   {
     "id": "leopard",
@@ -189,7 +189,7 @@
       "It can leap an incredible distance in a single bound, both forward and straight up.",
       "Its spots are arranged in a one-of-a-kind pattern, completely unique to each individual."
     ],
-    "popularity": 65
+    "popularity": 24
   },
   {
     "id": "hippopotamus",
@@ -198,10 +198,10 @@
     "alt": "A close-up photo of a huge, round gray animal mostly submerged in muddy river water.",
     "facts": [
       "It can hold its breath underwater for about 5 minutes, even while it's fast asleep.",
-      "Despite living mostly in water, it actually can't swim \u2014 it walks or bounces along the riverbed instead.",
-      "Its huge yawn isn't friendly at all \u2014 opening its mouth that wide is really a warning to back off."
+      "Despite living mostly in water, it actually can't swim — it walks or bounces along the riverbed instead.",
+      "Its huge yawn isn't friendly at all — opening its mouth that wide is really a warning to back off."
     ],
-    "popularity": 60
+    "popularity": 17
   },
   {
     "id": "rhinoceros",
@@ -213,7 +213,7 @@
       "Small birds often ride along on its back, eating bugs and chirping a warning if danger gets close.",
       "Despite its enormous size, it can sprint faster than a human can run."
     ],
-    "popularity": 58
+    "popularity": 14
   },
   {
     "id": "crocodile",
@@ -221,11 +221,11 @@
     "image": "images/animals/crocodile.jpg",
     "alt": "A close-up photo of a long, scaly reptile floating at the surface of murky water with just its eyes and snout showing.",
     "facts": [
-      "It hasn't changed much in millions of years \u2014 its ancestors looked similar even when dinosaurs roamed the earth.",
+      "It hasn't changed much in millions of years — its ancestors looked similar even when dinosaurs roamed the earth.",
       "It can't chew its food, so it swallows large chunks whole or twists off bite-sized pieces.",
       "It can stay almost perfectly motionless for hours, looking just like a floating log."
     ],
-    "popularity": 60
+    "popularity": 17
   },
   {
     "id": "flamingo",
@@ -233,11 +233,11 @@
     "image": "images/animals/flamingo.jpg",
     "alt": "A close-up photo of a tall pink bird standing on one thin leg in shallow water.",
     "facts": [
-      "Chicks are actually born gray or white \u2014 they only turn pink after eating enough of their shrimpy diet.",
+      "Chicks are actually born gray or white — they only turn pink after eating enough of their shrimpy diet.",
       "It can sip water that's almost boiling hot, straight from volcanic lakes.",
       "Standing on one leg might actually help it conserve body heat while wading in chilly water."
     ],
-    "popularity": 70
+    "popularity": 30
   },
   {
     "id": "peacock",
@@ -249,7 +249,7 @@
       "It can run surprisingly fast along the ground when it doesn't feel like flying off.",
       "It shakes its tail feathers to make a rattling sound that humans barely notice but other birds pick up instantly."
     ],
-    "popularity": 65
+    "popularity": 24
   },
   {
     "id": "owl",
@@ -261,7 +261,7 @@
       "Some kinds fly almost completely silently, thanks to special feathers that muffle sound.",
       "It swallows small prey whole, then later coughs up a tidy little pellet of the leftover bones and fur."
     ],
-    "popularity": 68
+    "popularity": 28
   },
   {
     "id": "eagle",
@@ -273,7 +273,7 @@
       "It can dive toward the ground at speeds over 100 miles per hour while hunting.",
       "Some build nests that end up weighing as much as a small car after adding to them year after year."
     ],
-    "popularity": 70
+    "popularity": 30
   },
   {
     "id": "penguin",
@@ -285,7 +285,7 @@
       "Some dads sit on the eggs for months without eating a single bite, losing almost half their body weight.",
       "It can swim faster underwater than most Olympic swimmers can move across the surface."
     ],
-    "popularity": 80
+    "popularity": 44
   },
   {
     "id": "dolphin",
@@ -297,7 +297,7 @@
       "It sleeps with only half of its brain at a time, keeping one eye open to watch for danger.",
       "It sometimes surfs the waves made by passing boats, seemingly just for fun."
     ],
-    "popularity": 82
+    "popularity": 46
   },
   {
     "id": "octopus",
@@ -309,7 +309,7 @@
       "It can squeeze its entire boneless body through a hole no bigger than a coin.",
       "If it loses an arm, it can simply grow a brand new one."
     ],
-    "popularity": 60
+    "popularity": 17
   },
   {
     "id": "sea-turtle",
@@ -318,10 +318,10 @@
     "alt": "A close-up photo of a large turtle with a patterned shell swimming through clear blue ocean water.",
     "facts": [
       "It might swim thousands of miles across the ocean, then return to lay eggs on the very same beach where it hatched.",
-      "Its shell is actually fused to its skeleton \u2014 it's not something it could ever take off.",
+      "Its shell is actually fused to its skeleton — it's not something it could ever take off.",
       "Hatchlings use the glow of moonlight over the ocean to help them find their way to the water."
     ],
-    "popularity": 62
+    "popularity": 19
   },
   {
     "id": "shark",
@@ -333,7 +333,7 @@
       "Its skin is covered in tiny tooth-like scales, rough enough that it was once used like sandpaper.",
       "It can detect the faint electric signals given off by a beating heart hidden in the sand."
     ],
-    "popularity": 75
+    "popularity": 37
   },
   {
     "id": "ostrich",
@@ -342,10 +342,10 @@
     "alt": "A close-up photo of a tall, long-necked bird with fluffy feathers standing on the open plains.",
     "facts": [
       "Its powerful kick is strong enough to seriously injure a lion.",
-      "Its eggs are the largest of any bird \u2014 a single one could make an omelet for an entire family.",
+      "Its eggs are the largest of any bird — a single one could make an omelet for an entire family.",
       "Despite the popular myth, it doesn't actually bury its head in the sand."
     ],
-    "popularity": 55
+    "popularity": 10
   },
   {
     "id": "camel",
@@ -357,6 +357,6 @@
       "Its nostrils can close completely to keep out blowing desert sand.",
       "It has a special set of eyelids and extra-long lashes that work almost like built-in goggles."
     ],
-    "popularity": 58
+    "popularity": 14
   }
 ]

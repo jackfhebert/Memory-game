@@ -9,7 +9,7 @@
       "Its rugged mountains have earned it the nickname 'graveyard of empires,' since invading armies have struggled to hold it for centuries.",
       "For thousands of years, a brilliant blue gemstone mined in its mountains has been prized by artists and royalty around the world."
     ],
-    "popularity": 25
+    "popularity": 21
   },
   {
     "id": "armenia",
@@ -45,7 +45,7 @@
       "It's one of the most densely populated countries on Earth, packing a huge population into a relatively small area.",
       "A vast mangrove forest along its coast is one of the last places on Earth where tigers swim between islands to hunt."
     ],
-    "popularity": 25
+    "popularity": 21
   },
   {
     "id": "bhutan",
@@ -57,7 +57,7 @@
       "It was one of the last countries in the world to allow television and the internet, only doing so in the late 1990s.",
       "It absorbs more carbon dioxide from the air than it produces, thanks to its vast forests."
     ],
-    "popularity": 12
+    "popularity": 13
   },
   {
     "id": "brunei",
@@ -69,7 +69,7 @@
       "It shares one island with two larger neighboring countries.",
       "Most residents here pay no income tax at all, with the government's oil wealth covering many public costs."
     ],
-    "popularity": 12
+    "popularity": 13
   },
   {
     "id": "cambodia",
@@ -81,7 +81,7 @@
       "Many shops and markets here happily accept a foreign currency from across the ocean right alongside their own money.",
       "Its ancient empire once stretched across a huge swath of the region, leaving behind hundreds of temple ruins hidden in the jungle."
     ],
-    "popularity": 22
+    "popularity": 19
   },
   {
     "id": "china",
@@ -93,7 +93,7 @@
       "A wall built over centuries to defend its northern borders stretches for thousands of miles across mountains and deserts.",
       "It's the only place on Earth where giant pandas live in the wild."
     ],
-    "popularity": 80
+    "popularity": 57
   },
   {
     "id": "cyprus",
@@ -105,7 +105,7 @@
       "Ancient myths claimed it was the birthplace of the goddess of love, rising from sea foam near its shores.",
       "A squeaky, salty cheese that doesn't melt when grilled was invented here centuries ago."
     ],
-    "popularity": 18
+    "popularity": 16
   },
   {
     "id": "georgia",
@@ -129,7 +129,7 @@
       "A board game played by millions worldwide today is believed to have first been invented here.",
       "One of its emperors built an enormous white marble tomb for his wife that's now considered one of the most beautiful buildings on the planet."
     ],
-    "popularity": 85
+    "popularity": 60
   },
   {
     "id": "indonesia",
@@ -141,7 +141,7 @@
       "More people who follow Islam live here than in any other country in the world.",
       "It's the only place on Earth where you'll find giant lizards big enough to take down a deer in the wild."
     ],
-    "popularity": 45
+    "popularity": 34
   },
   {
     "id": "iran",
@@ -153,7 +153,7 @@
       "It produces more saffron, one of the world's most expensive spices, than any other country on Earth.",
       "Ancient builders here engineered clever wind-catching towers that cooled buildings centuries before electric air conditioning existed."
     ],
-    "popularity": 35
+    "popularity": 28
   },
   {
     "id": "iraq",
@@ -165,7 +165,7 @@
       "One of its ancient cities was said to have legendary hanging gardens, counted among the wonders of the ancient world.",
       "The wheel, one of humanity's most important inventions, is believed to have first been used for transportation in this region."
     ],
-    "popularity": 30
+    "popularity": 24
   },
   {
     "id": "israel",
@@ -177,7 +177,7 @@
       "Three major world religions all consider one of its cities among their holiest places.",
       "Facing a dry climate, it became a world leader in turning salty seawater into fresh drinking water."
     ],
-    "popularity": 40
+    "popularity": 31
   },
   {
     "id": "japan",
@@ -189,7 +189,7 @@
       "One of its family-run businesses has operated continuously for over a thousand years, making it one of the oldest companies on Earth.",
       "Its high-speed trains travel so fast and so punctually that delays of even a minute or two make headlines."
     ],
-    "popularity": 70
+    "popularity": 50
   },
   {
     "id": "jordan",
@@ -201,7 +201,7 @@
       "Filmmakers have used its vast red desert to stand in for the surface of Mars in several movies.",
       "Despite being mostly desert, it shares one of the saltiest, lowest bodies of water on Earth with a neighboring country."
     ],
-    "popularity": 25
+    "popularity": 21
   },
   {
     "id": "kazakhstan",
@@ -213,7 +213,7 @@
       "One of the world's oldest and busiest spaceports sits on its steppe, launching astronauts into orbit for decades.",
       "Horses have been central to life here for thousands of years, and fermented mare's milk is still a traditional drink."
     ],
-    "popularity": 18
+    "popularity": 16
   },
   {
     "id": "kuwait",
@@ -237,7 +237,7 @@
       "More than 90 percent of its land is covered by towering mountains, leaving very little flat ground to farm.",
       "One of its high mountain lakes is so large and deep that it almost never freezes, even in brutal winters."
     ],
-    "popularity": 10
+    "popularity": 11
   },
   {
     "id": "laos",
@@ -249,7 +249,7 @@
       "Its old kingdom was once known as the 'Land of a Million Elephants.'",
       "A single great river forms much of its western border and serves as a vital highway for trade and travel."
     ],
-    "popularity": 10
+    "popularity": 11
   },
   {
     "id": "lebanon",
@@ -261,7 +261,7 @@
       "An ancient seafaring civilization based here is credited with spreading one of the first widely used alphabets across the ancient world.",
       "Despite its small size, its capital was once nicknamed after a famous European city for its lively cafes and nightlife."
     ],
-    "popularity": 18
+    "popularity": 16
   },
   {
     "id": "malaysia",
@@ -273,7 +273,7 @@
       "Twin towers built here once held the record for the tallest buildings in the world.",
       "Its rainforests are one of the last wild homes of orangutans anywhere on Earth."
     ],
-    "popularity": 30
+    "popularity": 24
   },
   {
     "id": "mongolia",
@@ -285,7 +285,7 @@
       "An empire that began here in the 1200s grew into the largest contiguous land empire in history.",
       "Many people here still live a nomadic lifestyle, herding animals and moving between traditional round tents through the seasons."
     ],
-    "popularity": 20
+    "popularity": 18
   },
   {
     "id": "myanmar",
@@ -297,7 +297,7 @@
       "It produces more teak, a hardwood prized for furniture and shipbuilding, than any other country on Earth.",
       "It was known by a different name for most of its modern history before officially changing it."
     ],
-    "popularity": 18
+    "popularity": 16
   },
   {
     "id": "nepal",
@@ -309,7 +309,7 @@
       "It's the birthplace of a spiritual teacher whose followers now number in the hundreds of millions worldwide.",
       "It's the only country in the world with a flag that isn't a rectangle."
     ],
-    "popularity": 35
+    "popularity": 28
   },
   {
     "id": "north-korea",
@@ -321,7 +321,7 @@
       "It's home to one of the largest stadiums in the world, built to hold well over 100,000 spectators.",
       "Time itself briefly ran differently here, after it created its own time zone for a few years before switching back."
     ],
-    "popularity": 35
+    "popularity": 28
   },
   {
     "id": "oman",
@@ -345,7 +345,7 @@
       "One of the world's earliest great civilizations built sophisticated cities with drainage systems here more than 4,000 years ago.",
       "It's one of the most populous countries on Earth."
     ],
-    "popularity": 35
+    "popularity": 28
   },
   {
     "id": "philippines",
@@ -357,7 +357,7 @@
       "Christmas celebrations here are said to be among the longest in the world, with festive songs sometimes starting as early as September.",
       "It's hit by dozens of typhoons most years, more than almost any other country on Earth."
     ],
-    "popularity": 35
+    "popularity": 28
   },
   {
     "id": "qatar",
@@ -369,7 +369,7 @@
       "It sits on some of the largest natural gas reserves on the planet, despite its small size.",
       "It's regularly ranked among the wealthiest countries in the world per person."
     ],
-    "popularity": 25
+    "popularity": 21
   },
   {
     "id": "saudi-arabia",
@@ -381,7 +381,7 @@
       "Two of the holiest cities in one of the world's major religions are located within its borders, drawing millions of pilgrims every year.",
       "It's home to one of the largest continuous sand deserts on Earth."
     ],
-    "popularity": 35
+    "popularity": 28
   },
   {
     "id": "south-korea",
@@ -393,7 +393,7 @@
       "It regularly ranks among the countries with the fastest average internet speeds in the world.",
       "A heavily guarded strip of land running along its northern border is one of the most fortified borders on Earth."
     ],
-    "popularity": 50
+    "popularity": 37
   },
   {
     "id": "sri-lanka",
@@ -405,7 +405,7 @@
       "Tea grown in its misty highlands is shipped and sold all over the world under an older name for the island.",
       "Engineers here built enormous reservoirs and canals more than a thousand years ago to capture monsoon rains."
     ],
-    "popularity": 25
+    "popularity": 21
   },
   {
     "id": "syria",
@@ -417,7 +417,7 @@
       "For thousands of years, it sat at a crossroads where major trade routes between three continents all met.",
       "One of its cities has produced a distinctive olive oil soap using the same traditional process for centuries."
     ],
-    "popularity": 25
+    "popularity": 21
   },
   {
     "id": "tajikistan",
@@ -429,7 +429,7 @@
       "More than 90 percent of its land is covered by towering mountains, including a range nicknamed the 'roof of the world.'",
       "It's one of the most mountainous countries that used to be part of a much larger union of republics."
     ],
-    "popularity": 10
+    "popularity": 11
   },
   {
     "id": "thailand",
@@ -441,7 +441,7 @@
       "Its capital is consistently ranked among the most-visited cities in the world.",
       "Elephants are such an important national symbol here that one used to appear on its flag."
     ],
-    "popularity": 40
+    "popularity": 31
   },
   {
     "id": "timor-leste",
@@ -453,7 +453,7 @@
       "It shares one island with a much larger neighboring country, splitting it roughly in two.",
       "Most people here are Catholic, a legacy of European colonizers who ruled for centuries, unlike most of its mostly Muslim or Buddhist neighbors."
     ],
-    "popularity": 8
+    "popularity": 10
   },
   {
     "id": "turkey",
@@ -465,7 +465,7 @@
       "Its largest city is the only city in the world that sits on two continents at once.",
       "One of its regions is dotted with tall, cone-shaped rock formations, some hollowed out into homes and churches centuries ago."
     ],
-    "popularity": 50
+    "popularity": 37
   },
   {
     "id": "turkmenistan",
@@ -477,7 +477,7 @@
       "Much of its land is covered by a vast desert that takes up most of the country.",
       "Its capital city is filled with so many white marble buildings that it holds a record for the largest concentration of marble-clad buildings in the world."
     ],
-    "popularity": 10
+    "popularity": 11
   },
   {
     "id": "united-arab-emirates",
@@ -489,7 +489,7 @@
       "It's made up of seven separate emirates joined together as one federation.",
       "Engineers here built artificial islands shaped like palm trees, visible even from space."
     ],
-    "popularity": 35
+    "popularity": 28
   },
   {
     "id": "uzbekistan",
@@ -513,7 +513,7 @@
       "Motorbikes vastly outnumber cars on its streets, weaving through traffic in massive numbers.",
       "It's home to the largest cave passage in the world, big enough to fit skyscrapers inside."
     ],
-    "popularity": 40
+    "popularity": 31
   },
   {
     "id": "yemen",
@@ -525,6 +525,6 @@
       "One of its ancient walled cities is packed with centuries-old mudbrick towers so tall and dense it's nicknamed the 'Manhattan of the desert.'",
       "Ancient legends linked it to a wealthy and powerful queen famous in stories across multiple religions."
     ],
-    "popularity": 12
+    "popularity": 13
   }
 ]

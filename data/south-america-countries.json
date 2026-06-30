@@ -9,7 +9,7 @@
       "Tango dancing was born in dance halls here, packed long ago with immigrants from all over the world.",
       "It stretches so far south that its southern tip is closer to icy Antarctica than to its own tropical north."
     ],
-    "popularity": 65
+    "popularity": 49
   },
   {
     "id": "bolivia",
@@ -21,7 +21,7 @@
       "Its vast salt flat turns into a giant mirror after it rains, perfectly reflecting the whole sky.",
       "One of its major cities sits so high in the mountains that newcomers sometimes need days just to catch their breath."
     ],
-    "popularity": 30
+    "popularity": 24
   },
   {
     "id": "brazil",
@@ -33,7 +33,7 @@
       "It's the only country on its continent where people mostly speak Portuguese instead of Spanish.",
       "Soccer is loved here so deeply that the whole country seems to pause for every big match."
     ],
-    "popularity": 80
+    "popularity": 60
   },
   {
     "id": "chile",
@@ -45,7 +45,7 @@
       "Its night skies are so clear and dark that astronomers from all over the world build giant telescopes here.",
       "Part of its northern desert is so dry that some patches have never recorded a drop of rain."
     ],
-    "popularity": 55
+    "popularity": 42
   },
   {
     "id": "colombia",
@@ -57,7 +57,7 @@
       "It grows and exports so much coffee that the smell of roasting beans is practically a national symbol.",
       "It's home to more known bird species than any other country on the planet."
     ],
-    "popularity": 55
+    "popularity": 42
   },
   {
     "id": "ecuador",
@@ -69,7 +69,7 @@
       "A famous set of islands far out in its ocean territory is where a young scientist once studied unique wildlife that helped shape a famous theory.",
       "Thanks to the Earth's bulge near the equator, the peak of one of its volcanoes is the point on the planet's surface farthest from its core."
     ],
-    "popularity": 40
+    "popularity": 31
   },
   {
     "id": "guyana",
@@ -81,7 +81,7 @@
       "It's home to a waterfall more than four times taller than a famous one on the border of the US and Canada.",
       "Unlike most of its neighbors, English is the language most people here grow up speaking."
     ],
-    "popularity": 15
+    "popularity": 14
   },
   {
     "id": "paraguay",
@@ -93,7 +93,7 @@
       "It shares one of the largest dams on Earth with a neighboring country, producing enormous amounts of electricity.",
       "It's one of only two countries on its continent with no coastline at all."
     ],
-    "popularity": 15
+    "popularity": 14
   },
   {
     "id": "peru",
@@ -105,7 +105,7 @@
       "It's home to a lake so high in the mountains that boats woven entirely from reeds still float across it today.",
       "It's considered the birthplace of the potato, with thousands of different varieties still grown here."
     ],
-    "popularity": 50
+    "popularity": 39
   },
   {
     "id": "suriname",
@@ -129,7 +129,7 @@
       "It hosted, and won, the very first soccer World Cup ever played.",
       "There are several times more cattle here than there are people."
     ],
-    "popularity": 25
+    "popularity": 21
   },
   {
     "id": "venezuela",
@@ -141,6 +141,6 @@
       "It holds more proven oil reserves underground than any other country on Earth.",
       "Lightning flashes almost nonstop over one of its lakes, lighting up the night sky on most nights of the year."
     ],
-    "popularity": 40
+    "popularity": 31
   }
 ]

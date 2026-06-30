@@ -14,7 +14,7 @@
       "Its tallest peak is capped with snow even though it sits near the equator.",
       "Fossils of some of the earliest known humans have been discovered here."
     ],
-    "popularity": 80
+    "popularity": 46
   },
   {
     "id": "antarctica",
@@ -31,7 +31,7 @@
       "Its ice sheet is so heavy that it presses the land underneath it down into a bowl shape.",
       "Explorers from many countries share research stations here instead of any single nation claiming it."
     ],
-    "popularity": 55
+    "popularity": 10
   },
   {
     "id": "asia",
@@ -48,7 +48,7 @@
       "It includes vast deserts, dense rainforests, and some of the coldest inhabited places on the planet.",
       "Many of the world's major rivers begin high up in its towering mountains."
     ],
-    "popularity": 85
+    "popularity": 53
   },
   {
     "id": "australia",
@@ -65,7 +65,7 @@
       "It's surrounded entirely by ocean and sits in the Southern Hemisphere.",
       "Many of its plants and animals evolved in isolation, since it's been cut off from other landmasses for millions of years."
     ],
-    "popularity": 60
+    "popularity": 17
   },
   {
     "id": "europe",
@@ -82,7 +82,7 @@
       "It's home to thousands of castles built hundreds of years ago, many still standing today.",
       "Despite being one of the smaller continents by land area, it has one of the largest populations."
     ],
-    "popularity": 75
+    "popularity": 39
   },
   {
     "id": "north-america",
@@ -99,7 +99,7 @@
       "It's home to a giant canyon carved over millions of years by a single river.",
       "Many different climates exist here, from snowy mountains to steamy swamps, sometimes just a day's drive apart."
     ],
-    "popularity": 90
+    "popularity": 60
   },
   {
     "id": "south-america",
@@ -116,6 +116,6 @@
       "Its western edge is lined almost entirely by a single long mountain range.",
       "One of the highest large lakes in the world sits high up in its mountains."
     ],
-    "popularity": 65
+    "popularity": 24
   }
 ]

@@ -9,7 +9,7 @@
       "Some of its waters hide deep, perfectly round 'blue holes' that plunge hundreds of feet straight down.",
       "It's often said to be the first land Columbus reached in the Americas, back in 1492."
     ],
-    "popularity": 40
+    "popularity": 27
   },
   {
     "id": "belize",
@@ -21,7 +21,7 @@
       "Its coast is protected by the second-largest barrier reef system on Earth, after one far away in Australia.",
       "It has one of the lowest population densities in its entire region, with thick jungle covering much of the land."
     ],
-    "popularity": 20
+    "popularity": 13
   },
   {
     "id": "canada",
@@ -33,7 +33,7 @@
       "It shares the longest international border on Earth with its southern neighbor.",
       "Parts of its far north stay light almost all day in summer and dark almost all day in winter."
     ],
-    "popularity": 75
+    "popularity": 50
   },
   {
     "id": "costa-rica",
@@ -45,7 +45,7 @@
       "Despite covering a tiny sliver of the planet's land, it's home to about 5 percent of all known species on Earth.",
       "It generates almost all of its electricity from rivers, volcanoes, and wind instead of burning fuel."
     ],
-    "popularity": 45
+    "popularity": 30
   },
   {
     "id": "cuba",
@@ -57,7 +57,7 @@
       "Because of a decades-long trade embargo, plenty of people here still drive classic cars from the 1950s, kept running with homemade parts.",
       "It's famous worldwide for its hand-rolled cigars, grown from tobacco in its fertile valleys."
     ],
-    "popularity": 55
+    "popularity": 37
   },
   {
     "id": "dominican-republic",
@@ -69,7 +69,7 @@
       "Baseball is such a big deal here that it's produced more major-league stars per person than almost anywhere else.",
       "Its capital is home to the oldest cathedral Europeans ever built anywhere in the Americas."
     ],
-    "popularity": 35
+    "popularity": 23
   },
   {
     "id": "el-salvador",
@@ -81,7 +81,7 @@
       "It became the first country in the world to make a digital currency official money alongside its regular cash.",
       "It's dotted with so many volcanoes that one of its old nicknames translates to 'Land of Volcanoes.'"
     ],
-    "popularity": 20
+    "popularity": 13
   },
   {
     "id": "guatemala",
@@ -93,7 +93,7 @@
       "Deep in its northern jungle stand towering stone pyramids built by an ancient civilization that ruled much of the region for centuries.",
       "Its national bird is so dazzling and rare that ancient rulers once wore its long tail feathers as a symbol of power."
     ],
-    "popularity": 25
+    "popularity": 17
   },
   {
     "id": "haiti",
@@ -105,7 +105,7 @@
       "It shares its island with a neighboring country, divided by a mountainous border.",
       "Most people here grow up speaking a Creole language that blends French with West African roots."
     ],
-    "popularity": 20
+    "popularity": 13
   },
   {
     "id": "honduras",
@@ -117,7 +117,7 @@
       "Islands off its Caribbean coast are ringed with coral reefs that draw divers from all over the world.",
       "Ruins of an ancient city deep in its western hills are famous for elaborately carved stone monuments."
     ],
-    "popularity": 15
+    "popularity": 10
   },
   {
     "id": "jamaica",
@@ -129,7 +129,7 @@
       "Runners from this small island have won an astonishing number of Olympic sprinting medals for its size.",
       "Its misty mountains grow a coffee so prized that it's among the most expensive in the world."
     ],
-    "popularity": 50
+    "popularity": 33
   },
   {
     "id": "mexico",
@@ -141,7 +141,7 @@
       "It's home to the largest pyramid by volume in the world, even though much of it is hidden inside what looks like a hill.",
       "Each year it holds a holiday that celebrates relatives who have died, instead of mourning them quietly."
     ],
-    "popularity": 75
+    "popularity": 50
   },
   {
     "id": "nicaragua",
@@ -153,7 +153,7 @@
       "Its biggest lake is one of the few freshwater lakes in the world where sharks have been spotted swimming.",
       "Chains of volcanoes run down its spine, with some still rumbling and smoking today."
     ],
-    "popularity": 18
+    "popularity": 12
   },
   {
     "id": "panama",
@@ -165,7 +165,7 @@
       "The straw hats that share its name were actually invented in a completely different country.",
       "It's one of the narrowest points in its region, with both oceans visible from some of its hills."
     ],
-    "popularity": 40
+    "popularity": 27
   },
   {
     "id": "trinidad-and-tobago",
@@ -177,7 +177,7 @@
       "It's the birthplace of an entire style of music built around steel drums, invented from old oil barrels.",
       "It's home to the largest natural deposit of asphalt on Earth, a lake of thick tar people can actually walk on."
     ],
-    "popularity": 15
+    "popularity": 10
   },
   {
     "id": "united-states",
@@ -189,6 +189,6 @@
       "It's home to one of the largest canyons on Earth, carved over millions of years by a single river.",
       "It put the first humans on the Moon, beating every other country to it."
     ],
-    "popularity": 90
+    "popularity": 60
   }
 ]

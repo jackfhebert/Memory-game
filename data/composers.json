@@ -9,7 +9,7 @@
       "He had over 20 children, and several of them grew up to become composers too.",
       "He once walked roughly 250 miles, mostly on foot, just to hear another organist play."
     ],
-    "popularity": 92
+    "popularity": 57
   },
   {
     "id": "wolfgang-amadeus-mozart",
@@ -21,7 +21,7 @@
       "He secretly copied down a piece of church music from memory after hearing it performed just once, even though copying it was forbidden.",
       "He could compose an entire piece in his head before ever putting pen to paper."
     ],
-    "popularity": 97
+    "popularity": 60
   },
   {
     "id": "giovanni-pierluigi-da-palestrina",
@@ -33,7 +33,7 @@
       "His smooth, calm style of choral writing became the model that church composers were told to imitate for centuries afterward.",
       "Legend credits him with saving elaborate church polyphony from being banned outright by leaders who worried the words were getting lost in the music."
     ],
-    "popularity": 38
+    "popularity": 23
   },
   {
     "id": "george-frideric-handel",
@@ -45,7 +45,7 @@
       "He moved from Germany to England and became so beloved there that he's buried in a hall reserved for the country's national heroes.",
       "Audiences have stood up during one particular chorus of his ever since a king supposedly did the same."
     ],
-    "popularity": 80
+    "popularity": 49
   },
   {
     "id": "antonio-vivaldi",
@@ -57,7 +57,7 @@
       "He taught violin at an orphanage for girls for most of his career, writing much of his most famous music for his students to perform.",
       "He wrote more than 500 concertos, including a famous set inspired by the four seasons of the year."
     ],
-    "popularity": 76
+    "popularity": 47
   },
   {
     "id": "gabriel-faure",
@@ -69,7 +69,7 @@
       "One of his most famous choral works was written for a funeral, but he said he wanted it to feel peaceful rather than frightening.",
       "He eventually became the director of one of France's top music schools, after years of supporting himself mainly by teaching piano."
     ],
-    "popularity": 52
+    "popularity": 32
   },
   {
     "id": "franz-schubert",
@@ -81,7 +81,7 @@
       "He set a famous prayer to music so beautifully that it's still sung at weddings and funerals two centuries later.",
       "He was so shy about sharing his own music that many of his greatest works weren't performed in public until after he had died."
     ],
-    "popularity": 68
+    "popularity": 42
   },
   {
     "id": "tomas-luis-de-victoria",
@@ -93,7 +93,7 @@
       "He spent his final years as chaplain to a dowager empress, writing sacred music for her private chapel.",
       "His choral music is still sung in churches today, written entirely for voices alone, with no instruments at all."
     ],
-    "popularity": 24
+    "popularity": 14
   },
   {
     "id": "gregorio-allegri",
@@ -105,7 +105,7 @@
       "For over a century, the only way to hear his most famous work was to travel to Rome during Holy Week.",
       "A teenage visitor is famously said to have broken the secrecy by listening to it twice and writing the whole thing down from memory."
     ],
-    "popularity": 28
+    "popularity": 16
   },
   {
     "id": "johannes-brahms",
@@ -117,7 +117,7 @@
       "He wrote a large-scale choral work to comfort the living after losing his mother and his mentor in the same year, rather than focusing on judgment day like older requiems did.",
       "He had a reputation for being gruff and blunt in person, even though his music is full of warmth."
     ],
-    "popularity": 73
+    "popularity": 45
   },
   {
     "id": "giuseppe-verdi",
@@ -129,7 +129,7 @@
       "He grew up the son of a village innkeeper and almost failed the entrance exam to the music conservatory in Milan.",
       "He donated much of his fortune to build a retirement home for musicians who had fallen on hard times."
     ],
-    "popularity": 77
+    "popularity": 47
   },
   {
     "id": "charles-gounod",
@@ -141,7 +141,7 @@
       "His most famous melody was written as a tribute layered on top of a keyboard piece written by another composer a century earlier.",
       "He composed an opera based on a famous tragic love story that's still one of the most performed operas in the world."
     ],
-    "popularity": 44
+    "popularity": 26
   },
   {
     "id": "cesar-franck",
@@ -153,7 +153,7 @@
       "He didn't become widely famous as a composer until very late in life, after decades known mainly as a teacher.",
       "One of his most beloved pieces was written simply enough for an amateur church choir to sing, using just voice, harp, cello, and organ."
     ],
-    "popularity": 34
+    "popularity": 20
   },
   {
     "id": "maurice-durufle",
@@ -165,7 +165,7 @@
       "He based one of his most famous works almost entirely on ancient chant melodies that monks have sung for over a thousand years.",
       "He worked for over four decades as the organist of the same Paris church, a job he only gave up after a serious car accident."
     ],
-    "popularity": 22
+    "popularity": 13
   },
   {
     "id": "john-rutter",
@@ -177,7 +177,7 @@
       "Choirs around the world perform his music every December, even though his most famous Christmas carols are entirely original, not old folk tunes.",
       "He started his own small choir specifically so he could hear his own choral music performed exactly the way he imagined it."
     ],
-    "popularity": 48
+    "popularity": 29
   },
   {
     "id": "eric-whitacre",
@@ -189,7 +189,7 @@
       "He brought together thousands of singers from dozens of countries who had never met in person, using nothing but webcams and the internet.",
       "He says the spark that made him fall in love with choral music was joining a college choir almost by accident."
     ],
-    "popularity": 42
+    "popularity": 25
   },
   {
     "id": "ralph-vaughan-williams",
@@ -201,7 +201,7 @@
       "He helped edit a hymn book still used in churches today, and wrote one of its best-loved tunes himself.",
       "He kept composing well into his 80s, finishing a symphony just a couple of years before he died."
     ],
-    "popularity": 36
+    "popularity": 21
   },
   {
     "id": "felix-mendelssohn",
@@ -213,7 +213,7 @@
       "He's credited with reviving interest in a much earlier composer's work after organizing a performance of a piece that had been mostly forgotten for about a century.",
       "He composed the tune millions of people sing every December without realizing it first celebrated the invention of the printing press, not Christmas."
     ],
-    "popularity": 62
+    "popularity": 38
   },
   {
     "id": "hildegard-of-bingen",
@@ -225,7 +225,7 @@
       "She wrote her own original chant melodies, an unusually creative thing for someone in her position at the time, when most music was anonymous.",
       "She also wrote about medicine, theology, and natural science, and described visions she said she'd had since childhood."
     ],
-    "popularity": 47
+    "popularity": 28
   },
   {
     "id": "claudio-monteverdi",
@@ -237,7 +237,7 @@
       "He wrote an enormous setting of evening prayers that calls for multiple choirs, soloists, and instrumental groups all at once.",
       "Late in life, after losing his wife, he became a priest while continuing to compose some of his most ambitious music."
     ],
-    "popularity": 41
+    "popularity": 25
   },
   {
     "id": "josquin-des-prez",
@@ -249,7 +249,7 @@
       "Music historians often credit him with making Renaissance vocal music feel truly expressive, rather than just technically clever.",
       "A leading music printer of the time devoted entire songbooks to just his work, an honor almost no other composer received during his lifetime."
     ],
-    "popularity": 30
+    "popularity": 18
   },
   {
     "id": "orlande-de-lassus",
@@ -261,7 +261,7 @@
       "He wrote more than 2,000 pieces in nearly every style and language popular in his era.",
       "He spent over 30 years working for the same royal court in Germany, eventually becoming its most celebrated employee."
     ],
-    "popularity": 26
+    "popularity": 15
   },
   {
     "id": "william-byrd",
@@ -273,7 +273,7 @@
       "He held a rare legal monopoly that let him control music printing across his entire country for years.",
       "He's remembered as one of the finest keyboard composers of his time, even though he's best known today for his choral music."
     ],
-    "popularity": 33
+    "popularity": 19
   },
   {
     "id": "guillaume-dufay",
@@ -285,7 +285,7 @@
       "He helped develop musical techniques that composers kept building on for the next century.",
       "He asked for two of his own pieces to be sung at his deathbed, and singers gathered to grant his wish."
     ],
-    "popularity": 20
+    "popularity": 11
   },
   {
     "id": "dietrich-buxtehude",
@@ -297,7 +297,7 @@
       "He spent decades as the organist of a major church in northern Germany, where his performances drew huge crowds.",
       "He's remembered today mostly for his bold, dramatic organ music, even though he also wrote vocal works for his church."
     ],
-    "popularity": 18
+    "popularity": 10
   },
   {
     "id": "marc-antoine-charpentier",
@@ -309,7 +309,7 @@
       "He worked for a powerful French duchess for nearly 20 years, writing most of his major works for her household chapel.",
       "Much of his music was nearly lost forever, staying unpublished in private manuscripts for over a century after his death."
     ],
-    "popularity": 24
+    "popularity": 14
   },
   {
     "id": "arvo-part",
@@ -321,7 +321,7 @@
       "His music has been used in major films and dance performances worldwide, even though much of it was written for church choirs.",
       "He grew up under a government that restricted religious music, so for years his sacred works could only be performed in secret or abroad."
     ],
-    "popularity": 55
+    "popularity": 33
   },
   {
     "id": "morten-lauridsen",
@@ -333,7 +333,7 @@
       "One of his most beloved choral works was inspired by foggy walks near his cabin on a small island.",
       "He received a major national arts medal from a U.S. president for his contribution to choral music."
     ],
-    "popularity": 50
+    "popularity": 30
   },
   {
     "id": "ola-gjeilo",
@@ -345,7 +345,7 @@
       "His choral pieces are now some of the most frequently performed contemporary works by choirs around the world.",
       "He often performs his own piano improvisations alongside choirs in concert, blending a classical choral sound with a more cinematic style."
     ],
-    "popularity": 45
+    "popularity": 27
   },
   {
     "id": "james-macmillan",
@@ -357,7 +357,7 @@
       "He founded his own summer music festival in rural Scotland to bring world-class performances to a small local audience.",
       "He was invited to compose music performed at the wedding of a future king and queen of his home country."
     ],
-    "popularity": 40
+    "popularity": 24
   },
   {
     "id": "fanny-mendelssohn",
@@ -369,7 +369,7 @@
       "Her own brother, a famous composer himself, sometimes performed her songs in public without telling the audience who had actually written them.",
       "She finally began publishing music under her own name just a year before she died suddenly at the piano."
     ],
-    "popularity": 44
+    "popularity": 26
   },
   {
     "id": "clara-schumann",
@@ -381,7 +381,7 @@
       "She raised eight children largely on her own while continuing to perform and compose, after her husband, also a famous composer, became seriously ill.",
       "She kept performing into her 70s and became one of the first people to teach at a major German music conservatory."
     ],
-    "popularity": 58
+    "popularity": 35
   },
   {
     "id": "lili-boulanger",
@@ -393,7 +393,7 @@
       "She battled chronic illness for almost her entire life and died before turning 25, racing to finish her last major work from her sickbed.",
       "Her older sister was also a respected composer, and the two grew up surrounded by some of the most famous musicians of their era."
     ],
-    "popularity": 35
+    "popularity": 21
   },
   {
     "id": "amy-beach",
@@ -405,7 +405,7 @@
       "She largely taught herself composition by studying scores, since her husband didn't want her taking formal lessons after their marriage.",
       "After her husband died, she kept touring as a concert pianist well into her 60s, performing her own works across the country."
     ],
-    "popularity": 48
+    "popularity": 29
   },
   {
     "id": "florence-price",
@@ -417,7 +417,7 @@
       "She sometimes submitted her compositions to contests without revealing her race, fearing it would keep her music from even being considered.",
       "For decades after her death, boxes of her unpublished scores sat forgotten in an old house until they were rediscovered by chance."
     ],
-    "popularity": 47
+    "popularity": 28
   },
   {
     "id": "margaret-bonds",
@@ -429,7 +429,7 @@
       "She set the words of a famous poet of her era to music so often that their two names are still closely linked today.",
       "She was one of the first Black musicians to perform as a soloist with a major American symphony orchestra."
     ],
-    "popularity": 32
+    "popularity": 19
   },
   {
     "id": "caroline-shaw",
@@ -441,7 +441,7 @@
       "She still regularly performs as a violinist and singer in addition to composing, often in the same concerts as her own pieces.",
       "Her breakout piece for eight voices uses no instruments at all, just close harmony and unconventional vocal sounds."
     ],
-    "popularity": 38
+    "popularity": 23
   },
   {
     "id": "errollyn-wallen",
@@ -453,7 +453,7 @@
       "She left a science degree to retrain as a dancer before eventually turning to composing and performing her own songs.",
       "She was honored by her adopted country's monarchy for her services to music."
     ],
-    "popularity": 33
+    "popularity": 19
   },
   {
     "id": "joan-tower",
@@ -465,7 +465,7 @@
       "She played percussion in her own new-music ensemble for over a decade before focusing on composing full time.",
       "She became the first woman to win one of the most significant prizes in American orchestral composition."
     ],
-    "popularity": 36
+    "popularity": 21
   },
   {
     "id": "libby-larsen",
@@ -477,6 +477,6 @@
       "She has written more than 15 operas, along with hundreds of other pieces across nearly every musical genre.",
       "One of her works was inspired by the letters and diary entries of a famous frontier-era woman."
     ],
-    "popularity": 34
+    "popularity": 20
   }
 ]

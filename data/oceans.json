@@ -14,7 +14,7 @@
       "Many coral reefs, including some of the most colorful in the world, grow in its warm western waters.",
       "Strong currents here can carry drifting objects thousands of miles from where they started."
     ],
-    "popularity": 90
+    "popularity": 60
   },
   {
     "id": "atlantic",
@@ -31,7 +31,7 @@
       "Hurricanes that hit the eastern coasts of the Americas often form over its warm waters.",
       "Sailors once called crossing it the \"crossing of the pond,\" since it became such a common journey."
     ],
-    "popularity": 88
+    "popularity": 58
   },
   {
     "id": "indian",
@@ -48,7 +48,7 @@
       "A huge underwater plateau lies hidden beneath its surface, believed by scientists to be part of a sunken landmass.",
       "Many of the world's busiest shipping routes for oil and goods cross through its waters."
     ],
-    "popularity": 70
+    "popularity": 38
   },
   {
     "id": "arctic",
@@ -65,7 +65,7 @@
       "Narwhals and beluga whales swim beneath its icy surface, well adapted to the frigid water.",
       "It's less salty than other oceans because so many rivers from nearby continents flow into it."
     ],
-    "popularity": 65
+    "popularity": 32
   },
   {
     "id": "southern",
@@ -82,6 +82,6 @@
       "Scientists only agreed on its official boundaries fairly recently, after long debate.",
       "Albatrosses can glide above its rough waves for thousands of miles without ever touching land."
     ],
-    "popularity": 45
+    "popularity": 10
   }
 ]
