@@ -4,6 +4,24 @@ server {
     root /usr/share/nginx/html;
     index index.html;
 
+    # HTML: always revalidate so deploys show up immediately
+    location ~* \.html$ {
+        try_files $uri =404;
+        add_header Cache-Control "no-cache";
+    }
+
+    # JS and CSS: always revalidate (no content-hash in filenames)
+    location ~* \.(js|css)$ {
+        try_files $uri =404;
+        add_header Cache-Control "no-cache";
+    }
+
+    # Images and data: cache for a day, revalidate after
+    location ~* \.(png|jpg|jpeg|gif|webp|svg|ico|json)$ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=86400, must-revalidate";
+    }
+
     location / {
         try_files $uri $uri/ =404;
     }
