@@ -209,7 +209,7 @@ export function startFlashcardSession(
   let wrongCount = 0;
   let pointsEarned = 0;
 
-  const placeholderImage = `images/${moduleId}/_placeholder.png`;
+  const placeholderImage = `images/${moduleId}/_placeholder.svg`;
 
   function preloadUpcoming() {
     const targets = selectPreloadTargets(pool, card.item.id);

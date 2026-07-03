@@ -282,7 +282,7 @@ test("startFlashcardSession shows a module placeholder image for a fact-only rec
 
   const image = container.querySelector(".flashcard-image");
   assert.ok(image.classList.contains("flashcard-image-placeholder"));
-  assert.equal(image.src.endsWith("images/continents/_placeholder.png"), true);
+  assert.equal(image.src.endsWith("images/continents/_placeholder.svg"), true);
   assert.equal(image.alt, "Image hidden for this card");
 });
 

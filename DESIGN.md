@@ -135,7 +135,7 @@ field:
   buttons, which teaches nothing.
 - When `image`/`alt` are omitted, the card shows a placeholder image
   instead of blank space — a "?" graphic, one per module (e.g.
-  `images/continents/_placeholder.png`), styled to match that module's art
+  `images/continents/_placeholder.svg`), styled to match that module's art
   rather than one generic graphic shared across all modules. Its alt text
   is a generic "Image hidden for this card," not the real item `alt`, so
   it can't be used as a shape hint.

@@ -17,6 +17,30 @@
     "popularity": 46
   },
   {
+    "id": "africa-image-only",
+    "name": "Africa",
+    "variantOf": "africa",
+    "image": "images/continents/africa.png",
+    "alt": "A world map with a large landmass highlighted, straddling the equator with hot desert across its northern half.",
+    "popularity": 31
+  },
+  {
+    "id": "africa-fact-only",
+    "name": "Africa",
+    "variantOf": "africa",
+    "facts": [
+      "Home to the Sahara, the largest hot desert in the world.",
+      "This is the only continent that sits on the equator and stretches into both the Northern and Southern Hemispheres equally.",
+      "It has more countries than any other continent — over 50 of them.",
+      "It's the only continent where you can find penguins, lions, and gorillas all living in the wild.",
+      "The Nile, one of the longest rivers on Earth, flows through its northeastern corner.",
+      "Thousands of different languages are spoken across its many nations.",
+      "Its tallest peak is capped with snow even though it sits near the equator.",
+      "Fossils of some of the earliest known humans have been discovered here."
+    ],
+    "popularity": 31
+  },
+  {
     "id": "antarctica",
     "name": "Antarctica",
     "image": "images/continents/antarctica.png",
@@ -32,6 +56,30 @@
       "Explorers from many countries share research stations here instead of any single nation claiming it."
     ],
     "popularity": 10
+  },
+  {
+    "id": "antarctica-image-only",
+    "name": "Antarctica",
+    "variantOf": "antarctica",
+    "image": "images/continents/antarctica.png",
+    "alt": "A world map with the icy landmass at the very bottom of the globe highlighted.",
+    "popularity": 0
+  },
+  {
+    "id": "antarctica-fact-only",
+    "name": "Antarctica",
+    "variantOf": "antarctica",
+    "facts": [
+      "It's so cold that almost no people live here — but lots of penguins do!",
+      "This continent holds most of the world's fresh water, frozen into ice.",
+      "It has no permanent residents and no government of its own — scientists just visit to study it.",
+      "Hidden beneath its ice sheet are mountains, valleys, and even a few lakes that never freeze.",
+      "Winds here can blow stronger than almost anywhere else on Earth, sometimes over 100 miles per hour.",
+      "During the darkest months, the sun barely rises above the horizon at all.",
+      "Its ice sheet is so heavy that it presses the land underneath it down into a bowl shape.",
+      "Explorers from many countries share research stations here instead of any single nation claiming it."
+    ],
+    "popularity": 0
   },
   {
     "id": "asia",
@@ -51,6 +99,30 @@
     "popularity": 53
   },
   {
+    "id": "asia-image-only",
+    "name": "Asia",
+    "variantOf": "asia",
+    "image": "images/continents/asia.png",
+    "alt": "A world map with the largest landmass highlighted, stretching from the middle of the globe to its eastern edge.",
+    "popularity": 38
+  },
+  {
+    "id": "asia-fact-only",
+    "name": "Asia",
+    "variantOf": "asia",
+    "facts": [
+      "This is the biggest continent — more than half of all the people in the world live here.",
+      "It's home to Mount Everest, the tallest mountain on Earth.",
+      "It stretches so far that sunrise on its eastern edge happens hours before sunrise on its western edge.",
+      "It contains both the highest point on Earth and one of the lowest, just a few hundred miles apart.",
+      "More than 2,000 languages are spoken by people living here.",
+      "A wall built long ago, one of the longest structures ever made, stretches across its northern lands.",
+      "It includes vast deserts, dense rainforests, and some of the coldest inhabited places on the planet.",
+      "Many of the world's major rivers begin high up in its towering mountains."
+    ],
+    "popularity": 38
+  },
+  {
     "id": "australia",
     "name": "Australia",
     "image": "images/continents/australia.png",
@@ -66,6 +138,30 @@
       "Many of its plants and animals evolved in isolation, since it's been cut off from other landmasses for millions of years."
     ],
     "popularity": 17
+  },
+  {
+    "id": "australia-image-only",
+    "name": "Australia",
+    "variantOf": "australia",
+    "image": "images/continents/australia.png",
+    "alt": "A world map with one highlighted island-sized landmass, surrounded entirely by ocean, off by itself.",
+    "popularity": 2
+  },
+  {
+    "id": "australia-fact-only",
+    "name": "Australia",
+    "variantOf": "australia",
+    "facts": [
+      "This is the only continent that is also just one country.",
+      "It's home to animals found almost nowhere else, like kangaroos and koalas.",
+      "It's the flattest continent, with no big mountain ranges like the others have.",
+      "Nearly all of its native mammals carry their babies in pouches.",
+      "A massive coral reef, the largest in the world, lies just off its northeastern coast.",
+      "Much of its interior is dry desert, often called the outback by the people who live there.",
+      "It's surrounded entirely by ocean and sits in the Southern Hemisphere.",
+      "Many of its plants and animals evolved in isolation, since it's been cut off from other landmasses for millions of years."
+    ],
+    "popularity": 2
   },
   {
     "id": "europe",
@@ -85,6 +181,30 @@
     "popularity": 39
   },
   {
+    "id": "europe-image-only",
+    "name": "Europe",
+    "variantOf": "europe",
+    "image": "images/continents/europe.png",
+    "alt": "A world map with a highlighted landmass made up of many small countries packed closely together.",
+    "popularity": 24
+  },
+  {
+    "id": "europe-fact-only",
+    "name": "Europe",
+    "variantOf": "europe",
+    "facts": [
+      "This continent packs more than 40 different countries close together.",
+      "It shares one giant landmass with Asia, though they're usually thought of as two different continents.",
+      "Many of its countries are small enough that you could drive across them in a single day.",
+      "It's bordered by a warm sea to the south and an icy ocean to the north.",
+      "A dramatic mountain range stretches across several of its countries.",
+      "Many of its capital cities are connected by fast trains that can cross borders in just a few hours.",
+      "It's home to thousands of castles built hundreds of years ago, many still standing today.",
+      "Despite being one of the smaller continents by land area, it has one of the largest populations."
+    ],
+    "popularity": 24
+  },
+  {
     "id": "north-america",
     "name": "North America",
     "image": "images/continents/north-america.png",
@@ -102,6 +222,30 @@
     "popularity": 60
   },
   {
+    "id": "north-america-image-only",
+    "name": "North America",
+    "variantOf": "north-america",
+    "image": "images/continents/north-america.png",
+    "alt": "A world map with a highlighted landmass spanning from icy northern land down to a narrow strip near the equator.",
+    "popularity": 45
+  },
+  {
+    "id": "north-america-fact-only",
+    "name": "North America",
+    "variantOf": "north-america",
+    "facts": [
+      "This continent stretches all the way from icy Canada down to sunny Mexico.",
+      "It's home to the Great Lakes, which together hold about a fifth of the world's fresh surface water.",
+      "It has only three really big countries — Canada, the United States, and Mexico — plus many smaller ones in Central America and the Caribbean.",
+      "It stretches from frozen tundra in the far north to tropical beaches near the equator.",
+      "A powerful waterfall along its eastern border region is famous for its roaring mist.",
+      "A long mountain range runs down its western side for thousands of miles.",
+      "It's home to a giant canyon carved over millions of years by a single river.",
+      "Many different climates exist here, from snowy mountains to steamy swamps, sometimes just a day's drive apart."
+    ],
+    "popularity": 45
+  },
+  {
     "id": "south-america",
     "name": "South America",
     "image": "images/continents/south-america.png",
@@ -117,5 +261,29 @@
       "One of the highest large lakes in the world sits high up in its mountains."
     ],
     "popularity": 24
+  },
+  {
+    "id": "south-america-image-only",
+    "name": "South America",
+    "variantOf": "south-america",
+    "image": "images/continents/south-america.png",
+    "alt": "A world map with a highlighted, triangle-shaped landmass south of a narrow strip of land, crossed by the equator.",
+    "popularity": 9
+  },
+  {
+    "id": "south-america-fact-only",
+    "name": "South America",
+    "variantOf": "south-america",
+    "facts": [
+      "Home to the Amazon rainforest, the largest rainforest on Earth.",
+      "It's home to the Andes, the longest mountain range in the world.",
+      "The Amazon River that runs through it carries more water than any other river on Earth.",
+      "It's home to one of the driest deserts on Earth, where rain almost never falls.",
+      "Macaws, jaguars, and sloths are just a few of the animals that live in its rainforests.",
+      "Many of its countries share Spanish as a common language, while one of the largest speaks Portuguese.",
+      "Its western edge is lined almost entirely by a single long mountain range.",
+      "One of the highest large lakes in the world sits high up in its mountains."
+    ],
+    "popularity": 9
   }
 ]
