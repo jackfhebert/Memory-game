@@ -148,6 +148,17 @@ they're blended into the active pool alongside it like any other item
 (see Adaptive Pacing), so a player can hit the harder, single-cue version
 of an item even while still learning the full one.
 
+Module totals and the "X of Y known" progress chip count by unique
+`name`, not raw entries, so a module with variants still shows its true
+number of real-world items (e.g. "3 of 7 known" for Continents, not "3 of
+21"). This is computed by deduping entries by `name` and keeping the
+first occurrence in file order; that first entry's mastery state decides
+whether the name counts toward "known." In practice this means the base
+item — which should be listed before its variants in the module JSON —
+determines the chip; variants add extra practice reps but don't
+independently move it. Module authors need to keep the base entry first,
+ahead of its variants, for this ordering to hold.
+
 ## Game Flow
 
 1. **Player Select** — pick an existing name or create a new one.
@@ -362,14 +373,6 @@ buttons both labeled the same name. `pickDistractors` currently filters by
   guesses — they'll likely need tuning once there's real play data to look
   at. The Debug Player panel exists to make this data visible in the
   meantime.
-- **Recall variant item counts:** module totals (`items.length` in
-  `js/modules.js`) and the "X of Y known" progress chip currently count
-  every entry in the module file, including recall variants — so a module
-  with 2 variants per item would jump from e.g. "3 of 7 known" to "3 of 21
-  known" once variants are added, even though there are still only 7
-  distinct real-world items. Worth deciding whether the chip should count
-  distinct items (grouped by `id` for base items / `variantOf` for
-  variants) instead of raw entries before this ships.
 - **Recall variant pool crowding:** because a variant copies its base
   item's `popularity`, it tends to enter the active pool (see Adaptive
   Pacing) at nearly the same time as the base item, which could mean
