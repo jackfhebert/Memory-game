@@ -102,6 +102,52 @@ Content for Continents and Oceans will be drafted as placeholder JSON
 (facts + popularity estimates) with AI-generated map images, so the app is
 playable end-to-end before any real content review.
 
+## Recall Variants
+
+Recognizing an item from its picture *and* its fact together is a first
+step, not the goal — the next step is confirming a player can do it from
+either cue alone, without the other propping it up. A module can include
+extra **recall variant** entries per item: the same answer, but with
+either the image or the fact stripped out, so the guess has to come from a
+single cue instead of two combined.
+
+A recall variant is a normal item entry, distinguished by a `variantOf`
+field:
+
+```json
+{
+  "id": "africa-image-only",
+  "name": "Africa",
+  "variantOf": "africa",
+  "image": "images/continents/africa.png",
+  "alt": "A world map with a large landmass highlighted, straddling the equator with hot desert across its northern half.",
+  "popularity": 90
+}
+```
+
+- `variantOf` — the `id` of the full item this variant is testing recall
+  for. Marks the entry as a variant rather than a standalone item, and
+  ties its `name` back to the base item for distractor purposes (see
+  Distractor Selection below).
+- Exactly one of (`image` + `alt`) or (`fact`/`facts`) is present on a
+  variant — never both omitted. There's always one cue to recall from; a
+  card with neither would just be a random guess among the four name
+  buttons, which teaches nothing.
+- When `image`/`alt` are omitted, the card shows a placeholder image
+  instead of blank space — a "?" graphic, one per module (e.g.
+  `images/continents/_placeholder.png`), styled to match that module's art
+  rather than one generic graphic shared across all modules. Its alt text
+  is a generic "Image hidden for this card," not the real item `alt`, so
+  it can't be used as a shape hint.
+- When `fact`/`facts` are omitted, no fact paragraph is shown at all.
+- `popularity` — copy the base item's value, so the variant carries the
+  same difficulty prior as the full item it's testing.
+
+Recall variants aren't gated behind the base item being mastered first —
+they're blended into the active pool alongside it like any other item
+(see Adaptive Pacing), so a player can hit the harder, single-cue version
+of an item even while still learning the full one.
+
 ## Game Flow
 
 1. **Player Select** — pick an existing name or create a new one.
@@ -290,6 +336,12 @@ For MVP, the 3 wrong choices are picked at random from the same module
 "confusable neighbor" selection (e.g. similarly-shaped countries) is a
 future idea once modules get bigger.
 
+Recall variants share a `name` with their base item, so distractor
+selection needs to exclude by `name`, not just `id` — otherwise a variant
+and its base item (or two variants of the same item) could appear as two
+buttons both labeled the same name. `pickDistractors` currently filters by
+`id` only (`js/flashcards.js`); this needs updating once variants ship.
+
 ## Open questions / risks
 
 - **Map accuracy:** resolved — map images turned out rough when
@@ -310,3 +362,18 @@ future idea once modules get bigger.
   guesses — they'll likely need tuning once there's real play data to look
   at. The Debug Player panel exists to make this data visible in the
   meantime.
+- **Recall variant item counts:** module totals (`items.length` in
+  `js/modules.js`) and the "X of Y known" progress chip currently count
+  every entry in the module file, including recall variants — so a module
+  with 2 variants per item would jump from e.g. "3 of 7 known" to "3 of 21
+  known" once variants are added, even though there are still only 7
+  distinct real-world items. Worth deciding whether the chip should count
+  distinct items (grouped by `id` for base items / `variantOf` for
+  variants) instead of raw entries before this ships.
+- **Recall variant pool crowding:** because a variant copies its base
+  item's `popularity`, it tends to enter the active pool (see Adaptive
+  Pacing) at nearly the same time as the base item, which could mean
+  several of the 5 active-pool slots are spent on different cuts of the
+  same underlying item rather than introducing new ones. May need
+  variant-aware pool-size or weighting adjustments once this is played
+  with.
