@@ -21,8 +21,23 @@ export async function getModuleItems(moduleId) {
   return itemsCache.get(moduleId);
 }
 
+// Recall variants share a `name` with their base item (see DESIGN.md,
+// "Recall Variants") so module totals count distinct names, not raw
+// entries. Keeping the first occurrence in file order means the base
+// item - authored ahead of its variants - decides the name's mastery.
+function dedupeByName(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    if (seen.has(item.name)) return false;
+    seen.add(item.name);
+    return true;
+  });
+}
+
 export function countKnownItems(items, progress) {
-  return items.filter((item) => isItemMastered(progress, item.id, item.popularity)).length;
+  return dedupeByName(items).filter((item) =>
+    isItemMastered(progress, item.id, item.popularity),
+  ).length;
 }
 
 export function buildModuleTiles(modules, itemsByModuleId, player) {
@@ -35,7 +50,7 @@ export function buildModuleTiles(modules, itemsByModuleId, player) {
       color: module.color,
       icon: module.icon,
       knownCount: countKnownItems(items, progress),
-      totalCount: items.length,
+      totalCount: dedupeByName(items).length,
     };
   });
 }

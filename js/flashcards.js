@@ -57,7 +57,7 @@ export function pickDistractors(
   count = DISTRACTOR_COUNT,
   rng = Math.random,
 ) {
-  const candidates = items.filter((item) => item.id !== correctItem.id);
+  const candidates = items.filter((item) => item.name !== correctItem.name);
   if (candidates.length < count) {
     throw new Error(
       `Module needs at least ${count + 1} items to pick ${count} distractors`,
@@ -72,6 +72,7 @@ export function buildAnswerChoices(correctItem, distractors, rng = Math.random) 
 
 export function pickFact(item, rng = Math.random) {
   const facts = item.facts;
+  if (!facts) return undefined;
   return facts[Math.floor(rng() * facts.length)];
 }
 
@@ -208,9 +209,11 @@ export function startFlashcardSession(
   let wrongCount = 0;
   let pointsEarned = 0;
 
+  const placeholderImage = `images/${moduleId}/_placeholder.png`;
+
   function preloadUpcoming() {
     const targets = selectPreloadTargets(pool, card.item.id);
-    preloadImages(targets.map((item) => item.image));
+    preloadImages(targets.map((item) => item.image).filter(Boolean));
   }
   preloadUpcoming();
 
@@ -242,6 +245,7 @@ export function startFlashcardSession(
       correctCount,
       wrongCount,
       pointsEarned,
+      placeholderImage,
       debugInfo: isDebugPlayer(player) ? buildDebugInfo() : null,
       onSelect,
       onNext,
@@ -312,6 +316,7 @@ function renderFlashcard(
     correctCount,
     wrongCount,
     pointsEarned,
+    placeholderImage,
     debugInfo,
     onSelect,
     onNext,
@@ -334,14 +339,22 @@ function renderFlashcard(
 
   const image = document.createElement("img");
   image.className = "flashcard-image";
-  image.src = card.item.image;
-  image.alt = card.item.alt;
+  if (card.item.image) {
+    image.src = card.item.image;
+    image.alt = card.item.alt;
+  } else {
+    image.src = placeholderImage;
+    image.alt = "Image hidden for this card";
+    image.classList.add("flashcard-image-placeholder");
+  }
   container.appendChild(image);
 
-  const fact = document.createElement("p");
-  fact.className = "flashcard-fact";
-  fact.textContent = card.fact;
-  container.appendChild(fact);
+  if (card.fact) {
+    const fact = document.createElement("p");
+    fact.className = "flashcard-fact";
+    fact.textContent = card.fact;
+    container.appendChild(fact);
+  }
 
   const grid = document.createElement("div");
   grid.className = "answer-grid";

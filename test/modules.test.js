@@ -45,6 +45,29 @@ test("countKnownItems is 0 when nothing has been answered, even for a popular it
   assert.equal(countKnownItems(ITEMS, { itemStats: {}, ability: 0 }), 0);
 });
 
+test("countKnownItems and buildModuleTiles count recall variants once, by name, not as extra items", () => {
+  // "Africa" base item plus a lower-popularity image-only recall variant of it.
+  const itemsWithVariant = [
+    ...ITEMS,
+    { id: "africa-image-only", name: "Africa", popularity: 40 },
+  ];
+  const progress = {
+    itemStats: { africa: { recent: [true], itemOffset: 3 } },
+    ability: 0,
+  };
+  // Still 1 known and 3 total - the variant shares "Africa"'s name, so it
+  // doesn't inflate the count, and the mastered base item (listed first)
+  // decides "Africa" counts as known.
+  assert.equal(countKnownItems(itemsWithVariant, progress), 1);
+
+  const modules = [
+    { id: "continents", name: "Continents", color: "#4F86C6", icon: "🌍", version: "v1" },
+  ];
+  const itemsByModuleId = new Map([["continents", itemsWithVariant]]);
+  const tiles = buildModuleTiles(modules, itemsByModuleId, "Sam2");
+  assert.equal(tiles[0].totalCount, 3);
+});
+
 test("buildModuleTiles combines manifest data with per-module progress", () => {
   recordAnswer("Sam", "continents", "africa", true, undefined, "v1");
   const modules = [

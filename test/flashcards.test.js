@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { JSDOM } from "jsdom";
 import {
   buildActivePool,
   cardPosition,
@@ -13,10 +14,12 @@ import {
   selectPreloadTargets,
   isDebugPlayer,
   pointsForAnswer,
+  startFlashcardSession,
   ANSWER_CHOICE_COUNT,
 } from "../js/flashcards.js";
 import { probabilityCorrect, getItemMasteryEstimate } from "../js/storage.js";
 import { fakeRng } from "./helpers/fakeRng.js";
+import { createFakeStorage } from "./helpers/fakeStorage.js";
 
 function makeItems(n) {
   // popularity descends with index: item-0 is the most popular, item-(n-1) the least.
@@ -68,6 +71,21 @@ test("pickDistractors throws when the module is too small", () => {
   assert.throws(() => pickDistractors(items, items[0], 3));
 });
 
+test("pickDistractors excludes recall variants sharing the correct item's name", () => {
+  // "Africa" the base item plus an image-only recall variant of the same name.
+  const items = [
+    { id: "africa", name: "Africa" },
+    { id: "africa-image-only", name: "Africa" },
+    { id: "asia", name: "Asia" },
+    { id: "europe", name: "Europe" },
+    { id: "oceania", name: "Oceania" },
+  ];
+  const correct = items[0];
+  const distractors = pickDistractors(items, correct, 3, fakeRng([0.1, 0.5, 0.9]));
+  assert.equal(distractors.length, 3);
+  assert.ok(distractors.every((d) => d.name !== "Africa"));
+});
+
 test("buildAnswerChoices includes the correct item plus all distractors exactly once", () => {
   const items = makeItems(6);
   const correct = items[0];
@@ -88,6 +106,11 @@ test("pickFact returns one of the item's facts", () => {
 test("pickFact works with a single fact", () => {
   const item = { id: "item-0", facts: ["only fact"] };
   assert.equal(pickFact(item, fakeRng([0])), "only fact");
+});
+
+test("pickFact returns undefined for an image-only recall variant with no facts", () => {
+  const item = { id: "item-0-image-only", name: "Item 0" };
+  assert.equal(pickFact(item), undefined);
 });
 
 test("shouldExpandPool fires only when the pool crosses into all-but-one-known", () => {
@@ -216,4 +239,73 @@ test("pointsForAnswer floors at 1 even when the belief shift is negligible", () 
   const progressAfter = { itemStats: { "item-0": { itemOffset: 10.05 } }, ability: 0.01 };
 
   assert.equal(pointsForAnswer(progressBefore, progressAfter, item, 4), 1);
+});
+
+function setUpDom() {
+  globalThis.localStorage = createFakeStorage();
+  const dom = new JSDOM("<div id=container></div>");
+  globalThis.document = dom.window.document;
+  return dom.window.document.getElementById("container");
+}
+
+// Stubs Math.random to always return 0, which (given the equal-popularity,
+// no-prior-evidence items used below) makes pickWeightedCard deterministically
+// select the first item in the pool, so these render tests aren't flaky.
+function withStubbedRandom(fn) {
+  const original = Math.random;
+  Math.random = () => 0;
+  try {
+    fn();
+  } finally {
+    Math.random = original;
+  }
+}
+
+test("startFlashcardSession shows a module placeholder image for a fact-only recall variant", () => {
+  const container = setUpDom();
+  const items = [
+    { id: "africa-fact-only", name: "Africa", facts: ["A big continent."], popularity: 50 },
+    { id: "asia", name: "Asia", image: "asia.png", alt: "Asia", facts: ["A big continent."], popularity: 50 },
+    { id: "europe", name: "Europe", image: "europe.png", alt: "Europe", facts: ["A continent."], popularity: 50 },
+    { id: "oceania", name: "Oceania", image: "oceania.png", alt: "Oceania", facts: ["A continent."], popularity: 50 },
+  ];
+
+  withStubbedRandom(() => {
+    startFlashcardSession(container, {
+      player: "Sam",
+      moduleId: "continents",
+      moduleVersion: "v1",
+      items,
+      onExit: () => {},
+    });
+  });
+
+  const image = container.querySelector(".flashcard-image");
+  assert.ok(image.classList.contains("flashcard-image-placeholder"));
+  assert.equal(image.src.endsWith("images/continents/_placeholder.png"), true);
+  assert.equal(image.alt, "Image hidden for this card");
+});
+
+test("startFlashcardSession omits the fact paragraph for an image-only recall variant", () => {
+  const container = setUpDom();
+  const items = [
+    { id: "africa-image-only", name: "Africa", image: "africa.png", alt: "Africa", popularity: 50 },
+    { id: "asia", name: "Asia", image: "asia.png", alt: "Asia", facts: ["A big continent."], popularity: 50 },
+    { id: "europe", name: "Europe", image: "europe.png", alt: "Europe", facts: ["A continent."], popularity: 50 },
+    { id: "oceania", name: "Oceania", image: "oceania.png", alt: "Oceania", facts: ["A continent."], popularity: 50 },
+  ];
+
+  withStubbedRandom(() => {
+    startFlashcardSession(container, {
+      player: "Sam",
+      moduleId: "continents",
+      moduleVersion: "v1",
+      items,
+      onExit: () => {},
+    });
+  });
+
+  assert.equal(container.querySelector(".flashcard-fact"), null);
+  const image = container.querySelector(".flashcard-image");
+  assert.equal(image.classList.contains("flashcard-image-placeholder"), false);
 });
