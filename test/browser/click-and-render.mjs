@@ -46,8 +46,13 @@ async function checkCard(page, cardIndex) {
   const imageSrc = await page.locator(".flashcard-image").getAttribute("src");
   assert(Boolean(imageSrc), "flashcard image has no src");
 
-  const factText = await page.locator(".flashcard-fact").innerText();
-  assert(factText.trim().length > 0, "flashcard fact is empty");
+  // A recall variant (see DESIGN.md "Recall Variants") can omit the fact,
+  // showing only the image - so the fact paragraph isn't always present.
+  const factLocator = page.locator(".flashcard-fact");
+  if (await factLocator.count() > 0) {
+    const factText = await factLocator.innerText();
+    assert(factText.trim().length > 0, "flashcard fact is empty");
+  }
 
   const choices = page.locator(".answer-button");
   const choiceCount = await choices.count();
