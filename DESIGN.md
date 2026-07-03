@@ -140,8 +140,11 @@ field:
   is a generic "Image hidden for this card," not the real item `alt`, so
   it can't be used as a shape hint.
 - When `fact`/`facts` are omitted, no fact paragraph is shown at all.
-- `popularity` — copy the base item's value, so the variant carries the
-  same difficulty prior as the full item it's testing.
+- `popularity` — authored lower than the base item's, since recognizing
+  from a single cue is inherently harder than from picture + fact
+  together. This also keeps a variant out of the active pool (sorted by
+  popularity, see Adaptive Pacing) until after its base item has already
+  entered, instead of both competing for pool slots from the start.
 
 Recall variants aren't gated behind the base item being mastered first —
 they're blended into the active pool alongside it like any other item
@@ -373,10 +376,3 @@ buttons both labeled the same name. `pickDistractors` currently filters by
   guesses — they'll likely need tuning once there's real play data to look
   at. The Debug Player panel exists to make this data visible in the
   meantime.
-- **Recall variant pool crowding:** because a variant copies its base
-  item's `popularity`, it tends to enter the active pool (see Adaptive
-  Pacing) at nearly the same time as the base item, which could mean
-  several of the 5 active-pool slots are spent on different cuts of the
-  same underlying item rather than introducing new ones. May need
-  variant-aware pool-size or weighting adjustments once this is played
-  with.
