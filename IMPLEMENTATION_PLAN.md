@@ -6,8 +6,8 @@ See also: [README](README.md) · [Design Doc](DESIGN.md) ·
 ## Goal for this pass
 
 Get a real, playable version of the [design doc](DESIGN.md) running end to
-end: Player Select → Module Select → Mode Select → Flashcard loop, for the
-Continents and Oceans modules, on a phone/tablet-sized screen.
+end: Player Select → Module Select → Flashcard loop, for the Continents and
+Oceans modules, on a phone/tablet-sized screen.
 
 One piece from [DESIGN.md](DESIGN.md) is still deliberately simplified:
 
@@ -66,8 +66,7 @@ memory-game/
 - The single page the app ever loads. Holds the `<head>` (viewport meta
   tag, link to `css/styles.css`) and a `<body>` with one empty container
   div per screen (`#screen-player-select`, `#screen-module-select`,
-  `#screen-mode-select`, `#screen-flashcard`), all empty until JS fills
-  them in.
+  `#screen-flashcard`), all empty until JS fills them in.
 - One `<script type="module" src="js/app.js">` at the bottom — the only
   script tag in the file. Everything else is imported by `app.js`.
 - No inline markup for tiles/buttons/cards — those are all built in JS so
@@ -78,7 +77,7 @@ memory-game/
 - Color/spacing variables (CSS custom properties) for the "modern" look —
   one place to retheme later.
 - Shared tile/button styles (the big rounded touch-friendly buttons used
-  on Player Select, Module Select, and Mode Select).
+  on Player Select and Module Select).
 - Flashcard-specific styles: image sizing, the 2×2 answer grid, the
   flip/reveal transition, correct/incorrect color feedback, the "X" exit
   button.
@@ -105,9 +104,6 @@ memory-game/
 - `getModuleList()`, `getModuleItems(moduleId)`.
 - Renders the Module Select screen: one tile per manifest entry, with its
   color/icon and a progress chip computed from `storage.js` data.
-- Renders the Mode Select screen (the two "Active Learning" / "All Cards"
-  buttons) once a module tile is tapped — small enough not to need its own
-  file.
 
 ### `js/players.js`
 
@@ -119,8 +115,8 @@ memory-game/
 
 ### `js/flashcards.js`
 
-- Given a module's items + the chosen mode, builds the active pool
-  (5 random items for Active Learning, all items for All Cards).
+- Given a module's items, builds the active pool (5 most popular items to
+  start, growing as the player masters them — see Adaptive Pacing).
 - Picks the next card from the pool (uniform random, no immediate
   repeats), and picks its 3 distractors at random from the rest of the
   module.
@@ -150,15 +146,14 @@ memory-game/
 ### `js/app.js`
 
 - The entry point loaded by `index.html`.
-- Holds the one piece of shared app state (current player, module, mode,
-  and the cross-module `sessionPoints` running total) and a
-  `showScreen(name)` function that toggles the `.active` class between the
-  four screen containers.
+- Holds the one piece of shared app state (current player, module, and the
+  cross-module `sessionPoints` running total) and a `showScreen(name)`
+  function that toggles the `.active` class between the three screen
+  containers.
 - Wires the screens together: Player Select's "tile tapped" callback sets
   the player and calls into `modules.js` to render Module Select; Module
-  Select's tap renders Mode Select; Mode Select's tap calls into
-  `flashcards.js` to start the loop; the flashcard screen's "X" calls back
-  into `modules.js` to re-render Module Select.
+  Select's tap calls into `flashcards.js` to start the loop; the flashcard
+  screen's "X" calls back into `modules.js` to re-render Module Select.
 - Accumulates `state.sessionPoints` via the `onPointsEarned` callback
   passed into `startFlashcardSession`, and renders it into the persistent
   `#session-points-bar` element (visible on every screen once a player is
@@ -219,13 +214,7 @@ the array order is the tile order shown to the kid.
 - Each tile shows a small progress chip, e.g. "3 of 7" — the count of
   items currently "known" under the recency-based mastery model in
   [DESIGN.md](DESIGN.md), out of the module's total item count.
-- Tapping a module moves to Mode Select.
-
-### Mode Select
-
-- Two large buttons: "Active Learning" and "All Cards" (per
-  [DESIGN.md](DESIGN.md)).
-- Tapping either starts the Flashcard loop for that module + mode.
+- Tapping a module starts the Flashcard loop for that module.
 
 ### Flashcard Screen
 
@@ -234,8 +223,7 @@ the array order is the tile order shown to the kid.
 - An "X" in a corner, always tappable, returns to Module Select.
 - A "Card X of Y" indicator above the picture shows the current item's
   rank within the active pool (X) and the active pool's current size (Y).
-  For Active Learning, Y grows over the session as `expandPool` adds items;
-  for All Cards, Y is fixed at the module's full item count.
+  Y grows over the session as `expandPool` adds items.
 - Tapping an answer flips the card: the correct name is highlighted, and
   the tapped choice is marked right or wrong.
 - A "Next" button advances to another card from the active pool.
@@ -273,23 +261,17 @@ pool-expansion trigger below read from it.
 
 ## Card selection logic (v1, simplified)
 
-- **Active Learning** — at the start of a session, the active pool is the
-  5 most popular items in the module by `popularity` (or all items, if the
-  module has fewer than 5). Whenever an item in the pool newly becomes
-  "known" under DESIGN.md's recency-based mastery model — i.e. it wasn't
-  known before this answer but is now — the single most-popular item not
-  yet in the pool is added. The next card is drawn uniformly at random from
-  the active pool, avoiding an immediate repeat of the same card when the
-  pool has more than one item.
-- **All Cards** — the active pool is every item in the module, immediately,
-  sorted by `popularity` descending. The first pass through a session walks
-  the pool in that order (most popular item first); once every card in the
-  pool has been shown once, subsequent cards are drawn uniformly at random
-  (same immediate-repeat avoidance as Active Learning).
-- In both modes, the active pool's array order is always popularity-sorted
-  descending, so an item's 1-indexed position in that array doubles as its
-  popularity rank — this is what the Flashcard Screen's "Card X of Y"
-  indicator reads from.
+- At the start of a session, the active pool is the 5 most popular items in
+  the module by `popularity` (or all items, if the module has fewer than
+  5). Whenever an item in the pool newly becomes "known" under DESIGN.md's
+  recency-based mastery model — i.e. it wasn't known before this answer but
+  is now — the single most-popular item not yet in the pool is added. The
+  next card is drawn uniformly at random from the active pool, avoiding an
+  immediate repeat of the same card when the pool has more than one item.
+- The active pool's array order is always popularity-sorted descending, so
+  an item's 1-indexed position in that array doubles as its popularity
+  rank — this is what the Flashcard Screen's "Card X of Y" indicator reads
+  from.
 - This logic is the part that gets replaced wholesale once the mastery
   model is implemented — everything else (screens, data model, distractor
   selection) stays the same.
@@ -310,9 +292,8 @@ each module to have at least 4 items — see the module-size note below.
    matching the paths referenced in the JSON.
 3. Add an entry for it to `data/modules.json` (`id`, `name`, `dataFile`,
    `color`, `icon`, `version` — set `version` to the current timestamp).
-4. No code changes required — Player Select, Module Select, Mode Select,
-   and the Flashcard screen are all generic over the manifest and item
-   schema.
+4. No code changes required — Player Select, Module Select, and the
+   Flashcard screen are all generic over the manifest and item schema.
 5. Reload the app; the new module's tile appears on Module Select
    automatically.
 

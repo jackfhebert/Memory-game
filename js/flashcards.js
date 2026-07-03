@@ -39,33 +39,11 @@ function sortByPopularityDesc(items) {
   return [...items].sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0));
 }
 
-export function buildActivePool(items, mode) {
-  if (mode === "all-cards" || items.length <= ACTIVE_LEARNING_POOL_SIZE) {
+export function buildActivePool(items) {
+  if (items.length <= ACTIVE_LEARNING_POOL_SIZE) {
     return sortByPopularityDesc(items);
   }
   return sortByPopularityDesc(items).slice(0, ACTIVE_LEARNING_POOL_SIZE);
-}
-
-export function pickNextCard(pool, previousItemId, rng = Math.random) {
-  if (pool.length === 0) {
-    throw new Error("Cannot pick a card from an empty pool");
-  }
-  const candidates =
-    pool.length > 1 ? pool.filter((item) => item.id !== previousItemId) : pool;
-  const index = Math.floor(rng() * candidates.length);
-  return candidates[index];
-}
-
-export function pickOrderedOrRandomCard(
-  pool,
-  cardsShown,
-  previousItemId,
-  rng = Math.random,
-) {
-  if (cardsShown < pool.length) {
-    return pool[cardsShown];
-  }
-  return pickNextCard(pool, previousItemId, rng);
 }
 
 export function cardPosition(pool, itemId) {
@@ -106,9 +84,8 @@ function isPoolAlmostKnown(knownCount, poolSize) {
 // Only expand on the transition into "almost known", not every answer after
 // it, so each mastery milestone adds exactly one card instead of piling on
 // more every time the player answers correctly with one slot already free.
-export function shouldExpandPool(mode, knownCountBefore, knownCountAfter, poolSize) {
+export function shouldExpandPool(knownCountBefore, knownCountAfter, poolSize) {
   return (
-    mode === "active-learning" &&
     isPoolAlmostKnown(knownCountAfter, poolSize) &&
     !isPoolAlmostKnown(knownCountBefore, poolSize)
   );
@@ -206,27 +183,21 @@ function buildCard(items, item, rng) {
 
 export function startFlashcardSession(
   container,
-  { player, moduleId, moduleVersion, items, mode, onExit, onPointsEarned },
+  { player, moduleId, moduleVersion, items, onExit, onPointsEarned },
 ) {
-  let pool = buildActivePool(items, mode);
-  let cardsShown = 0;
+  let pool = buildActivePool(items);
 
   function countKnownInPool(progress) {
     return pool.filter((item) => isItemMastered(progress, item.id, item.popularity)).length;
   }
 
   function selectItem(previousItemId, rng = Math.random) {
-    const item =
-      mode === "all-cards"
-        ? pickOrderedOrRandomCard(pool, cardsShown, previousItemId, rng)
-        : pickWeightedCard(
-            pool,
-            previousItemId,
-            getProgress(player, moduleId, moduleVersion),
-            rng,
-          );
-    cardsShown += 1;
-    return item;
+    return pickWeightedCard(
+      pool,
+      previousItemId,
+      getProgress(player, moduleId, moduleVersion),
+      rng,
+    );
   }
 
   let card = buildCard(items, selectItem(null));
@@ -306,7 +277,7 @@ export function startFlashcardSession(
         pointsEarned = 0;
       }
       const knownCountAfter = countKnownInPool(progress);
-      if (shouldExpandPool(mode, knownCountBefore, knownCountAfter, pool.length)) {
+      if (shouldExpandPool(knownCountBefore, knownCountAfter, pool.length)) {
         pool = expandPool(pool, items);
       }
       revealed = true;

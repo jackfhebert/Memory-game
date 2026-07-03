@@ -100,13 +100,6 @@ body {
   color: #6b7088;
 }
 
-.tile-description {
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: #6b7088;
-  text-align: center;
-}
-
 .add-player-form {
   display: flex;
   flex-direction: column;

@@ -2,8 +2,6 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   buildActivePool,
-  pickNextCard,
-  pickOrderedOrRandomCard,
   cardPosition,
   pickDistractors,
   buildAnswerChoices,
@@ -29,9 +27,9 @@ function makeItems(n) {
   }));
 }
 
-test("buildActivePool selects the most popular items for active-learning when more are available", () => {
+test("buildActivePool selects the most popular items when more are available", () => {
   const items = makeItems(7);
-  const pool = buildActivePool(items, "active-learning");
+  const pool = buildActivePool(items);
   assert.equal(pool.length, 5);
   assert.deepEqual(
     pool.map((i) => i.id),
@@ -41,58 +39,12 @@ test("buildActivePool selects the most popular items for active-learning when mo
 
 test("buildActivePool uses every item when the module has 5 or fewer", () => {
   const items = makeItems(5);
-  const pool = buildActivePool(items, "active-learning");
+  const pool = buildActivePool(items);
   assert.equal(pool.length, 5);
   assert.deepEqual(
     pool.map((i) => i.id).sort(),
     items.map((i) => i.id).sort(),
   );
-});
-
-test("buildActivePool uses every item immediately for all-cards, sorted by popularity", () => {
-  const items = makeItems(7);
-  const pool = buildActivePool(items, "all-cards");
-  assert.equal(pool.length, 7);
-  assert.deepEqual(
-    pool.map((i) => i.id),
-    ["item-0", "item-1", "item-2", "item-3", "item-4", "item-5", "item-6"],
-  );
-});
-
-test("pickNextCard avoids an immediate repeat when the pool has more than one item", () => {
-  const pool = makeItems(3);
-  for (let trial = 0; trial < 20; trial++) {
-    const rng = fakeRng([trial / 20]);
-    const next = pickNextCard(pool, "item-0", rng);
-    assert.notEqual(next.id, "item-0");
-  }
-});
-
-test("pickNextCard returns the only item when the pool has exactly one item", () => {
-  const pool = makeItems(1);
-  const next = pickNextCard(pool, "item-0");
-  assert.equal(next.id, "item-0");
-});
-
-test("pickNextCard throws on an empty pool", () => {
-  assert.throws(() => pickNextCard([], null));
-});
-
-test("pickOrderedOrRandomCard walks the pool in order during the first pass", () => {
-  const pool = makeItems(4);
-  assert.equal(pickOrderedOrRandomCard(pool, 0, null).id, "item-0");
-  assert.equal(pickOrderedOrRandomCard(pool, 1, "item-0").id, "item-1");
-  assert.equal(pickOrderedOrRandomCard(pool, 2, "item-1").id, "item-2");
-  assert.equal(pickOrderedOrRandomCard(pool, 3, "item-2").id, "item-3");
-});
-
-test("pickOrderedOrRandomCard falls back to random selection after the first pass", () => {
-  const pool = makeItems(3);
-  for (let trial = 0; trial < 20; trial++) {
-    const rng = fakeRng([trial / 20]);
-    const next = pickOrderedOrRandomCard(pool, 3, "item-0", rng);
-    assert.notEqual(next.id, "item-0");
-  }
 });
 
 test("cardPosition returns the 1-indexed rank of an item within the pool", () => {
@@ -138,13 +90,12 @@ test("pickFact works with a single fact", () => {
   assert.equal(pickFact(item, fakeRng([0])), "only fact");
 });
 
-test("shouldExpandPool fires only when the pool crosses into all-but-one-known, in active-learning mode", () => {
+test("shouldExpandPool fires only when the pool crosses into all-but-one-known", () => {
   // pool of 5: "almost known" means knownCount >= 4 (at most one unknown item left)
-  assert.equal(shouldExpandPool("active-learning", 3, 4, 5), true);
-  assert.equal(shouldExpandPool("active-learning", 4, 4, 5), false);
-  assert.equal(shouldExpandPool("active-learning", 4, 5, 5), false);
-  assert.equal(shouldExpandPool("active-learning", 2, 3, 5), false);
-  assert.equal(shouldExpandPool("all-cards", 3, 4, 5), false);
+  assert.equal(shouldExpandPool(3, 4, 5), true);
+  assert.equal(shouldExpandPool(4, 4, 5), false);
+  assert.equal(shouldExpandPool(4, 5, 5), false);
+  assert.equal(shouldExpandPool(2, 3, 5), false);
 });
 
 test("expandPool adds the most popular item not already in the pool", () => {

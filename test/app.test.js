@@ -33,7 +33,6 @@ async function setUpApp() {
   const dom = new JSDOM(
     `<div id="screen-player-select" class="screen active"></div>
      <div id="screen-module-select" class="screen"></div>
-     <div id="screen-mode-select" class="screen"></div>
      <div id="screen-flashcard" class="screen"></div>`,
   );
   globalThis.document = dom.window.document;
@@ -50,7 +49,7 @@ function activeScreen(dom) {
   return dom.window.document.querySelector(".screen.active").id;
 }
 
-test("app.v2.js: player select -> module select -> mode select -> flashcard -> exit", async () => {
+test("app.v2.js: player select -> module select -> flashcard -> exit", async () => {
   const dom = await setUpApp();
   const { document } = dom.window;
 
@@ -68,18 +67,12 @@ test("app.v2.js: player select -> module select -> mode select -> flashcard -> e
   const moduleTile = document.querySelector("#screen-module-select .tile");
   assert.match(moduleTile.textContent, /Continents/);
   moduleTile.dispatchEvent(new dom.window.Event("click"));
-
-  assert.equal(activeScreen(dom), "screen-mode-select");
-  const allCardsTile = [
-    ...document.querySelectorAll("#screen-mode-select .tile"),
-  ].find((tile) => tile.querySelector(".tile-name").textContent === "All Cards");
-  allCardsTile.dispatchEvent(new dom.window.Event("click"));
   await new Promise((resolve) => setTimeout(resolve, 0));
 
   assert.equal(activeScreen(dom), "screen-flashcard");
-  assert.equal(
+  assert.match(
     document.querySelector("#screen-flashcard .flashcard-position").textContent,
-    "Card 1 of 4",
+    /^Card \d of 4$/,
   );
   const answerButtons = document.querySelectorAll(
     "#screen-flashcard .answer-button",

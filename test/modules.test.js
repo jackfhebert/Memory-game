@@ -7,7 +7,7 @@ beforeEach(() => {
   globalThis.localStorage = createFakeStorage();
 });
 
-const { countKnownItems, buildModuleTiles, renderModuleSelect, renderModeSelect } =
+const { countKnownItems, buildModuleTiles, renderModuleSelect } =
   await import("../js/modules.js");
 const { recordAnswer } = await import("../js/storage.js");
 
@@ -83,22 +83,4 @@ test("renderModuleSelect renders one tile per module and wires up clicks", () =>
 
   buttons[1].dispatchEvent(new dom.window.Event("click"));
   assert.equal(selected, "oceans");
-});
-
-test("renderModeSelect renders both modes and wires up clicks", () => {
-  const dom = new JSDOM("<div id=container></div>");
-  globalThis.document = dom.window.document;
-  const container = dom.window.document.getElementById("container");
-
-  let selected = null;
-  renderModeSelect(container, { onSelectMode: (mode) => (selected = mode) });
-
-  const buttons = container.querySelectorAll(".tile");
-  assert.equal(buttons.length, 2);
-
-  buttons[0].dispatchEvent(new dom.window.Event("click"));
-  assert.equal(selected, "active-learning");
-
-  buttons[1].dispatchEvent(new dom.window.Event("click"));
-  assert.equal(selected, "all-cards");
 });

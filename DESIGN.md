@@ -106,16 +106,13 @@ playable end-to-end before any real content review.
 
 1. **Player Select** — pick an existing name or create a new one.
 2. **Module Select** — pick a module (Continents, Oceans), shown with a
-   rough progress indicator (e.g. "3 of 7 known").
-3. **Mode Select** — for the chosen module, pick:
-   - **Active Learning** — items are introduced gradually as the player
-     demonstrates mastery (see Adaptive Pacing below).
-   - **All Cards** — every item in the module is available immediately, no
-     gradual introduction. Still uses the mastery model to weight which
-     card comes up next, just without restricting the pool.
-4. **Flashcard Mode** (the core loop):
+   rough progress indicator (e.g. "3 of 7 known"). Tapping a module starts
+   the Flashcard Mode loop directly, in Active Learning pacing (see
+   Adaptive Pacing below) — items are introduced gradually as the player
+   demonstrates mastery.
+3. **Flashcard Mode** (the core loop):
    1. The app picks the next item from the player's active pool for that
-      module and mode (see Adaptive Pacing).
+      module (see Adaptive Pacing).
    2. **Card front:** picture + fun fact shown together, plus 4
       multiple-choice name buttons (1 correct, 3 distractors from the same
       module, random order). Showing the fact before the guess means it
@@ -134,7 +131,7 @@ playable end-to-end before any real content review.
       going without it feeling like a test score. A correct answer also
       shows a third "✨ +N" chip with the points earned for that answer (see
       Session Points below).
-5. This repeats indefinitely, cycling through the active pool. An "X" is
+4. This repeats indefinitely, cycling through the active pool. An "X" is
    always visible during Flashcard Mode so the kid can exit back to Module
    Select whenever they're done — there's no separate "finished" state to
    design for.
@@ -269,28 +266,22 @@ inspectable while it's tuned. It's implemented in `js/flashcards.js`
 
 ## Adaptive Pacing
 
-How the active pool behaves depends on the mode chosen in Mode Select. Both
-modes are driven by the Elo/IRT mastery model above, via `isItemMastered`
-and `getItemMasteryEstimate` in `js/storage.js`.
+Every session uses the same pacing, Active Learning, driven by the
+Elo/IRT mastery model above via `isItemMastered` and
+`getItemMasteryEstimate` in `js/storage.js`.
 
-- **All Cards** — every item in the module is in the active pool from the
-  start.
-- **Active Learning** — the active pool starts with the top
-  `ACTIVE_LEARNING_POOL_SIZE` (5) items by `popularity` (or all items, if
-  the module has fewer than 5 — relevant for the 5-item Oceans module).
-  Once every item in the pool but one is mastered, the next-most-popular
-  item not yet in the pool is added. This repeats until every item in the
-  module is active.
+The active pool starts with the top `ACTIVE_LEARNING_POOL_SIZE` (5) items
+by `popularity` (or all items, if the module has fewer than 5 — relevant
+for the 5-item Oceans module). Once every item in the pool but one is
+mastered, the next-most-popular item not yet in the pool is added. This
+repeats until every item in the module is active.
 
-In Active Learning, the next card is chosen at random from the active pool
-(minus whichever card was just answered), weighted continuously by
-`1 - P(correct)` per candidate (`js/flashcards.js`,
-`buildSelectionProbabilities`): items the player is less likely to answer
-correctly get proportionally more selection weight, with a small floor so
-no candidate — however well mastered — ever has a zero chance of review.
-All Cards instead walks the pool in a fixed order on the first pass through
-the module, then falls back to uniform random selection — it doesn't use
-this weighting.
+The next card is chosen at random from the active pool (minus whichever
+card was just answered), weighted continuously by `1 - P(correct)` per
+candidate (`js/flashcards.js`, `buildSelectionProbabilities`): items the
+player is less likely to answer correctly get proportionally more
+selection weight, with a small floor so no candidate — however well
+mastered — ever has a zero chance of review.
 
 ## Distractor selection
 

@@ -119,8 +119,6 @@ async function main() {
     );
     await moduleTile.click();
 
-    await page.locator(".tile", { hasText: "All Cards" }).first().click();
-
     for (let cardIndex = 0; cardIndex < CARDS_TO_CHECK; cardIndex++) {
       await checkCard(page, cardIndex);
     }

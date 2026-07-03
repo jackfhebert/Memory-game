@@ -58,7 +58,8 @@ against the app served locally on the runner:
    `package-lock.json`'s hash).
 2. Serve the static app (`python3 -m http.server`) in the background.
 3. Drive it with headless Chromium:
-   - Adds a player, opens the Continents module, switches to "All Cards."
+   - Adds a player and opens the Continents module, starting the
+     flashcard loop directly.
    - Asserts the module tile's progress text matches `"N of M"`.
    - For the first two cards: asserts the image has a `src`, the fact
      text is non-empty, and there are exactly 4 answer choices.

@@ -4,22 +4,15 @@ import {
   getModuleItems,
   buildModuleTiles,
   renderModuleSelect,
-  renderModeSelect,
 } from "./modules.js";
 import { startFlashcardSession } from "./flashcards.js";
 
-const SCREENS = [
-  "player-select",
-  "module-select",
-  "mode-select",
-  "flashcard",
-];
+const SCREENS = ["player-select", "module-select", "flashcard"];
 
 const state = {
   player: null,
   moduleId: null,
   moduleVersion: null,
-  mode: null,
   sessionPoints: 0,
 };
 
@@ -75,21 +68,10 @@ async function goToModuleSelect() {
     onSelectModule: (moduleId) => {
       state.moduleId = moduleId;
       state.moduleVersion = modules.find((module) => module.id === moduleId).version;
-      goToModeSelect(itemsByModuleId.get(moduleId).length);
-    },
-  });
-  showScreen("module-select");
-}
-
-function goToModeSelect(totalCount) {
-  renderModeSelect(screenContainer("mode-select"), {
-    totalCount,
-    onSelectMode: (mode) => {
-      state.mode = mode;
       goToFlashcards();
     },
   });
-  showScreen("mode-select");
+  showScreen("module-select");
 }
 
 async function goToFlashcards() {
@@ -99,7 +81,6 @@ async function goToFlashcards() {
     moduleId: state.moduleId,
     moduleVersion: state.moduleVersion,
     items,
-    mode: state.mode,
     onExit: goToModuleSelect,
     onPointsEarned: addSessionPoints,
   });
