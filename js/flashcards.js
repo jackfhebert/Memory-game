@@ -6,6 +6,7 @@ import {
   getItemMasteryEstimate,
 } from "./storage.js";
 import { celebrateCorrectAnswer } from "./effects.js";
+import { recordAnswerEvent } from "./analytics.js";
 
 export const ACTIVE_LEARNING_POOL_SIZE = 5;
 const DISTRACTOR_COUNT = 3;
@@ -268,6 +269,7 @@ export function startFlashcardSession(
         card.item.popularity,
         moduleVersion,
       );
+      recordAnswerEvent(moduleId, moduleVersion, card.item.id, wasCorrect);
       if (wasCorrect) {
         correctCount += 1;
         pointsEarned = pointsForAnswer(progressBefore, progress, card.item, card.choices.length);

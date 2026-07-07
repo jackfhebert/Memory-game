@@ -1,4 +1,4 @@
-import { test, beforeEach } from "node:test";
+import { test, beforeEach, afterEach } from "node:test";
 import assert from "node:assert/strict";
 import { createFakeStorage } from "./helpers/fakeStorage.js";
 
@@ -45,6 +45,10 @@ function defaultHandler(url) {
 beforeEach(() => {
   globalThis.localStorage = createFakeStorage();
   globalThis.location = { hostname: PRODUCTION_HOSTNAME };
+});
+
+afterEach(() => {
+  globalThis.location = { hostname: "" };
 });
 
 test("does nothing off the production host", async () => {
