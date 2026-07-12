@@ -12,7 +12,7 @@ export const PRODUCTION_HOSTNAME = "memory-game-194124557165.us-central1.run.app
 
 // TODO: point this at the deployed analytics backend once it exists (see
 // ANALYTICS.md "Deployment shape").
-export const ANALYTICS_ENDPOINT = "https://memory-game-analytics.run.app";
+export const ANALYTICS_ENDPOINT = "https://memory-game-analytics-194124557165.us-central1.run.app";
 
 function isAnalyticsEnabled() {
   return globalThis.location?.hostname === PRODUCTION_HOSTNAME;
