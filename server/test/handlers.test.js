@@ -27,6 +27,9 @@ function validAnswerBody(overrides = {}) {
   };
 }
 
+const WASHINGTON_KEY = "us-presidents:1:george-washington:0";
+const LINCOLN_KEY = "us-presidents:1:abraham-lincoln:0";
+
 test("handleTokenRequest issues today's HMAC token for the given user", async () => {
   const { handleTokenRequest } = setup();
   const { status, body } = await handleTokenRequest({ user_id: "user-1" });
@@ -43,23 +46,29 @@ test("handleTokenRequest 400s on a missing user_id", async () => {
 test("handleTokenRequest never touches the store", async () => {
   const { handleTokenRequest, store } = setup();
   await handleTokenRequest({ user_id: "user-1" });
-  assert.equal(store.answers.length, 0);
+  assert.equal(store.stats.size, 0);
 });
 
-test("handleAnswerRequest accepts a valid token and persists the answer without user_id", async () => {
+test("handleAnswerRequest accepts a valid token and increments the stats counters", async () => {
   const { handleAnswerRequest, store } = setup();
   const { status, body } = await handleAnswerRequest(validAnswerBody());
   assert.equal(status, 200);
   assert.deepEqual(body, {});
-  assert.deepEqual(store.answers, [
-    {
-      module_id: "us-presidents",
-      module_version: "1",
-      card_id: "george-washington",
-      correct: true,
-      attempt_number: 0,
-    },
-  ]);
+  assert.deepEqual(store.stats.get(WASHINGTON_KEY), { correct: 1, total: 1 });
+});
+
+test("handleAnswerRequest increments total but not correct on a wrong answer", async () => {
+  const { handleAnswerRequest, store } = setup();
+  await handleAnswerRequest(validAnswerBody({ correct: false }));
+  assert.deepEqual(store.stats.get(WASHINGTON_KEY), { correct: 0, total: 1 });
+});
+
+test("handleAnswerRequest accumulates multiple answers on the same stats doc", async () => {
+  const { handleAnswerRequest, store } = setup();
+  await handleAnswerRequest(validAnswerBody({ correct: true }));
+  await handleAnswerRequest(validAnswerBody({ correct: false }));
+  await handleAnswerRequest(validAnswerBody({ correct: true }));
+  assert.deepEqual(store.stats.get(WASHINGTON_KEY), { correct: 2, total: 3 });
 });
 
 test("handleAnswerRequest silently drops a forged token", async () => {
@@ -69,7 +78,7 @@ test("handleAnswerRequest silently drops a forged token", async () => {
   );
   assert.equal(status, 200);
   assert.deepEqual(body, {});
-  assert.equal(store.answers.length, 0);
+  assert.equal(store.stats.size, 0);
 });
 
 test("handleAnswerRequest silently drops a token issued for a different user", async () => {
@@ -77,7 +86,7 @@ test("handleAnswerRequest silently drops a token issued for a different user", a
   const token = issueToken(SECRET, "someone-else", TODAY);
   const { status } = await handleAnswerRequest(validAnswerBody({ token }));
   assert.equal(status, 200);
-  assert.equal(store.answers.length, 0);
+  assert.equal(store.stats.size, 0);
 });
 
 test("handleAnswerRequest silently drops once the daily limit is reached", async () => {
@@ -85,8 +94,8 @@ test("handleAnswerRequest silently drops once the daily limit is reached", async
   await handleAnswerRequest(validAnswerBody());
   const { status } = await handleAnswerRequest(validAnswerBody({ card_id: "abraham-lincoln" }));
   assert.equal(status, 200);
-  assert.equal(store.answers.length, 1);
-  assert.equal(store.answers[0].card_id, "george-washington");
+  assert.ok(store.stats.has(WASHINGTON_KEY));
+  assert.ok(!store.stats.has(LINCOLN_KEY));
 });
 
 test("handleAnswerRequest silently drops a body missing a required field", async () => {
@@ -95,21 +104,21 @@ test("handleAnswerRequest silently drops a body missing a required field", async
   delete body.module_id;
   const { status } = await handleAnswerRequest(body);
   assert.equal(status, 200);
-  assert.equal(store.answers.length, 0);
+  assert.equal(store.stats.size, 0);
 });
 
 test("handleAnswerRequest silently drops a negative attempt_number", async () => {
   const { handleAnswerRequest, store } = setup();
   const { status } = await handleAnswerRequest(validAnswerBody({ attempt_number: -1 }));
   assert.equal(status, 200);
-  assert.equal(store.answers.length, 0);
+  assert.equal(store.stats.size, 0);
 });
 
 test("handleAnswerRequest silently drops a non-boolean correct field", async () => {
   const { handleAnswerRequest, store } = setup();
   const { status } = await handleAnswerRequest(validAnswerBody({ correct: "yes" }));
   assert.equal(status, 200);
-  assert.equal(store.answers.length, 0);
+  assert.equal(store.stats.size, 0);
 });
 
 test("handleAnswerRequest silently drops an empty/missing body", async () => {
@@ -117,5 +126,5 @@ test("handleAnswerRequest silently drops an empty/missing body", async () => {
   const { status, body } = await handleAnswerRequest(undefined);
   assert.equal(status, 200);
   assert.deepEqual(body, {});
-  assert.equal(store.answers.length, 0);
+  assert.equal(store.stats.size, 0);
 });

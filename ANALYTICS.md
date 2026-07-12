@@ -17,20 +17,21 @@ collection layer.
 
 ### What We Track
 
-Each answer event records:
+For each unique `(module_id, module_version, card_id, attempt_number)` combination, the
+server maintains a running tally:
 
 | Field | Description |
 |---|---|
 | `module_id` | Which module (e.g. `us-presidents`) |
-| `module_version` | Content version at time of answer — ensures stats don't mix across edits |
+| `module_version` | Content version — ensures stats don't mix across edits to a card |
 | `card_id` | Which card was answered (e.g. `george-washington`) |
-| `correct` | Whether the player selected the right answer |
 | `attempt_number` | How many times this device has previously answered this card (0 = first ever, 1 = second, …) |
-| `timestamp` | Server-side timestamp |
+| `correct` | Running count of correct answers for this combination |
+| `total` | Running count of all answers for this combination |
 
 `attempt_number` is the key signal for popularity estimation: a card that 80% of players
 get right on attempt 0 is genuinely easy; one where attempt-0 accuracy is 30% is hard
-regardless of how famous the subject is.
+regardless of how famous the subject is. Accuracy is `correct / total`.
 
 ### What We Don't Track
 
@@ -95,7 +96,7 @@ token. The server:
    to the submitted token. Mismatch → 200, drop.
 2. Reads the daily counter for this UUID from Firestore (`rate_limits/{uuid}:{date}`).
 3. If `count >= DAILY_LIMIT` (suggested: 500) → 200, drop.
-4. Otherwise: write the answer event and increment the counter atomically.
+4. Otherwise: increment `stats/{module_id}:{module_version}:{card_id}:{attempt_number}` counters and increment the rate-limit counter atomically.
 
 **Why this works:**
 - The HMAC ties the token to a specific UUID and a specific day. A token issued today
@@ -107,23 +108,23 @@ token. The server:
 
 ## Firestore Schema
 
-### `answers` collection
+### `stats` collection
 
-Auto-ID documents. One document per accepted answer event.
+Document ID: `{module_id}:{module_version}:{card_id}:{attempt_number}`
+(e.g. `us-presidents:2026-06-27T00:00:00Z:george-washington:0`).
 
 ```
 {
-  module_id:      string,      // "us-presidents"
-  module_version: string,      // "2"
-  card_id:        string,      // "george-washington"
-  correct:        boolean,
-  attempt_number: number,      // 0-indexed; 0 = first time this device answered this card
-  timestamp:      Timestamp    // server-set
+  correct: number,   // incremented when the answer was correct
+  total:   number    // incremented on every accepted answer
 }
 ```
 
-`user_id` is intentionally absent — it is used only for rate limiting and not persisted
-with the event, keeping individual documents anonymous.
+Accuracy for a given card and attempt slot is `correct / total`. No auto-ID or
+timestamp fields — counters are updated in place with `FieldValue.increment`, so
+there is exactly one document per `(module_id, module_version, card_id, attempt_number)`
+combination regardless of how many players have answered it. `user_id` is never stored
+here — it is used only for rate limiting.
 
 ### `rate_limits` collection
 
@@ -142,12 +143,13 @@ Document ID: `{uuid}:{date_utc}` (e.g. `a3f2…:2026-06-30`).
 
 Not in scope now. When built, a periodic job will:
 
-1. Query `answers` grouped by `(module_id, module_version, card_id)`.
-2. Compute attempt-0 correct rate for each card.
+1. Read `stats` documents where the ID ends in `:0` (attempt-0 answers).
+2. Compute `correct / total` for each `(module_id, module_version, card_id)`.
 3. Map that rate to a new `popularity` value and write it back to the module JSON.
 
 Stats should only be used once enough answers have accumulated (suggested minimum: 50
-attempt-0 answers per card).
+attempt-0 answers per card). Because each combination has exactly one document, the
+query is a simple collection scan with no grouping step.
 
 ---
 
@@ -201,7 +203,7 @@ Two endpoints, regardless of hosting platform (see below):
 - Validates the HMAC token against today's UTC date.
 - Reads/increments the day's counter in `rate_limits/{user_id}:{date}` (Firestore
   transaction or `FieldValue.increment`).
-- On success, writes one document to `answers` with `timestamp: FieldValue.serverTimestamp()`.
+- On success, increments `correct` (if correct) and `total` on `stats/{module_id}:{module_version}:{card_id}:{attempt_number}` using `FieldValue.increment`.
 - Always responds `200` — rate-limited and invalid-token cases drop silently.
 
 ### Deployment shape — decision needed
@@ -249,7 +251,7 @@ TESTING.md) clicks through a real answer, hitting the same `onNext()` code
 path in `js/flashcards.js` that production traffic uses. That check runs in
 GitHub Actions, which has normal network access, and serves the app on
 `127.0.0.1` — so without a guard, every CI run would submit a real (if
-synthetic) answer to the live `answers`/`rate_limits` collections.
+synthetic) answer to the live `stats`/`rate_limits` collections.
 
 `recordAnswerEvent` avoids this by checking `location.hostname ===
 PRODUCTION_HOSTNAME` before doing anything else — no UUID lookup, no token
