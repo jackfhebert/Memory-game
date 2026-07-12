@@ -1,5 +1,5 @@
 const COLORS = ["#FFD23F", "#FF6B6B", "#4ECDC4", "#A78BFA", "#FF8FB1", "#7FE0A0"];
-const PARTICLES_PER_BURST = 70;
+const PARTICLES_PER_BURST = 45;
 const GRAVITY = 0.045;
 const DRAG = 0.985;
 // Three staggered bursts around the anchor read as one small "show" rather
@@ -22,7 +22,7 @@ class Spark {
     this.vy = Math.sin(angle) * speed;
     this.color = color;
     this.life = 1;
-    this.decay = 0.012 + Math.random() * 0.01;
+    this.decay = 0.022 + Math.random() * 0.015;
     this.size = 1.5 + Math.random() * 1.8;
   }
 
@@ -44,8 +44,6 @@ class Spark {
     ctx.save();
     ctx.globalAlpha = Math.max(this.life, 0);
     ctx.globalCompositeOperation = "lighter";
-    ctx.shadowBlur = 12;
-    ctx.shadowColor = this.color;
     ctx.strokeStyle = this.color;
     ctx.lineWidth = this.size;
     ctx.lineCap = "round";
