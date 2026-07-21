@@ -12,10 +12,12 @@ how the static files get served, not a question of infrastructure.
 
 ## Branch policy: `main` is live
 
-Cloud Run's continuous deploy (set up below) redeploys on every push to
-`main` — there's no staging slot in between. That makes `main` the de
-facto production branch: whatever's there is what's running for real
-users, usually within a minute or two of the push.
+Pushing to `main` automatically kicks off a Cloud Build that builds a new
+container image — but that build isn't served to real users until someone
+deploys it, which today is a manual step: clicking deploy in the Cloud
+Run console UI. So `main` having a commit and `main` being live are two
+different moments, not one. There's no staging slot either way — whatever
+gets deployed is what's running for real users.
 
 Practically, that means:
 
@@ -23,11 +25,14 @@ Practically, that means:
 - Before merging into `main` (or pushing straight to it), run `npm test`
   and, for anything touching module content or the flashcard/answer UI,
   the manual browser walkthrough in [TESTING.md](TESTING.md). Don't rely
-  on Cloud Run's build succeeding as the only check — a clean Docker
-  build just means the static files copied correctly, not that the app
-  behaves correctly.
-- Treat a broken `main` as urgent — fix forward or revert promptly,
-  since it's live the moment it's pushed.
+  on Cloud Build succeeding as the only check — a clean Docker build just
+  means the static files copied correctly, not that the app behaves
+  correctly.
+- A push to `main` isn't live yet on its own — someone still has to
+  deploy it in the Cloud Run console.
+- Treat a broken `main` as urgent once it's actually deployed — fix
+  forward or revert promptly, since it's live the moment someone clicks
+  deploy.
 
 ## Running locally
 
@@ -73,10 +78,13 @@ if you're setting this up from a phone:
    (so anyone with the link — i.e. your family — can open it without a
    Google login). CPU/memory defaults are fine; leave minimum instances at
    0 so it scales to zero (and costs ~nothing) when no one's playing.
-6. Create. The first build+deploy kicks off immediately — that's the
-   "test version," live at the `*.run.app` URL Cloud Run gives you.
-7. From then on, every push to `main` triggers a new Cloud Build → Cloud
-   Run deploy automatically. No further setup needed.
+6. Create. The first build kicks off immediately; once it finishes,
+   deploying it gives the "test version," live at the `*.run.app` URL
+   Cloud Run gives you.
+7. From then on, every push to `main` triggers a new Cloud Build
+   automatically — but in practice the resulting image still needs a
+   manual deploy in the Console (Cloud Run → the service → deploy the
+   new revision) to actually go live. See "Branch policy" above.
 
 This requires its own GCP project with billing enabled (Cloud Run's free
 tier should cover a low-traffic personal/family app, but a billing account
