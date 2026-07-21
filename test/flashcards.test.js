@@ -17,7 +17,12 @@ import {
   startFlashcardSession,
   ANSWER_CHOICE_COUNT,
 } from "../js/flashcards.js";
-import { probabilityCorrect, getItemMasteryEstimate } from "../js/storage.js";
+import {
+  probabilityCorrect,
+  getItemMasteryEstimate,
+  recordAnswer,
+  isItemMastered,
+} from "../js/storage.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 import { createFakeStorage } from "./helpers/fakeStorage.js";
 
@@ -70,6 +75,70 @@ test("buildActivePool seeds by distinct topic, not raw entries - a popular topic
     pool.map((i) => i.id),
     ["pacific", "atlantic", "indian", "arctic", "southern"],
   );
+});
+
+test("a recall variant actually enters the pool once mastering a topic crosses the pool into all-but-one-known (real oceans-shaped data)", () => {
+  globalThis.localStorage = createFakeStorage();
+  const items = [
+    { id: "pacific", name: "Pacific", popularity: 60 },
+    { id: "pacific-image-only", name: "Pacific", variantOf: "pacific", popularity: 45 },
+    { id: "pacific-fact-only", name: "Pacific", variantOf: "pacific", popularity: 45 },
+    { id: "atlantic", name: "Atlantic", popularity: 58 },
+    { id: "atlantic-image-only", name: "Atlantic", variantOf: "atlantic", popularity: 43 },
+    { id: "atlantic-fact-only", name: "Atlantic", variantOf: "atlantic", popularity: 43 },
+    { id: "indian", name: "Indian", popularity: 38 },
+    { id: "indian-image-only", name: "Indian", variantOf: "indian", popularity: 23 },
+    { id: "indian-fact-only", name: "Indian", variantOf: "indian", popularity: 23 },
+    { id: "arctic", name: "Arctic", popularity: 32 },
+    { id: "arctic-image-only", name: "Arctic", variantOf: "arctic", popularity: 17 },
+    { id: "arctic-fact-only", name: "Arctic", variantOf: "arctic", popularity: 17 },
+    { id: "southern", name: "Southern", popularity: 10 },
+    { id: "southern-image-only", name: "Southern", variantOf: "southern", popularity: 0 },
+    { id: "southern-fact-only", name: "Southern", variantOf: "southern", popularity: 0 },
+  ];
+
+  const pool = buildActivePool(items);
+  assert.deepEqual(
+    pool.map((i) => i.id),
+    ["pacific", "atlantic", "indian", "arctic", "southern"],
+  );
+
+  const knownCount = (progress) =>
+    pool.filter((item) => isItemMastered(progress, item.id, item.popularity)).length;
+
+  // Master 3 of the 5 oceans via the real mastery model (js/storage.js),
+  // the same path startFlashcardSession uses - not a hand-rolled progress
+  // object standing in for it.
+  let progress;
+  for (const id of ["pacific", "atlantic", "indian"]) {
+    for (let i = 0; i < 10; i++) {
+      progress = recordAnswer("Sam", "oceans", id, true, items.find((it) => it.id === id).popularity, "v1");
+    }
+  }
+  assert.equal(knownCount(progress), 3);
+
+  // Keep answering Arctic correctly until the exact answer that crosses it
+  // into "mastered" - mirroring the knownCountBefore/After comparison
+  // startFlashcardSession's onNext() does around a single recordAnswer call.
+  let before = progress;
+  let after = progress;
+  while (!isItemMastered(after, "arctic", 32)) {
+    before = after;
+    after = recordAnswer("Sam", "oceans", "arctic", true, 32, "v1");
+  }
+  const knownCountBefore = knownCount(before);
+  const knownCountAfter = knownCount(after);
+  assert.equal(knownCountBefore, 3);
+  assert.equal(knownCountAfter, 4);
+  assert.equal(shouldExpandPool(knownCountBefore, knownCountAfter, pool.length), true);
+
+  const expandedPool = expandPool(pool, items);
+  assert.equal(expandedPool.length, 6);
+  // Pacific is the most popular topic still fully represented by a single
+  // pool slot, so its highest-popularity variant is what should join next -
+  // a real recall variant entering play, not another base topic.
+  assert.equal(expandedPool[5].id, "pacific-image-only");
+  assert.equal(expandedPool[5].variantOf, "pacific");
 });
 
 test("cardPosition returns the 1-indexed rank of an item within the pool", () => {
