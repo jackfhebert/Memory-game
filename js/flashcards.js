@@ -92,13 +92,20 @@ function isPoolAlmostKnown(knownCount, poolSize) {
   return poolSize - knownCount <= 1;
 }
 
-// Only expand on the transition into "almost known", not every answer after
-// it, so each mastery milestone adds exactly one card instead of piling on
-// more every time the player answers correctly with one slot already free.
+// Fires when this answer just mastered something new AND that leaves the
+// pool almost/fully known - not merely "before was below the threshold",
+// since expanding always leaves the pool sitting exactly at that threshold
+// again (the freshly-added item is itself unmastered), so a strict
+// below-then-at-threshold transition could only ever fire once per pool,
+// ever - every later mastery milestone would start already "at" it. Gating
+// on knownCount actually increasing this turn still stops re-firing on an
+// answer that doesn't newly master anything (wrong answer, or a re-answer
+// of an already-known item), so each real mastery milestone still adds
+// exactly one card, but repeatedly, as intended.
 export function shouldExpandPool(knownCountBefore, knownCountAfter, poolSize) {
   return (
-    isPoolAlmostKnown(knownCountAfter, poolSize) &&
-    !isPoolAlmostKnown(knownCountBefore, poolSize)
+    knownCountAfter > knownCountBefore &&
+    isPoolAlmostKnown(knownCountAfter, poolSize)
   );
 }
 

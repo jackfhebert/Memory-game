@@ -77,7 +77,7 @@ test("buildActivePool seeds by distinct topic, not raw entries - a popular topic
   );
 });
 
-test("a recall variant actually enters the pool once mastering a topic crosses the pool into all-but-one-known (real oceans-shaped data)", () => {
+test("recall variants keep entering the pool repeatedly as mastery progresses, not just once (real oceans-shaped data)", () => {
   globalThis.localStorage = createFakeStorage();
   const items = [
     { id: "pacific", name: "Pacific", popularity: 60 },
@@ -132,13 +132,36 @@ test("a recall variant actually enters the pool once mastering a topic crosses t
   assert.equal(knownCountAfter, 4);
   assert.equal(shouldExpandPool(knownCountBefore, knownCountAfter, pool.length), true);
 
-  const expandedPool = expandPool(pool, items);
-  assert.equal(expandedPool.length, 6);
+  let pool2 = expandPool(pool, items);
+  assert.equal(pool2.length, 6);
   // Pacific is the most popular topic still fully represented by a single
   // pool slot, so its highest-popularity variant is what should join next -
   // a real recall variant entering play, not another base topic.
-  assert.equal(expandedPool[5].id, "pacific-image-only");
-  assert.equal(expandedPool[5].variantOf, "pacific");
+  assert.equal(pool2[5].id, "pacific-image-only");
+  assert.equal(pool2[5].variantOf, "pacific");
+
+  // Mastering that newly-added variant too must trigger a *second*
+  // expansion - this is the actual bug reported live: expansion fired once
+  // and then never again, so no further variant (or topic) ever joined.
+  const knownCount2 = (progress) =>
+    pool2.filter((item) => isItemMastered(progress, item.id, item.popularity)).length;
+  let before2 = after;
+  let after2 = after;
+  while (!isItemMastered(after2, "pacific-image-only", 45)) {
+    before2 = after2;
+    after2 = recordAnswer("Sam", "oceans", "pacific-image-only", true, 45, "v1");
+  }
+  const knownCountBefore2 = knownCount2(before2);
+  const knownCountAfter2 = knownCount2(after2);
+  // Southern was never answered, so it - not pacific-image-only - is the
+  // pool's one remaining unknown right after the first expansion (4 of 6).
+  assert.equal(knownCountBefore2, 4);
+  assert.equal(knownCountAfter2, 5);
+  assert.equal(shouldExpandPool(knownCountBefore2, knownCountAfter2, pool2.length), true);
+
+  const pool3 = expandPool(pool2, items);
+  assert.equal(pool3.length, 7);
+  assert.equal(pool3[6].id, "pacific-fact-only");
 });
 
 test("cardPosition returns the 1-indexed rank of an item within the pool", () => {
@@ -204,12 +227,18 @@ test("pickFact returns undefined for an image-only recall variant with no facts"
   assert.equal(pickFact(item), undefined);
 });
 
-test("shouldExpandPool fires only when the pool crosses into all-but-one-known", () => {
+test("shouldExpandPool fires when this answer newly mastered something and that reaches all-but-one-known", () => {
   // pool of 5: "almost known" means knownCount >= 4 (at most one unknown item left)
   assert.equal(shouldExpandPool(3, 4, 5), true);
-  assert.equal(shouldExpandPool(4, 4, 5), false);
-  assert.equal(shouldExpandPool(4, 5, 5), false);
-  assert.equal(shouldExpandPool(2, 3, 5), false);
+  assert.equal(shouldExpandPool(4, 4, 5), false); // nothing newly mastered this turn
+  assert.equal(shouldExpandPool(2, 3, 5), false); // not near the threshold yet
+});
+
+test("shouldExpandPool fires again on reaching fully-known, not just the first almost-known crossing", () => {
+  // Mastering the pool's last remaining item (4 -> 5 of 5) must still fire,
+  // or a pool can only ever expand once, ever - ties in "before" is what
+  // wrongly excluded this case, see the reasoning comment above the impl.
+  assert.equal(shouldExpandPool(4, 5, 5), true);
 });
 
 test("expandPool adds the most popular item not already in the pool", () => {
