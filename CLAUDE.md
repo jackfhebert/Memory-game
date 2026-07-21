@@ -13,3 +13,11 @@
 - Keep changes scoped to what was actually asked. Don't proactively rewrite
   other docs (DESIGN.md, IMPLEMENTATION_PLAN.md, etc.) to "fix" discovered
   inconsistencies — flag the discrepancy and ask first.
+- **Bump `APP_VERSION`** (`js/version.js`, shown on the player-select
+  screen) in the same commit as any fix or feature — this is the only way
+  to tell from the running app whether a deploy actually picked up recent
+  changes, so it needs to move every time real behavior does. Small fix →
+  increment the last number (patch). New feature → increment the middle
+  number (minor) and reset patch to 0. Leave the first number (major) at 1
+  until something major changes. Doc-only, test-only, or other no-behavior
+  changes don't need a bump.

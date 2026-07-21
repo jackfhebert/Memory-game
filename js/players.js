@@ -1,4 +1,5 @@
 import { getPlayers, addPlayer } from "./storage.js";
+import { APP_VERSION } from "./version.js";
 
 export function normalizePlayerName(name) {
   return name.trim();
@@ -29,7 +30,7 @@ export function renderPlayerSelect(container, { onSelectPlayer }) {
 
   const version = document.createElement("p");
   version.className = "app-version";
-  version.textContent = "v1.0.0";
+  version.textContent = `v${APP_VERSION}`;
   container.appendChild(version);
 }
 
