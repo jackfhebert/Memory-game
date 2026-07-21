@@ -7,6 +7,7 @@ import {
 } from "./storage.js";
 import { celebrateCorrectAnswer } from "./effects.js";
 import { recordAnswerEvent } from "./analytics.js";
+import { dedupeByName } from "./items.js";
 
 export const ACTIVE_LEARNING_POOL_SIZE = 5;
 const DISTRACTOR_COUNT = 3;
@@ -40,11 +41,19 @@ function sortByPopularityDesc(items) {
   return [...items].sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0));
 }
 
+// Seeds the pool from distinct topics (by name), not raw entries - a
+// recall variant's lower popularity only staggers it behind its own base
+// item, not behind *other* topics' base items, so ranking raw entries
+// directly can fill the whole starter pool with several cuts of the same
+// one or two most popular topics instead of a spread of different ones.
+// Variants still enter later via expandPool once a topic's base item
+// (and others) are mastered.
 export function buildActivePool(items) {
-  if (items.length <= ACTIVE_LEARNING_POOL_SIZE) {
-    return sortByPopularityDesc(items);
+  const topics = sortByPopularityDesc(dedupeByName(items));
+  if (topics.length <= ACTIVE_LEARNING_POOL_SIZE) {
+    return topics;
   }
-  return sortByPopularityDesc(items).slice(0, ACTIVE_LEARNING_POOL_SIZE);
+  return topics.slice(0, ACTIVE_LEARNING_POOL_SIZE);
 }
 
 export function cardPosition(pool, itemId) {

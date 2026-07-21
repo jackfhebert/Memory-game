@@ -330,11 +330,18 @@ Every session uses the same pacing, Active Learning, driven by the
 Elo/IRT mastery model above via `isItemMastered` and
 `getItemMasteryEstimate` in `js/storage.js`.
 
-The active pool starts with the top `ACTIVE_LEARNING_POOL_SIZE` (5) items
-by `popularity` (or all items, if the module has fewer than 5 — relevant
-for the 5-item Oceans module). Once every item in the pool but one is
-mastered, the next-most-popular item not yet in the pool is added. This
-repeats until every item in the module is active.
+The active pool starts with the top `ACTIVE_LEARNING_POOL_SIZE` (5)
+*distinct topics* by `popularity` (or all topics, if the module has fewer
+than 5 — relevant for the 5-topic Oceans module), one entry per topic —
+see Recall Variants for why this dedupes by `name` first rather than
+ranking raw entries: without it, a popular topic's own recall variants can
+outrank a *different*, less popular topic's base entry, filling several
+starter-pool slots with cuts of the same one or two topics instead of a
+spread of different ones. Once every item in the pool but one is
+mastered, the next-most-popular item not yet in the pool — topic or
+variant — is added. This repeats until every item in the module is
+active, so a topic's recall variants join the pool once there's room,
+not necessarily gated behind that topic's own mastery specifically.
 
 The next card is chosen at random from the active pool (minus whichever
 card was just answered), weighted continuously by `1 - P(correct)` per

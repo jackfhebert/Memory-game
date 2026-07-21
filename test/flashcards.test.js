@@ -50,6 +50,28 @@ test("buildActivePool uses every item when the module has 5 or fewer", () => {
   );
 });
 
+test("buildActivePool seeds by distinct topic, not raw entries - a popular topic's recall variants can't crowd out other topics' base items", () => {
+  // Mirrors Oceans: 2 popular topics with variants, 3 less-popular topics
+  // with none. Naively ranking all 15 raw entries by popularity would fill
+  // the pool with 3 cuts of "Pacific"/"Atlantic" and never reach the rest.
+  const items = [
+    { id: "pacific", name: "Pacific", popularity: 60 },
+    { id: "pacific-image-only", name: "Pacific", variantOf: "pacific", popularity: 45 },
+    { id: "pacific-fact-only", name: "Pacific", variantOf: "pacific", popularity: 45 },
+    { id: "atlantic", name: "Atlantic", popularity: 58 },
+    { id: "atlantic-image-only", name: "Atlantic", variantOf: "atlantic", popularity: 43 },
+    { id: "atlantic-fact-only", name: "Atlantic", variantOf: "atlantic", popularity: 43 },
+    { id: "indian", name: "Indian", popularity: 38 },
+    { id: "arctic", name: "Arctic", popularity: 32 },
+    { id: "southern", name: "Southern", popularity: 10 },
+  ];
+  const pool = buildActivePool(items);
+  assert.deepEqual(
+    pool.map((i) => i.id),
+    ["pacific", "atlantic", "indian", "arctic", "southern"],
+  );
+});
+
 test("cardPosition returns the 1-indexed rank of an item within the pool", () => {
   const pool = makeItems(5);
   assert.equal(cardPosition(pool, "item-0"), 1);

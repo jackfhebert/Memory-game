@@ -1,4 +1,5 @@
 import { getProgress, isItemMastered } from "./storage.js";
+import { dedupeByName } from "./items.js";
 
 let manifestCache = null;
 const itemsCache = new Map();
@@ -19,19 +20,6 @@ export async function getModuleItems(moduleId) {
     itemsCache.set(moduleId, await res.json());
   }
   return itemsCache.get(moduleId);
-}
-
-// Recall variants share a `name` with their base item (see DESIGN.md,
-// "Recall Variants") so module totals count distinct names, not raw
-// entries. Keeping the first occurrence in file order means the base
-// item - authored ahead of its variants - decides the name's mastery.
-function dedupeByName(items) {
-  const seen = new Set();
-  return items.filter((item) => {
-    if (seen.has(item.name)) return false;
-    seen.add(item.name);
-    return true;
-  });
 }
 
 export function countKnownItems(items, progress) {
