@@ -1,9 +1,25 @@
 // Anonymous, fire-and-forget answer-event tracking. See ANALYTICS.md for the
 // full design (token scheme, spam prevention, Firestore schema, CI safety).
 
-const ANALYTICS_ID_KEY = "memorygame:analytics_id";
-const TOKEN_KEY = "memorygame:analytics_token";
-const TOKEN_DATE_KEY = "memorygame:analytics_token_date";
+// Keyed by player (same convention as js/storage.js's progressKey), not by
+// device - siblings sharing one browser are separate anonymous users to the
+// server, each with their own rate limit and attempt-number sequence, same
+// as they already have separate mastery progress.
+function analyticsIdKey(player) {
+  return `memorygame:analytics_id:${player}`;
+}
+
+function tokenKey(player) {
+  return `memorygame:analytics_token:${player}`;
+}
+
+function tokenDateKey(player) {
+  return `memorygame:analytics_token_date:${player}`;
+}
+
+function attemptCountsKey(player, moduleId, moduleVersion) {
+  return `memorygame:attempt_counts:${player}:${moduleId}:${moduleVersion}`;
+}
 
 // Only the real deployed app should submit events - see ANALYTICS.md
 // "CI safety" for why this guard exists and why a hostname check (rather
@@ -22,43 +38,40 @@ function getUtcDateString() {
   return new Date().toISOString().slice(0, 10);
 }
 
-function getOrCreateUserId() {
-  const existing = localStorage.getItem(ANALYTICS_ID_KEY);
+function getOrCreateUserId(player) {
+  const key = analyticsIdKey(player);
+  const existing = localStorage.getItem(key);
   if (existing) return existing;
   const id = crypto.randomUUID();
-  localStorage.setItem(ANALYTICS_ID_KEY, id);
+  localStorage.setItem(key, id);
   return id;
 }
 
-function getCachedToken() {
-  const token = localStorage.getItem(TOKEN_KEY);
-  const date = localStorage.getItem(TOKEN_DATE_KEY);
+function getCachedToken(player) {
+  const token = localStorage.getItem(tokenKey(player));
+  const date = localStorage.getItem(tokenDateKey(player));
   if (!token || date !== getUtcDateString()) return null;
   return token;
 }
 
-async function fetchToken(userId) {
+async function fetchToken(player, userId) {
   const res = await fetch(`${ANALYTICS_ENDPOINT}/analytics/token`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ user_id: userId }),
   });
   const { token } = await res.json();
-  localStorage.setItem(TOKEN_KEY, token);
-  localStorage.setItem(TOKEN_DATE_KEY, getUtcDateString());
+  localStorage.setItem(tokenKey(player), token);
+  localStorage.setItem(tokenDateKey(player), getUtcDateString());
   return token;
 }
 
-async function getToken(userId) {
-  return getCachedToken() ?? (await fetchToken(userId));
+async function getToken(player, userId) {
+  return getCachedToken(player) ?? (await fetchToken(player, userId));
 }
 
-function attemptCountsKey(moduleId, moduleVersion) {
-  return `memorygame:attempt_counts:${moduleId}:${moduleVersion}`;
-}
-
-function getAttemptCounts(moduleId, moduleVersion) {
-  const raw = localStorage.getItem(attemptCountsKey(moduleId, moduleVersion));
+function getAttemptCounts(player, moduleId, moduleVersion) {
+  const raw = localStorage.getItem(attemptCountsKey(player, moduleId, moduleVersion));
   if (!raw) return {};
   try {
     const counts = JSON.parse(raw);
@@ -68,23 +81,23 @@ function getAttemptCounts(moduleId, moduleVersion) {
   }
 }
 
-function nextAttemptNumber(moduleId, moduleVersion, cardId) {
-  return getAttemptCounts(moduleId, moduleVersion)[cardId] ?? 0;
+function nextAttemptNumber(player, moduleId, moduleVersion, cardId) {
+  return getAttemptCounts(player, moduleId, moduleVersion)[cardId] ?? 0;
 }
 
-function incrementAttemptCount(moduleId, moduleVersion, cardId) {
-  const counts = getAttemptCounts(moduleId, moduleVersion);
+function incrementAttemptCount(player, moduleId, moduleVersion, cardId) {
+  const counts = getAttemptCounts(player, moduleId, moduleVersion);
   counts[cardId] = (counts[cardId] ?? 0) + 1;
   localStorage.setItem(
-    attemptCountsKey(moduleId, moduleVersion),
+    attemptCountsKey(player, moduleId, moduleVersion),
     JSON.stringify(counts),
   );
 }
 
-async function sendAnswerEvent(moduleId, moduleVersion, cardId, correct) {
-  const userId = getOrCreateUserId();
-  const attemptNumber = nextAttemptNumber(moduleId, moduleVersion, cardId);
-  const token = await getToken(userId);
+async function sendAnswerEvent(player, moduleId, moduleVersion, cardId, correct) {
+  const userId = getOrCreateUserId(player);
+  const attemptNumber = nextAttemptNumber(player, moduleId, moduleVersion, cardId);
+  const token = await getToken(player, userId);
   await fetch(`${ANALYTICS_ENDPOINT}/analytics/answer`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -101,13 +114,13 @@ async function sendAnswerEvent(moduleId, moduleVersion, cardId, correct) {
   // The server always responds 200 whether or not it actually accepted the
   // event (see ANALYTICS.md "Spam Prevention"), so "submit succeeded" from
   // the client's perspective just means the request didn't fail outright.
-  incrementAttemptCount(moduleId, moduleVersion, cardId);
+  incrementAttemptCount(player, moduleId, moduleVersion, cardId);
 }
 
 // Fire-and-forget: never throws, never leaves the caller with a rejected
 // promise to handle. A dropped/failed event simply doesn't advance the
 // local attempt counter, so the next real attempt is still numbered right.
-export function recordAnswerEvent(moduleId, moduleVersion, cardId, correct) {
+export function recordAnswerEvent(player, moduleId, moduleVersion, cardId, correct) {
   if (!isAnalyticsEnabled()) return;
-  sendAnswerEvent(moduleId, moduleVersion, cardId, correct).catch(() => {});
+  sendAnswerEvent(player, moduleId, moduleVersion, cardId, correct).catch(() => {});
 }

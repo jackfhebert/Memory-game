@@ -25,7 +25,7 @@ server maintains a running tally:
 | `module_id` | Which module (e.g. `us-presidents`) |
 | `module_version` | Content version — ensures stats don't mix across edits to a card |
 | `card_id` | Which card was answered (e.g. `george-washington`) |
-| `attempt_number` | How many times this device has previously answered this card (0 = first ever, 1 = second, …) |
+| `attempt_number` | How many times this player has previously answered this card (0 = first ever, 1 = second, …) |
 | `correct` | Running count of correct answers for this combination |
 | `total` | Running count of all answers for this combination |
 
@@ -42,13 +42,20 @@ regardless of how famous the subject is. Accuracy is `correct / total`.
 
 ## Anonymous User Identity
 
-On first use, the client generates a random UUID and stores it in localStorage as
-`memorygame:analytics_id`. This ID is:
+On first use of a given player, the client generates a random UUID and stores it in
+localStorage as `memorygame:analytics_id:{player}`. This ID is:
 
-- **Anonymous** — not linked to the player name.
-- **Per-device stable** — persists across sessions on the same browser.
+- **Anonymous** — the UUID itself is random and never carries the player name; only the
+  *localStorage key* is namespaced by player, purely so siblings sharing one device don't
+  collide.
+- **Per-player, not per-device** — each named player gets their own UUID (and their own
+  daily rate-limit budget and attempt-number sequence), matching the same boundary
+  `js/storage.js` already uses for mastery progress (`memorygame:progress:{player}:{moduleId}`).
+  Two kids sharing one family computer are two separate anonymous users to the server, not one.
+- **Stable per player, per device** — persists across sessions for that player on that
+  browser, but a given player replayed on a different device gets a different ID there.
 - **Rate-limiting only** — not written into Firestore with the answer event, so individual
-  answer documents are not linkable back to a device.
+  answer documents are not linkable back to a player or device.
 
 ---
 
@@ -56,8 +63,9 @@ On first use, the client generates a random UUID and stores it in localStorage a
 
 A game running in a browser with no auth is easy to spam. The goals are:
 
-1. Prevent a single device from flooding the dataset with thousands of answers in a day.
-2. Prevent forged submissions that spoof another device's UUID.
+1. Prevent a single player identity from flooding the dataset with thousands of answers
+   in a day.
+2. Prevent forged submissions that spoof another player's UUID.
 3. Fail silently on the client — a rate-limited or invalid submission returns 200 and the
    player never knows.
 
@@ -77,9 +85,11 @@ midnight is good for nearly 24 hours. This is intentional: it keeps the token's 
 window identical to the rate-limit counter's window (see `rate_limits` below), so the two
 always reset together. The slightly uneven window length is harmless for a kids' game.
 
-**Renewal is lazy, not proactive.** The client caches `{ token, date }` in localStorage
-(`memorygame:analytics_token`, `memorygame:analytics_token_date`). Before every answer
-submission, it compares the cached `date` to today's UTC date:
+**Renewal is lazy, not proactive.** The client caches `{ token, date }` in localStorage,
+keyed per player (`memorygame:analytics_token:{player}`,
+`memorygame:analytics_token_date:{player}`) — a cached token is only ever valid for the
+UUID it was issued to, so it has to be namespaced the same way that UUID is. Before every
+answer submission, it compares the cached `date` to today's UTC date:
 
 - **Match** → reuse the cached token, no network call.
 - **Mismatch** (first answer after midnight, or first-ever use) → call
@@ -101,7 +111,7 @@ token. The server:
 **Why this works:**
 - The HMAC ties the token to a specific UUID and a specific day. A token issued today
   cannot be replayed tomorrow.
-- A device can't submit under someone else's UUID without their token.
+- A player can't submit under someone else's UUID without their token.
 - The server never trusts the client's claim about how many answers it has submitted.
 
 ---
@@ -170,19 +180,20 @@ query is a simple collection scan with no grouping step.
 
 | File | Change |
 |---|---|
-| `js/flashcards.js` | In `onNext()`, call `recordAnswerEvent(moduleId, moduleVersion, card.item.id, wasCorrect)` alongside the existing `recordAnswer()` call. Fire-and-forget — no change to control flow or return values. |
+| `js/flashcards.js` | In `onNext()`, call `recordAnswerEvent(player, moduleId, moduleVersion, card.item.id, wasCorrect)` alongside the existing `recordAnswer()` call. Fire-and-forget — no change to control flow or return values. |
 | `Dockerfile` | Unchanged if the backend is a separate Cloud Run service/Cloud Function. If folded into the same nginx container, would need an nginx `location` proxy block — **not recommended**, see "Deployment shape" below. |
 
 ### `js/analytics.js` responsibilities
 
-- Read or generate the anonymous UUID from `memorygame:analytics_id` in localStorage.
-- Fetch and cache the daily HMAC token per the renewal rules above.
+- Read or generate the anonymous UUID from `memorygame:analytics_id:{player}` in
+  localStorage — per player, not per device (see "Anonymous User Identity" above).
+- Fetch and cache the daily HMAC token per the renewal rules above, per player.
 - Track per-card attempt counts locally in localStorage
-  (`memorygame:attempt_counts:{moduleId}:{moduleVersion}`) so `attempt_number` can be
-  computed client-side before submitting, then incremented after a successful submit.
+  (`memorygame:attempt_counts:{player}:{moduleId}:{moduleVersion}`) so `attempt_number`
+  can be computed client-side before submitting, then incremented after a successful submit.
 - Export a single function:
   ```js
-  recordAnswerEvent(moduleId, moduleVersion, cardId, correct)
+  recordAnswerEvent(player, moduleId, moduleVersion, cardId, correct)
   ```
   Fire-and-forget: never throws, never awaited by the caller, swallows all network/server
   errors internally.

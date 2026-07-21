@@ -282,7 +282,7 @@ export function startFlashcardSession(
         card.item.popularity,
         moduleVersion,
       );
-      recordAnswerEvent(moduleId, moduleVersion, card.item.id, wasCorrect);
+      recordAnswerEvent(player, moduleId, moduleVersion, card.item.id, wasCorrect);
       if (wasCorrect) {
         correctCount += 1;
         pointsEarned = pointsForAnswer(progressBefore, progress, card.item, card.choices.length);
