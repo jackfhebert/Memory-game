@@ -1,6 +1,9 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { JSDOM } from "jsdom";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import {
   buildActivePool,
   cardPosition,
@@ -22,9 +25,25 @@ import {
   getItemMasteryEstimate,
   recordAnswer,
   isItemMastered,
+  getProgress,
 } from "../js/storage.js";
 import { fakeRng } from "./helpers/fakeRng.js";
 import { createFakeStorage } from "./helpers/fakeStorage.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// A small seeded PRNG (mulberry32) so the pacing simulation below is
+// deterministic and reproducible across runs, unlike Math.random.
+function mulberry32(seed) {
+  let a = seed;
+  return function () {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 function makeItems(n) {
   // popularity descends with index: item-0 is the most popular, item-(n-1) the least.
@@ -162,6 +181,62 @@ test("recall variants keep entering the pool repeatedly as mastery progresses, n
   const pool3 = expandPool(pool2, items);
   assert.equal(pool3.length, 7);
   assert.equal(pool3[6].id, "pacific-fact-only");
+});
+
+test("measures how many correct answers Animals needs before its pool reaches 10 items", () => {
+  // Simulates a player who never gets anything wrong, driving the exact
+  // same functions startFlashcardSession's onNext() uses per answer
+  // (pickWeightedCard, recordAnswer, shouldExpandPool, expandPool) against
+  // the real animals.json data - not a synthetic stand-in - so this number
+  // reflects what a kid actually experiences, not an idealized model of it.
+  globalThis.localStorage = createFakeStorage();
+  const items = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "..", "data", "animals.json"), "utf8"),
+  );
+  const PLAYER = "Sam";
+  const MODULE_ID = "animals";
+  const VERSION = "v1";
+
+  let pool = buildActivePool(items);
+  assert.equal(pool.length, 5);
+
+  const rng = mulberry32(42);
+  let previousItemId = null;
+  let answerCount = 0;
+  const SAFETY_CAP = 2000;
+
+  while (pool.length < 10 && answerCount < SAFETY_CAP) {
+    const progressBefore = getProgress(PLAYER, MODULE_ID, VERSION);
+    const item = pickWeightedCard(pool, previousItemId, progressBefore, rng);
+    const knownCountBefore = pool.filter((p) =>
+      isItemMastered(progressBefore, p.id, p.popularity),
+    ).length;
+
+    const progressAfter = recordAnswer(PLAYER, MODULE_ID, item.id, true, item.popularity, VERSION);
+    answerCount += 1;
+    previousItemId = item.id;
+
+    const knownCountAfter = pool.filter((p) =>
+      isItemMastered(progressAfter, p.id, p.popularity),
+    ).length;
+    if (shouldExpandPool(knownCountBefore, knownCountAfter, pool.length)) {
+      pool = expandPool(pool, items);
+    }
+  }
+
+  assert.ok(
+    pool.length >= 10,
+    `pool only reached ${pool.length} items after ${SAFETY_CAP} answers (safety cap hit)`,
+  );
+  console.log(
+    `Animals pacing: ${answerCount} correct-in-a-row answers needed to grow the pool from 5 to 10 items.`,
+  );
+  // This is a measurement, not a target - the assertion pins today's actual
+  // value so any pacing change (intentional retune, or an accidental
+  // regression) shows up as a failing test instead of going unnoticed.
+  // Update it deliberately, with the printed number above, when pacing
+  // is retuned on purpose.
+  assert.equal(answerCount, 40);
 });
 
 test("cardPosition returns the 1-indexed rank of an item within the pool", () => {
