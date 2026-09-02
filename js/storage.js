@@ -4,8 +4,11 @@ export const MASTERY_KNOWN_THRESHOLD = 0.8;
 
 // Elo/IRT-style mastery model (see DESIGN.md "Mastery Model"). Drives both
 // pacing (via getItemMasteryEstimate/isItemMastered) and the debug panel.
-const K_ABILITY = 0.2;
-const K_ITEM_OFFSET = 0.5;
+// Tuned up from 0.2/0.5 after live feedback that a kid who already knew an
+// answer was still being re-asked it 4+ times before a new card unlocked -
+// see test/flashcards.test.js's Animals pacing-measurement test.
+const K_ABILITY = 0.5;
+const K_ITEM_OFFSET = 2.0;
 
 function progressKey(player, moduleId) {
   return `memorygame:progress:${player}:${moduleId}`;

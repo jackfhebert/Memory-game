@@ -203,11 +203,16 @@ test("measures how many correct answers Animals needs before its pool reaches 10
   const rng = mulberry32(42);
   let previousItemId = null;
   let answerCount = 0;
+  let firstExpansionAnswerCount = null;
+  const askCountsBeforeFirstExpansion = {};
   const SAFETY_CAP = 2000;
 
   while (pool.length < 10 && answerCount < SAFETY_CAP) {
     const progressBefore = getProgress(PLAYER, MODULE_ID, VERSION);
     const item = pickWeightedCard(pool, previousItemId, progressBefore, rng);
+    if (firstExpansionAnswerCount === null) {
+      askCountsBeforeFirstExpansion[item.id] = (askCountsBeforeFirstExpansion[item.id] ?? 0) + 1;
+    }
     const knownCountBefore = pool.filter((p) =>
       isItemMastered(progressBefore, p.id, p.popularity),
     ).length;
@@ -220,6 +225,7 @@ test("measures how many correct answers Animals needs before its pool reaches 10
       isItemMastered(progressAfter, p.id, p.popularity),
     ).length;
     if (shouldExpandPool(knownCountBefore, knownCountAfter, pool.length)) {
+      if (firstExpansionAnswerCount === null) firstExpansionAnswerCount = answerCount;
       pool = expandPool(pool, items);
     }
   }
@@ -228,15 +234,26 @@ test("measures how many correct answers Animals needs before its pool reaches 10
     pool.length >= 10,
     `pool only reached ${pool.length} items after ${SAFETY_CAP} answers (safety cap hit)`,
   );
+  const maxAsksBeforeFirstExpansion = Math.max(...Object.values(askCountsBeforeFirstExpansion));
   console.log(
-    `Animals pacing: ${answerCount} correct-in-a-row answers needed to grow the pool from 5 to 10 items.`,
+    `Animals pacing: ${answerCount} correct-in-a-row answers to grow the pool from 5 to 10 items; ` +
+      `${firstExpansionAnswerCount} answers to unlock the 6th card; ` +
+      `${maxAsksBeforeFirstExpansion} the most any single card was re-asked before that.`,
   );
-  // This is a measurement, not a target - the assertion pins today's actual
-  // value so any pacing change (intentional retune, or an accidental
-  // regression) shows up as a failing test instead of going unnoticed.
-  // Update it deliberately, with the printed number above, when pacing
-  // is retuned on purpose.
-  assert.equal(answerCount, 40);
+  // These are measurements, not targets - pinning today's actual values so
+  // any pacing change (intentional retune, or an accidental regression)
+  // shows up as a failing test instead of going unnoticed. Update them
+  // deliberately, with the printed numbers above, when pacing is retuned
+  // on purpose.
+  assert.equal(answerCount, 10);
+  // The live complaint this test exists to catch: a kid who already knows
+  // an answer being re-asked it over and over before anything new shows up.
+  // Guards the behavior (a low repeat count), not just the exact number, so
+  // it stays meaningful even if other tuning shifts the precise figure.
+  assert.ok(
+    maxAsksBeforeFirstExpansion <= 3,
+    `a single card was re-asked ${maxAsksBeforeFirstExpansion} times before the pool's first expansion - too many for a kid who already knows it`,
+  );
 });
 
 test("cardPosition returns the 1-indexed rank of an item within the pool", () => {

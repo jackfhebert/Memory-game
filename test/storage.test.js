@@ -91,8 +91,8 @@ test("getProgress discards stats with no version at all (pre-versioning data)", 
 test("recordAnswer creates stats for a new item", () => {
   recordAnswer("Sam", "continents", "africa", true, 50, VERSION);
   assert.deepEqual(getProgress("Sam", "continents", VERSION), {
-    itemStats: { africa: { recent: [true], itemOffset: 0.25 } },
-    ability: 0.1,
+    itemStats: { africa: { recent: [true], itemOffset: 1.0 } },
+    ability: 0.25,
     version: VERSION,
   });
 });
@@ -171,14 +171,14 @@ test("probabilityCorrect is always at least the guessing floor, even for a fully
 
 test("recordAnswer raises ability and itemOffset after a correct answer", () => {
   const progress = recordAnswer("Sam", "continents", "africa", true, 50, VERSION);
-  assert.equal(progress.ability, 0.1);
-  assert.equal(progress.itemStats.africa.itemOffset, 0.25);
+  assert.equal(progress.ability, 0.25);
+  assert.equal(progress.itemStats.africa.itemOffset, 1.0);
 });
 
 test("recordAnswer lowers ability and itemOffset after an incorrect answer", () => {
   const progress = recordAnswer("Sam", "continents", "africa", false, 50, VERSION);
-  assert.equal(progress.ability, -0.1);
-  assert.equal(progress.itemStats.africa.itemOffset, -0.25);
+  assert.equal(progress.ability, -0.25);
+  assert.equal(progress.itemStats.africa.itemOffset, -1.0);
 });
 
 test("recordAnswer's itemOffset gain shrinks as more evidence confirms the same outcome", () => {
@@ -192,10 +192,10 @@ test("recordAnswer's itemOffset gain shrinks as more evidence confirms the same 
 test("getMasteryEstimate reflects ability and itemOffset accumulated via recordAnswer", () => {
   recordAnswer("Sam", "continents", "africa", true, 50, VERSION);
   const estimate = getMasteryEstimate("Sam", "continents", "africa", 50, 4, VERSION);
-  assert.equal(estimate.ability, 0.1);
-  assert.equal(estimate.itemOffset, 0.25);
-  assert.equal(estimate.probability, probabilityKnown(0.1, 0.25, 50));
-  assert.equal(estimate.probabilityCorrect, probabilityCorrect(0.1, 0.25, 50, 4));
+  assert.equal(estimate.ability, 0.25);
+  assert.equal(estimate.itemOffset, 1.0);
+  assert.equal(estimate.probability, probabilityKnown(0.25, 1.0, 50));
+  assert.equal(estimate.probabilityCorrect, probabilityCorrect(0.25, 1.0, 50, 4));
 });
 
 test("getItemMasteryEstimate matches getMasteryEstimate given the same progress, item, and popularity", () => {

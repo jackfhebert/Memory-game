@@ -273,11 +273,19 @@ When a player answers item *i* (outcome = 1 if correct, 0 if incorrect):
 
 1. Compute `predicted = P(known)` for that item *before* this update.
 2. `error = outcome - predicted`
-3. `ability += K_ability * error` (small step, e.g. `K_ability = 0.2` —
-   nudges the overall sense of how strong the player is at this module).
-4. `itemOffset += K_item * error` (bigger step, e.g. `K_item = 0.5` —
-   direct evidence about one item should move that item's own estimate more
-   than it moves the player's general ability).
+3. `ability += K_ability * error` (small step, `K_ability = 0.5` — nudges
+   the overall sense of how strong the player is at this module).
+4. `itemOffset += K_item * error` (bigger step, `K_item = 2.0` — direct
+   evidence about one item should move that item's own estimate more than
+   it moves the player's general ability).
+
+These started lower (0.2 / 0.5) but were raised after live feedback: a kid
+who already knew an answer was still being re-asked it 4+ times before a
+new card ever unlocked, because convergence toward "mastered" was too slow.
+See `test/flashcards.test.js`'s Animals pacing-measurement test, which
+pins both the answer count to grow the pool and a cap on how many times
+any single card gets re-asked before the pool's first expansion — the
+concrete regression guard for this complaint.
 
 **From P(known) to P(answer correctly):**
 
@@ -378,8 +386,8 @@ buttons both labeled the same name. `pickDistractors` currently filters by
   identity per module; not blocking for MVP but worth a pass before kids
   actually use it.
 - **Mastery model tuning:** the model now drives pacing directly (see
-  Adaptive Pacing), but the logit scaling factor, the `K_ability` /
-  `K_item` step sizes, and `MASTERY_KNOWN_THRESHOLD` are still starting
-  guesses — they'll likely need tuning once there's real play data to look
-  at. The Debug Player panel exists to make this data visible in the
-  meantime.
+  Adaptive Pacing). `K_ability`/`K_item` got their first real-data-driven
+  retune (see Mastery Model above); the logit scaling factor and
+  `MASTERY_KNOWN_THRESHOLD` are still starting guesses and may need the
+  same treatment as more play happens. The Debug Player panel exists to
+  make this data visible in the meantime.
